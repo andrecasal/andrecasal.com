@@ -99,7 +99,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 				*/}
 				{isHydrated ? null : <input type="hidden" name="redirectTo" value={requestInfo.path} />}
 				<DropdownMenu.Trigger className="-m-2.5 box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-full p-2.5">
-					<Icon name="sun" className={`-m-1 h-6 w-6 ${mode !== 'light' ? 'hidden' : ''}`} />
+					<Icon name="sun" className={`h-5 w-5 ${mode !== 'light' ? 'hidden' : ''}`} />
 					<Icon name="moon" className={`h-5 w-5 ${mode !== 'dark' ? 'hidden' : ''}`} />
 					<Icon name="laptop" className={`h-5 w-5 ${mode !== 'system' ? 'hidden' : ''}`} />
 				</DropdownMenu.Trigger>
@@ -112,7 +112,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
-									<Icon name="sun" className="-m-1 h-5" />
+									<Icon name="sun" className="h-4" />
 									Light
 								</div>
 								<DropdownMenu.ItemIndicator>
