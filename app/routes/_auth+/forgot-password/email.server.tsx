@@ -7,7 +7,7 @@ export function ForgotPasswordEmail({ onboardingUrl, otp }: { onboardingUrl: str
 			<Html lang="en" dir="ltr">
 				<Container>
 					<h1>
-						<Text>Epic Notes Password Reset</Text>
+						<Text>André Casal Password Reset</Text>
 					</h1>
 					<p>
 						<Text>

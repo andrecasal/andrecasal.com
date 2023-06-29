@@ -44,7 +44,7 @@ export const links: LinksFunction = () => {
 }
 
 export const meta: V2_MetaFunction = () => {
-	return [{ title: 'Epic Notes' }, { name: 'description', content: 'Find yourself in outer space' }]
+	return [{ title: 'André Casal' }, { name: 'description', content: 'Full-stack web dev mentor' }]
 }
 
 export async function loader({ request }: DataFunctionArgs) {
@@ -119,8 +119,8 @@ function App() {
 				<header className="container py-6">
 					<nav className="flex justify-between">
 						<Link to="/">
-							<div className="font-light">epic</div>
-							<div className="font-bold">notes</div>
+							<div className="font-light">André</div>
+							<div className="font-bold">Casal</div>
 						</Link>
 						<div className="flex items-center gap-10">
 							{user ? (
@@ -140,8 +140,8 @@ function App() {
 
 				<div className="container flex justify-between">
 					<Link to="/">
-						<div className="font-light">epic</div>
-						<div className="font-bold">notes</div>
+						<div className="font-light">André</div>
+						<div className="font-bold">Casal</div>
 					</Link>
 					<ThemeSwitch userPreference={data.requestInfo.session.theme} />
 				</div>

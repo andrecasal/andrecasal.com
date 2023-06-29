@@ -7,7 +7,7 @@ export function SignupEmail({ onboardingUrl, otp }: { onboardingUrl: string; otp
 			<Html lang="en" dir="ltr">
 				<Container>
 					<h1>
-						<Text>Welcome to Epic Notes!</Text>
+						<Text>Welcome to André Casal!</Text>
 					</h1>
 					<p>
 						<Text>
