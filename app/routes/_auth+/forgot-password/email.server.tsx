@@ -1,15 +1,9 @@
 import { Container, Html, Link, Tailwind, Text } from '@react-email/components'
 import tailwindConfig from '../../../../tailwind.config.ts'
 
-export function ForgotPasswordEmail({
-	onboardingUrl,
-	otp,
-}: {
-	onboardingUrl: string
-	otp: string
-}) {
+export function ForgotPasswordEmail({ onboardingUrl, otp }: { onboardingUrl: string; otp: string }) {
 	return (
-		<Tailwind config={tailwindConfig}>
+		<Tailwind config={tailwindConfig as any}>
 			<Html lang="en" dir="ltr">
 				<Container>
 					<h1>
