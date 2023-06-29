@@ -1,8 +1,7 @@
 import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme.js'
 import animatePlugin from 'tailwindcss-animate'
 import radixPlugin from 'tailwindcss-radix'
-import { designSystem } from './tailwind/plugins/design-system.ts'
+import defaultTheme from 'tailwindcss/defaultTheme.js'
 
 export default {
 	content: ['./app/**/*.{ts,tsx,jsx,js}'],
@@ -17,37 +16,58 @@ export default {
 		},
 		extend: {
 			colors: {
-				input: {
-					DEFAULT: 'hsl(var(--input))',
-					invalid: 'hsl(var(--input-invalid))',
+				background: 'hsl(var(--color-background) / <alpha-value>)',
+				foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
+				brand: {
+					DEFAULT: 'hsl(var(--color-brand) / <alpha-value>)',
+					muted: 'hsl(var(--color-brand-muted) / <alpha-value>)',
 				},
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
+				muted: {
+					50: 'hsl(var(--color-muted-50) / <alpha-value>)',
+					100: 'hsl(var(--color-muted-100) / <alpha-value>)',
+					200: 'hsl(var(--color-muted-200) / <alpha-value>)',
+					300: 'hsl(var(--color-muted-300) / <alpha-value>)',
+					400: 'hsl(var(--color-muted-400) / <alpha-value>)',
+					500: 'hsl(var(--color-muted-500) / <alpha-value>)',
+					600: 'hsl(var(--color-muted-600) / <alpha-value>)',
+					700: 'hsl(var(--color-muted-700) / <alpha-value>)',
+					800: 'hsl(var(--color-muted-800) / <alpha-value>)',
+					900: 'hsl(var(--color-muted-900) / <alpha-value>)',
+					950: 'hsl(var(--color-muted-950) / <alpha-value>)',
 				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))',
+				success: {
+					foreground: 'hsl(var(--color-success-foreground) / <alpha-value>)',
+					title: 'hsl(var(--color-success-title) / <alpha-value>)',
+					background: 'hsl(var(--color-success-background) / <alpha-value>)',
 				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))',
+				info: {
+					foreground: 'hsl(var(--color-info-foreground) / <alpha-value>)',
+					title: 'hsl(var(--color-info-title) / <alpha-value>)',
+					background: 'hsl(var(--color-info-background) / <alpha-value>)',
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))',
+				warning: {
+					foreground: 'hsl(var(--color-warning-foreground) / <alpha-value>)',
+					title: 'hsl(var(--color-warning-title) / <alpha-value>)',
+					background: 'hsl(var(--color-warning-background) / <alpha-value>)',
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))',
+				danger: {
+					foreground: 'hsl(var(--color-danger-foreground) / <alpha-value>)',
+					title: 'hsl(var(--color-danger-title) / <alpha-value>)',
+					background: 'hsl(var(--color-danger-background) / <alpha-value>)',
 				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))',
-				},
+				ring: 'hsl(var(--color-ring) / <alpha-value>)',
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+			},
+			backgroundImage: {
+				diamonds:
+					'repeating-linear-gradient(-45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, transparent 4px, transparent 10px), repeating-linear-gradient(45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, hsl(var(--color-muted-200)) 4px, hsl(var(--color-muted-200)) 10px)',
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontSize: {
 				// 1rem = 16px
@@ -100,7 +120,28 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 			},
+			transitionProperty: {
+				width: 'width',
+				'max-width': 'max-width',
+			},
+			spacing: {
+				container: 'var(--container-padding-x)',
+				'container-sm': 'calc(var(--container-padding-x) + 0.5rem)',
+				'container-lg': 'calc(var(--container-padding-x) + 1rem)',
+			},
+			maxWidth: {
+				container: 'var(--container-max-width)',
+			},
+			minWidth: {
+				tap: 'var(--min-tap-target)',
+			},
+			minHeight: {
+				tap: 'var(--min-tap-target)',
+			},
+			gridTemplateColumns: {
+				responsive: 'repeat(auto-fit, minmax(14rem, 1fr))',
+			},
 		},
 	},
-	plugins: [designSystem, animatePlugin, radixPlugin],
+	plugins: [animatePlugin, radixPlugin],
 } satisfies Config

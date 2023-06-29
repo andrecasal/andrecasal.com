@@ -1,8 +1,8 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type DataFunctionArgs, type HeadersFunction, type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
-import { Form, Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useSubmit } from '@remix-run/react'
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
 import { withSentry } from '@sentry/remix'
-import { ThemeSwitch, useTheme } from './routes/resources+/theme/index.tsx'
+import { useTheme } from './routes/resources+/theme/index.tsx'
 import { getTheme } from './routes/resources+/theme/theme-session.server.ts'
 import fontStylestylesheetUrl from './styles/font.css'
 import tailwindStylesheetUrl from './styles/tailwind.css'
@@ -11,14 +11,10 @@ import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
 import { prisma } from './utils/db.server.ts'
 import { getEnv } from './utils/env.server.ts'
 import { getDomainUrl } from './utils/misc.server.ts'
-import { getUserImgSrc } from './utils/misc.ts'
 import { useNonce } from './utils/nonce-provider.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
-import { useOptionalUser, useUser } from './utils/user.ts'
-import { useRef } from 'react'
-import { Button } from './components/ui/button.tsx'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuPortal, DropdownMenuTrigger } from './components/ui/dropdown-menu.tsx'
-import { Icon, href as iconsHref } from './components/ui/icon.tsx'
+import { href as iconsHref } from './components/ui/icon.tsx'
+import Header from './components/header.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -103,7 +99,6 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 function App() {
 	const data = useLoaderData<typeof loader>()
 	const nonce = useNonce()
-	const user = useOptionalUser()
 	const theme = useTheme()
 
 	return (
@@ -116,36 +111,12 @@ function App() {
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-background text-foreground">
-				<header className="container py-6">
-					<nav className="flex justify-between">
-						<Link to="/">
-							<div className="font-light">André</div>
-							<div className="font-bold">Casal</div>
-						</Link>
-						<div className="flex items-center gap-10">
-							{user ? (
-								<UserDropdown />
-							) : (
-								<Button asChild variant="default" size="sm">
-									<Link to="/login">Log In</Link>
-								</Button>
-							)}
-						</div>
-					</nav>
-				</header>
-
+				<Header />
 				<div className="flex-1">
 					<Outlet />
 				</div>
-
-				<div className="container flex justify-between">
-					<Link to="/">
-						<div className="font-light">André</div>
-						<div className="font-bold">Casal</div>
-					</Link>
-					<ThemeSwitch userPreference={data.requestInfo.session.theme} />
-				</div>
-				<div className="h-5" />
+				<div>Footer</div>
+				{/* <Footer /> */}
 				<ScrollRestoration nonce={nonce} />
 				<Scripts nonce={nonce} />
 				<script
@@ -160,51 +131,3 @@ function App() {
 	)
 }
 export default withSentry(App)
-
-function UserDropdown() {
-	const user = useUser()
-	const submit = useSubmit()
-	const formRef = useRef<HTMLFormElement>(null)
-	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button asChild variant="secondary">
-					<Link
-						to={`/users/${user.username}`}
-						// this is for progressive enhancement
-						onClick={e => e.preventDefault()}
-						className="flex items-center gap-2"
-					>
-						<img className="h-8 w-8 rounded-full object-cover" alt={user.name ?? user.username} src={getUserImgSrc(user.imageId)} />
-						<span className="text-body-sm font-bold">{user.name ?? user.username}</span>
-					</Link>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuPortal>
-				<DropdownMenuContent sideOffset={8} align="start">
-					<DropdownMenuItem asChild>
-						<Link prefetch="intent" to={`/users/${user.username}`}>
-							<Icon className="text-body-md" name="avatar">
-								Profile
-							</Icon>
-						</Link>
-					</DropdownMenuItem>
-					<DropdownMenuItem
-						asChild
-						// this prevents the menu from closing before the form submission is completed
-						onSelect={event => {
-							event.preventDefault()
-							submit(formRef.current)
-						}}
-					>
-						<Form action="/logout" method="POST" ref={formRef}>
-							<Icon className="text-body-md" name="exit">
-								<button type="submit">Logout</button>
-							</Icon>
-						</Form>
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenuPortal>
-		</DropdownMenu>
-	)
-}

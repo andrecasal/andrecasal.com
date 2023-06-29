@@ -1,19 +1,15 @@
+import { useEffect, useState } from 'react'
 import { useForm } from '@conform-to/react'
 import { parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
-import { useFetcher } from '@remix-run/react'
-import * as React from 'react'
-import { safeRedirect } from 'remix-utils'
 import { z } from 'zod'
-import { useHints } from '~/utils/client-hints.tsx'
+import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { useFetcher, useRevalidator } from '@remix-run/react'
+import { safeRedirect } from 'remix-utils'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { clientHints, useHints } from '~/utils/client-hints.tsx'
 import { ErrorList } from '~/components/forms.tsx'
 import { useRequestInfo } from '~/utils/request-info.ts'
-import {
-	commitSession,
-	deleteTheme,
-	getSession,
-	setTheme,
-} from './theme-session.server.ts'
+import { commitSession, deleteTheme, getSession, setTheme } from './theme-session.server.ts'
 import { Icon } from '~/components/ui/icon.tsx'
 
 const ROUTE_PATH = '/resources/theme'
@@ -59,18 +55,25 @@ export async function action({ request }: DataFunctionArgs) {
 	}
 }
 
-export function ThemeSwitch({
-	userPreference,
-}: {
-	userPreference: 'light' | 'dark' | null
-}) {
+export function ThemeSwitch({ id, userPreference }: { id: string; userPreference: 'light' | 'dark' | null }) {
 	const requestInfo = useRequestInfo()
 	const fetcher = useFetcher()
-	const [isHydrated, setIsHydrated] = React.useState(false)
+	const [isHydrated, setIsHydrated] = useState(false)
+	const { revalidate } = useRevalidator()
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setIsHydrated(true)
 	}, [])
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+		const handleChange = () => {
+			document.cookie = `${clientHints.theme.cookieName}=${mediaQuery.matches ? 'dark' : 'light'}`
+			revalidate()
+		}
+		mediaQuery.addEventListener('change', handleChange)
+		return () => mediaQuery.removeEventListener('change', handleChange)
+	}, [revalidate])
 
 	const [form] = useForm({
 		id: 'theme-switch',
@@ -81,43 +84,71 @@ export function ThemeSwitch({
 	})
 
 	const mode = userPreference ?? 'system'
-	const nextMode =
-		mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'
-	const modeLabel = {
-		light: (
-			<Icon name="sun">
-				<span className="sr-only">Light</span>
-			</Icon>
-		),
-		dark: (
-			<Icon name="moon">
-				<span className="sr-only">Dark</span>
-			</Icon>
-		),
-		system: (
-			<Icon name="laptop">
-				<span className="sr-only">System</span>
-			</Icon>
-		),
+	//const nextMode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'
+
+	const handleSelection = (theme: string) => {
+		fetcher.submit({ theme }, { method: 'POST', action: ROUTE_PATH })
 	}
 
 	return (
-		<fetcher.Form method="POST" action={ROUTE_PATH} {...form.props}>
-			<div className="flex gap-2">
+		<DropdownMenu.Root>
+			<fetcher.Form {...form.props}>
 				{/*
 					this is for progressive enhancement so we redirect them to the page
 					they are on if the JavaScript hasn't had a chance to hydrate yet.
 				*/}
-				{isHydrated ? null : (
-					<input type="hidden" name="redirectTo" value={requestInfo.path} />
-				)}
-				<input type="hidden" name="theme" value={nextMode} />
-				<button className="flex h-8 w-8 cursor-pointer items-center justify-center">
-					{modeLabel[mode]}
-				</button>
-			</div>
-			<ErrorList errors={form.errors} id={form.errorId} />
-		</fetcher.Form>
+				{isHydrated ? null : <input type="hidden" name="redirectTo" value={requestInfo.path} />}
+				<DropdownMenu.Trigger className="-m-2.5 box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-full p-2.5">
+					<Icon name="sun" className={`-m-1 h-6 w-6 ${mode !== 'light' ? 'hidden' : ''}`} />
+					<Icon name="moon" className={`h-5 w-5 ${mode !== 'dark' ? 'hidden' : ''}`} />
+					<Icon name="laptop" className={`h-5 w-5 ${mode !== 'system' ? 'hidden' : ''}`} />
+				</DropdownMenu.Trigger>
+
+				<DropdownMenu.Portal>
+					<DropdownMenu.Content className="mt-2 w-40 rounded-md bg-background shadow-lg shadow-muted-300 ring-1 ring-muted-900 ring-opacity-5 focus:outline-none" hideWhenDetached>
+						<DropdownMenu.RadioGroup value={mode} onValueChange={handleSelection}>
+							<DropdownMenu.RadioItem
+								value="light"
+								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+							>
+								<div className="flex items-center gap-4">
+									<Icon name="sun" className="-m-1 h-5" />
+									Light
+								</div>
+								<DropdownMenu.ItemIndicator>
+									<Icon name="check" className="h-3" />
+								</DropdownMenu.ItemIndicator>
+							</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem
+								value="dark"
+								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+							>
+								<div className="flex items-center gap-4">
+									<Icon name="moon" className="h-4" />
+									Dark
+								</div>
+								<DropdownMenu.ItemIndicator>
+									<Icon name="check" className="h-3" />
+								</DropdownMenu.ItemIndicator>
+							</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem
+								value="system"
+								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+							>
+								<div className="flex items-center gap-4">
+									<Icon name="laptop" className="h-4" />
+									System
+								</div>
+								<DropdownMenu.ItemIndicator>
+									<Icon name="check" className="h-3" />
+								</DropdownMenu.ItemIndicator>
+							</DropdownMenu.RadioItem>
+						</DropdownMenu.RadioGroup>
+					</DropdownMenu.Content>
+				</DropdownMenu.Portal>
+				<ErrorList errors={form.errors} id={form.errorId} />
+			</fetcher.Form>
+		</DropdownMenu.Root>
 	)
 }
 
