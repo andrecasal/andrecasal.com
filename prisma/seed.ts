@@ -39,20 +39,10 @@ async function seed() {
 							contentType: 'image/jpeg',
 							file: {
 								create: {
-									blob: await fs.promises.readFile(
-										`./tests/fixtures/images/user/${index % 10}.jpg`,
-									),
+									blob: await fs.promises.readFile(`./tests/fixtures/images/user/${index % 10}.jpg`),
 								},
 							},
 						},
-					},
-					notes: {
-						create: Array.from({
-							length: faker.number.int({ min: 0, max: 10 }),
-						}).map(() => ({
-							title: faker.lorem.sentence(),
-							content: faker.lorem.paragraphs(),
-						})),
 					},
 				},
 			})
@@ -61,9 +51,7 @@ async function seed() {
 	)
 	console.timeEnd(`👤 Created ${totalUsers} users...`)
 
-	console.time(
-		`🐨 Created user "kody" with the password "kodylovesyou" and admin role`,
-	)
+	console.time(`🐨 Created user "kody" with the password "kodylovesyou" and admin role`)
 	await prisma.user.create({
 		data: {
 			email: 'kody@kcd.dev',
@@ -75,9 +63,7 @@ async function seed() {
 					contentType: 'image/png',
 					file: {
 						create: {
-							blob: await fs.promises.readFile(
-								'./tests/fixtures/images/user/kody.png',
-							),
+							blob: await fs.promises.readFile('./tests/fixtures/images/user/kody.png'),
 						},
 					},
 				},
@@ -87,30 +73,9 @@ async function seed() {
 					hash: await getPasswordHash('kodylovesyou'),
 				},
 			},
-			notes: {
-				create: [
-					{
-						title: 'Basic Koala Facts',
-						content:
-							'Koalas are found in the eucalyptus forests of eastern Australia. They have grey fur with a cream-coloured chest, and strong, clawed feet, perfect for living in the branches of trees!',
-					},
-					{
-						title: 'Koalas like to cuddle',
-						content:
-							'Cuddly critters, koalas measure about 60cm to 85cm long, and weigh about 14kg.',
-					},
-					{
-						title: 'Not bears',
-						content:
-							"Although you may have heard people call them koala 'bears', these awesome animals aren’t bears at all – they are in fact marsupials. A group of mammals, most marsupials have pouches where their newborns develop.",
-					},
-				],
-			},
 		},
 	})
-	console.timeEnd(
-		`🐨 Created user "kody" with the password "kodylovesyou" and admin role`,
-	)
+	console.timeEnd(`🐨 Created user "kody" with the password "kodylovesyou" and admin role`)
 
 	console.timeEnd(`🌱 Database has been seeded`)
 }
