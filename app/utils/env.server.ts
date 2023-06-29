@@ -8,7 +8,8 @@ const requiredServerEnvs = [
 	'INTERNAL_COMMAND_TOKEN',
 	'CACHE_DATABASE_PATH',
 	// If you plan to use Resend, uncomment this line
-	// 'MAIL_SERVICE_API_KEY',
+	'MAIL_SERVICE_API_KEY',
+	'MAIL_SERVICE_API_ENDPOINT',
 	// If you plan on using Sentry, uncomment this line
 	// 'SENTRY_DSN',
 ] as const
