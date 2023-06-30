@@ -19,6 +19,11 @@ import prettier from './prettier.svg'
 import eslint from './eslint.svg'
 import sentry from './sentry.svg'
 import shadcnUI from './shadcn-ui.svg'
+import cgf from './cgf.png'
+import microsoft from './microsoft.png'
+import monster from './monster.png'
+import nbc from './nbc.png'
+import noumena from './noumena.png'
 
 export { default as stars } from './stars.jpg'
 
@@ -127,5 +132,33 @@ export const logos = [
 		src: sentry,
 		alt: 'Sentry',
 		href: 'https://sentry.io',
+	},
+]
+
+export const trusted = [
+	{
+		src: noumena,
+		alt: 'Noumena',
+		href: 'https://www.noumena.pro/',
+	},
+	{
+		src: microsoft,
+		alt: 'Microsoft',
+		href: 'https://www.microsoft.com/',
+	},
+	{
+		src: nbc,
+		alt: 'NBC News',
+		href: 'https://www.nbcnews.com/',
+	},
+	{
+		src: monster,
+		alt: 'Monster Energy',
+		href: 'https://www.monsterenergy.com/',
+	},
+	{
+		src: cgf,
+		alt: 'Calouste Gulbenkian Foundation',
+		href: 'https://gulbenkian.pt/en/',
 	},
 ]

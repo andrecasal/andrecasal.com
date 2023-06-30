@@ -19,6 +19,7 @@ import { Confetti } from './components/confetti.tsx'
 import { getFlashSession } from './utils/flash-session.server.ts'
 import { useToast } from './utils/useToast.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
+import Footer from './components/footer.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -120,8 +121,8 @@ function App() {
 				<div className="flex-1">
 					<Outlet />
 				</div>
-				<div>Footer</div>
-				{/* <Footer /> */}
+				<Footer />
+
 				<Confetti confetti={data.flash?.confetti} />
 				<Toaster />
 				<ScrollRestoration nonce={nonce} />
