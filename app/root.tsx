@@ -10,11 +10,15 @@ import { authenticator, getUserId } from './utils/auth.server.ts'
 import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
 import { prisma } from './utils/db.server.ts'
 import { getEnv } from './utils/env.server.ts'
-import { getDomainUrl } from './utils/misc.server.ts'
+import { combineHeaders, getDomainUrl } from './utils/misc.ts'
 import { useNonce } from './utils/nonce-provider.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
 import { href as iconsHref } from './components/ui/icon.tsx'
 import Header from './components/header.tsx'
+import { Confetti } from './components/confetti.tsx'
+import { getFlashSession } from './utils/flash-session.server.ts'
+import { useToast } from './utils/useToast.tsx'
+import { Toaster } from './components/ui/toaster.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -67,6 +71,7 @@ export async function loader({ request }: DataFunctionArgs) {
 		// them in the database. Maybe they were deleted? Let's log them out.
 		await authenticator.logout(request, { redirectTo: '/' })
 	}
+	const { flash, headers: flasHeaders } = await getFlashSession(request)
 
 	return json(
 		{
@@ -80,11 +85,10 @@ export async function loader({ request }: DataFunctionArgs) {
 				},
 			},
 			ENV: getEnv(),
+			flash,
 		},
 		{
-			headers: {
-				'Server-Timing': timings.toString(),
-			},
+			headers: combineHeaders(new Headers({ 'Server-Timing': timings.toString() }), flasHeaders),
 		},
 	)
 }
@@ -100,6 +104,7 @@ function App() {
 	const data = useLoaderData<typeof loader>()
 	const nonce = useNonce()
 	const theme = useTheme()
+	useToast(data.flash?.toast)
 
 	return (
 		<html lang="en" className={`${theme} h-full`}>
@@ -117,6 +122,8 @@ function App() {
 				</div>
 				<div>Footer</div>
 				{/* <Footer /> */}
+				<Confetti confetti={data.flash?.confetti} />
+				<Toaster />
 				<ScrollRestoration nonce={nonce} />
 				<Scripts nonce={nonce} />
 				<script

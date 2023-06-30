@@ -9,7 +9,7 @@ import { StatusButton } from '~/components/ui/status-button.tsx'
 import { requireUserId } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
 import { Field } from '~/components/forms.tsx'
-import { getDomainUrl } from '~/utils/misc.server.ts'
+import { getDomainUrl } from '~/utils/misc.ts'
 import { getTOTPAuthUri, verifyTOTP } from '~/utils/totp.server.ts'
 
 export const verificationType = '2fa-verify'
@@ -153,31 +153,17 @@ export default function TwoFactorRoute() {
 			<div className="flex flex-col items-center gap-4">
 				<img alt="qr code" src={data.qrCode} className="w-56" />
 				<p>Scan this QR code with your authenticator app.</p>
-				<p className="text-sm">
-					If you cannot scan the QR code, you can manually add this account to
-					your authenticator app using this code:
-				</p>
+				<p className="text-sm">If you cannot scan the QR code, you can manually add this account to your authenticator app using this code:</p>
 				<div className="p-3">
-					<pre
-						className="whitespace-pre-wrap break-all text-sm"
-						aria-label="One-time Password URI"
-					>
+					<pre className="whitespace-pre-wrap break-all text-sm" aria-label="One-time Password URI">
 						{data.otpUri}
 					</pre>
 				</div>
 				<p className="text-sm">
-					Once you've added the account, enter the code from your authenticator
-					app below. Once you enable 2FA, you will need to enter a code from
-					your authenticator app every time you log in or perform important
-					actions. Do not lose access to your authenticator app, or you will
-					lose access to your account.
+					Once you've added the account, enter the code from your authenticator app below. Once you enable 2FA, you will need to enter a code from your authenticator app every time
+					you log in or perform important actions. Do not lose access to your authenticator app, or you will lose access to your account.
 				</p>
-				<toggle2FAFetcher.Form
-					method="POST"
-					preventScrollReset
-					className="w-full"
-					{...form.props}
-				>
+				<toggle2FAFetcher.Form method="POST" preventScrollReset className="w-full" {...form.props}>
 					<Field
 						labelProps={{
 							children: 'Code',
@@ -191,12 +177,7 @@ export default function TwoFactorRoute() {
 							type="submit"
 							name="intent"
 							value="confirm"
-							status={
-								toggle2FAFetcher.state === 'loading' &&
-								toggle2FAFetcher.formData?.get('intent') === 'confirm'
-									? 'pending'
-									: 'idle'
-							}
+							status={toggle2FAFetcher.state === 'loading' && toggle2FAFetcher.formData?.get('intent') === 'confirm' ? 'pending' : 'idle'}
 						>
 							Confirm
 						</StatusButton>
@@ -205,12 +186,7 @@ export default function TwoFactorRoute() {
 							type="submit"
 							name="intent"
 							value="cancel"
-							status={
-								toggle2FAFetcher.state === 'loading' &&
-								toggle2FAFetcher.formData?.get('intent') === 'cancel'
-									? 'pending'
-									: 'idle'
-							}
+							status={toggle2FAFetcher.state === 'loading' && toggle2FAFetcher.formData?.get('intent') === 'cancel' ? 'pending' : 'idle'}
 						>
 							Cancel
 						</StatusButton>
