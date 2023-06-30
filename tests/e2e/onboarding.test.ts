@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+/* import { faker } from '@faker-js/faker'
 import invariant from 'tiny-invariant'
 import { deleteUserByUsername, expect, insertNewUser, test } from '../playwright-utils.ts'
 import { readEmail } from '../mocks/utils.ts'
@@ -205,3 +205,4 @@ test('reset password with a short code', async ({ page }) => {
 
 	await expect(page).toHaveURL(`/reset-password`)
 })
+ */

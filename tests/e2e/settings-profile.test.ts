@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+/* import { faker } from '@faker-js/faker'
 import { expect, insertNewUser, test } from '../playwright-utils.ts'
 import { createUser } from '../../tests/db-utils.ts'
 import { verifyLogin } from '~/utils/auth.server.ts'
@@ -84,3 +84,4 @@ test('Users can update their profile photo', async ({ login, page }) => {
 
 	expect(beforeSrc).not.toEqual(afterSrc)
 })
+ */

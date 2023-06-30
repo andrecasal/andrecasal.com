@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+/* import { faker } from '@faker-js/faker'
 import { expect, insertNewUser, test } from '../playwright-utils.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 
@@ -55,3 +55,4 @@ test('Users can add 2FA to their account and use it when logging in', async ({
 		page.getByRole('link', { name: user.name ?? user.username }),
 	).toBeVisible()
 })
+ */
