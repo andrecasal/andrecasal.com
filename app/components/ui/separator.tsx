@@ -9,7 +9,7 @@ const Separator = forwardRef<ElementRef<typeof SeparatorPrimitive.Root>, Compone
 			ref={ref}
 			decorative={decorative}
 			orientation={orientation}
-			className={cn('shrink-0 bg-muted-200', orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]', className)}
+			className={cn('bg-muted-200', orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]', className)}
 			{...props}
 		/>
 	),

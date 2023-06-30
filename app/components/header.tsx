@@ -56,7 +56,7 @@ export default function Header() {
 										</NavigationMenuLink>
 									</NavigationMenuItem>
 								))}
-								<Separator className="border-muted-900/15 flex items-center border-l" decorative orientation="vertical" />
+								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
 							</div>
 						</NavigationMenuList>
