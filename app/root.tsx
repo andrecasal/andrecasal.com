@@ -88,7 +88,7 @@ export async function loader({ request }: DataFunctionArgs) {
 			flash,
 		},
 		{
-			headers: combineHeaders(new Headers({ 'Server-Timing': timings.toString() }), flasHeaders),
+			headers: combineHeaders({ 'Server-Timing': timings.toString() }, flasHeaders),
 		},
 	)
 }
