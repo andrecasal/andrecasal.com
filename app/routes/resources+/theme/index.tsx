@@ -98,18 +98,18 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 					they are on if the JavaScript hasn't had a chance to hydrate yet.
 				*/}
 				{isHydrated ? null : <input type="hidden" name="redirectTo" value={requestInfo.path} />}
-				<DropdownMenu.Trigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-full p-2.5">
+				<DropdownMenu.Trigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-lg p-2.5">
 					<Icon name="sun" className={`h-5 w-5 ${mode !== 'light' ? 'hidden' : ''}`} />
 					<Icon name="moon" className={`h-5 w-5 ${mode !== 'dark' ? 'hidden' : ''}`} />
 					<Icon name="laptop" className={`h-5 w-5 ${mode !== 'system' ? 'hidden' : ''}`} />
 				</DropdownMenu.Trigger>
 
 				<DropdownMenu.Portal>
-					<DropdownMenu.Content className="mt-2 w-40 rounded-md bg-background shadow-lg shadow-muted-300 ring-1 ring-muted-900 ring-opacity-5 focus:outline-none" hideWhenDetached>
+					<DropdownMenu.Content className="mt-2 w-40 rounded-lg bg-background shadow-lg shadow-muted-300 ring-1 ring-muted-900 ring-opacity-5 focus:outline-none" hideWhenDetached>
 						<DropdownMenu.RadioGroup value={mode} onValueChange={handleSelection}>
 							<DropdownMenu.RadioItem
 								value="light"
-								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+								className="flex min-h-tap justify-between rounded-lg px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
 									<Icon name="sun" className="h-4" />
