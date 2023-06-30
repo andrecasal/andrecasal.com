@@ -5,9 +5,10 @@ import { cva } from 'class-variance-authority'
 import { cn } from '~/utils/misc.ts'
 import { Icon } from './icon.tsx'
 
+/* NavigationMenu */
 const NavigationMenu = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Root>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>>(
 	({ className, children, ...props }, ref) => (
-		<NavigationMenuPrimitive.Root ref={ref} className={cn(className)} {...props}>
+		<NavigationMenuPrimitive.Root ref={ref} className={cn('relative z-10', className)} {...props}>
 			{children}
 			<NavigationMenuViewport />
 		</NavigationMenuPrimitive.Root>
@@ -15,26 +16,47 @@ const NavigationMenu = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Root
 )
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
 
+/* NavigationMenuViewport */
+const NavigationMenuViewport = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Viewport>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>>(
+	({ className, ...props }, ref) => (
+		<div className={cn('absolute right-0 top-full flex justify-center')}>
+			<NavigationMenuPrimitive.Viewport
+				className={cn(
+					'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-background text-foreground shadow-lg transition-[width,_height] duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
+					className,
+				)}
+				ref={ref}
+				{...props}
+			/>
+		</div>
+	),
+)
+NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName
+
+/* NavigationMenuList */
 const NavigationMenuList = forwardRef<ElementRef<typeof NavigationMenuPrimitive.List>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>>(({ className, ...props }, ref) => (
-	<NavigationMenuPrimitive.List ref={ref} className={cn('list-none', className)} {...props} />
+	<NavigationMenuPrimitive.List ref={ref} className={cn('group flex flex-1 list-none items-center justify-center', className)} {...props} />
 ))
 NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 
+/* NavigationMenuItem */
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
+/* NavigationMenuTrigger */
 const navigationMenuTriggerStyle = cva(
-	'group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted-100 hover:text-muted-900 focus:bg-muted-100 focus:text-muted-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-muted-100/50 data-[state=open]:bg-muted-100/50',
+	'group relative inline-flex w-max items-center justify-center transition-colors disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-muted-100/50 data-[state=open]:bg-muted-100/50',
 )
 
 const NavigationMenuTrigger = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Trigger>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>>(
 	({ className, children, ...props }, ref) => (
-		<NavigationMenuPrimitive.Trigger ref={ref} className={cn(navigationMenuTriggerStyle(), 'group', className)} {...props}>
+		<NavigationMenuPrimitive.Trigger ref={ref} className={cn(navigationMenuTriggerStyle(), className)} {...props}>
 			{children} <Icon name="chevron-down" className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
 		</NavigationMenuPrimitive.Trigger>
 	),
 )
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
 
+/* NavigationMenuContent */
 const NavigationMenuContent = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Content>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>>(
 	({ className, ...props }, ref) => (
 		<NavigationMenuPrimitive.Content
@@ -49,24 +71,10 @@ const NavigationMenuContent = forwardRef<ElementRef<typeof NavigationMenuPrimiti
 )
 NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName
 
+/* NavigationMenuLink */
 const NavigationMenuLink = NavigationMenuPrimitive.Link
 
-const NavigationMenuViewport = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Viewport>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>>(
-	({ className, ...props }, ref) => (
-		<div className={cn('absolute left-0 top-full flex justify-center')}>
-			<NavigationMenuPrimitive.Viewport
-				className={cn(
-					'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
-					className,
-				)}
-				ref={ref}
-				{...props}
-			/>
-		</div>
-	),
-)
-NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName
-
+/* NavigationMenuIndicator */
 const NavigationMenuIndicator = forwardRef<ElementRef<typeof NavigationMenuPrimitive.Indicator>, ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>>(
 	({ className, ...props }, ref) => (
 		<NavigationMenuPrimitive.Indicator

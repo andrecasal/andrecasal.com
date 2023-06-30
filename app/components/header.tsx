@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Container } from '~/components/ui/container.tsx'
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from '~/components/ui/navigation-menu.tsx'
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
 import { NavLink, useRouteLoaderData } from '@remix-run/react'
 import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
@@ -16,7 +16,7 @@ export default function Header() {
 	const navigation = [
 		{ name: 'Mentorship', href: '/full-stack-web-dev-mentor' },
 		{ name: 'Blog', href: '/blog' },
-		{ name: 'Courses', href: '/courses' },
+		/* { name: 'Courses', href: '/courses' }, */
 		{ name: 'About', href: '/about' },
 	]
 
@@ -25,12 +25,12 @@ export default function Header() {
 			<Dialog.Root open={open} onOpenChange={setOpen}>
 				<header>
 					<NavigationMenu>
-						<NavigationMenuList className="flex items-baseline justify-between py-4 sm:py-6 lg:py-8">
+						<NavigationMenuList className="flex items-baseline justify-between pt-4 sm:pt-6 lg:pt-8">
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<NavLink
 										to="/"
-										className="relative -m-3 block p-3 text-body-xl font-semibold leading-7 text-foreground after:absolute after:bottom-2 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:after:max-w-full aria-[current]:after:max-w-full"
+										className="relative -m-3 block rounded-md p-3 text-body-xl font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 focus:bg-muted-100 focus:outline-none aria-[current]:after:max-w-full"
 									>
 										André Casal
 									</NavLink>
@@ -46,16 +46,44 @@ export default function Header() {
 							<div className="hidden lg:flex lg:gap-x-8">
 								{navigation.map(link => (
 									<NavigationMenuItem key={link.href}>
-										<NavigationMenuLink asChild>
+										<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-body-sm font-semibold hover:bg-muted-100 focus:bg-muted-100 focus:outline-none">
 											<NavLink
 												to={link.href}
-												className="relative block px-3 text-base font-semibold leading-7 text-foreground after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:after:max-w-full aria-[current]:after:max-w-full"
+												className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 											>
 												{link.name}
 											</NavLink>
 										</NavigationMenuLink>
 									</NavigationMenuItem>
 								))}
+								<NavigationMenuItem>
+									<NavigationMenuTrigger className="relative rounded-md px-4 py-3 hover:bg-muted-100 focus:bg-muted-100 focus:outline-none">
+										<NavigationMenuLink asChild className="text-body-sm font-semibold hover:bg-muted-100 focus:bg-muted-100 focus:outline-none">
+											<NavLink
+												to="/courses"
+												className="block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+											>
+												Courses
+											</NavLink>
+										</NavigationMenuLink>
+									</NavigationMenuTrigger>
+									<NavigationMenuContent>
+										<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+											<li className="row-span-3">
+												<NavLink
+													to="/courses/mastery-for-vs-code"
+													className="from-muted/50 to-muted flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
+												>
+													<div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
+													<p className="text-muted-foreground text-sm leading-tight">Beautifully designed components built with Radix UI and Tailwind CSS.</p>
+												</NavLink>
+											</li>
+											<li title="Introduction">Re-usable components built using Radix UI and Tailwind CSS.</li>
+											<li title="Installation">How to install dependencies and structure your app.</li>
+											<li title="Typography">Styles for headings, paragraphs, lists...etc</li>
+										</ul>
+									</NavigationMenuContent>
+								</NavigationMenuItem>
 								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
 							</div>
