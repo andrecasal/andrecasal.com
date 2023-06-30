@@ -4,11 +4,7 @@ const appFiles = ['app/**']
 
 /** @type {import('@types/eslint').Linter.BaseConfig} */
 module.exports = {
-	extends: [
-		'@remix-run/eslint-config',
-		'@remix-run/eslint-config/node',
-		'prettier',
-	],
+	extends: ['@remix-run/eslint-config', '@remix-run/eslint-config/node', 'prettier'],
 	rules: {
 		'@typescript-eslint/consistent-type-imports': [
 			'warn',
@@ -18,7 +14,7 @@ module.exports = {
 				fixStyle: 'inline-type-imports',
 			},
 		],
-		'@typescript-eslint/no-duplicate-imports': 'warn',
+		'import/no-duplicates': 'warn',
 	},
 	overrides: [
 		{
@@ -30,10 +26,7 @@ module.exports = {
 				'remix-react-routes/require-valid-paths': 'error',
 				// disable this one because it doesn't appear to work with our
 				// route convention. Someone should dig deeper into this...
-				'remix-react-routes/no-relative-paths': [
-					'off',
-					{ allowLinksToSelf: true },
-				],
+				'remix-react-routes/no-relative-paths': ['off', { allowLinksToSelf: true }],
 				'remix-react-routes/no-urls': 'error',
 				'no-restricted-imports': [
 					'error',
