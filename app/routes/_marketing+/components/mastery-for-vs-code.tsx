@@ -13,7 +13,7 @@ const MasteryForVSCode = () => {
 					<img className="w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src="/img/andre.jpg" alt="" />
 					<div className="w-full flex-auto">
 						<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Mastery for VS Code</h2>
-						<p className="mt-6 text-lg leading-8 text-muted-700">
+						<p className="mt-6 text-body-md leading-8 text-muted-700">
 							This course is designed to help you master VS Code. You'll learn how to use VS Code to its fullest potential, and you'll be able to do so in a way that's fun and
 							engaging.
 						</p>

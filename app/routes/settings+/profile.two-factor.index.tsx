@@ -53,16 +53,9 @@ export default function TwoFactorRoute() {
 		<div className="flex flex-col gap-4">
 			{data.is2FAEnabled ? (
 				<>
-					<p className="text-sm">You have enabled two-factor authentication.</p>
+					<p className="text-body-xs">You have enabled two-factor authentication.</p>
 					<toggle2FAFetcher.Form method="POST" preventScrollReset>
-						<StatusButton
-							variant="secondary"
-							type="submit"
-							name="intent"
-							value="disable"
-							status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'}
-							className="mx-auto"
-						>
+						<StatusButton variant="secondary" type="submit" name="intent" value="disable" status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'} className="mx-auto">
 							Disable 2FA
 						</StatusButton>
 					</toggle2FAFetcher.Form>
@@ -70,23 +63,15 @@ export default function TwoFactorRoute() {
 			) : (
 				<>
 					<p>You have not enabled two-factor authentication yet.</p>
-					<p className="text-sm">
-						Two factor authentication adds an extra layer of security to your
-						account. You will need to enter a code from an authenticator app
-						like{' '}
+					<p className="text-body-xs">
+						Two factor authentication adds an extra layer of security to your account. You will need to enter a code from an authenticator app like{' '}
 						<a className="underline" href="https://1password.com/">
 							1Password
 						</a>{' '}
 						to log in.
 					</p>
 					<toggle2FAFetcher.Form method="POST" preventScrollReset>
-						<StatusButton
-							type="submit"
-							name="intent"
-							value="enable"
-							status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'}
-							className="mx-auto"
-						>
+						<StatusButton type="submit" name="intent" value="enable" status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'} className="mx-auto">
 							Enable 2FA
 						</StatusButton>
 					</toggle2FAFetcher.Form>

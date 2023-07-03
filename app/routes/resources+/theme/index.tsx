@@ -109,7 +109,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 						<DropdownMenu.RadioGroup value={mode} onValueChange={handleSelection}>
 							<DropdownMenu.RadioItem
 								value="light"
-								className="flex min-h-tap justify-between rounded-lg px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+								className="flex min-h-tap justify-between rounded-lg px-4 py-2 text-body-xs text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
 									<Icon name="sun" className="h-4" />
@@ -121,7 +121,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 							</DropdownMenu.RadioItem>
 							<DropdownMenu.RadioItem
 								value="dark"
-								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+								className="flex min-h-tap justify-between px-4 py-2 text-body-xs text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
 									<Icon name="moon" className="h-4" />
@@ -133,7 +133,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 							</DropdownMenu.RadioItem>
 							<DropdownMenu.RadioItem
 								value="system"
-								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
+								className="flex min-h-tap justify-between px-4 py-2 text-body-xs text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
 									<Icon name="desktop" className="h-4" />

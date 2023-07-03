@@ -174,7 +174,7 @@ export default function EditUserProfile() {
 
 						<div className="col-span-6 mb-12 mt-6 h-1 border-b-[1.5px]" />
 						<fieldset className="col-span-6">
-							<legend className="pb-6 text-lg">Change password</legend>
+							<legend className="pb-6 text-body-md">Change password</legend>
 							<div className="flex justify-between gap-10">
 								<Field
 									className="flex-1"
