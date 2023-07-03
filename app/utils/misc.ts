@@ -1,5 +1,11 @@
 import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import { extendTailwindMerge } from 'tailwind-merge'
+
+const twMerge = extendTailwindMerge({
+	classGroups: {
+		spacing: [{ 'text-body': ['2xl', 'xl', 'lg', 'md', 'sm', 'xs', '2xs'] }],
+	},
+})
 
 export function getUserImgSrc(imageId?: string | null) {
 	return imageId ? `/resources/file/${imageId}` : `/img/user.png`
