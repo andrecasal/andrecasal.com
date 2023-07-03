@@ -6,8 +6,8 @@ const Brands = () => {
 	return (
 		<>
 			<Container>
-				<h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">Brands</h2>
-				<p className="mt-2 text-center text-body-md leading-8 text-muted-600">Some of the companies that I've worked with or featured my work:</p>
+				<h2 className="text-center text-title-sm sm:text-title-lg ">Brands</h2>
+				<p className="mt-2 text-center text-body-md text-muted-600">Some of the companies that I've worked with or featured my work:</p>
 			</Container>
 			<DiamondBackground>
 				<Container>

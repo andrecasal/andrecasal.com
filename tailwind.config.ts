@@ -65,26 +65,26 @@ export default {
 					'repeating-linear-gradient(-45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, transparent 4px, transparent 10px), repeating-linear-gradient(45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, hsl(var(--color-muted-200)) 4px, hsl(var(--color-muted-200)) 10px)',
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
+				lg: 'calc(var(--radius))',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontSize: {
 				// 1rem = 16px
 				/** 80px size / 84px high / bold */
-				'title-2xl': ['5rem', { lineHeight: '5.25rem', fontWeight: '700' }],
+				'title-2xl': ['5rem', { lineHeight: '5.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 56px size / 62px high / bold */
-				'title-xl': ['3.5rem', { lineHeight: '3.875rem', fontWeight: '700' }],
+				'title-xl': ['3.5rem', { lineHeight: '3.875rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 40px size / 48px high / bold */
-				'title-lg': ['2.5rem', { lineHeight: '3rem', fontWeight: '700' }],
+				'title-lg': ['2.5rem', { lineHeight: '3rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 32px size / 36px high / bold */
-				'title-md': ['2rem', { lineHeight: '2.25rem', fontWeight: '700' }],
+				'title-md': ['2rem', { lineHeight: '2.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 28px size / 36px high / bold */
-				'title-sm': ['1.75rem', { lineHeight: '2.25rem', fontWeight: '700' }],
+				'title-sm': ['1.75rem', { lineHeight: '2.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 24px size / 32px high / bold */
-				'title-xs': ['1.5rem', { lineHeight: '2rem', fontWeight: '700' }],
+				'title-xs': ['1.5rem', { lineHeight: '2rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 				/** 16px size / 20px high / bold */
-				'title-2xs': ['1rem', { lineHeight: '1.25rem', fontWeight: '700' }],
+				'title-2xs': ['1rem', { lineHeight: '1.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
 
 				/** 32px size / 36px high / normal */
 				'body-2xl': ['2rem', { lineHeight: '2.5rem' }],

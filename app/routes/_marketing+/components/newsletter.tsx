@@ -10,7 +10,7 @@ const Newsletter = () => {
 			<div className="relative isolate pb-16 pt-8 sm:pb-24 sm:pt-12 lg:pb-32 lg:pt-16">
 				<div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
 					<div className="flex max-w-xl flex-col justify-between lg:max-w-lg">
-						<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Subscribe to the newsletter</h2>
+						<h2 className="text-title-sm sm:text-title-lg">Subscribe to the newsletter</h2>
 						<p className="mt-4 text-body-md text-muted-400">Subscribe to the newsletter to get notified when new articles are published.</p>
 						<div className="mt-6 flex gap-x-4">
 							<Label htmlFor="email-address" className="sr-only">
