@@ -50,7 +50,7 @@ export default function UsernameIndex() {
 
 				<div className="flex flex-col items-center">
 					<div className="flex flex-wrap items-center justify-center gap-4">
-						<h1 className="text-center text-h2">{userDisplayName}</h1>
+						<h1 className="text-center text-title-lg">{userDisplayName}</h1>
 					</div>
 					<p className="mt-2 text-center text-muted-500">Joined {data.userJoinedDisplay}</p>
 					{isLoggedInUser ? (

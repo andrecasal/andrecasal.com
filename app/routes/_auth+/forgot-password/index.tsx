@@ -114,7 +114,7 @@ export default function ForgotPasswordRoute() {
 		<div className="container pb-32 pt-20">
 			<div className="flex flex-col justify-center">
 				<div className="text-center">
-					<h1 className="text-h1">Forgot Password</h1>
+					<h1 className="text-title-xl">Forgot Password</h1>
 					<p className="mt-3 text-body-md text-muted-500">No worries, we'll send you reset instructions.</p>
 				</div>
 				<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">

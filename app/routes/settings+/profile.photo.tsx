@@ -1,29 +1,11 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import {
-	type DataFunctionArgs,
-	json,
-	redirect,
-	unstable_createMemoryUploadHandler,
-	unstable_parseMultipartFormData,
-} from '@remix-run/node'
-import {
-	Form,
-	Link,
-	useActionData,
-	useFetcher,
-	useLoaderData,
-	useNavigate,
-} from '@remix-run/react'
+import { type DataFunctionArgs, json, redirect, unstable_createMemoryUploadHandler, unstable_parseMultipartFormData } from '@remix-run/node'
+import { Form, Link, useActionData, useFetcher, useLoaderData, useNavigate } from '@remix-run/react'
 import { useState } from 'react'
 import { z } from 'zod'
 import { Button } from '~/components/ui/button.tsx'
-import {
-	Dialog,
-	DialogClose,
-	DialogContent,
-	DialogTitle,
-} from '~/components/ui/dialog.tsx'
+import { Dialog, DialogClose, DialogContent, DialogTitle } from '~/components/ui/dialog.tsx'
 import * as deleteImageRoute from '~/routes/resources+/delete-image.tsx'
 import { authenticator, requireUserId } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
@@ -64,10 +46,7 @@ export async function loader({ request }: DataFunctionArgs) {
 
 export async function action({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)
-	const formData = await unstable_parseMultipartFormData(
-		request,
-		unstable_createMemoryUploadHandler({ maxPartSize: MAX_SIZE }),
-	)
+	const formData = await unstable_parseMultipartFormData(request, unstable_createMemoryUploadHandler({ maxPartSize: MAX_SIZE }))
 
 	const submission = parse(formData, { schema: PhotoFormSchema })
 
@@ -150,20 +129,10 @@ export default function PhotoChooserModal() {
 				className="fixed left-1/2 top-1/2 w-[90vw] max-w-3xl -translate-x-1/2 -translate-y-1/2 transform rounded-lg border-2 bg-background p-12 shadow-lg"
 			>
 				<DialogTitle asChild className="text-center">
-					<h2 className="text-h2">Profile photo</h2>
+					<h2 className="text-title-lg">Profile photo</h2>
 				</DialogTitle>
-				<Form
-					method="POST"
-					encType="multipart/form-data"
-					className="mt-8 flex flex-col items-center justify-center gap-10"
-					onReset={() => setNewImageSrc(null)}
-					{...form.props}
-				>
-					<img
-						src={newImageSrc ?? getUserImgSrc(data.user.imageId)}
-						className="h-64 w-64 rounded-full"
-						alt={data.user.name ?? data.user.username}
-					/>
+				<Form method="POST" encType="multipart/form-data" className="mt-8 flex flex-col items-center justify-center gap-10" onReset={() => setNewImageSrc(null)} {...form.props}>
+					<img src={newImageSrc ?? getUserImgSrc(data.user.imageId)} className="h-64 w-64 rounded-full" alt={data.user.name ?? data.user.username} />
 					<ErrorList errors={photoFile.errors} id={photoFile.id} />
 					<input
 						{...conform.input(photoFile, { type: 'file' })}
@@ -197,12 +166,7 @@ export default function PhotoChooserModal() {
 								</label>
 							</Button>
 							{data.user.imageId ? (
-								<Button
-									variant="destructive"
-									type="submit"
-									form={deleteProfilePhotoFormId}
-									className="flex gap-1"
-								>
+								<Button variant="destructive" type="submit" form={deleteProfilePhotoFormId} className="flex gap-1">
 									<Icon name="trash" /> Delete
 								</Button>
 							) : null}
@@ -211,21 +175,12 @@ export default function PhotoChooserModal() {
 					<ErrorList errors={form.errors} />
 				</Form>
 				<DialogClose asChild>
-					<Link
-						to=".."
-						preventScrollReset
-						aria-label="Close"
-						className="absolute right-10 top-10"
-					>
+					<Link to=".." preventScrollReset aria-label="Close" className="absolute right-10 top-10">
 						<Icon name="cross-1" />
 					</Link>
 				</DialogClose>
 			</DialogContent>
-			<deleteImageFetcher.Form
-				method="POST"
-				id={deleteProfilePhotoFormId}
-				action={deleteImageRoute.ROUTE_PATH}
-			>
+			<deleteImageFetcher.Form method="POST" id={deleteProfilePhotoFormId} action={deleteImageRoute.ROUTE_PATH}>
 				<input name="intent" type="hidden" value="submit" />
 				<input name="imageId" type="hidden" value={data.user.imageId ?? ''} />
 			</deleteImageFetcher.Form>

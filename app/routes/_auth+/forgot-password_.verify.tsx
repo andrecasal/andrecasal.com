@@ -143,7 +143,7 @@ export default function ForgotPasswordVerifyRoute() {
 			<div className="flex flex-col justify-center">
 				<>
 					<div className="text-center">
-						<h1 className="text-h1">Check your email</h1>
+						<h1 className="text-title-xl">Check your email</h1>
 						<p className="mt-3 text-body-md text-muted-500">We've sent you a code to verify your password reset.</p>
 					</div>
 					<Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
