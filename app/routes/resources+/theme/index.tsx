@@ -101,7 +101,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 				<DropdownMenu.Trigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-lg p-2.5">
 					<Icon name="sun" className={`h-5 w-5 ${mode !== 'light' ? 'hidden' : ''}`} />
 					<Icon name="moon" className={`h-5 w-5 ${mode !== 'dark' ? 'hidden' : ''}`} />
-					<Icon name="laptop" className={`h-5 w-5 ${mode !== 'system' ? 'hidden' : ''}`} />
+					<Icon name="desktop" className={`h-5 w-5 ${mode !== 'system' ? 'hidden' : ''}`} />
 				</DropdownMenu.Trigger>
 
 				<DropdownMenu.Portal>
@@ -136,7 +136,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 								className="flex min-h-tap justify-between px-4 py-2 text-sm text-muted-700 focus-visible:bg-muted-100 focus-visible:outline-none"
 							>
 								<div className="flex items-center gap-4">
-									<Icon name="laptop" className="h-4" />
+									<Icon name="desktop" className="h-4" />
 									System
 								</div>
 								<DropdownMenu.ItemIndicator>
