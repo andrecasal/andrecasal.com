@@ -83,10 +83,10 @@ const Footer = () => {
 					<div className="md:grid md:grid-cols-3 md:gap-8">
 						<div className="space-y-8">
 							<p>André Casal</p>
-							<p className="text-body-xs leading-6 text-muted-600">Making the world a better place through constructing elegant software.</p>
+							<p className="text-body-xs text-muted-600">Making the world a better place through constructing elegant software.</p>
 							<div className="flex space-x-6">
 								{navigation.social.map(item => (
-									<a key={item.name} href={item.href} target="_blank" className="text-gray-400 hover:text-gray-500" rel="noreferrer">
+									<a key={item.name} href={item.href} target="_blank" className="text-muted-400 hover:text-muted-500" rel="noreferrer">
 										<span className="sr-only">{item.name}</span>
 										<item.icon className="h-6 w-6" aria-hidden="true" />
 									</a>
