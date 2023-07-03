@@ -3,6 +3,7 @@ import BackgroundDiagonal from './bg-diagonal.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
+import { Badge } from '~/components/ui/badge.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -11,9 +12,7 @@ const HeroAndre = () => {
 				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
 					<div className="lg:col-span-2 xl:col-auto">
 						<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" className="inline-flex space-x-6" rel="noreferrer">
-							<span className="rounded-full bg-info-background px-3 py-1 text-sm font-semibold leading-6 text-info-foreground ring-1 ring-inset ring-info-foreground/20">
-								What's new
-							</span>
+							<Badge variant="info">What's new</Badge>
 							<span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-muted-600">
 								<span>Epic Stack collab with Kent C. Dodds</span>
 								<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
