@@ -4,6 +4,9 @@ import BackgroundSquareLines from './components/bg-square-lines.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
+import { Button } from '~/components/ui/button.tsx'
+import { Link } from '@remix-run/react'
+import { Heading } from '~/components/ui/heading.tsx'
 
 const features = [
 	{
@@ -217,20 +220,17 @@ const FullStackWebDevMentor = () => {
 				<Container>
 					<div className="pb-24 pt-12 sm:pb-32 sm:pt-16 lg:flex lg:gap-x-10 lg:pb-40 lg:pt-20">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-muted-900 sm:text-6xl">Modern full-stack web development mentorship</h1>
-							<p className="mt-6 text-lg leading-8 text-muted-600">
+							<Heading level="h1" size="xl" className="mt-10 max-w-lg">
+								Modern full-stack web development mentorship
+							</Heading>
+							<p className="mt-6 text-body-md text-muted-600">
 								Are you looking for a seasoned full-stack web dev mentor to guide you through modern tools and techniques and impart essential knowledge to step up your
 								development game? I love working with people, and I'm here to help you level up your skills and career.
 							</p>
 							<div className="mt-10 flex items-center gap-x-6">
-								<a
-									href="https://calendly.com/andrecasal/meeting"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-								>
-									Let's level up together
-								</a>
+								<Button asChild>
+									<Link to="#pricing">Let's level up together</Link>
+								</Button>
 							</div>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
@@ -259,9 +259,13 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="lg:max-w-lg">
-								<p className="text-base font-semibold leading-7 text-brand">Full-stack web development</p>
-								<h1 className="mt-2 text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Can be overwhelming</h1>
-								<p className="mt-6 text-xl leading-8 text-muted-700">
+								<Heading level="p" size="2xs" className="text-brand">
+									Full-stack web development
+								</Heading>
+								<Heading level="h2" size="lg" className="mt-2">
+									Can be overwhelming
+								</Heading>
+								<p className="mt-6 text-body-md text-muted-700">
 									Layout, styling, design systems, responsiveness, server-side rendering, hydration, user experience, accessibility, validation, data modeling, caching,
 									memoization, performance, authentication, security, email, testing, visual regression, deployment, monitoring, logging, developer experience...
 								</p>
@@ -273,7 +277,7 @@ const FullStackWebDevMentor = () => {
 					</div>
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
-							<div className="max-w-xl text-base leading-7 text-muted-700 lg:max-w-lg">
+							<div className="max-w-xl text-body-sm text-muted-700 lg:max-w-lg">
 								<p>
 									It can be disheartening to spend endless hours scrolling through online tutorials and courses, try to remember all the best practices, and to constantly
 									make an effort to stay up-to-date in this fast-paced industry. It can be mentally and emotionally exhausting and your dream of becoming a proficient
@@ -310,8 +314,12 @@ const FullStackWebDevMentor = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<h2 className="text-base font-semibold leading-7 text-brand">Everything you need</h2>
-						<p className="mt-2 text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">To ship a modern full-stack web app</p>
+						<Heading level="p" size="2xs" className="text-brand">
+							Everything you need
+						</Heading>
+						<Heading level="h2" size="lg" className="mt-2">
+							To ship modern full-stack web apps
+						</Heading>
 						<p className="mt-6 text-lg leading-8 text-muted-600">Here are some of the things you can learn with me:</p>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl gap-y-16 sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -357,7 +365,9 @@ const FullStackWebDevMentor = () => {
 			<Container>
 				<div className="py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-						<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">The process</h2>
+						<Heading level="h2" size="lg" className="mt-2">
+							The process
+						</Heading>
 						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
 								<p className="text-xl leading-8 text-muted-600">
@@ -380,7 +390,9 @@ const FullStackWebDevMentor = () => {
 									{stats.map(stat => (
 										<div key={stat.label} className="flex flex-col-reverse gap-y-4">
 											<dt className="text-base leading-7 text-muted-600">{stat.label}</dt>
-											<dd className="text-5xl font-semibold tracking-tight text-muted-900">{stat.value}</dd>
+											<Heading level="p" size="lg" className="mt-2 text-muted-900" asChild>
+												<dd>{stat.value}</dd>
+											</Heading>
 										</div>
 									))}
 								</dl>
@@ -393,10 +405,13 @@ const FullStackWebDevMentor = () => {
 				<Container>
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
-							<h2 className="text-lg font-semibold leading-8 tracking-tight text-brand">Testimonials</h2>
+							<Heading level="p" size="2xs" className="text-brand">
+								Testimonials
+							</Heading>
 							<div className="mt-2 flex gap-x-3">
-								<p className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">I've worked with amazing people</p>
-								<Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+								<Heading level="h2" size="lg" className="mt-2">
+									I've worked with amazing people <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+								</Heading>
 							</div>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -453,7 +468,9 @@ const FullStackWebDevMentor = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Simple no-tricks pricing</h2>
+						<Heading level="h2" size="lg" className="mt-2" id="pricing">
+							Simple no-tricks pricing
+						</Heading>
 						<p className="mt-6 text-lg leading-8 text-muted-600">
 							I charge ~80€ per hour. The payments are done monthly.
 							<br />
@@ -462,7 +479,9 @@ const FullStackWebDevMentor = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<h3 className="text-2xl font-bold tracking-tight text-muted-900">Mentorship 2 hours per week</h3>
+							<Heading level="h3" size="xs">
+								Mentorship 2 hours per week
+							</Heading>
 							<p className="mt-6 text-base leading-7 text-muted-600">This is the most popular plan with mentees that are full-time employees building something on the side.</p>
 							<div className="mt-10 flex items-center gap-x-4">
 								<h4 className="flex-none text-sm font-semibold leading-6 text-brand">What’s included</h4>
@@ -482,7 +501,9 @@ const FullStackWebDevMentor = () => {
 								<div className="mx-auto max-w-xs px-8">
 									<p className="text-base font-semibold text-muted-600">Pay once a month</p>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<span className="text-5xl font-bold tracking-tight text-muted-900">€640</span>
+										<Heading level="p" size="xl">
+											€640
+										</Heading>
 										<span className="text-sm font-semibold leading-6 tracking-wide text-muted-600">EUR</span>
 									</p>
 									<a
@@ -491,7 +512,7 @@ const FullStackWebDevMentor = () => {
 										rel="noopener noreferrer"
 										className="mt-10 block w-full rounded-md bg-brand px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
 									>
-										Let's level up together
+										Schedule initial call
 									</a>
 									<p className="mt-6 text-xs leading-5 text-muted-600">Invoices and receipts available for easy company reimbursement</p>
 								</div>
@@ -500,7 +521,9 @@ const FullStackWebDevMentor = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<h3 className="text-2xl font-bold tracking-tight text-muted-900">Mentorship 4 hours per week</h3>
+							<Heading level="h3" size="xs">
+								Mentorship 4 hours per week
+							</Heading>
 							<p className="mt-6 text-base leading-7 text-muted-600">
 								This is the most popular plan with mentees working full-time on building a new product or improving an existing one.
 							</p>
@@ -523,7 +546,9 @@ const FullStackWebDevMentor = () => {
 								<div className="mx-auto max-w-xs px-8">
 									<p className="text-base font-semibold text-muted-600">Pay once a month</p>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<span className="text-5xl font-bold tracking-tight text-muted-900">€1024</span>
+										<Heading level="p" size="xl">
+											€1024
+										</Heading>
 										<span className="text-sm font-semibold leading-6 tracking-wide text-muted-600">EUR</span>
 									</p>
 									<a
@@ -532,7 +557,7 @@ const FullStackWebDevMentor = () => {
 										rel="noopener noreferrer"
 										className="mt-10 block w-full rounded-md bg-brand px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
 									>
-										Let's level up together
+										Schedule initial call
 									</a>
 									<p className="mt-6 text-xs leading-5 text-muted-600">Invoices and receipts available for easy company reimbursement</p>
 								</div>

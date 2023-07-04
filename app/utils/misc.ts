@@ -3,6 +3,7 @@ import { extendTailwindMerge } from 'tailwind-merge'
 
 const twMerge = extendTailwindMerge({
 	classGroups: {
+		colors: [{ 'text-muted': ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'] }],
 		spacing: [{ 'text-body': ['2xl', 'xl', 'lg', 'md', 'sm', 'xs', '2xs'] }],
 	},
 })

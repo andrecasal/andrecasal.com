@@ -4,6 +4,7 @@ import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
+import { Heading } from '~/components/ui/heading.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -18,13 +19,11 @@ const HeroAndre = () => {
 								<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
 							</span>
 						</a>
-						<h1 className="mt-10 max-w-2xl text-title-lg font-bold tracking-tight sm:text-title-xl">
-							<span>
-								Hi! I'm André Casal
-								<br className="hidden sm:block" /> and I'm a full-stack
-								<br className="hidden sm:block" /> web dev mentor.
-							</span>
-						</h1>
+						<Heading level="h1" size="xl" className="mt-10 max-w-2xl">
+							Hi! I'm André Casal
+							<br className="hidden sm:block" /> and I'm a full-stack
+							<br className="hidden sm:block" /> web dev mentor.
+						</Heading>
 					</div>
 					<div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
 						<p className="text-body-md text-muted-700">

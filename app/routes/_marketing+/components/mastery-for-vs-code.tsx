@@ -1,6 +1,7 @@
 import { Link } from '@remix-run/react'
 import { Button } from '~/components/ui/button.tsx'
 import { Container } from '~/components/ui/container.tsx'
+import { Heading } from '~/components/ui/heading.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 
 const MasteryForVSCode = () => {
@@ -12,7 +13,9 @@ const MasteryForVSCode = () => {
 				<div className="mx-auto flex max-w-2xl flex-col gap-16 bg-foreground/5 px-6 py-16 ring-1 ring-foreground/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:py-20 xl:gap-x-20 xl:px-20">
 					<img className="w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src="/img/andre.jpg" alt="" />
 					<div className="w-full flex-auto">
-						<h2 className="text-title-sm sm:text-title-lg">Mastery for VS Code</h2>
+						<Heading level="h2" size="lg">
+							Mastery for VS Code
+						</Heading>
 						<p className="mt-6 text-body-md text-muted-700">
 							This course is designed to help you master VS Code. You'll learn how to use VS Code to its fullest potential, and you'll be able to do so in a way that's fun and
 							engaging.

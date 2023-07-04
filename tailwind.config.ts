@@ -72,19 +72,77 @@ export default {
 			fontSize: {
 				// 1rem = 16px
 				/** 80px size / 84px high / bold */
-				'title-2xl': ['5rem', { lineHeight: '5.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-2xl': [
+					'var(--typography-heading-2xl-size)',
+					{
+						lineHeight: 'var(--typography-heading-2xl-line-height)',
+						fontWeight: 'var(--typography-heading-2xl-font-weight)',
+						letterSpacing: 'var(--typography-heading-2xl-letter-spacing)',
+					},
+				],
 				/** 56px size / 62px high / bold */
-				'title-xl': ['3.5rem', { lineHeight: '3.875rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-xl': [
+					'var(--typography-heading-xl-size)',
+					{
+						lineHeight: 'var(--typography-heading-xl-line-height)',
+						fontWeight: 'var(--typography-heading-xl-font-weight)',
+						letterSpacing: 'var(--typography-heading-xl-letter-spacing)',
+					},
+				],
 				/** 40px size / 48px high / bold */
-				'title-lg': ['2.5rem', { lineHeight: '3rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-lg': [
+					'var(--typography-heading-lg-size)',
+					{
+						lineHeight: 'var(--typography-heading-lg-line-height)',
+						fontWeight: 'var(--typography-heading-lg-font-weight)',
+						letterSpacing: 'var(--typography-heading-lg-letter-spacing)',
+					},
+				],
 				/** 32px size / 36px high / bold */
-				'title-md': ['2rem', { lineHeight: '2.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-md': [
+					'var(--typography-heading-md-size)',
+					{
+						lineHeight: 'var(--typography-heading-md-line-height)',
+						fontWeight: 'var(--typography-heading-md-font-weight)',
+						letterSpacing: 'var(--typography-heading-md-letter-spacing)',
+					},
+				],
 				/** 28px size / 36px high / bold */
-				'title-sm': ['1.75rem', { lineHeight: '2.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-sm': [
+					'var(--typography-heading-sm-size)',
+					{
+						lineHeight: 'var(--typography-heading-sm-line-height)',
+						fontWeight: 'var(--typography-heading-sm-font-weight)',
+						letterSpacing: 'var(--typography-heading-sm-letter-spacing)',
+					},
+				],
 				/** 24px size / 32px high / bold */
-				'title-xs': ['1.5rem', { lineHeight: '2rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-xs': [
+					'var(--typography-heading-xs-size)',
+					{
+						lineHeight: 'var(--typography-heading-xs-line-height)',
+						fontWeight: 'var(--typography-heading-xs-font-weight)',
+						letterSpacing: 'var(--typography-heading-xs-letter-spacing)',
+					},
+				],
 				/** 16px size / 20px high / bold */
-				'title-2xs': ['1rem', { lineHeight: '1.25rem', fontWeight: '700', letterSpacing: '-0.025em' }],
+				'heading-2xs': [
+					'var(--typography-heading-2xs-size)',
+					{
+						lineHeight: 'var(--typography-heading-2xs-line-height)',
+						fontWeight: 'var(--typography-heading-2xs-font-weight)',
+						letterSpacing: 'var(--typography-heading-2xs-letter-spacing)',
+					},
+				],
+				/** 14px size / 18px high / bold */
+				'heading-3xs': [
+					'var(--typography-heading-3xs-size)',
+					{
+						lineHeight: 'var(--typography-heading-3xs-line-height)',
+						fontWeight: 'var(--typography-heading-3xs-font-weight)',
+						letterSpacing: 'var(--typography-heading-3xs-letter-spacing)',
+					},
+				],
 
 				/** 32px size / 36px high / normal */
 				'body-2xl': ['2rem', { lineHeight: '2.5rem' }],

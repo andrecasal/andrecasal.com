@@ -1,12 +1,15 @@
 import DiamondBackground from './bg-diamonds.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { trusted } from '../logos/logos.ts'
+import { Heading } from '~/components/ui/heading.tsx'
 
 const Brands = () => {
 	return (
 		<>
 			<Container>
-				<h2 className="text-center text-title-sm sm:text-title-lg ">Brands</h2>
+				<Heading level="h2" size="lg" className="text-center">
+					Brands
+				</Heading>
 				<p className="mt-2 text-center text-body-md text-muted-600">Some of the companies that I've worked with or featured my work:</p>
 			</Container>
 			<DiamondBackground>
