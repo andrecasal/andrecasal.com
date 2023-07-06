@@ -116,7 +116,7 @@ function App() {
 				<meta name="viewport" content="width=device-width,initial-scale=1" />
 				<Links />
 			</head>
-			<body className="flex h-full flex-col justify-between bg-background text-foreground">
+			<body className="flex h-full flex-col justify-between bg-background text-foreground antialiased">
 				<Header />
 				<div className="flex-1">
 					<Outlet />
