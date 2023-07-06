@@ -1,4 +1,5 @@
 import { Container } from './ui/container.tsx'
+import { Text } from '~/components/ui/text.tsx'
 
 const navigation = {
 	social: [
@@ -82,8 +83,12 @@ const Footer = () => {
 				<div className="mt-8 border-t border-muted-900/10 pb-8 pt-8 sm:mt-12 sm:pt-12 lg:mt-16 lg:pt-16">
 					<div className="md:grid md:grid-cols-3 md:gap-8">
 						<div className="space-y-8">
-							<p>André Casal</p>
-							<p className="text-body-xs text-muted-600">Making the world a better place through constructing elegant software.</p>
+							<Text heading="h2" size="2xl" className="font-semibold tracking-normal">
+								André Casal
+							</Text>
+							<Text size="md" className="text-muted-600">
+								Making the world a better place through constructing elegant software.
+							</Text>
 							<div className="flex space-x-6">
 								{navigation.social.map(item => (
 									<a key={item.name} href={item.href} target="_blank" className="text-muted-400 hover:text-muted-500" rel="noreferrer">
@@ -96,14 +101,18 @@ const Footer = () => {
 						<div className="mt-16 grid grid-cols-2 gap-8 md:col-span-2 md:mt-0">
 							<div className="md:grid md:grid-cols-2 md:gap-8">
 								<div>
-									<h3 className="text-body-xs font-semibold text-muted-900">Sitemap</h3>
+									<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+										Sitemap
+									</Text>
 									<ul className="mt-6 space-y-4">
 										{navigation.sitemap.map(item => (
-											<li key={item.name}>
-												<a href={item.href} className="text-body-xs text-muted-600 hover:text-muted-900">
-													{item.name}
-												</a>
-											</li>
+											<Text key={item.name} size="sm" asChild>
+												<li>
+													<a href={item.href} className="text-body-xs text-muted-600 hover:text-muted-900">
+														{item.name}
+													</a>
+												</li>
+											</Text>
 										))}
 									</ul>
 								</div>
@@ -111,7 +120,9 @@ const Footer = () => {
 						</div>
 					</div>
 					<div className="mt-8 pt-4 sm:mt-10 lg:mt-12">
-						<p className="text-body-2xs text-muted-500">All rights reserved &copy; André Casal {new Date().getFullYear()}</p>
+						<Text size="xs" className="text-muted-500">
+							All rights reserved &copy; André Casal {new Date().getFullYear()}
+						</Text>
 					</div>
 				</div>
 			</Container>

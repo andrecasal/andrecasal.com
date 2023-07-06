@@ -70,99 +70,36 @@ export default {
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontSize: {
-				// 1rem = 16px
-				/** 80px size / 84px high / bold */
-				'heading-2xl': [
-					'var(--typography-heading-2xl-size)',
-					{
-						lineHeight: 'var(--typography-heading-2xl-line-height)',
-						fontWeight: 'var(--typography-heading-2xl-font-weight)',
-						letterSpacing: 'var(--typography-heading-2xl-letter-spacing)',
-					},
-				],
-				/** 56px size / 62px high / bold */
-				'heading-xl': [
-					'var(--typography-heading-xl-size)',
-					{
-						lineHeight: 'var(--typography-heading-xl-line-height)',
-						fontWeight: 'var(--typography-heading-xl-font-weight)',
-						letterSpacing: 'var(--typography-heading-xl-letter-spacing)',
-					},
-				],
-				/** 40px size / 48px high / bold */
-				'heading-lg': [
-					'var(--typography-heading-lg-size)',
-					{
-						lineHeight: 'var(--typography-heading-lg-line-height)',
-						fontWeight: 'var(--typography-heading-lg-font-weight)',
-						letterSpacing: 'var(--typography-heading-lg-letter-spacing)',
-					},
-				],
-				/** 32px size / 36px high / bold */
-				'heading-md': [
-					'var(--typography-heading-md-size)',
-					{
-						lineHeight: 'var(--typography-heading-md-line-height)',
-						fontWeight: 'var(--typography-heading-md-font-weight)',
-						letterSpacing: 'var(--typography-heading-md-letter-spacing)',
-					},
-				],
-				/** 28px size / 36px high / bold */
-				'heading-sm': [
-					'var(--typography-heading-sm-size)',
-					{
-						lineHeight: 'var(--typography-heading-sm-line-height)',
-						fontWeight: 'var(--typography-heading-sm-font-weight)',
-						letterSpacing: 'var(--typography-heading-sm-letter-spacing)',
-					},
-				],
-				/** 24px size / 32px high / bold */
-				'heading-xs': [
-					'var(--typography-heading-xs-size)',
-					{
-						lineHeight: 'var(--typography-heading-xs-line-height)',
-						fontWeight: 'var(--typography-heading-xs-font-weight)',
-						letterSpacing: 'var(--typography-heading-xs-letter-spacing)',
-					},
-				],
-				/** 16px size / 20px high / bold */
-				'heading-2xs': [
-					'var(--typography-heading-2xs-size)',
-					{
-						lineHeight: 'var(--typography-heading-2xs-line-height)',
-						fontWeight: 'var(--typography-heading-2xs-font-weight)',
-						letterSpacing: 'var(--typography-heading-2xs-letter-spacing)',
-					},
-				],
-				/** 14px size / 18px high / bold */
-				'heading-3xs': [
-					'var(--typography-heading-3xs-size)',
-					{
-						lineHeight: 'var(--typography-heading-3xs-line-height)',
-						fontWeight: 'var(--typography-heading-3xs-font-weight)',
-						letterSpacing: 'var(--typography-heading-3xs-letter-spacing)',
-					},
-				],
+				'size-6xl': ['var(--typography-size-6xl)', { lineHeight: '1' }],
+				'size-5xl': ['var(--typography-size-5xl)', { lineHeight: '1' }],
+				'size-4xl': ['var(--typography-size-4xl)', { lineHeight: '2.5rem' }],
+				'size-3xl': ['var(--typography-size-3xl)', { lineHeight: '2.25rem' }],
+				'size-2xl': ['var(--typography-size-2xl)', { lineHeight: '2rem' }],
+				'size-xl': ['var(--typography-size-xl)', { lineHeight: '1.75rem' }],
+				'size-lg': 'var(--typography-size-lg)',
+				'size-md': 'var(--typography-size-md)',
+				'size-sm': 'var(--typography-size-sm)',
+				'size-xs': 'var(--typography-size-xs)',
 
 				/** 32px size / 36px high / normal */
-				'body-2xl': ['2rem', { lineHeight: '2.5rem' }],
+				/* 'body-2xl': ['2rem', { lineHeight: '2.5rem' }], */
 				/** 28px size / 36px high / normal */
-				'body-xl': ['1.75rem', { lineHeight: '2.25rem' }],
+				/* 'body-xl': ['1.75rem', { lineHeight: '2.25rem' }], */
 				/** 24px size / 32px high / normal */
-				'body-lg': ['1.5rem', { lineHeight: '2.25rem' }],
+				/* 'body-lg': ['1.5rem', { lineHeight: '2.25rem' }], */
 				/** 20px size / 28px high / normal */
-				'body-md': ['1.125rem', { lineHeight: '2rem' }],
+				/* 'body-md': ['1.125rem', { lineHeight: '2rem' }], */
 				/** 16px size / 20px high / normal */
-				'body-sm': ['1rem', { lineHeight: '1.75rem' }],
+				/* 'body-sm': ['1rem', { lineHeight: '1.75rem' }], */
 				/** 14px size / 18px high / normal */
-				'body-xs': ['0.875rem', { lineHeight: '1.25rem' }],
+				/* 'body-xs': ['0.875rem', { lineHeight: '1.25rem' }], */
 				/** 12px size / 16px high / normal */
-				'body-2xs': ['0.75rem', { lineHeight: '1.125rem' }],
+				/* 'body-2xs': ['0.75rem', { lineHeight: '1.125rem' }], */
 
 				/** 18px size / 24px high / semibold */
-				caption: ['1.125rem', { lineHeight: '1.5rem', fontWeight: '600' }],
+				/* caption: ['1.125rem', { lineHeight: '1.5rem', fontWeight: '600' }], */
 				/** 12px size / 16px high / bold */
-				button: ['0.75rem', { lineHeight: '1rem', fontWeight: '700' }],
+				/* button: ['0.75rem', { lineHeight: '1rem', fontWeight: '700' }], */
 			},
 			keyframes: {
 				'accordion-down': {

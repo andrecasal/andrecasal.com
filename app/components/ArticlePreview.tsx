@@ -1,3 +1,5 @@
+import { Text } from '~/components/ui/text.tsx'
+
 export const ArticlePreview = ({
 	post,
 }: {
@@ -17,17 +19,19 @@ export const ArticlePreview = ({
 			<div className="absolute inset-0 -z-10 bg-gradient-to-t from-muted-900 via-muted-900/40" />
 			<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-muted-900/10" />
 
-			<div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-body-xs text-muted-300">
-				<time dateTime={post.datetime} className="mr-8">
-					{post.date}
-				</time>
+			<div className="text-body-xs flex flex-wrap items-center gap-y-1 overflow-hidden text-muted-300">
+				<Text size="sm" asChild>
+					<time dateTime={post.datetime} className="mr-8">
+						{post.date}
+					</time>
+				</Text>
 			</div>
-			<h3 className="mt-3 text-body-md font-semibold text-background">
+			<Text heading="h3" size="lg" className="mt-3 font-semibold leading-6 text-background">
 				<a href={post.href}>
 					<span className="absolute inset-0" />
 					{post.title}
 				</a>
-			</h3>
+			</Text>
 		</article>
 	)
 }

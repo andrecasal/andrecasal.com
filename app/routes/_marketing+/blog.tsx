@@ -2,11 +2,11 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { Container } from '../../components/ui/container.tsx'
 import Newsletter from './components/newsletter.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
-import { Heading } from '~/components/ui/heading.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
+import { Text } from '~/components/ui/text.tsx'
 
 export const loader = () => {
 	const posts = [
@@ -54,9 +54,9 @@ const Blog = () => {
 					<div className="py-24 sm:py-32">
 						<div className="mx-auto max-w-7xl px-6 lg:px-8">
 							<div className="mx-auto max-w-2xl lg:mx-0">
-								<Heading level="h1" size="xl">
+								<Text heading="h1" size="xl">
 									Great web dev articles
-								</Heading>
+								</Text>
 								<p className="mt-6 text-lg leading-8 text-muted-800">Well-thought-out solutions to common problems in modern full-stack web development.</p>
 							</div>
 							<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
