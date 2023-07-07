@@ -531,14 +531,11 @@ const FullStackWebDevMentor = () => {
 											<span>EUR</span>
 										</Text>
 									</p>
-									<a
-										href="https://calendly.com/andrecasal/meeting"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-10 block w-full rounded-md bg-brand px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-									>
-										Schedule initial call
-									</a>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
+											Schedule initial call
+										</a>
+									</Button>
 									<Text size="xs" className="mt-6 text-muted-600">
 										Invoices and receipts available for easy company reimbursement
 									</Text>
@@ -583,14 +580,11 @@ const FullStackWebDevMentor = () => {
 											<span>EUR</span>
 										</Text>
 									</p>
-									<a
-										href="https://calendly.com/andrecasal/meeting"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-10 block w-full rounded-md bg-brand px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-									>
-										Schedule initial call
-									</a>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
+											Schedule initial call
+										</a>
+									</Button>
 									<Text size="xs" className="mt-6 text-muted-600">
 										Invoices and receipts available for easy company reimbursement
 									</Text>

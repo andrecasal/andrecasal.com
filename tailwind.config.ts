@@ -80,26 +80,6 @@ export default {
 				'size-md': ['var(--typography-size-md)', { lineHeight: 'var(--typography-size-md-line-height)' }],
 				'size-sm': ['var(--typography-size-sm)', { lineHeight: 'var(--typography-size-sm-line-height)' }],
 				'size-xs': ['var(--typography-size-xs)', { lineHeight: 'var(--typography-size-xs-line-height)' }],
-
-				/** 32px size / 36px high / normal */
-				/* 'body-2xl': ['2rem', { lineHeight: '2.5rem' }], */
-				/** 28px size / 36px high / normal */
-				/* 'body-xl': ['1.75rem', { lineHeight: '2.25rem' }], */
-				/** 24px size / 32px high / normal */
-				/* 'body-lg': ['1.5rem', { lineHeight: '2.25rem' }], */
-				/** 20px size / 28px high / normal */
-				/* 'body-md': ['1.125rem', { lineHeight: '2rem' }], */
-				/** 16px size / 20px high / normal */
-				/* 'body-sm': ['1rem', { lineHeight: '1.75rem' }], */
-				/** 14px size / 18px high / normal */
-				/* 'body-xs': ['0.875rem', { lineHeight: '1.25rem' }], */
-				/** 12px size / 16px high / normal */
-				/* 'body-2xs': ['0.75rem', { lineHeight: '1.125rem' }], */
-
-				/** 18px size / 24px high / semibold */
-				/* caption: ['1.125rem', { lineHeight: '1.5rem', fontWeight: '600' }], */
-				/** 12px size / 16px high / bold */
-				/* button: ['0.75rem', { lineHeight: '1rem', fontWeight: '700' }], */
 			},
 			keyframes: {
 				'accordion-down': {
