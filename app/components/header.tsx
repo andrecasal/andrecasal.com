@@ -3,7 +3,6 @@ import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
-import { Text } from '~/components/ui/text.tsx'
 import { NavLink, useRouteLoaderData } from '@remix-run/react'
 import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
@@ -59,31 +58,31 @@ export default function Header() {
 									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<NavigationMenuTrigger className="relative rounded-md px-4 py-3 hover:bg-muted-100">
-										<NavigationMenuLink asChild className="text-size-sm font-semibold hover:bg-muted-100">
-											<NavLink
-												to="/courses"
-												className="block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-											>
-												Courses
-											</NavLink>
-										</NavigationMenuLink>
-									</NavigationMenuTrigger>
-									<NavigationMenuContent>
-										<div className="p-6 md:w-[400px] lg:w-[500px]">
-											<NavLink
-												to="/courses/mastery-for-vs-code"
-												className="from-muted/50 to-muted flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none hover:bg-muted-100 focus:bg-muted-100 focus:shadow-md"
-											>
-												<Text size="lg" className="mb-2 font-medium">
-													Mastery for VS Code
-												</Text>
-												<Text size="sm" className="text-muted-foreground">
-													This course is designed to help you master VS Code. You'll learn how to use VS Code to its fullest potential, and you'll be able to do so
-													in a way that's fun and engaging.
-												</Text>
-											</NavLink>
-										</div>
+									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">Courses</NavigationMenuTrigger>
+									<NavigationMenuContent className="rounded-lg border">
+										<NavigationMenuList>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+													<NavLink
+														// eslint-disable-next-line remix-react-routes/require-valid-paths
+														to="/courses"
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
+														All courses
+													</NavLink>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+													<NavLink
+														to="/courses/mastery-for-vs-code"
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
+														Mastery for VS Code
+													</NavLink>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+										</NavigationMenuList>
 									</NavigationMenuContent>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
@@ -149,6 +148,7 @@ export default function Header() {
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
+														// eslint-disable-next-line remix-react-routes/require-valid-paths
 														to="/courses"
 														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}

@@ -1,4 +1,4 @@
-import { Container } from '../../../components/ui/container.tsx'
+import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
 
