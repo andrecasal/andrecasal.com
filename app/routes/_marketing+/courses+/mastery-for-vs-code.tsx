@@ -1,5 +1,11 @@
+import { Container } from '~/components/ui/container.tsx'
+
 const MasteryForVSCode = () => {
-	return <p>Mastery for VS Code</p>
+	return (
+		<Container>
+			<p>Mastery for VS Code</p>
+		</Container>
+	)
 }
 
 export default MasteryForVSCode

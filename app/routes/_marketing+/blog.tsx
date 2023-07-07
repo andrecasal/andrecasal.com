@@ -54,10 +54,12 @@ const Blog = () => {
 					<div className="py-24 sm:py-32">
 						<div className="mx-auto max-w-7xl px-6 lg:px-8">
 							<div className="mx-auto max-w-2xl lg:mx-0">
-								<Text heading="h1" size="xl">
+								<Text heading="h1" size="4xl" className="sm:text-size-6xl">
 									Great web dev articles
 								</Text>
-								<p className="mt-6 text-lg leading-8 text-muted-800">Well-thought-out solutions to common problems in modern full-stack web development.</p>
+								<Text size="lg" className="mt-6 text-muted-800">
+									Well-thought-out solutions to common problems in modern full-stack web development.
+								</Text>
 							</div>
 							<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
 								<div className="mt-6 flex max-w-md gap-x-4">
@@ -77,7 +79,7 @@ const Blog = () => {
 							</div>
 							<div className="mt-8 flex flex-col gap-4">
 								<div>
-									<p>Filter by topic:</p>
+									<Text size="md">Filter by topic:</Text>
 								</div>
 								<div className="flex flex-wrap gap-4">
 									{topics.map((topic: any) => (
@@ -101,7 +103,7 @@ const Blog = () => {
 						))}
 					</div>
 					<div className="flex justify-around">
-						<Button variant="secondary" className="mt-8 rounded-lg border px-6 py-2 text-lg leading-8 text-muted-600 sm:mt-10 lg:mt-12">
+						<Button variant="secondary" size="lg" className="mt-8 text-muted-600 sm:mt-10 lg:mt-12">
 							Load more articles...
 						</Button>
 					</div>

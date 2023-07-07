@@ -38,15 +38,25 @@
 		--container-padding-x: 1rem;
 
 		--typography-size-6xl: 3.75rem;
+		--typography-size-6xl-line-height: 1;
 		--typography-size-5xl: 3rem;
+		--typography-size-5xl-line-height: 1;
 		--typography-size-4xl: 2.25rem;
+		--typography-size-4xl-line-height: 2.5rem;
 		--typography-size-3xl: 1.875rem;
+		--typography-size-3xl-line-height: 2.25rem;
 		--typography-size-2xl: 1.5rem;
+		--typography-size-2xl-line-height: 2rem;
 		--typography-size-xl: 1.25rem;
+		--typography-size-xl-line-height: 1.75rem;
 		--typography-size-lg: 1.125rem;
+		--typography-size-lg-line-height: 1;
 		--typography-size-md: 1rem;
+		--typography-size-md-line-height: 1;
 		--typography-size-sm: 0.875rem;
+		--typography-size-sm-line-height: 1;
 		--typography-size-xs: 0.75rem;
+		--typography-size-xs-line-height: 1;
 
 		--radius: 0.375rem;
 		--min-tap-target: 24px;

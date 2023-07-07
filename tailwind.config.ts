@@ -70,16 +70,16 @@ export default {
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontSize: {
-				'size-6xl': ['var(--typography-size-6xl)', { lineHeight: '1' }],
-				'size-5xl': ['var(--typography-size-5xl)', { lineHeight: '1' }],
-				'size-4xl': ['var(--typography-size-4xl)', { lineHeight: '2.5rem' }],
-				'size-3xl': ['var(--typography-size-3xl)', { lineHeight: '2.25rem' }],
-				'size-2xl': ['var(--typography-size-2xl)', { lineHeight: '2rem' }],
-				'size-xl': ['var(--typography-size-xl)', { lineHeight: '1.75rem' }],
-				'size-lg': 'var(--typography-size-lg)',
-				'size-md': 'var(--typography-size-md)',
-				'size-sm': 'var(--typography-size-sm)',
-				'size-xs': 'var(--typography-size-xs)',
+				'size-6xl': ['var(--typography-size-6xl)', { lineHeight: 'var(--typography-size-6xl-line-height)' }],
+				'size-5xl': ['var(--typography-size-5xl)', { lineHeight: 'var(--typography-size-5xl-line-height)' }],
+				'size-4xl': ['var(--typography-size-4xl)', { lineHeight: 'var(--typography-size-4xl-line-height)' }],
+				'size-3xl': ['var(--typography-size-3xl)', { lineHeight: 'var(--typography-size-3xl-line-height)' }],
+				'size-2xl': ['var(--typography-size-2xl)', { lineHeight: 'var(--typography-size-2xl-line-height)' }],
+				'size-xl': ['var(--typography-size-xl)', { lineHeight: 'var(--typography-size-xl-line-height)' }],
+				'size-lg': ['var(--typography-size-lg)', { lineHeight: 'var(--typography-size-lg-line-height)' }],
+				'size-md': ['var(--typography-size-md)', { lineHeight: 'var(--typography-size-md-line-height)' }],
+				'size-sm': ['var(--typography-size-sm)', { lineHeight: 'var(--typography-size-sm-line-height)' }],
+				'size-xs': ['var(--typography-size-xs)', { lineHeight: 'var(--typography-size-xs-line-height)' }],
 
 				/** 32px size / 36px high / normal */
 				/* 'body-2xl': ['2rem', { lineHeight: '2.5rem' }], */

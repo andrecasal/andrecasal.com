@@ -53,55 +53,52 @@ export function Icon({
 		)
 	}
 	return (
-		<svg
-			{...props}
-			className={cn(sizeClassName[size], 'inline self-center', className)}
-		>
+		<svg {...props} className={cn(sizeClassName[size], 'inline', className)}>
 			<use href={`${href}#${name}`} />
 		</svg>
 	)
 }
 
 type IconName =
-  | "accessibility"
-  | "arrow-path"
-  | "avatar"
-  | "bars-3"
-  | "beaker"
-  | "bell"
-  | "bolt"
-  | "brain"
-  | "bug"
-  | "camera"
-  | "chart-bar"
-  | "check"
-  | "chevron-down"
-  | "chip"
-  | "circle-half-filled"
-  | "circle-stack"
-  | "code"
-  | "cross-1"
-  | "desktop"
-  | "document-chart-bar"
-  | "exit"
-  | "file-text-folded"
-  | "file-text"
-  | "globe"
-  | "heart-filled"
-  | "lock-closed"
-  | "lock-open-1"
-  | "masks-theater"
-  | "moon"
-  | "mountain"
-  | "paper-plane"
-  | "pencil-1"
-  | "pencil-2"
-  | "person"
-  | "plus"
-  | "presentation-chart"
-  | "rocket"
-  | "sun"
-  | "swatch"
-  | "trash"
-  | "trophy"
-  | "x-mark"
+	| 'accessibility'
+	| 'arrow-path'
+	| 'avatar'
+	| 'bars-3'
+	| 'beaker'
+	| 'bell'
+	| 'bolt'
+	| 'brain'
+	| 'bug'
+	| 'camera'
+	| 'chart-bar'
+	| 'check'
+	| 'chevron-down'
+	| 'chip'
+	| 'circle-half-filled'
+	| 'circle-stack'
+	| 'code'
+	| 'cross-1'
+	| 'desktop'
+	| 'document-chart-bar'
+	| 'exit'
+	| 'file-text-folded'
+	| 'file-text'
+	| 'globe'
+	| 'heart-filled'
+	| 'lock-closed'
+	| 'lock-open-1'
+	| 'masks-theater'
+	| 'moon'
+	| 'mountain'
+	| 'paper-plane'
+	| 'pencil-1'
+	| 'pencil-2'
+	| 'person'
+	| 'plus'
+	| 'presentation-chart'
+	| 'rocket'
+	| 'sun'
+	| 'swatch'
+	| 'trash'
+	| 'trophy'
+	| 'x-mark'

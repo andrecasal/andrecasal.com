@@ -3,6 +3,7 @@ import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
+import { Text } from '~/components/ui/text.tsx'
 import { NavLink, useRouteLoaderData } from '@remix-run/react'
 import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
@@ -23,7 +24,7 @@ export default function Header() {
 								<NavigationMenuLink asChild>
 									<NavLink
 										to="/"
-										className="relative -m-3 block rounded-md p-3 text-body-xl font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
+										className="relative -m-3 block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
 									>
 										André Casal
 									</NavLink>
@@ -38,7 +39,7 @@ export default function Header() {
 							</div>
 							<div className="hidden lg:flex lg:gap-x-8">
 								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-body-sm font-semibold hover:bg-muted-100">
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/full-stack-web-dev-mentor"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
@@ -48,7 +49,7 @@ export default function Header() {
 									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-body-sm font-semibold hover:bg-muted-100">
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/blog"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
@@ -59,7 +60,7 @@ export default function Header() {
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuTrigger className="relative rounded-md px-4 py-3 hover:bg-muted-100">
-										<NavigationMenuLink asChild className="text-body-sm font-semibold hover:bg-muted-100">
+										<NavigationMenuLink asChild className="text-size-sm font-semibold hover:bg-muted-100">
 											<NavLink
 												to="/courses"
 												className="block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
@@ -74,17 +75,19 @@ export default function Header() {
 												to="/courses/mastery-for-vs-code"
 												className="from-muted/50 to-muted flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none hover:bg-muted-100 focus:bg-muted-100 focus:shadow-md"
 											>
-												<div className="mb-2 text-body-md font-medium">Mastery for VS Code</div>
-												<p className="text-muted-foreground text-body-xs">
+												<Text size="lg" className="mb-2 font-medium">
+													Mastery for VS Code
+												</Text>
+												<Text size="sm" className="text-muted-foreground">
 													This course is designed to help you master VS Code. You'll learn how to use VS Code to its fullest potential, and you'll be able to do so
 													in a way that's fun and engaging.
-												</p>
+												</Text>
 											</NavLink>
 										</div>
 									</NavigationMenuContent>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-body-sm font-semibold hover:bg-muted-100">
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/about"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
@@ -106,7 +109,7 @@ export default function Header() {
 										<NavigationMenuLink asChild>
 											<NavLink
 												to="/"
-												className="relative -m-3 block p-3 text-body-xl font-semibold text-foreground after:absolute after:bottom-2 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:after:max-w-full aria-[current]:after:max-w-full"
+												className="relative -m-3 block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
 												onClick={() => setOpen(false)}
 											>
 												André Casal
@@ -125,7 +128,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/full-stack-web-dev-mentor"
-														className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														Mentorship
@@ -136,7 +139,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/blog"
-														className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														Blog
@@ -147,7 +150,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/courses"
-														className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														Courses
@@ -158,7 +161,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/about"
-														className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														About

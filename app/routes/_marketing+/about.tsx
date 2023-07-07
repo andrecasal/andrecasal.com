@@ -1,3 +1,9 @@
+import { Container } from '~/components/ui/container.tsx'
+
 export default function AboutRoute() {
-	return <div>About page</div>
+	return (
+		<Container>
+			<p>About page</p>
+		</Container>
+	)
 }
