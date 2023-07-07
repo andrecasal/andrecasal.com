@@ -19,7 +19,7 @@ export const ArticlePreview = ({
 			<div className="absolute inset-0 -z-10 bg-gradient-to-t from-muted-900 via-muted-900/40" />
 			<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-muted-900/10" />
 
-			<div className="text-body-xs flex flex-wrap items-center gap-y-1 overflow-hidden text-muted-300">
+			<div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-size-sm text-muted-300">
 				<Text size="sm" asChild>
 					<time dateTime={post.datetime} className="mr-8">
 						{post.date}

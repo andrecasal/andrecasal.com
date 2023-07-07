@@ -30,7 +30,7 @@ export const CoursePresentation = ({
 				<Text size="lg" className="mt-6 text-muted-700">
 					{description}
 				</Text>
-				<ul className="text-body-sm mt-10 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+				<ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-size-md sm:grid-cols-2">
 					{benefits.map(benefit => (
 						<Text key={benefit} size="md" asChild>
 							<li className="flex gap-x-3">

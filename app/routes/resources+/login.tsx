@@ -132,7 +132,7 @@ export function InlineLogin({ redirectTo, formError }: { redirectTo?: string; fo
 						/>
 
 						<div>
-							<Link to="/forgot-password" className="text-body-xs font-semibold">
+							<Link to="/forgot-password" className="text-size-sm font-semibold">
 								Forgot password?
 							</Link>
 						</div>

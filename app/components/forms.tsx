@@ -113,7 +113,7 @@ export function CheckboxField({
 					}}
 					type="button"
 				/>
-				<label htmlFor={id} {...labelProps} className="self-center text-body-xs text-muted-500" />
+				<label htmlFor={id} {...labelProps} className="self-center text-size-sm text-muted-500" />
 			</div>
 			<div className="px-4 pb-3 pt-1">{errorId ? <ErrorList id={errorId} errors={errors} /> : null}</div>
 		</div>

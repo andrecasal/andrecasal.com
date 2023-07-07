@@ -108,7 +108,7 @@ const Footer = () => {
 										{navigation.sitemap.map(item => (
 											<Text key={item.name} size="sm" asChild>
 												<li>
-													<a href={item.href} className="text-body-xs text-muted-600 hover:text-muted-900">
+													<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
 														{item.name}
 													</a>
 												</li>

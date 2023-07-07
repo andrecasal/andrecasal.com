@@ -40,7 +40,7 @@ export default function LoginPage() {
 			<div className="mx-auto w-full max-w-md">
 				<div className="flex flex-col gap-3 text-center">
 					<h1 className="text-title-xl">Welcome back!</h1>
-					<p className="text-body-md text-muted-500">Please enter your details.</p>
+					<p className="text-size-lg text-muted-500">Please enter your details.</p>
 				</div>
 				<Spacer size="xs" />
 				{data.unverified ? <Verifier redirectTo={redirectTo} /> : <InlineLogin redirectTo={redirectTo} formError={data.formError} />}

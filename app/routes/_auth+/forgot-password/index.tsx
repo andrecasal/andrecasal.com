@@ -115,7 +115,7 @@ export default function ForgotPasswordRoute() {
 			<div className="flex flex-col justify-center">
 				<div className="text-center">
 					<h1 className="text-title-xl">Forgot Password</h1>
-					<p className="mt-3 text-body-md text-muted-500">No worries, we'll send you reset instructions.</p>
+					<p className="mt-3 text-size-lg text-muted-500">No worries, we'll send you reset instructions.</p>
 				</div>
 				<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
 					<div>
@@ -144,7 +144,7 @@ export default function ForgotPasswordRoute() {
 						</StatusButton>
 					</div>
 				</forgotPassword.Form>
-				<Link to="/login" className="mt-11 text-center text-body-sm font-bold">
+				<Link to="/login" className="mt-11 text-center text-size-md font-bold">
 					Back to Login
 				</Link>
 			</div>

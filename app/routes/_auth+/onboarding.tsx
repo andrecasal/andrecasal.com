@@ -130,7 +130,7 @@ export default function OnboardingPage() {
 			<div className="mx-auto w-full max-w-lg">
 				<div className="flex flex-col gap-3 text-center">
 					<h1 className="text-title-xl">Welcome aboard!</h1>
-					<p className="text-body-md text-muted-500">Please enter your details.</p>
+					<p className="text-size-lg text-muted-500">Please enter your details.</p>
 				</div>
 				<Spacer size="xs" />
 				<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...form.props}>

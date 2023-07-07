@@ -129,7 +129,7 @@ export default function SignupRoute() {
 		<div className="container flex flex-col justify-center pb-32 pt-20">
 			<div className="text-center">
 				<h1 className="text-title-xl">Let's start your journey!</h1>
-				<p className="mt-3 text-body-md text-muted-500">Please enter your email.</p>
+				<p className="mt-3 text-size-lg text-muted-500">Please enter your email.</p>
 			</div>
 			<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
 				<Field
