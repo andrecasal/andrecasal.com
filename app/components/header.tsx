@@ -3,7 +3,7 @@ import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
-import { NavLink, useRouteLoaderData } from '@remix-run/react'
+import { Link, NavLink, useRouteLoaderData } from '@remix-run/react'
 import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
 import { type loader as rootLoader } from '~/root.tsx'
@@ -29,13 +29,6 @@ export default function Header() {
 									</NavLink>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
-							<div className="flex gap-x-8 lg:hidden">
-								<ThemeSwitch id="desktop" userPreference={data.requestInfo.session.theme} />
-								<DialogTrigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-lg p-2.5">
-									<span className="sr-only">Open main menu</span>
-									<Icon name="bars-3" className="h-6 min-h-tap w-6 min-w-tap" aria-hidden="true" />
-								</DialogTrigger>
-							</div>
 							<div className="hidden lg:flex lg:gap-x-8">
 								<NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
@@ -59,27 +52,27 @@ export default function Header() {
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">Courses</NavigationMenuTrigger>
-									<NavigationMenuContent className="rounded-lg border">
+									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
 										<NavigationMenuList>
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<NavLink
+													<Link
 														// eslint-disable-next-line remix-react-routes/require-valid-paths
 														to="/courses"
 														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 													>
 														All courses
-													</NavLink>
+													</Link>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<NavLink
+													<Link
 														to="/courses/mastery-for-vs-code"
 														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 													>
 														Mastery for VS Code
-													</NavLink>
+													</Link>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
 										</NavigationMenuList>
@@ -98,17 +91,24 @@ export default function Header() {
 								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
 							</div>
+							<div className="flex gap-x-8 lg:hidden">
+								<ThemeSwitch id="desktop" userPreference={data.requestInfo.session.theme} />
+								<DialogTrigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-lg p-2.5">
+									<span className="sr-only">Open main menu</span>
+									<Icon name="bars-3" className="h-6 min-h-tap w-6 min-w-tap" aria-hidden="true" />
+								</DialogTrigger>
+							</div>
 						</NavigationMenuList>
 					</NavigationMenu>
-					<DialogContent className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-container py-4 sm:max-w-sm sm:px-container-sm sm:py-6 sm:ring-1 sm:ring-muted-900/10 lg:hidden lg:px-container-lg">
-						<NavigationMenu orientation="vertical">
+					<DialogContent className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-container sm:max-w-sm sm:px-container-sm sm:ring-1 sm:ring-muted-900/10 lg:hidden lg:px-container-lg">
+						<NavigationMenu orientation="vertical" className="py-4 ">
 							<NavigationMenuList>
 								<div className="flex items-baseline justify-between">
 									<NavigationMenuItem>
 										<NavigationMenuLink asChild>
 											<NavLink
 												to="/"
-												className="relative -m-3 block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
+												className="relative block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
 												onClick={() => setOpen(false)}
 											>
 												André Casal
@@ -127,7 +127,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/full-stack-web-dev-mentor"
-														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														Mentorship
@@ -138,7 +138,7 @@ export default function Header() {
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/blog"
-														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														Blog
@@ -146,22 +146,43 @@ export default function Header() {
 												</NavigationMenuLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														// eslint-disable-next-line remix-react-routes/require-valid-paths
-														to="/courses"
-														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Courses
-													</NavLink>
-												</NavigationMenuLink>
+												<NavigationMenuTrigger className="block w-full rounded-lg px-3 py-2 text-left text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100">
+													Courses
+												</NavigationMenuTrigger>
+												<NavigationMenuContent className="py-2">
+													<NavigationMenuList>
+														<NavigationMenuItem>
+															<NavigationMenuLink asChild>
+																<NavLink
+																	// eslint-disable-next-line remix-react-routes/require-valid-paths
+																	to="/courses"
+																	className="ml-6 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+																	end
+																	onClick={() => setOpen(false)}
+																>
+																	All courses
+																</NavLink>
+															</NavigationMenuLink>
+														</NavigationMenuItem>
+														<NavigationMenuItem>
+															<NavigationMenuLink asChild>
+																<NavLink
+																	to="/courses/mastery-for-vs-code"
+																	className="ml-6 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+																	onClick={() => setOpen(false)}
+																>
+																	Mastery for VS Code
+																</NavLink>
+															</NavigationMenuLink>
+														</NavigationMenuItem>
+													</NavigationMenuList>
+												</NavigationMenuContent>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/about"
-														className="-mx-3 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
 														About
