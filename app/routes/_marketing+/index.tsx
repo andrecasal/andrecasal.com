@@ -1,15 +1,14 @@
-import type { /* LinksFunction, */ V2_MetaFunction } from '@remix-run/node'
+import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
 import FromTheBlog from './components/from-the-blog.tsx'
 import Newsletter from './components/newsletter.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
-/* import andre from './images/andre.jpg' */
 
-/* export const links: LinksFunction = () => {
-	return [{ rel: 'preload', href: andre, as: 'image' }].filter(Boolean)
-} */
+export const links: LinksFunction = () => {
+	return [{ rel: 'preload', href: '/img/andre-at-piano.jpg', as: 'image' }].filter(Boolean)
+}
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 

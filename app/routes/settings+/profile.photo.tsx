@@ -166,7 +166,7 @@ export default function PhotoChooserModal() {
 								</label>
 							</Button>
 							{data.user.imageId ? (
-								<Button variant="destructive" type="submit" form={deleteProfilePhotoFormId} className="flex gap-1">
+								<Button variant="danger" type="submit" form={deleteProfilePhotoFormId} className="flex gap-1">
 									<Icon name="trash" /> Delete
 								</Button>
 							) : null}
