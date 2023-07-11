@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react'
 import BackgroundSquareLines from '../components/bg-square-lines.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Badge } from '~/components/ui/badge.tsx'
+/* import { Badge } from '~/components/ui/badge.tsx' */
 import { Text } from '~/components/ui/text.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
@@ -150,12 +150,12 @@ const MasteryForVSCode = () => {
 
 	const includedFeatures = ['Solving challenges', 'Pair programming', 'Code Reviews', 'Merge Requests']
 
-	const faqs = [
+	/* const faqs = [
 		{
 			question: "What's the best thing about Switzerland?",
 			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
 		},
-	]
+	] */
 
 	return (
 		<>
