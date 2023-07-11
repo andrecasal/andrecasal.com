@@ -14,7 +14,7 @@ const Newsletter = () => {
 						Subscribe to the newsletter
 					</Text>
 					<Text size="lg" className="mt-4 text-muted-400">
-						Subscribe to the newsletter to get notified when new articles are published.
+						Subscribe to the newsletter to get notified when new content is published.
 					</Text>
 					<div className="mt-6 flex gap-x-4">
 						<Label htmlFor="email-address" className="sr-only">
