@@ -95,6 +95,9 @@ dependencies:
   class-variance-authority:
     specifier: ^0.6.1
     version: 0.6.1
+  classgroup:
+    specifier: ^1.2.1
+    version: 1.2.1
   close-with-grace:
     specifier: ^1.2.0
     version: 1.2.0
@@ -4821,6 +4824,10 @@ packages:
     resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
     dependencies:
       clsx: 1.2.1
+    dev: false
+
+  /classgroup@1.2.1:
+    resolution: {integrity: sha512-6yFWJKHV4glXky5J/qhAzLi9gaZ1Lqbt0UT30hO4cd2d0noMKf2w8PV8HLGcfr6TIvmnf8IksZvN168Br/bgCQ==}
     dev: false
 
   /clean-stack@2.2.0:
