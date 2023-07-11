@@ -23,7 +23,7 @@ const HeroAndre = () => {
 								</span>
 							</Text>
 						</a>
-						<Text heading="h1" size="4xl" className="mt-10 text-xl sm:text-size-6xl">
+						<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
 							Hi! I'm André Casal
 							<br className="hidden sm:block" /> and I'm a full-stack
 							<br className="hidden sm:block" /> web dev mentor.

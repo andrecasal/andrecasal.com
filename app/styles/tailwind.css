@@ -64,7 +64,7 @@
 
 	.dark {
 		color-scheme: dark;
-		--color-background: 0 0% 0%;
+		--color-background: 0 0% 10%;
 		--color-foreground: 0 0% 100%;
 		--color-danger-foreground: 0 73.7% 61.8%;
 		--color-muted-50: 224 71.4% 4.1%;
