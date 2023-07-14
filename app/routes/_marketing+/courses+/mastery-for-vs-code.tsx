@@ -6,6 +6,7 @@ import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion.tsx'
 
 const MasteryForVSCode = () => {
 	const features = [
@@ -150,12 +151,20 @@ const MasteryForVSCode = () => {
 
 	const includedFeatures = ['Solving challenges', 'Pair programming', 'Code Reviews', 'Merge Requests']
 
-	/* const faqs = [
+	const faqs = [
 		{
 			question: "What's the best thing about Switzerland?",
 			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
 		},
-	] */
+		{
+			question: "What's the best thing about Switzerland?",
+			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+		},
+		{
+			question: "What's the best thing about Switzerland?",
+			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+		},
+	]
 
 	return (
 		<>
@@ -184,15 +193,9 @@ const MasteryForVSCode = () => {
 								Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-6">
-								<Link
-									to="/"
-									className="rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-								>
-									Get started
-								</Link>
-								<Link to="#" className="text-sm font-semibold leading-6 text-white">
-									Live demo <span aria-hidden="true">→</span>
-								</Link>
+								<Button asChild>
+									<Link to="#pricing">Get started</Link>
+								</Button>
 							</div>
 						</div>
 						<div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
@@ -212,11 +215,15 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className=" py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-						<p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to deploy your app</p>
-						<p className="mt-6 text-lg leading-8 text-gray-600">
+						<Text heading="h2" size="md" className="text-brand">
+							Deploy faster
+						</Text>
+						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							Everything you need to deploy
+						</Text>
+						<Text size="lg" className="mt-6 text-muted-700">
 							Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.
-						</p>
+						</Text>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
@@ -242,18 +249,22 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<h2 className="text-base font-semibold leading-7 text-indigo-600">Everything you need</h2>
-						<p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">No server? No problem.</p>
-						<p className="mt-6 text-lg leading-8 text-gray-600">
+						<Text heading="h2" size="md" className="text-brand">
+							Everything you need
+						</Text>
+						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							Everything you need
+						</Text>
+						<Text size="lg" className="mt-6 text-muted-700">
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis.
-						</p>
+						</Text>
 					</div>
 				</div>
 				<div className="relative overflow-hidden pt-16">
 					<div className="mx-auto max-w-7xl px-6 lg:px-8">
 						<img src="/img/vs-code-screenshot.png" alt="App screenshot" className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" width={2432} height={1442} />
 						<div className="relative" aria-hidden="true">
-							<div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
+							<div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-background pt-[7%]" />
 						</div>
 					</div>
 				</div>
@@ -281,17 +292,25 @@ const MasteryForVSCode = () => {
 				<Container>
 					<div className="relative isolate mt-32 overflow-hidden py-24 sm:mt-56 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-							<h2 className="text-base font-semibold leading-8 text-brand">Our track record</h2>
-							<p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Trusted by thousands of creators&nbsp;worldwide</p>
-							<p className="mt-6 text-lg leading-8">
+							<Text heading="h2" size="md" className="text-brand">
+								Our track record
+							</Text>
+							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+								Trusted by thousands of creators&nbsp;worldwide
+							</Text>
+							<Text size="lg" className="mt-6 text-muted-700">
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-							</p>
+							</Text>
 						</div>
 						<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 							{stats.map(stat => (
-								<div key={stat.id} className="flex flex-col gap-y-3 border-l border-white/10 pl-6">
-									<dt className="text-sm leading-6">{stat.name}</dt>
-									<dd className="order-first text-3xl font-semibold tracking-tight">{stat.value}</dd>
+								<div key={stat.id} className="flex flex-col gap-y-3 border-l border-white/10">
+									<Text size="sm" asChild>
+										<dt>{stat.name}</dt>
+									</Text>
+									<Text size="3xl" asChild>
+										<dd className="order-first font-semibold tracking-tight">{stat.value}</dd>
+									</Text>
 								</div>
 							))}
 						</dl>
@@ -362,7 +381,7 @@ const MasteryForVSCode = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="py-24 sm:py-32">
+				<div className="mx-auto max-w-4xl py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
 						<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl">
 							Simple no-tricks pricing
@@ -425,33 +444,24 @@ const MasteryForVSCode = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="bg-white">
-					<div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-						<div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-							<h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
-							{/* <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-								{faqs.map(faq => (
-									<Disclosure as="div" key={faq.question} className="pt-6">
-										{({ open }) => (
-											<>
-												<dt>
-													<Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-														<span className="text-base font-semibold leading-7">{faq.question}</span>
-														<span className="ml-6 flex h-7 items-center">
-															{open ? <MinusSmallIcon className="h-6 w-6" aria-hidden="true" /> : <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />}
-														</span>
-													</Disclosure.Button>
-												</dt>
-												<Disclosure.Panel as="dd" className="mt-2 pr-12">
-													<p className="text-base leading-7 text-gray-600">{faq.answer}</p>
-												</Disclosure.Panel>
-											</>
-										)}
-									</Disclosure>
-								))}
-							</dl> */}
-						</div>
-					</div>
+				<div className="mx-auto max-w-4xl divide-y divide-muted-900/10 py-24 sm:py-32 lg:py-40">
+					<Text heading="h2" size="2xl">
+						Frequently asked questions
+					</Text>
+					<Accordion type="multiple" className="mt-10 space-y-6 divide-y divide-muted-900/10">
+						{faqs.map(({ question, answer }, i) => (
+							<AccordionItem key={i} value={i.toString()} className="pt-6">
+								<AccordionTrigger className="flex w-full items-start justify-between text-left text-muted-900">
+									<Text size="md" className="font-semibold">
+										{question}
+									</Text>
+								</AccordionTrigger>
+								<AccordionContent className="mt-2 pr-12">
+									<Text size="md">{answer}</Text>
+								</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
 				</div>
 			</Container>
 			<Container>

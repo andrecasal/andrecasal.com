@@ -331,7 +331,7 @@ const FullStackWebDevMentor = () => {
 							{features.map(feature => (
 								<div key={feature.name} className="flex flex-col">
 									<Text size="md" asChild>
-										<dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+										<dt className="flex items-center gap-x-3 font-semibold text-muted-900">
 											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 											{feature.name}
 										</dt>
@@ -404,7 +404,7 @@ const FullStackWebDevMentor = () => {
 									{stats.map(stat => (
 										<div key={stat.label} className="flex flex-col-reverse gap-y-4">
 											<Text size="md" asChild>
-												<dt className="text-base leading-7 text-muted-600">{stat.label}</dt>
+												<dt className="text-muted-600">{stat.label}</dt>
 											</Text>
 											<Text size="5xl" className="mt-2 font-semibold text-muted-900" asChild>
 												<dd>{stat.value}</dd>
