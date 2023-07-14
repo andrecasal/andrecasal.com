@@ -7,6 +7,7 @@ import { Text } from '~/components/ui/text.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion.tsx'
+import BackgroundRadial from '../components/bg-radial.tsx'
 
 const MasteryForVSCode = () => {
 	const features = [
@@ -468,23 +469,14 @@ const MasteryForVSCode = () => {
 				<div className="relative isolate overflow-hidden pt-14">
 					<div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-							<h2 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">About André</h2>
+							<Text heading="h2" size="4xl" className="max-w-2xl text-muted-900 sm:text-size-6xl lg:col-span-2 xl:col-auto">
+								About André
+							</Text>
 							<div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-								<p className="text-lg leading-8 text-gray-600">
+								<Text size="lg" className="text-muted-600">
 									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute
 									id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
-								</p>
-								<div className="mt-10 flex items-center gap-x-6">
-									<Link
-										to="#"
-										className="rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-									>
-										Get started
-									</Link>
-									<Link to="#" className="text-sm font-semibold leading-6 text-gray-900">
-										Learn more <span aria-hidden="true">→</span>
-									</Link>
-								</div>
+								</Text>
 							</div>
 							<img
 								src="/img/andre.jpg"
@@ -496,79 +488,58 @@ const MasteryForVSCode = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="bg-white py-24 sm:py-32">
+				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-7xl px-6 lg:px-8">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-							<p className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</p>
-							<h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A note on excellency</h1>
+							<Text heading="h2" size="md" className="text-brand">
+								Deploy faster
+							</Text>
+							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+								A note on excellency
+							</Text>
 							<div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2">
 								<div>
-									<p>
+									<Text size="md">
 										Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec
 										est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis
 										mauris semper sed amet vitae sed turpis id.
-									</p>
-									<p className="mt-8">
+									</Text>
+									<Text size="md" className="mt-8">
 										Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac
 										cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas.
-									</p>
+									</Text>
 								</div>
 								<div>
-									<p>
+									<Text size="md">
 										Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices
 										congue nunc tortor.
-									</p>
-									<p className="mt-8">
+									</Text>
+									<Text size="md" className="mt-8">
 										Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac
 										cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-									</p>
+									</Text>
 								</div>
-							</div>
-							<div className="mt-10 flex">
-								<Link
-									to="#"
-									className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-								>
-									Get started
-								</Link>
 							</div>
 						</div>
 					</div>
 				</div>
 			</Container>
 			<Container>
-				<div className="bg-white">
-					<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-						<div className="relative isolate overflow-hidden px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-							<h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">Boost your productivity today.</h2>
-							<p className="mx-auto mt-6 max-w-xl text-lg leading-8">
+				<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8 ">
+					<div className="relative isolate overflow-hidden bg-muted-50 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+						<BackgroundRadial>
+							<Text heading="h2" size="3xl" className="mt-2 sm:text-size-4xl">
+								Boost your productivity today.
+							</Text>
+							<Text size="lg" className="mx-auto mt-6 max-w-xl">
 								Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.
-							</p>
+							</Text>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
-								<Link
-									to="#"
-									className="rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-								>
-									Get started
-								</Link>
-								<Link to="#" className="text-sm font-semibold leading-6">
-									Learn more <span aria-hidden="true">→</span>
-								</Link>
+								<Button asChild>
+									<a href="https://andrecasal.gumroad.com/l/vscode">Get started</a>
+								</Button>
 							</div>
-							<svg
-								viewBox="0 0 1024 1024"
-								className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-								aria-hidden="true"
-							>
-								<circle cx={512} cy={512} r={512} fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fillOpacity="0.7" />
-								<defs>
-									<radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-										<stop stopColor="#7775D6" />
-										<stop offset={1} stopColor="#E935C1" />
-									</radialGradient>
-								</defs>
-							</svg>
-						</div>
+						</BackgroundRadial>
 					</div>
 				</div>
 			</Container>
