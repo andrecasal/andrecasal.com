@@ -5,7 +5,7 @@ import { Text } from '~/components/ui/text.tsx'
 const Tips = () => {
 	const tips: { title: string; description: string; filename: string; extension: Language; code: string }[] = [
 		{
-			title: 'Filter repeated values',
+			title: 'Filter out repeated values',
 			description: 'Use this code snippet to remove repeated values from an array.',
 			filename: 'unique',
 			extension: 'ts',
@@ -14,7 +14,7 @@ const uniqueArray = [...new Set(array)]
 console.log(unique) // [1, 2, 3, 4, 5, 6, 7]`,
 		},
 		{
-			title: 'Array filter to clean arrays',
+			title: 'Clean falsy values out of arrays',
 			description: 'Use the .filter() function to remove falsy values from an array.',
 			filename: 'filter',
 			extension: 'ts',
@@ -23,7 +23,7 @@ const cleanArray = array.filter(v => v)
 console.log(cleanArray) // ['andre', 'loves', 'you']`,
 		},
 		{
-			title: 'Flatten an array',
+			title: 'Flatten an array of arrays',
 			description: 'Use the .flat() function to flatten a deeply nested array of arrays.',
 			filename: 'flat',
 			extension: 'ts',
