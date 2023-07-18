@@ -357,7 +357,7 @@ const FullStackWebDevMentor = () => {
 												</dt>
 											</Text>
 											<Text size="md" asChild>
-												<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+												<dd className="mt-4 flex flex-auto flex-col text-muted-600">
 													<p className="flex-auto">{feature.description}</p>
 												</dd>
 											</Text>
@@ -485,7 +485,7 @@ const FullStackWebDevMentor = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl" id="pricing">
 							Simple no-tricks pricing
 						</Text>
 						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">

@@ -36,7 +36,7 @@ const HeroAndre = () => {
 						</Text>
 						<div className="mt-10 flex items-center gap-x-6">
 							<Button asChild>
-								<Link to="/full-stack-web-dev-mentor">Let's work together</Link>
+								<Link to="/mentorship">Let's work together</Link>
 							</Button>
 						</div>
 					</div>

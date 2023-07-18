@@ -11,6 +11,7 @@ export default {
 	tailwind: true,
 	postcss: true,
 	watchPaths: ['./tailwind.config.ts'],
+	serverDependenciesToBundle: ['classgroup', 'usehooks-ts'],
 	future: {
 		v2_headers: true,
 		v2_meta: true,
@@ -21,12 +22,7 @@ export default {
 	},
 	routes: async defineRoutes => {
 		return flatRoutes('routes', defineRoutes, {
-			ignoredRouteFiles: [
-				'.*',
-				'**/*.css',
-				'**/*.test.{js,jsx,ts,tsx}',
-				'**/__*.*',
-			],
+			ignoredRouteFiles: ['.*', '**/*.css', '**/*.test.{js,jsx,ts,tsx}', '**/__*.*'],
 		})
 	},
 }

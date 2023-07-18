@@ -62,7 +62,7 @@ export function Icon({
 	)
 }
 
-type IconName =
+export type IconName =
   | "accessibility"
   | "arrow-path"
   | "avatar"
@@ -81,12 +81,14 @@ type IconName =
   | "circle-half-filled"
   | "circle-stack"
   | "code"
+  | "copy"
   | "cross-1"
   | "desktop"
   | "document-chart-bar"
   | "exit"
   | "file-text-folded"
   | "file-text"
+  | "fire"
   | "globe"
   | "heart-filled"
   | "lock-closed"
@@ -98,6 +100,7 @@ type IconName =
   | "pencil-1"
   | "pencil-2"
   | "person"
+  | "play"
   | "plus"
   | "presentation-chart"
   | "rocket"
@@ -105,4 +108,5 @@ type IconName =
   | "swatch"
   | "trash"
   | "trophy"
+  | "tsx"
   | "x-mark"

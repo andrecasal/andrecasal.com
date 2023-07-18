@@ -59,6 +59,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+				code: ['var(--font-code)', ...defaultTheme.fontFamily.mono],
 			},
 			backgroundImage: {
 				diamonds:

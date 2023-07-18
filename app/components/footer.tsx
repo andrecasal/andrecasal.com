@@ -66,9 +66,11 @@ const navigation = {
 		}, */
 	],
 	sitemap: [
-		{ name: 'Mentoring', href: '/full-stack-web-dev-mentor' },
-		{ name: 'Blog', href: '/blog' },
+		{ name: 'Tips', href: '/tips' },
+		{ name: 'Articles', href: '/articles' },
+		{ name: 'Talks', href: '/talks' },
 		{ name: 'Courses', href: '/courses' },
+		{ name: 'Mentoring', href: '/mentorship' },
 		{ name: 'About', href: '/about' },
 	],
 }

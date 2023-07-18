@@ -5,7 +5,10 @@
 @layer base {
 	:root {
 		color-scheme: light;
+
 		--font-sans: Inter;
+		--font-code: 'Fira Code VF';
+
 		--color-background: 0 0% 100%;
 		--color-foreground: 0 0% 0%;
 		--color-brand: 41 96.1% 40.4%;

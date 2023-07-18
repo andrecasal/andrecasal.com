@@ -52,42 +52,40 @@ const Blog = () => {
 			<BackgroundBlur>
 				<Container>
 					<div className="py-24 sm:py-32">
-						<div className="mx-auto max-w-7xl px-6 lg:px-8">
-							<div className="mx-auto max-w-2xl lg:mx-0">
-								<Text heading="h1" size="4xl" className="sm:text-size-6xl">
-									Great web dev articles
-								</Text>
-								<Text size="lg" className="mt-6 text-muted-800">
-									Well-thought-out solutions to common problems in modern full-stack web development.
-								</Text>
+						<div className="mx-auto max-w-2xl lg:mx-0">
+							<Text heading="h1" size="4xl" className="sm:text-size-6xl">
+								Great web dev articles
+							</Text>
+							<Text size="lg" className="mt-6 text-muted-800">
+								Well-thought-out solutions to common problems in modern full-stack web development.
+							</Text>
+						</div>
+						<div className="mx-auto mt-10 max-w-2xl lg:max-w-none">
+							<div className="mt-6 flex max-w-md gap-x-4">
+								<Label htmlFor="search" className="sr-only">
+									Search articles by title or content
+								</Label>
+								<Input id="search" name="search" type="text" placeholder="Search articles by title or content" />
+								<Button variant="primary" asChild>
+									<Link
+										to="/articles"
+										className="flex-none rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+									>
+										Search articles
+									</Link>
+								</Button>
 							</div>
-							<div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-								<div className="mt-6 flex max-w-md gap-x-4">
-									<Label htmlFor="search" className="sr-only">
-										Search articles by title or content
-									</Label>
-									<Input id="search" name="search" type="text" placeholder="Search articles by title or content" />
-									<Button variant="primary" asChild>
-										<Link
-											to="/blog"
-											className="flex-none rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-										>
-											Search articles
-										</Link>
+						</div>
+						<div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
+							<div>
+								<Text size="md">Filter by topic:</Text>
+							</div>
+							<div className="flex flex-wrap gap-4">
+								{topics.map((topic: any) => (
+									<Button key={topic} variant="secondary" size="pill">
+										{topic}
 									</Button>
-								</div>
-							</div>
-							<div className="mt-8 flex flex-col gap-4">
-								<div>
-									<Text size="md">Filter by topic:</Text>
-								</div>
-								<div className="flex flex-wrap gap-4">
-									{topics.map((topic: any) => (
-										<Button key={topic} variant="secondary" size="pill">
-											{topic}
-										</Button>
-									))}
-								</div>
+								))}
 							</div>
 						</div>
 					</div>

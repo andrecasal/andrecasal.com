@@ -29,24 +29,34 @@ export default function Header() {
 									</NavLink>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
-							<div className="hidden lg:flex lg:gap-x-8">
+							<div className="hidden lg:flex lg:gap-x-6">
 								<NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
-											to="/full-stack-web-dev-mentor"
+											to="/tips"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 										>
-											Mentorship
+											Tips
 										</NavLink>
 									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
-											to="/blog"
+											to="/articles"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 										>
-											Blog
+											Articles
+										</NavLink>
+									</NavigationMenuLink>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+										<NavLink
+											to="/talks"
+											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+										>
+											Talks
 										</NavLink>
 									</NavigationMenuLink>
 								</NavigationMenuItem>
@@ -77,6 +87,26 @@ export default function Header() {
 											</NavigationMenuItem>
 										</NavigationMenuList>
 									</NavigationMenuContent>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+										<NavLink
+											to="/mentorship"
+											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+										>
+											Mentorship
+										</NavLink>
+									</NavigationMenuLink>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+										<NavLink
+											to="/uses"
+											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+										>
+											Uses
+										</NavLink>
+									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
@@ -126,22 +156,33 @@ export default function Header() {
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
-														to="/full-stack-web-dev-mentor"
+														to="/tips"
 														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
-														Mentorship
+														Tips
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
-														to="/blog"
+														to="/articles"
 														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 														onClick={() => setOpen(false)}
 													>
-														Blog
+														Articles
+													</NavLink>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild>
+													<NavLink
+														to="/talks"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														onClick={() => setOpen(false)}
+													>
+														Talks
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
@@ -177,6 +218,28 @@ export default function Header() {
 														</NavigationMenuItem>
 													</NavigationMenuList>
 												</NavigationMenuContent>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild>
+													<NavLink
+														to="/mentorship"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														onClick={() => setOpen(false)}
+													>
+														Mentorship
+													</NavLink>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild>
+													<NavLink
+														to="/uses"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														onClick={() => setOpen(false)}
+													>
+														Uses
+													</NavLink>
+												</NavigationMenuLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild>
