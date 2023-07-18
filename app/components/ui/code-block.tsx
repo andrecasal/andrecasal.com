@@ -268,12 +268,12 @@ const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filen
 						</button>
 					</div>
 					<div className="flex">
-						<ol className="select-none bg-foreground/10 px-4 py-2">
+						<ol className="select-none bg-foreground/10 px-2 py-2 sm:px-4">
 							{tokens.map((_token, i) => (
 								<li key={i}>{i + 1}</li>
 							))}
 						</ol>
-						<pre className="flex-1 overflow-x-auto py-2">
+						<pre className="flex-1 overflow-x-auto py-2 pl-0.5">
 							{tokens.map((line, i) => (
 								<div key={i} {...getLineProps({ line })}>
 									{line.map((token, key) => (
