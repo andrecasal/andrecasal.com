@@ -230,7 +230,7 @@ const cobalt2Theme: PrismTheme = {
 	],
 }
 
-export type Language = 'jsx' | 'tsx' | 'swift' | 'kotlin' | 'objectivec' | 'js-extras' | 'reason' | 'rust' | 'graphql' | 'yaml' | 'go' | 'cpp' | 'markdown' | 'javascript'
+export type Language = 'jsx' | 'tsx' | 'swift' | 'kotlin' | 'objectivec' | 'js-extras' | 'reason' | 'rust' | 'graphql' | 'yaml' | 'go' | 'cpp' | 'markdown' | 'js' | 'ts'
 
 interface CodeBlockProps extends HTMLAttributes<HTMLDivElement> {
 	filename: string

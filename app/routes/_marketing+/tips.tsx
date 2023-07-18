@@ -3,142 +3,42 @@ import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 
 const Tips = () => {
-	const tips: { filename: string; extension: Language; code: string }[] = [
+	const tips: { title: string; description: string; filename: string; extension: Language; code: string }[] = [
 		{
-			filename: 'example',
-			extension: 'tsx',
-			code: `let entity = /&#x?[\da-f]{1,8};/
-const regExpLiteral = /Hello/gi;
-for (const foo of ['a', 'b', 'c']) {
-	if (foo === 'foobar') break;
-	await foo;
-}
-
-const Tips = () => {
-	const person: {name: string; age: number; skills: string[]} = {
-		name: 'Dom',
-		age: 28,
-		skills: ['Programming', \`Cooking \${JSON.stringify(1 + 1) == 2}\`, 'Tennis'],
-	}
-
-	const copied = JSON.parse(JSON.stringify(person))
-
-	const PI = 3.1415
-
-	function testFunction() {
-		if(1 === 1 && 2 == 2) {
-			console.log(true === false)
-			console.log(person.skills === copied.skills) // false 😎
-		}
-	}
-
-	testFunction()
-
-	return (
-		<Container>
-			<Text heading="h1" size="4xl" className="sm:text-size-6xl">
-				Tips
-			</Text>
-			<Highlight code={jsString} language="javascript" theme={cobalt2Theme}>
-				{({ style, tokens, getLineProps, getTokenProps }) => (
-					<pre className="font-semibold" style={style}>
-						{tokens.map((line, i) => (
-							<div key={i} {...getLineProps({ line })}>
-								<span>{i + 1}</span>
-								{line.map((token, key) => (
-									<span key={key} {...getTokenProps({ token })} />
-								))}
-							</div>
-						))}
-					</pre>
-				)}
-			</Highlight>
-			<Spacer size="xs" />
-			<Highlight code={htmlString} language="html" theme={cobalt2Theme}>
-				{({ style, tokens, getLineProps, getTokenProps }) => (
-					<pre style={style}>
-						{tokens.map((line, i) => (
-							<div key={i} {...getLineProps({ line })}>
-								<span>{i + 1}</span>
-								{line.map((token, key) => (
-									<span key={key} {...getTokenProps({ token })} />
-								))}
-							</div>
-						))}
-					</pre>
-				)}
-			</Highlight>
-		</Container>
-	)
-}`,
+			title: 'Filter repeated values',
+			description: 'Use this code snippet to remove repeated values from an array.',
+			filename: 'unique',
+			extension: 'ts',
+			code: `const array = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7]
+const uniqueArray = [...new Set(array)]
+console.log(unique) // [1, 2, 3, 4, 5, 6, 7]`,
 		},
 		{
-			filename: 'example',
-			extension: 'tsx',
-			code: `let entity = /&#x?[\da-f]{1,8};/
-const regExpLiteral = /Hello/gi;
-for (const foo of ['a', 'b', 'c']) {
-	if (foo === 'foobar') break;
-	await foo;
-}
-
-const Tips = () => {
-	const person: {name: string; age: number; skills: string[]} = {
-		name: 'Dom',
-		age: 28,
-		skills: ['Programming', \`Cooking \${JSON.stringify(1 + 1) == 2}\`, 'Tennis'],
-	}
-
-	const copied = JSON.parse(JSON.stringify(person))
-
-	const PI = 3.1415
-
-	function testFunction() {
-		if(1 === 1 && 2 == 2) {
-			console.log(true === false)
-			console.log(person.skills === copied.skills) // false 😎
-		}
-	}
-
-	testFunction()
-
-	return (
-		<Container>
-			<Text heading="h1" size="4xl" className="sm:text-size-6xl">
-				Tips
-			</Text>
-			<Highlight code={jsString} language="javascript" theme={cobalt2Theme}>
-				{({ style, tokens, getLineProps, getTokenProps }) => (
-					<pre className="font-semibold" style={style}>
-						{tokens.map((line, i) => (
-							<div key={i} {...getLineProps({ line })}>
-								<span>{i + 1}</span>
-								{line.map((token, key) => (
-									<span key={key} {...getTokenProps({ token })} />
-								))}
-							</div>
-						))}
-					</pre>
-				)}
-			</Highlight>
-			<Spacer size="xs" />
-			<Highlight code={htmlString} language="html" theme={cobalt2Theme}>
-				{({ style, tokens, getLineProps, getTokenProps }) => (
-					<pre style={style}>
-						{tokens.map((line, i) => (
-							<div key={i} {...getLineProps({ line })}>
-								<span>{i + 1}</span>
-								{line.map((token, key) => (
-									<span key={key} {...getTokenProps({ token })} />
-								))}
-							</div>
-						))}
-					</pre>
-				)}
-			</Highlight>
-		</Container>
-	)
-}`,
+			title: 'Array filter to clean arrays',
+			description: 'Use the .filter() function to remove falsy values from an array.',
+			filename: 'filter',
+			extension: 'ts',
+			code: `const array = ['andre', false, 0, 'loves', null, undefined, 'you']
+const cleanArray = array.filter(v => v)
+console.log(cleanArray) // ['andre', 'loves', 'you']`,
+		},
+		{
+			title: 'Flatten an array',
+			description: 'Use the .flat() function to flatten a deeply nested array of arrays.',
+			filename: 'flat',
+			extension: 'ts',
+			code: `const array = [1, [2, 3, [4, 5, [6, 7], 8], 9], 10]
+const flattenedArray = array.flat(Infinity)
+console.log(flattenedArray) // [1, 2, 3, 4, 5, 6, 7, 8, 9]`,
+		},
+		{
+			title: 'Sort an array alphabetically',
+			description: 'Use the .sort() and .localeCompare() functions to sort alphabetically.',
+			filename: 'sort',
+			extension: 'ts',
+			code: `const array = ['study', 'I', 'must']
+const sortedArray = array.sort((a, b) => a.localeCompare(b))
+console.log(sortedArray) // ['I', 'must', 'study']`,
 		},
 	]
 
@@ -158,8 +58,16 @@ const Tips = () => {
 					</Text>
 				</div>
 			</div>
-			{tips.map(({ filename, extension, code }, i) => (
-				<CodeBlock key={i} filename={filename} extension={extension} code={code} className="mt-10" />
+			{tips.map(({ title, description, filename, extension, code }, i) => (
+				<div key={i} className="py-24 sm:py-32">
+					<Text size="3xl" className="mt-2 font-bold sm:text-4xl">
+						{title}
+					</Text>
+					<Text size="lg" className="mt-6 text-muted-600">
+						{description}
+					</Text>
+					<CodeBlock filename={filename} extension={extension} code={code} className="mt-10" />
+				</div>
 			))}
 		</Container>
 	)
