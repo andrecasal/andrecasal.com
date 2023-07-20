@@ -23,6 +23,12 @@ export default function Index() {
 			link: '/tips',
 		},
 		{
+			name: 'Short videos',
+			description: 'Spicy little golden nuggets of knowledge. Think of this as Instagram for web dev. Consume at leisure.',
+			icon: 'play',
+			link: '/shorts',
+		},
+		{
 			name: 'In-depth articles',
 			description: "If you feel like digging a little deeper and exploring a rabbit hole, read an article. It's worth taking notes on these ones.",
 			icon: 'file-text',
@@ -31,7 +37,7 @@ export default function Index() {
 		{
 			name: 'Talks',
 			description: "Talks have the same depth as the articles, except in video format. It's also worth to take notes on these ones, but feel free to merely be entertained.",
-			icon: 'play',
+			icon: 'presentation-chart-line',
 			link: '/talks',
 		},
 		{
@@ -58,28 +64,26 @@ export default function Index() {
 						<Text heading="h2" size="md" className="text-brand">
 							Everything you need to
 						</Text>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-4 font-bold sm:text-size-4xl">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer
 						</Text>
-						<p className="mt-6 text-lg leading-8 text-muted-600">My website's content is organized in a rising progression of time and depth.</p>
+						<p className="mt-6 text-lg leading-8 text-muted-600">The website's content is organized in a rising progression of time and depth.</p>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
-								<div key={feature.name}>
-									<Link to={feature.link}>
-										<Text size="md" asChild>
-											<dt className="flex gap-2 font-bold text-muted-900">
-												<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
-												{feature.name}
-											</dt>
-										</Text>
-										<Text size="md" asChild>
-											<dd className="mt-2 text-muted-600">{feature.description}</dd>
-										</Text>
-									</Link>
-								</div>
+								<Link key={feature.name} to={feature.link} className="rounded-xl p-4 hover:bg-muted-100">
+									<Text size="md" asChild>
+										<dt className="flex gap-2 font-bold text-muted-900">
+											<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
+											{feature.name}
+										</dt>
+									</Text>
+									<Text size="md" asChild>
+										<dd className="mt-2 text-muted-600">{feature.description}</dd>
+									</Text>
+								</Link>
 							))}
 						</dl>
 					</div>

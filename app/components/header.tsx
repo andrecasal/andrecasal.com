@@ -43,6 +43,16 @@ export default function Header() {
 								<NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
+											to="/shorts"
+											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+										>
+											Shorts
+										</NavLink>
+									</NavigationMenuLink>
+								</NavigationMenuItem>
+								<NavigationMenuItem>
+									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+										<NavLink
 											to="/articles"
 											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 										>
@@ -99,24 +109,41 @@ export default function Header() {
 									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/uses"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Uses
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem>
-								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/about"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											About
-										</NavLink>
-									</NavigationMenuLink>
+									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">About</NavigationMenuTrigger>
+									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
+										<NavigationMenuList>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+													<Link
+														to="/about"
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
+														About André
+													</Link>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+													<Link
+														to="/uses"
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
+														Uses
+													</Link>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+													<Link
+														to="/transparency"
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
+														Transparency
+													</Link>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+										</NavigationMenuList>
+									</NavigationMenuContent>
 								</NavigationMenuItem>
 								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
@@ -161,6 +188,17 @@ export default function Header() {
 														onClick={() => setOpen(false)}
 													>
 														Tips
+													</NavLink>
+												</NavigationMenuLink>
+											</NavigationMenuItem>
+											<NavigationMenuItem>
+												<NavigationMenuLink asChild>
+													<NavLink
+														to="/shorts"
+														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+														onClick={() => setOpen(false)}
+													>
+														Shorts
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
