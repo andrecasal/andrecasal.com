@@ -205,7 +205,7 @@ const Tutoring = () => {
 	return (
 		<>
 			<Container className="relative">
-				<div className="lg:grid lg:grid-cols-12 lg:gap-x-8">
+				<div className="lg:grid lg:grid-cols-12 lg:gap-x-20">
 					<div className="pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:pb-56 lg:pt-48 xl:col-span-6">
 						<div className="mx-auto max-w-2xl lg:mx-0">
 							<Text heading="h1" size="4xl" className="mt-24 sm:mt-10 sm:text-size-6xl">
