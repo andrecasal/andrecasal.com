@@ -1,3 +1,4 @@
+import { Newsletter } from '~/components/newsletter.tsx'
 import { CodeBlock, type Language } from '~/components/ui/code-block.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
@@ -69,6 +70,11 @@ console.log(sortedArray) // ['I', 'must', 'study']`,
 					<CodeBlock filename={filename} extension={extension} code={code} className="mt-10" />
 				</div>
 			))}
+			<Newsletter
+				className="relative isolate mt-32 sm:mt-56"
+				title="Get exclusive coding tips that I only share with email subscribers"
+				description="Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks."
+			/>
 		</Container>
 	)
 }

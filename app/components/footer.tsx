@@ -67,23 +67,31 @@ const navigation = {
 	],
 	sitemap: [
 		{ name: 'Tips', href: '/tips' },
+		{ name: 'Shorts', href: '/shorts' },
 		{ name: 'Articles', href: '/articles' },
 		{ name: 'Talks', href: '/talks' },
 		{ name: 'Courses', href: '/courses' },
 		{ name: 'Mentoring', href: '/mentorship' },
 		{ name: 'About', href: '/about' },
+		{ name: 'Uses', href: '/uses' },
+		{ name: 'Transparency', href: '/transparency' },
+	],
+	courses: [{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' }],
+	legal: [
+		{ name: 'Privacy', href: '/privacy' },
+		{ name: 'Terms', href: '/terms' },
 	],
 }
 
 const Footer = () => {
 	return (
-		<footer aria-labelledby="footer-heading">
-			<h2 id="footer-heading" className="sr-only">
-				Footer
-			</h2>
-			<Container>
+		<Container className="mt-12 sm:mt-36">
+			<footer aria-labelledby="footer-heading">
+				<h2 id="footer-heading" className="sr-only">
+					Footer
+				</h2>
 				<div className="mt-8 border-t border-muted-900/10 pb-8 pt-8 sm:mt-12 sm:pt-12 lg:mt-16 lg:pt-16">
-					<div className="md:grid md:grid-cols-3 md:gap-8">
+					<div className="md:grid md:grid-cols-2 md:gap-8">
 						<div className="space-y-8">
 							<Text heading="h2" size="2xl" className="font-semibold tracking-normal">
 								André Casal
@@ -100,24 +108,54 @@ const Footer = () => {
 								))}
 							</div>
 						</div>
-						<div className="mt-16 grid grid-cols-2 gap-8 md:col-span-2 md:mt-0">
-							<div className="md:grid md:grid-cols-2 md:gap-8">
-								<div>
-									<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
-										Sitemap
-									</Text>
-									<ul className="mt-6 space-y-4">
-										{navigation.sitemap.map(item => (
-											<Text key={item.name} size="sm" asChild>
-												<li>
-													<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
-														{item.name}
-													</a>
-												</li>
-											</Text>
-										))}
-									</ul>
-								</div>
+						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
+							<div>
+								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+									Sitemap
+								</Text>
+								<ul className="mt-6 space-y-4">
+									{navigation.sitemap.map(item => (
+										<Text key={item.name} size="sm" asChild>
+											<li>
+												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
+													{item.name}
+												</a>
+											</li>
+										</Text>
+									))}
+								</ul>
+							</div>
+							<div className="mt-10 md:mt-0">
+								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+									Courses
+								</Text>
+								<ul className="mt-6 space-y-4">
+									{navigation.courses.map(item => (
+										<Text key={item.name} size="sm" asChild>
+											<li>
+												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
+													{item.name}
+												</a>
+											</li>
+										</Text>
+									))}
+								</ul>
+							</div>
+							<div className="mt-10 md:mt-0">
+								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+									Legal
+								</Text>
+								<ul className="mt-6 space-y-4">
+									{navigation.legal.map(item => (
+										<Text key={item.name} size="sm" asChild>
+											<li>
+												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
+													{item.name}
+												</a>
+											</li>
+										</Text>
+									))}
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -127,8 +165,8 @@ const Footer = () => {
 						</Text>
 					</div>
 				</div>
-			</Container>
-		</footer>
+			</footer>
+		</Container>
 	)
 }
 

@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react'
+import { Newsletter } from '~/components/newsletter.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Container } from '~/components/ui/container.tsx'
 
@@ -111,6 +112,11 @@ export default function Talks() {
 					See all talks <span aria-hidden="true">→</span>
 				</Link>
 			</Button>
+			<Newsletter
+				className="relative isolate mt-32 sm:mt-56"
+				title="Get exclusive talks that I only share with email subscribers"
+				description="Golden nuggets of code knowledge. Delivered to your inbox every 2 weeks."
+			/>
 		</Container>
 	)
 }

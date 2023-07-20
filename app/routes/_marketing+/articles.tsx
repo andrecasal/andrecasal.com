@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from '@remix-run/react'
 import { Container } from '../../components/ui/container.tsx'
-import Newsletter from './components/newsletter.tsx'
+import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
@@ -107,7 +107,13 @@ const Blog = () => {
 					</div>
 				</Container>
 			</BackgroundBlur>
-			<Newsletter />
+			<Container>
+				<Newsletter
+					className="relative isolate mt-32 sm:mt-56"
+					title="Get exclusive articles that I only share with email subscribers"
+					description="Golden nuggets of in-depth code knowledge. Delivered to your inbox every 2 weeks."
+				/>
+			</Container>
 		</>
 	)
 }
