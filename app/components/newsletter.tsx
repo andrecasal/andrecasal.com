@@ -1,6 +1,5 @@
 import { Button } from '~/components/ui/button.tsx'
 import { Text } from '~/components/ui/text.tsx'
-import { Icon } from '~/components/ui/icon.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
 import { cn } from '~/utils/misc.ts'
@@ -31,8 +30,8 @@ const Newsletter = ({ className, title, description }: { className?: string; tit
 					</div>
 				</div>
 				<div className="space-y-8 xl:contents xl:space-y-0">
-					<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
-						<blockquote className="p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900">
+					<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5 xl:col-start-2 xl:row-end-1">
+						<blockquote className="flex p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900 xl:grow xl:items-center">
 							<p>“I thought the website was good. But the newsletter? Even better!”</p>
 						</blockquote>
 						<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
@@ -41,13 +40,9 @@ const Newsletter = ({ className, title, description }: { className?: string; tit
 									src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=1024&amp;h=1024&amp;q=80"
 									alt=""
 								/> */}
-							<Icon name="person" className="h-10 w-10 flex-none rounded-full bg-muted-50" />
 							<div className="flex-auto">
 								<Text size="sm" className="font-semibold">
-									Zayd Flanegan
-								</Text>
-								<Text size="sm" className="text-muted-600">
-									@zaydflanegan
+									Keeran Flanegan
 								</Text>
 							</div>
 						</figcaption>

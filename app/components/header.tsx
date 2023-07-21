@@ -30,7 +30,7 @@ export default function Header() {
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<div className="hidden lg:flex lg:gap-x-6">
-								<NavigationMenuItem>
+								{/* <NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/tips"
@@ -39,8 +39,8 @@ export default function Header() {
 											Tips
 										</NavLink>
 									</NavigationMenuLink>
-								</NavigationMenuItem>
-								<NavigationMenuItem>
+								</NavigationMenuItem> */}
+								{/* <NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/shorts"
@@ -49,8 +49,8 @@ export default function Header() {
 											Shorts
 										</NavLink>
 									</NavigationMenuLink>
-								</NavigationMenuItem>
-								<NavigationMenuItem>
+								</NavigationMenuItem> */}
+								{/* <NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/articles"
@@ -59,8 +59,8 @@ export default function Header() {
 											Articles
 										</NavLink>
 									</NavigationMenuLink>
-								</NavigationMenuItem>
-								<NavigationMenuItem>
+								</NavigationMenuItem> */}
+								{/* <NavigationMenuItem>
 									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
 										<NavLink
 											to="/talks"
@@ -69,7 +69,7 @@ export default function Header() {
 											Talks
 										</NavLink>
 									</NavigationMenuLink>
-								</NavigationMenuItem>
+								</NavigationMenuItem> */}
 								<NavigationMenuItem>
 									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">Courses</NavigationMenuTrigger>
 									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
@@ -108,7 +108,7 @@ export default function Header() {
 										</NavLink>
 									</NavigationMenuLink>
 								</NavigationMenuItem>
-								<NavigationMenuItem>
+								{/* <NavigationMenuItem>
 									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">About</NavigationMenuTrigger>
 									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
 										<NavigationMenuList>
@@ -144,7 +144,7 @@ export default function Header() {
 											</NavigationMenuItem>
 										</NavigationMenuList>
 									</NavigationMenuContent>
-								</NavigationMenuItem>
+								</NavigationMenuItem> */}
 								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
 							</div>

@@ -1,7 +1,7 @@
 import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
-import { Newsletter } from '~/components/newsletter.tsx'
+/* import { Newsletter } from '~/components/newsletter.tsx' */
 import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/components/ui/text.tsx'
@@ -15,30 +15,30 @@ export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 
 export default function Index() {
 	const features = [
-		{
+		/* {
 			name: 'Hot and spicy little tips',
 			description: 'Spicy little golden nuggets of knowledge. Think of this as Instagram for web dev. Consume at leisure.',
 			icon: 'fire',
 			link: '/tips',
-		},
-		{
+		}, */
+		/* {
 			name: 'Short videos',
 			description: 'Spicy little golden nuggets of knowledge. Think of this as Instagram for web dev. Consume at leisure.',
 			icon: 'play',
 			link: '/shorts',
-		},
-		{
+		}, */
+		/* {
 			name: 'In-depth articles',
 			description: "If you feel like digging a little deeper and exploring a rabbit hole, read an article. It's worth taking notes on these ones.",
 			icon: 'file-text',
 			link: '/articles',
-		},
-		{
+		}, */
+		/* {
 			name: 'Talks',
 			description: "Talks have the same depth as the articles, except in video format. It's also worth to take notes on these ones, but feel free to merely be entertained.",
 			icon: 'presentation-chart-line',
 			link: '/talks',
-		},
+		}, */
 		{
 			name: 'Courses',
 			description: "If you'd like to become an expert in a particular topic, you can always buy a course.",
@@ -87,11 +87,11 @@ export default function Index() {
 						</dl>
 					</div>
 				</div>
-				<Newsletter
+				{/* <Newsletter
 					className="mt-32 sm:mt-56"
 					title="Get exclusive web dev tips that I only share with email subscribers"
 					description="Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks."
-				/>
+				/> */}
 			</Container>
 		</>
 	)

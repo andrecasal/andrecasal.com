@@ -8,78 +8,114 @@ import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion.tsx'
 import BackgroundRadial from '../components/bg-radial.tsx'
+import BackgroundDiagonal from '../components/bg-diagonal.tsx'
+import zacharyCassette from '../images/zachary-cassette.jpg'
+import signature from '../images/signature.png'
 
 const MasteryForVSCode = () => {
 	const features = [
 		{
-			name: 'Push to deploy',
-			description: 'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+			name: 'Dominate VS Code',
+			description: 'Learn to dominate VS Code, mastering every aspect of this powerful code editor.',
+			icon: 'trophy',
+		},
+		{
+			name: 'Best practices',
+			description: 'Discover and implement best practices to streamline your development process.',
+			icon: 'heart',
+		},
+		{
+			name: 'Essential shortcuts',
+			description: 'Unlock the potential of essential shortcuts for lightning-fast coding.',
 			icon: 'bolt',
 		},
 		{
-			name: 'SSL certificates',
-			description: 'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-			icon: 'bolt',
+			name: 'Upgraded snippets',
+			description: 'Upgrade your default snippets to code more efficiently than ever before.',
+			icon: 'code',
 		},
 		{
-			name: 'Simple queues',
-			description: 'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-			icon: 'bolt',
+			name: 'The best extensions',
+			description: 'Harness the power of the best extensions available to supercharge your workflow.',
+			icon: 'puzzle',
 		},
 		{
-			name: 'Advanced security',
-			description: 'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-			icon: 'bolt',
+			name: 'Automate tasks',
+			description: 'Automate repetitive tasks and watch your productivity soar to new heights.',
+			icon: 'arrow-path',
+		},
+		{
+			name: 'Quality feeback',
+			description: 'Get quality feedback on the quality of your code, honing your skills continuously.',
+			icon: 'check',
+		},
+		{
+			name: 'Stay in your editor',
+			description: 'Integrate otherwise external workflows into VS Code, never leaving your editor.',
+			icon: 'keyboard',
+		},
+		{
+			name: 'Leverage AI',
+			description: 'Leverage AI assistance for coding to boost your creativity and efficiency.',
+			icon: 'wand',
 		},
 	]
 
 	const moreFeatures = [
 		{
-			name: 'Push to deploy.',
-			description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-			icon: 'bolt',
+			name: 'Save time',
+			description: "Save time and effort by mastering VS Code's shortcuts and automation tools.",
+			icon: 'stopwatch',
 		},
 		{
-			name: 'SSL certificates.',
-			description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-			icon: 'bolt',
+			name: 'Write cleaner code',
+			description: 'Write cleaner and more maintainable code with the help of best practices and feedback.',
+			icon: 'star',
 		},
 		{
-			name: 'Simple queues.',
-			description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
-			icon: 'bolt',
+			name: 'Stay focused',
+			description: 'Stay focused and productive with a seamlessly integrated workflow.',
+			icon: 'target',
 		},
 		{
-			name: 'Advanced security.',
-			description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-			icon: 'bolt',
+			name: "Unlock extensions's potential",
+			description: 'Unlock the full potential of VS Code by discovering and utilizing the best extensions.',
+			icon: 'rocket',
 		},
 		{
-			name: 'Powerful API.',
-			description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-			icon: 'bolt',
+			name: 'Code faster',
+			description: 'Improve your coding speed and efficiency, leading to faster project completion.',
+			icon: 'jet-fighter',
 		},
 		{
-			name: 'Database backups.',
-			description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
-			icon: 'bolt',
+			name: 'Gain confidence',
+			description: 'Gain the confidence to tackle complex coding challenges effortlessly with AI assistance.',
+			icon: 'trophy',
+		},
+		{
+			name: 'Boost employability',
+			description: 'Boost your employability with essential skills for any modern full-stack developer.',
+			icon: 'suitcase',
+		},
+		{
+			name: 'Community access',
+			description: 'Access to a supportive community of learners, sharing experiences and knowledge.',
+			icon: 'chat-bubbles',
 		},
 	]
 
 	const stats = [
-		{ id: 1, name: 'Creators on the platform', value: '8,000+' },
-		{ id: 2, name: 'Flat platform fee', value: '3%' },
-		{ id: 3, name: 'Uptime guarantee', value: '99.9%' },
-		{ id: 4, name: 'Paid out to creators', value: '$70M' },
+		{ id: 1, name: 'Satisfied developers', value: '8,000+' },
+		{ id: 3, name: 'Five-star reviews', value: '500+' },
+		{ id: 2, name: 'Increase in coding speed', value: '30%' },
+		{ id: 4, name: 'Completion rate', value: '90%' },
 	]
 
 	const featuredTestimonial = {
-		body: 'Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.',
+		body: "André is the best! He's is a very patient and dedicated mentor, he has helped me a lot stepping up my dev career and feel more confident very quickly. He guided me through all the steps to deploy an enterprise grade SaaS application, and I'd never imagine I'd find someone so invested in my project and my success.",
 		author: {
-			name: 'Brenna Goyette',
-			handle: 'brennagoyette',
-			imageUrl: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80',
-			logoUrl: 'https://tailwindui.com/img/logos/savvycal-logo-muted-900.svg',
+			name: 'Zachary Cassette',
+			imageUrl: zacharyCassette,
 		},
 	}
 
@@ -87,29 +123,17 @@ const MasteryForVSCode = () => {
 		[
 			[
 				{
-					body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
+					body: 'André Casal is the most intelligent, hardworking, and caring web developer I know. If you want to receive the highest grade of help, go with him.',
 					author: {
-						name: 'Leslie Alexander',
-						handle: 'lesliealexander',
-						imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-					},
-				},
-				{
-					body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
-					author: {
-						name: 'Leslie Alexander',
-						handle: 'lesliealexander2',
-						imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+						name: 'Mony Chhim',
 					},
 				},
 			],
 			[
 				{
-					body: 'Aut reprehenderit voluptatem eum asperiores beatae id. Iure molestiae ipsam ut officia rem nulla blanditiis.',
+					body: 'Very good!',
 					author: {
-						name: 'Lindsay Walton',
-						handle: 'lindsaywalton3',
-						imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+						name: 'Wilson Mesquita',
 					},
 				},
 			],
@@ -117,29 +141,23 @@ const MasteryForVSCode = () => {
 		[
 			[
 				{
-					body: 'Voluptas quos itaque ipsam in voluptatem est. Iste eos blanditiis repudiandae. Earum deserunt enim molestiae ipsum perferendis recusandae saepe corrupti.',
+					body: 'Beyond expectations!',
 					author: {
-						name: 'Tom Cook',
-						handle: 'tomcook4',
-						imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+						name: 'Helena Oliveira',
 					},
 				},
 			],
 			[
 				{
-					body: 'Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.',
+					body: 'André is extremely knowledgeable in React.',
 					author: {
-						name: 'Leonard Krasner',
-						handle: 'leonardkrasner5',
-						imageUrl: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+						name: 'Tarek Moussa',
 					},
 				},
 				{
-					body: 'Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.',
+					body: "It's perfect. Recommend 100%. Couldn't have found better. Very thankful for everything.",
 					author: {
-						name: 'Leonard Krasner',
-						handle: 'leonardkrasner6',
-						imageUrl: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+						name: 'Isabel Rodrigues',
 					},
 				},
 			],
@@ -150,20 +168,60 @@ const MasteryForVSCode = () => {
 		return classes.filter(Boolean).join(' ')
 	}
 
-	const includedFeatures = ['Solving challenges', 'Pair programming', 'Code Reviews', 'Merge Requests']
+	const includedFeatures = [
+		'Learn all about VS Code',
+		'Make VS Code look awesome',
+		'Improved shortcuts and snippets',
+		'Improved DX',
+		'Automated formatting and linting',
+		'Terminal upgrades',
+		'Integrate workflows',
+		'...and much more',
+	]
 
 	const faqs = [
 		{
-			question: "What's the best thing about Switzerland?",
-			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+			question: 'Is this course suitable for beginners?',
+			answer: 'While some familiarity with web development is beneficial, the course is designed to be beginner-friendly, guiding you from basics to advanced concepts.',
 		},
 		{
-			question: "What's the best thing about Switzerland?",
-			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+			question: "What if I can't keep up with the course schedule?",
+			answer: "Don't worry! Once you enroll, you'll have lifetime access to the course material, allowing you to learn at your own pace.",
 		},
 		{
-			question: "What's the best thing about Switzerland?",
-			answer: "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+			question: 'How do I get support during the course?',
+			answer: "You can get support through our online community and email. I'm here to help you with any questions or challenges you encounter.",
+		},
+		{
+			question: 'What tech does it support?',
+			answer: 'It supports the technologies used in modern full-stack web development: HTML, CSS, JavaScript, TypeScript, React, Node.js, and more.',
+		},
+	]
+
+	const modules = [
+		{
+			name: 'Getting to know VS Code',
+			description: "Part one is all about VS Code's native capabilities and how to use it without any configurations or extensions.",
+		},
+		{
+			name: 'Excellent DX',
+			description: 'Part two is all about improvements that apply to any language or framework, providing you with a consistently excellent developer experience.',
+		},
+		{
+			name: 'Best Practices',
+			description: 'The third part is about teaching you all the best practices you need to know for full-stack web development.',
+		},
+		{
+			name: 'Languages, libraries, frameworks, and tools',
+			description: 'The fourth part is all about improving your developer experience and teaching you best practices in your particular tech stack.',
+		},
+		{
+			name: 'Integrating Workflows',
+			description: 'The fifth section is all about integrating otherwise external workflows into VS Code. Stay in your editor.',
+		},
+		{
+			name: 'Common Pitfalls',
+			description: "In this section, we'll go over some common pitfalls people fall into when using VS Code.",
 		},
 	]
 
@@ -190,12 +248,16 @@ const MasteryForVSCode = () => {
 								Mastery
 								<br className="hidden lg:block" /> for VS Code
 							</Text>
-							<Text size="lg" className="mt-6">
-								Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+							<Text size="lg" className="mt-6 text-muted-600">
+								Upgrade your coding game with <strong>the</strong> course on VS Code.
+							</Text>
+							<Text size="md" className="mt-6 text-muted-900">
+								Are you a full-stack web developer looking to level up your coding skills? Welcome to <strong>Mastery for VS Code</strong> - the ultimate online course that
+								will transform you into a VS Code ninja! Say goodbye to inefficient workflows and hello to unparalleled productivity.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-6">
-								<Button asChild>
-									<Link to="#pricing">Get started</Link>
+								<Button size="lg" asChild>
+									<Link to="#pricing">I want to master VS Code</Link>
 								</Button>
 							</div>
 						</div>
@@ -217,13 +279,13 @@ const MasteryForVSCode = () => {
 				<div className=" py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
 						<Text heading="h2" size="md" className="text-brand">
-							Deploy faster
+							Course Overview
 						</Text>
 						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-							Everything you need to deploy
+							Efficient full-stack web development
 						</Text>
 						<Text size="lg" className="mt-6 text-muted-700">
-							Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.
+							In this course, you will:
 						</Text>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -254,23 +316,21 @@ const MasteryForVSCode = () => {
 							Everything you need
 						</Text>
 						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-							Everything you need
+							Benefits of the course
 						</Text>
 						<Text size="lg" className="mt-6 text-muted-700">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis.
+							Here's what you can expect out of this course.
 						</Text>
 					</div>
 				</div>
-				<div className="relative overflow-hidden pt-16">
-					<div className="mx-auto max-w-7xl px-6 lg:px-8">
-						<img src="/img/vs-code-screenshot.png" alt="App screenshot" className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" width={2432} height={1442} />
-						<div className="relative" aria-hidden="true">
-							<div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-background pt-[7%]" />
-						</div>
+				<div className="relative overflow-hidden">
+					<img src="/img/vs-code-screenshot.png" alt="App screenshot" className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-muted-900/10" width={2432} height={1442} />
+					<div className="relative" aria-hidden="true">
+						<div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-background pt-[7%]" />
 					</div>
 				</div>
 				<div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
-					<dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+					<dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-muted-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
 						{moreFeatures.map(feature => (
 							<div key={feature.name} className="flex flex-col">
 								<Text size="md" asChild>
@@ -294,23 +354,23 @@ const MasteryForVSCode = () => {
 					<div className="relative isolate mt-32 overflow-hidden py-24 sm:mt-56 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
 							<Text heading="h2" size="md" className="text-brand">
-								Our track record
+								Track record
 							</Text>
 							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-								Trusted by thousands of creators&nbsp;worldwide
+								Trusted by thousands of devs worldwide
 							</Text>
 							<Text size="lg" className="mt-6 text-muted-700">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+								Join the other thousands of developers that have taken the course and loved it.
 							</Text>
 						</div>
 						<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 							{stats.map(stat => (
 								<div key={stat.id} className="flex flex-col gap-y-3 border-l border-white/10">
-									<Text size="sm" asChild>
+									<Text size="sm" className="font-semibold text-muted-600" asChild>
 										<dt>{stat.name}</dt>
 									</Text>
 									<Text size="3xl" asChild>
-										<dd className="order-first font-semibold tracking-tight">{stat.value}</dd>
+										<dd className="order-first font-semibold tracking-tight text-muted-900">{stat.value}</dd>
 									</Text>
 								</div>
 							))}
@@ -325,7 +385,7 @@ const MasteryForVSCode = () => {
 							Testimonials
 						</Text>
 						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-							I've worked with amazing people <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+							I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 						</Text>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -334,13 +394,11 @@ const MasteryForVSCode = () => {
 								<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 							</blockquote>
 							<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
-								<Icon name="person" className="h-10 w-10 flex-none" />
-								{/* <img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" /> */}
+								<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="Zachary Cassette" />
 								<div className="flex-auto">
 									<Text size="sm" className="font-semibold">
 										{featuredTestimonial.author.name}
 									</Text>
-									<Text size="sm" className="text-muted-600">{`@${featuredTestimonial.author.handle}`}</Text>
 								</div>
 								{/* <img className="h-10 w-auto flex-none" src={featuredTestimonial.author.logoUrl} alt="" /> */}
 							</figcaption>
@@ -358,18 +416,15 @@ const MasteryForVSCode = () => {
 										)}
 									>
 										{column.map(testimonial => (
-											<figure key={testimonial.author.handle} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
+											<figure key={testimonial.author.name} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
 												<blockquote>
 													<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
 												</blockquote>
 												<figcaption className="mt-6 flex items-center gap-x-4">
-													<Icon name="person" className="h-10 w-10" />
-													{/* <img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt="" /> */}
 													<div>
 														<Text size="sm" className="font-semibold">
-															{featuredTestimonial.author.name}
+															{testimonial.author.name}
 														</Text>
-														<Text size="sm" className="text-muted-600">{`@${featuredTestimonial.author.handle}`}</Text>
 													</div>
 												</figcaption>
 											</figure>
@@ -381,64 +436,113 @@ const MasteryForVSCode = () => {
 					</div>
 				</div>
 			</Container>
+			<BackgroundDiagonal>
+				<Container className="py-32 sm:py-40">
+					<div className="lg:flex lg:gap-x-10">
+						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+							<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
+								Hi! I'm André Casal a seasoned full-stack web developer.
+							</Text>
+							<Text size="lg" className="mt-6 text-muted-700">
+								With over 16 years of experience, my passion for coding and optimizing workflows led me to master VS Code, and now I'm excited to share my knowledge with you.
+								As an enthusiastic educator, I'm dedicated to helping you succeed in your coding journey, and help you ship better products, delight your customers, and take
+								your career to new heights.
+							</Text>
+							<div className="mt-10 flex items-center gap-x-6">
+								<Button size="lg" asChild>
+									<Link to="/mentorship">I want to master VS Code</Link>
+								</Button>
+							</div>
+						</div>
+						<div className="mt-16 sm:mt-24 lg:mt-0">
+							<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
+						</div>
+					</div>
+				</Container>
+			</BackgroundDiagonal>
 			<Container>
-				<div className="mx-auto max-w-4xl py-24 sm:py-32">
-					<div className="mx-auto max-w-2xl sm:text-center">
-						<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-							Simple no-tricks pricing
+				<div className="py-24 sm:py-32">
+					<div className="mx-auto max-w-2xl lg:text-center">
+						<Text heading="h2" size="md" className="text-brand">
+							Easy to follow modules
 						</Text>
-						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
-							I charge ~80€ per hour. The payments are done monthly.
-							<br />
-							Here are the most common plans mentees go for.
+						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							Course structure
+						</Text>
+						<Text size="lg" className="mt-6 text-gray-600">
+							The course is divided into easy-to-follow modules.
 						</Text>
 					</div>
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-						<div className="p-8 sm:p-10 lg:flex-auto">
-							<Text heading="h3" size="2xl">
-								Mentorship 4h/week
-							</Text>
-							<Text size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for mentees building a product <strong>full-time</strong>. Chat is always available.
-							</Text>
-							<div className="mt-10 flex items-center gap-x-4">
-								<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
-									We can use this time for
-								</Text>
-								<div className="h-px flex-auto bg-muted-100" />
-							</div>
-							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
-								{includedFeatures.map(feature => (
-									<li key={feature} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
-										{feature}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" className="font-semibold text-muted-600">
-										Pay once, own it forever
-									</Text>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text size="5xl" className="font-bold" asChild>
-											<span>€180</span>
-										</Text>
-										<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-											<span>EUR</span>
-										</Text>
-									</p>
-									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
-											Schedule initial call
-										</a>
-									</Button>
-									<Text size="xs" className="mt-6 text-muted-600">
-										Invoices and receipts available for easy company reimbursement
-									</Text>
+					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+							{modules.map((module, i) => (
+								<div key={module.name} className="flex flex-col">
+									<dt className="flex items-baseline gap-x-3 text-base font-semibold leading-7 text-muted-900">
+										<span className="text-size-4xl text-muted-200">{i + 1}</span> {module.name}
+									</dt>
+									<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+										<p className="flex-auto">{module.description}</p>
+									</dd>
 								</div>
+							))}
+						</dl>
+					</div>
+				</div>
+			</Container>
+			<Container className="py-24 sm:py-32">
+				<div className="mx-auto max-w-2xl sm:text-center">
+					<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl" id="pricing">
+						Enroll now
+					</Text>
+					<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
+						Gain instant access to the <strong>Mastery for VS Code</strong> course.
+					</Text>
+				</div>
+				<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+					<div className="p-8 sm:p-10 lg:flex-auto">
+						<Text heading="h3" size="2xl">
+							Lifetime membership
+						</Text>
+						<Text size="md" className="mt-6 text-muted-600">
+							Level up your coding skills and dominate the world of full-stack web development!
+						</Text>
+						<div className="mt-10 flex items-center gap-x-4">
+							<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
+								What’s included
+							</Text>
+							<div className="h-px flex-auto bg-muted-100" />
+						</div>
+						<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+							{includedFeatures.map(feature => (
+								<li key={feature} className="flex gap-x-3">
+									<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+									{feature}
+								</li>
+							))}
+						</ul>
+					</div>
+					<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+						<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+							<div className="mx-auto max-w-xs px-8">
+								<Text size="md" className="font-semibold text-muted-600">
+									Pay once, own it forever
+								</Text>
+								<p className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Text size="5xl" className="font-bold" asChild>
+										<span>€180</span>
+									</Text>
+									<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
+										<span>EUR</span>
+									</Text>
+								</p>
+								<Button variant="primary" size="wide" asChild className="mt-10">
+									<a href="https://andrecasal.gumroad.com/l/vscode" target="_blank" rel="noopener noreferrer">
+										I want to master VS Code
+									</a>
+								</Button>
+								<Text size="xs" className="mt-6 text-muted-600">
+									30-day money-back guarantee: I'm confident you'll love the course, but if you're not satisfied, I'll refund your payment – no questions asked.
+								</Text>
 							</div>
 						</div>
 					</div>
@@ -466,61 +570,37 @@ const MasteryForVSCode = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="relative isolate overflow-hidden pt-14">
-					<div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
-						<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-							<Text heading="h2" size="4xl" className="max-w-2xl text-muted-900 sm:text-size-6xl lg:col-span-2 xl:col-auto">
-								About André
-							</Text>
-							<div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-								<Text size="lg" className="text-muted-600">
-									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute
-									id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
-								</Text>
-							</div>
-							<img
-								src="/img/andre.jpg"
-								alt=""
-								className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
-							/>
-						</div>
-					</div>
-				</div>
-			</Container>
-			<Container>
-				<div className="py-24 sm:py-32">
-					<div className="mx-auto max-w-7xl px-6 lg:px-8">
-						<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-							<Text heading="h2" size="md" className="text-brand">
-								Deploy faster
-							</Text>
-							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-								A note on excellency
-							</Text>
-							<div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2">
-								<div>
-									<Text size="md">
-										Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec
-										est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis
-										mauris semper sed amet vitae sed turpis id.
-									</Text>
-									<Text size="md" className="mt-8">
-										Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac
-										cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas.
-									</Text>
-								</div>
-								<div>
-									<Text size="md">
-										Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices
-										congue nunc tortor.
-									</Text>
-									<Text size="md" className="mt-8">
-										Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac
-										cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-									</Text>
-								</div>
-							</div>
-						</div>
+				<div className="py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:py-40">
+					<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+						<Text heading="h2" size="md" className="text-brand">
+							Closing Statement
+						</Text>
+						<Text heading="h2" size="4xl" className="mt-2 text-muted-900 sm:text-size-6xl">
+							A note on excellency
+						</Text>
+						<Text size="lg" className="mt-6 text-muted-600">
+							Have you ever spent a ton of time trying to do something simple with VS Code? Maybe you're missing something. Maybe there's a bug in one of your tools. Maybe
+							there's a bug in VS Code. Do you remember how frustrating it was to spend all that time just to end up quitting, or realize it's a bug in one of your tools or VS
+							Code itself, or you just had to do something differently?
+						</Text>
+						<Text size="md" className="mt-8">
+							I remember once I needed to debug GCC-compiled threads. I spent several days until I realized I just had to change a little word in my launch.json configuration
+							from "-gdb-set follow-fork-mode parent" to "-gdb-set follow-fork-mode child". Argh, it's so frustrating spending all that time for such little gains.
+						</Text>
+						<Text size="md" className="mt-8">
+							For those of us who want to achieve excellence, this pain is worth it, because we know it compounds: I'll never again forget that command (or how to get it) if I
+							ever need to debug GCC-compiled threads. But wouldn't it be great if you didn't have to go through that process, waste all that time, and just get the answer
+							you're looking for immediately?
+						</Text>
+						<Text size="md" className="mt-8">
+							That's where this course comes in. I'll show you everything you need to know about VS Code, the good and the bad - I know, I've recorded a video for every single
+							one of its 600+ settings and that playlist was featured my Microsoft. After taking this course, you'll master VS Code. Besides having it configured like an
+							efficient professional, you'll know exactly what VS Code can do, what it can't, and how to work around it.
+						</Text>
+						<Text size="md" className="mt-8">
+							To your success! 🥂
+						</Text>
+						<img src={signature} alt="André Casal signature" className="mt-16" />
 					</div>
 				</div>
 			</Container>
@@ -529,14 +609,14 @@ const MasteryForVSCode = () => {
 					<div className="relative isolate overflow-hidden bg-muted-50 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
 						<BackgroundRadial>
 							<Text heading="h2" size="3xl" className="mt-2 sm:text-size-4xl">
-								Boost your productivity today.
+								Boost your VS Code productivity today.
 							</Text>
 							<Text size="lg" className="mx-auto mt-6 max-w-xl">
-								Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.
+								Upgrade your coding game with <strong>the</strong> course on VS Code.
 							</Text>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
-								<Button asChild>
-									<a href="https://andrecasal.gumroad.com/l/vscode">Get started</a>
+								<Button size="lg" asChild>
+									<Link to="#pricing">I want to boost my productivity</Link>
 								</Button>
 							</div>
 						</BackgroundRadial>

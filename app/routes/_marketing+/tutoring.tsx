@@ -154,7 +154,7 @@ const Tutoring = () => {
 
 	const stats = [
 		{ name: 'Number of students', value: '540+' },
-		{ name: 'Subjects taught', value: '51' },
+		{ name: 'Subjects taught', value: '51+' },
 		{ name: 'Average grade', value: '16.4' },
 		{ name: 'Success rate', value: '99.5%' },
 	]
@@ -191,7 +191,6 @@ const Tutoring = () => {
 			{ name: 'Assembly (x86, x86-64, ARM, MIPS)' },
 			{ name: 'Operating Systems' },
 			{ name: 'Computer Networks' },
-			{ name: 'Computer Networks' },
 			{ name: 'Data Structures' },
 			{ name: 'Algorithms' },
 		],
@@ -218,7 +217,7 @@ const Tutoring = () => {
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button variant="primary" asChild>
 									<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noreferrer">
-										I want a an awesome tutor
+										I want an awesome tutor
 									</a>
 								</Button>
 							</div>
@@ -385,7 +384,7 @@ const Tutoring = () => {
 								Testimonials
 							</Text>
 							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-								I've worked with amazing people <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -458,11 +457,11 @@ const Tutoring = () => {
 					<div className="lg:flex lg:items-center lg:gap-x-10 lg:pt-40">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 							<Text heading="h2" size="4xl" className="mt-10 max-w-xl text-muted-900 sm:text-size-6xl">
-								The subject I teach
+								The subjects I teach
 							</Text>
 							<Text size="lg" className="mt-6 text-muted-600">
-								I've been teaching computer science and software engineering for more than 16 years, so I've mastered quite a few subjects. Here's a non-exhaustive list of
-								the subjects I can help you with.
+								I've been teaching computer science and software engineering for more than 16 years, so I've mastered quite a few subjects. Below you can find a
+								non-exhaustive list of the subjects I can help you with.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-6"></div>
 						</div>

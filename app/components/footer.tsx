@@ -66,21 +66,22 @@ const navigation = {
 		}, */
 	],
 	sitemap: [
-		{ name: 'Tips', href: '/tips' },
-		{ name: 'Shorts', href: '/shorts' },
-		{ name: 'Articles', href: '/articles' },
-		{ name: 'Talks', href: '/talks' },
+		{ name: 'Homepage', href: '/' },
+		/* { name: 'Tips', href: '/tips' }, */
+		/* { name: 'Shorts', href: '/shorts' }, */
+		/* { name: 'Articles', href: '/articles' }, */
+		/* { name: 'Talks', href: '/talks' }, */
 		{ name: 'Courses', href: '/courses' },
 		{ name: 'Mentoring', href: '/mentorship' },
-		{ name: 'About', href: '/about' },
-		{ name: 'Uses', href: '/uses' },
-		{ name: 'Transparency', href: '/transparency' },
+		/* { name: 'About', href: '/about' }, */
+		/* { name: 'Uses', href: '/uses' }, */
+		/* { name: 'Transparency', href: '/transparency' }, */
 	],
 	courses: [{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' }],
-	legal: [
+	/* legal: [
 		{ name: 'Privacy', href: '/privacy' },
 		{ name: 'Terms', href: '/terms' },
-	],
+	], */
 }
 
 const Footer = () => {
@@ -141,7 +142,7 @@ const Footer = () => {
 									))}
 								</ul>
 							</div>
-							<div className="mt-10 md:mt-0">
+							{/* <div className="mt-10 md:mt-0">
 								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
 									Legal
 								</Text>
@@ -156,7 +157,7 @@ const Footer = () => {
 										</Text>
 									))}
 								</ul>
-							</div>
+							</div> */}
 						</div>
 					</div>
 					<div className="mt-8 pt-4 sm:mt-10 lg:mt-12">

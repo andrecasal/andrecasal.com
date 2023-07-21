@@ -7,6 +7,7 @@ import { Icon } from '~/components/ui/icon.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
 import { Text } from '~/components/ui/text.tsx'
+import zacharyCassette from './images/zachary-cassette.jpg'
 
 const features = [
 	{
@@ -133,12 +134,10 @@ const stats = [
 ]
 
 const featuredTestimonial = {
-	body: 'Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.',
+	body: "André is the best! He's is a very patient and dedicated mentor, he has helped me a lot stepping up my dev career and feel more confident very quickly. He guided me through all the steps to deploy an enterprise grade SaaS application, and I'd never imagine I'd find someone so invested in my project and my success.",
 	author: {
-		name: 'Brenna Goyette',
-		handle: 'brennagoyette',
-		imageUrl: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80',
-		logoUrl: 'https://tailwindui.com/img/logos/savvycal-logo-muted-900.svg',
+		name: 'Zachary Cassette',
+		imageUrl: zacharyCassette,
 	},
 }
 
@@ -146,29 +145,17 @@ const testimonials = [
 	[
 		[
 			{
-				body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
+				body: 'André Casal is the most intelligent, hardworking, and caring web developer I know. If you want to receive the highest grade of help, go with him.',
 				author: {
-					name: 'Leslie Alexander',
-					handle: 'lesliealexander',
-					imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-				},
-			},
-			{
-				body: 'Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil. Aut enim doloremque et ipsam.',
-				author: {
-					name: 'Leslie Alexander',
-					handle: 'lesliealexander2',
-					imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+					name: 'Mony Chhim',
 				},
 			},
 		],
 		[
 			{
-				body: 'Aut reprehenderit voluptatem eum asperiores beatae id. Iure molestiae ipsam ut officia rem nulla blanditiis.',
+				body: 'Very good!',
 				author: {
-					name: 'Lindsay Walton',
-					handle: 'lindsaywalton3',
-					imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+					name: 'Wilson Mesquita',
 				},
 			},
 		],
@@ -176,29 +163,23 @@ const testimonials = [
 	[
 		[
 			{
-				body: 'Voluptas quos itaque ipsam in voluptatem est. Iste eos blanditiis repudiandae. Earum deserunt enim molestiae ipsum perferendis recusandae saepe corrupti.',
+				body: 'Beyond expectations!',
 				author: {
-					name: 'Tom Cook',
-					handle: 'tomcook4',
-					imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+					name: 'Helena Oliveira',
 				},
 			},
 		],
 		[
 			{
-				body: 'Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.',
+				body: 'André is extremely knowledgeable in React.',
 				author: {
-					name: 'Leonard Krasner',
-					handle: 'leonardkrasner5',
-					imageUrl: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+					name: 'Tarek Moussa',
 				},
 			},
 			{
-				body: 'Molestias ea earum quos nostrum doloremque sed. Quaerat quasi aut velit incidunt excepturi rerum voluptatem minus harum.',
+				body: "It's perfect. Recommend 100%. Couldn't have found better. Very thankful for everything.",
 				author: {
-					name: 'Leonard Krasner',
-					handle: 'leonardkrasner6',
-					imageUrl: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+					name: 'Isabel Rodrigues',
 				},
 			},
 		],
@@ -425,7 +406,7 @@ const FullStackWebDevMentor = () => {
 								Testimonials
 							</Text>
 							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
-								I've worked with amazing people <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -434,13 +415,11 @@ const FullStackWebDevMentor = () => {
 									<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 								</blockquote>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
-									<Icon name="person" className="h-10 w-10 flex-none" />
-									{/* <img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" /> */}
+									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt={featuredTestimonial.author.name} />
 									<div className="flex-auto">
 										<Text size="sm" className="font-semibold">
 											{featuredTestimonial.author.name}
 										</Text>
-										<Text size="sm" className="text-muted-600">{`@${featuredTestimonial.author.handle}`}</Text>
 									</div>
 									{/* <img className="h-10 w-auto flex-none" src={featuredTestimonial.author.logoUrl} alt="" /> */}
 								</figcaption>
@@ -458,18 +437,16 @@ const FullStackWebDevMentor = () => {
 											)}
 										>
 											{column.map(testimonial => (
-												<figure key={testimonial.author.handle} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
+												<figure key={testimonial.author.name} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
 														<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
 													</blockquote>
 													<figcaption className="mt-6 flex items-center gap-x-4">
-														<Icon name="person" className="h-10 w-10" />
 														{/* <img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt="" /> */}
 														<div>
 															<Text size="sm" className="font-semibold">
-																{featuredTestimonial.author.name}
+																{testimonial.author.name}
 															</Text>
-															<Text size="sm" className="text-muted-600">{`@${featuredTestimonial.author.handle}`}</Text>
 														</div>
 													</figcaption>
 												</figure>
@@ -500,7 +477,7 @@ const FullStackWebDevMentor = () => {
 								Mentorship 4h/week
 							</Text>
 							<Text size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for mentees building a product <strong>full-time</strong>. Chat is always available.
+								This is the most popular plan for <strong>mentees building a product full-time</strong>. Chat is always available.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-4">
 								<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
@@ -549,7 +526,7 @@ const FullStackWebDevMentor = () => {
 								Mentorship 2h/week
 							</Text>
 							<Text size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for mentees building something <strong>on the side</strong>. Chat is always available.
+								This is the most popular plan for <strong>mentees building something on the side</strong>. Chat is always available.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-4">
 								<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
