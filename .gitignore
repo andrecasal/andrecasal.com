@@ -12,10 +12,13 @@ node_modules
 /test-results/
 /playwright-report/
 /playwright/.cache/
-/tests/fixtures/email/
+/tests/fixtures/emails/
+/tests/fixtures/subscriptions/
 /coverage
 
 /other/cache.db
+
+.react-email
 
 # Easy way to create temporary files/folders that won't accidentally be added to git
 *.local.*

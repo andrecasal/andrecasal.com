@@ -1,7 +1,7 @@
 import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
-/* import { Newsletter } from '~/components/newsletter.tsx' */
+import { Newsletter } from '~/components/newsletter.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/components/ui/text.tsx'
@@ -87,11 +87,11 @@ export default function Index() {
 						</dl>
 					</div>
 				</div>
-				{/* <Newsletter
+				<Newsletter
 					className="mt-32 sm:mt-56"
 					title="Get exclusive web dev tips that I only share with email subscribers"
 					description="Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks."
-				/> */}
+				/>
 			</Container>
 		</>
 	)

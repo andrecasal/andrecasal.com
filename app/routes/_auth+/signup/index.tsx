@@ -15,7 +15,7 @@ import { SignupEmail } from './email.server.tsx'
 
 export const onboardingOTPQueryParam = 'code'
 export const onboardingEmailQueryParam = 'email'
-export const verificationType = 'onboarding'
+export const verificationType = 'signup'
 
 const signupSchema = z.object({
 	email: emailSchema,
