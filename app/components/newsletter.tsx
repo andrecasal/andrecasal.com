@@ -3,7 +3,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
-import { Form, useActionData, useFormAction, useNavigation } from '@remix-run/react'
+import { Form, useActionData, useNavigation } from '@remix-run/react'
 import { useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
 import { parse } from '@conform-to/zod'
@@ -16,9 +16,7 @@ type NewsletterProps = {
 
 const Newsletter = ({ className, title, description }: NewsletterProps) => {
 	const actionData = useActionData<typeof action>()
-	const formAction = useFormAction()
 	const navigation = useNavigation()
-	const isSubmitting = navigation.formAction === formAction
 	const [form, { name, email }] = useForm({
 		lastSubmission: actionData?.submission,
 		shouldValidate: 'onBlur',
@@ -55,7 +53,7 @@ const Newsletter = ({ className, title, description }: NewsletterProps) => {
 							</Text>
 						</div>
 					</div>
-					<Button type="submit" disabled={isSubmitting}>
+					<Button type="submit" disabled={navigation.state === 'submitting'}>
 						I want my tips
 					</Button>
 				</Form>

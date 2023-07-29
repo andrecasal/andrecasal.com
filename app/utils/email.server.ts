@@ -99,12 +99,6 @@ const subscribeUserErrorSchema = z.object({
 	errors: z.record(z.string(), z.string()),
 })
 type SubscribeUserError = z.infer<typeof subscribeUserErrorSchema>
-/* {
-	"message": "The given data was invalid.",
-	"errors": {
-	  "email": ["The email must be a valid email address."]
-	}
- } */
 
 const subscribeUserSuccessSchema = z.object({
 	data: z.object({
@@ -115,38 +109,7 @@ const subscribeUserSuccessSchema = z.object({
 		}),
 	}),
 })
-
-/* {
-	"data": {
-	  "id": "31897397363737859",
-	  "email": "dummy@example.com",
-	  "status": "active",
-	  "source": "api",
-	  "sent": 0,
-	  "opens_count": 0,
-	  "clicks_count": 0,
-	  "open_rate": 0,
-	  "click_rate": 0,
-	  "ip_address": null,
-	  "subscribed_at": "2021-08-31 14:22:08",
-	  "unsubscribed_at": null,
-	  "created_at": "2021-08-31 14:22:08",
-	  "updated_at": "2021-08-31 14:22:08",
-	  "fields": {
-		 "city": null,
-		 "company": null,
-		 "country": null,
-		 "last_name": "Testerson",
-		 "name": "Dummy",
-		 "phone": null,
-		 "state": null,
-		 "z_i_p": null
-	  },
-	  "groups": [],
-	  "opted_in_at": null,
-	  "optin_ip": null
-	}
- } */
+export type SubscribeUserSuccess = z.infer<typeof subscribeUserSuccessSchema>
 
 export const subscribeUser = async ({ name, email }: { name: string; email: string }) => {
 	const subscriber = {

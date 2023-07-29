@@ -12,7 +12,8 @@ node_modules
 /test-results/
 /playwright-report/
 /playwright/.cache/
-/tests/fixtures/email/
+/tests/fixtures/emails/
+/tests/fixtures/subscriptions/
 /coverage
 
 /other/cache.db
