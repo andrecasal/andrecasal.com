@@ -83,10 +83,12 @@ test('subscribing with short code', async ({ page }) => {
 	await page.getByRole('textbox', { name: /code/i }).fill(code)
 	await page.getByRole('button', { name: /confirm with code/i }).click()
 
+	await expect(page.getByRole('button', { name: /confirm with code/i, disabled: true })).toBeVisible()
+	await expect(page).toHaveURL(`/newsletter/welcome`)
+	await expect(page.getByText(/welcome aboard/i)).toBeVisible()
+
 	const subscription = await readSubscription(subscriptionData.email)
 	invariant(subscription, 'Subscription not found')
 	expect(subscription.email).toBe(subscriptionData.email)
 	expect(subscription.fields.name).toBe(subscriptionData.name)
-
-	await expect(page).toHaveURL(`/newsletter/welcome`)
 })

@@ -1,7 +1,7 @@
 import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
-/* import Newsletter from '../newsletter.tsx' */
+import { Newsletter } from '~/components/newsletter.tsx'
 
 const Courses = () => {
 	const courses = [
@@ -37,7 +37,13 @@ const Courses = () => {
 					<CoursePresentation key={i} course={course} />
 				))}
 			</Container>
-			{/* <Newsletter /> */}
+			<Container>
+				<Newsletter
+					title="Want to be notified of when I launch new courses?"
+					description="Subscribe to the newsletter and you'll be the first to know!"
+					buttonText="I want to be the first to know"
+				/>
+			</Container>
 		</>
 	)
 }

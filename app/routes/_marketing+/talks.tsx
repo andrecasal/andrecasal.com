@@ -116,6 +116,7 @@ export default function Talks() {
 				className="relative isolate mt-32 sm:mt-56"
 				title="Get exclusive talks that I only share with email subscribers"
 				description="Golden nuggets of code knowledge. Delivered to your inbox every 2 weeks."
+				buttonText="I want my talks"
 			/>
 		</Container>
 	)

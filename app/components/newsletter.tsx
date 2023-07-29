@@ -7,14 +7,16 @@ import { Form, useActionData, useNavigation } from '@remix-run/react'
 import { useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
 import { parse } from '@conform-to/zod'
+import { cn } from '~/utils/misc.ts'
 
 type NewsletterProps = {
 	className?: string
 	title: string
 	description: string
+	buttonText: string
 }
 
-const Newsletter = ({ className, title, description }: NewsletterProps) => {
+const Newsletter = ({ className, title, description, buttonText }: NewsletterProps) => {
 	const actionData = useActionData<typeof action>()
 	const navigation = useNavigation()
 	const [form, { name, email }] = useForm({
@@ -24,37 +26,37 @@ const Newsletter = ({ className, title, description }: NewsletterProps) => {
 	})
 
 	return (
-		<div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+		<div className={cn('mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2', className)}>
 			<div className="flex flex-col justify-between">
 				<Text heading="h2" size="3xl" className="sm:text-size-4xl">
-					Get exclusive web dev tips that I only share with email subscribers
+					{title}
 				</Text>
 				<Text size="lg" className="mt-4 text-muted-400">
-					Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.
+					{description}
 				</Text>
 				<Form method="post" action="/newsletter" className="flex flex-col gap-y-4" {...form.props}>
-					<div className="mt-6 flex gap-x-4">
+					<div className="mt-6 grid grid-cols-3 gap-x-4">
 						<div>
 							<Label htmlFor="name" className="sr-only">
 								Name
 							</Label>
 							<Input id="name" type="text" placeholder="Enter your name" name="name" required defaultValue={name.defaultValue} />
 							<Text size="sm" className="text-danger-foreground">
-								{name.error}
+								{name.error}&nbsp;
 							</Text>
 						</div>
-						<div>
+						<div className="col-span-2">
 							<Label htmlFor="email-address" className="sr-only">
 								Email address
 							</Label>
 							<Input id="email-address" type="email" placeholder="Enter your email" name="email" autoComplete="email" required defaultValue={email.defaultValue} />
 							<Text size="sm" className="text-danger-foreground">
-								{email.error}
+								{email.error}&nbsp;
 							</Text>
 						</div>
 					</div>
 					<Button type="submit" disabled={navigation.state === 'submitting'}>
-						I want my tips
+						{buttonText}
 					</Button>
 				</Form>
 			</div>
