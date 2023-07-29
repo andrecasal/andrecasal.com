@@ -1,41 +1,53 @@
 import { redirect, json, type LoaderArgs } from '@remix-run/node'
-import { Link } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { commitSession, getSession } from '~/utils/session.server.ts'
+import analysisParalysis from './images/guy-looking-at-vending-machines.jpg'
+import BackgroundSpicy from './components/bg-spicy.tsx'
+import { Button } from '~/components/ui/button.tsx'
 
-export const newsletterEmailSessionKey = 'newsletterEmail'
+export const newsletterNameSessionKey = 'newsletterEmail'
 
 export async function loader({ request }: LoaderArgs) {
 	const session = await getSession(request.headers.get('cookie'))
-	const newsletterEmail = session.get(newsletterEmailSessionKey)
-	console.log(newsletterEmail)
-	if (typeof newsletterEmail !== 'string' || !newsletterEmail) {
+	const name = session.get(newsletterNameSessionKey)
+	if (typeof name !== 'string' || !name) {
 		return redirect('/')
 	}
-	session.unset(newsletterEmailSessionKey)
-	return json(null, { headers: { 'Set-Cookie': await commitSession(session) } })
+	session.unset(newsletterNameSessionKey)
+	return json({ name }, { headers: { 'Set-Cookie': await commitSession(session) } })
 }
 
 const WelcomeAboard = () => {
+	const { name } = useLoaderData<typeof loader>()
+
 	return (
 		<Container>
 			<div className="mx-auto max-w-3xl text-base leading-7 text-muted-700">
 				<Text size="md" className="font-semibold text-brand">
-					You're subscribed
+					Thank you for subscribing
 				</Text>
-				<Text heading="h2" size="3xl" className="mt-2 text-muted-900 sm:text-4xl">
-					Welcome aboard, champion! Here's your gift!
+				<Text heading="h1" size="4xl" className="mt-2 text-muted-900 sm:text-5xl">
+					Welcome aboard, {name}!
 				</Text>
+				<Text size="xl" className="mt-6">
+					Expect some pretty awesome stuff in your inbox soon!
+					<br />
+					For now, here's how to get you started in full-stack web dev.
+				</Text>
+				<hr className="mt-14" />
+				<Text heading="h2" size="3xl" className="mt-14 text-muted-900 sm:text-4xl">
+					Here's your break from analysis paralysis
+				</Text>
+				<img src={analysisParalysis} alt="Analysis paralysis" className="mt-6 rounded-xl" />
 				<p className="mt-6 text-xl leading-8">
-					So you want to become a full-stack web developer. You've got a lot of things to learn and a lot of work to do, but you're not alone. I'm here to help you succeed. Here's
-					your break from analysis paralysis.
+					Modern full-stack web dev is both fantastic and exhausting because there are so many great tools available. Solve the{' '}
+					<span className="font-semibold">analysis paralysis</span> by standing on the shoulders of seasoned web developers and skip the big distraction of choosing what tech to
+					use and get to the point: <span className="font-semibold">build quality products fast</span>.
 				</p>
 				<div className="mt-10 max-w-2xl">
-					<p>
-						As a full-stack web developer you need to know a lot of different things. This guide will help you learn how to become a full-stack web developer by giving you a road
-						map to follow and the resources to use. Here's the list of technologies you should be using:
-					</p>
+					<p>Here's the list of technologies you should be using:</p>
 					<ul className="mt-8 max-w-xl space-y-8 text-muted-600">
 						<li className="flex gap-x-3">
 							<span>
@@ -179,17 +191,20 @@ const WelcomeAboard = () => {
 						By combining these technologies, you can create a modern, performant, and user-friendly web application with a strong emphasis on code quality, security, and
 						accessibility in an extremely short amount of time.
 					</p>
-					<h2 className="mt-16 text-2xl font-bold tracking-tight text-muted-900">From good to great</h2>
-					<p className="mt-6">
+					<hr className="mt-14" />
+					<Text heading="h2" size="3xl" className="mt-16 text-muted-900">
+						From good to great
+					</Text>
+					<Text size="lg" className="mt-6">
 						Luckily, Remix supports{' '}
 						<a href="https://remix.run/docs/en/main/pages/stacks" target="_blank" rel="noreferrer" className="font-semibold text-brand underline-offset-4 hover:underline">
 							Stacks
 						</a>{' '}
-						and there's a particular stack that colocates all of these technologies, the{' '}
+						and there's a particular stack that colocates most of these technologies, the{' '}
 						<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" rel="noreferrer" className="font-semibold text-brand underline-offset-4 hover:underline">
 							Epic Stack
-						</a>
-						. There are, however, a few steps you need to take to make the Epic Stack ready for your project. I've documented{' '}
+						</a>{' '}
+						- this is a fantastic starting point! There are, however, a few steps you need to take to make the Epic Stack ready for your project. I've documented{' '}
 						<a
 							href="https://github.com/epicweb-dev/epic-stack/discussions/170#discussioncomment-6185290"
 							target="_blank"
@@ -200,20 +215,36 @@ const WelcomeAboard = () => {
 						</a>
 						. Some of those steps might no longer be valid, but you've got the general gist of it: remove styles you're not using, delete routes you don't need, and you'll be
 						ready to go in less than a day's work.
-					</p>
-					<p className="mt-10">
-						So here's my gift to you: if you want to become a full-stack web developer, you can use the Epic Stack as a starting point for your project. It's a great way to get a
-						head start on your project and it's free.
-					</p>
-					<p className="mt-10">
-						If you'd like a seasoned full-stack web developer to help you become a 10x developer and achieve your goals as fast as they could be achieved, feel free to{' '}
+					</Text>
+					<Text size="lg" className="mt-10">
+						So here's my gift to you: if you want to become a full-stack web developer, you can use the <span className="font-semibold">Epic Stack</span> as a starting point for
+						your project. It's a great way to get a head start on your project and it's free.
+					</Text>
+					<Text size="lg" className="mt-10">
+						And soon you'll also be able to use <span className="font-semibold">andrecasal/ui</span>, my headless UI component library, to hit the ground running building your
+						apps!
+					</Text>
+					<Text size="lg" className="mt-10">
+						And if you'd like a seasoned full-stack web developer to help you become super productive, feel free to{' '}
 						<Link to="/mentorship" className="font-semibold text-brand underline-offset-4 hover:underline">
 							hire me as your mentor
 						</Link>
 						.
-					</p>
-					<p className="mt-10">To your success 🥂</p>
+					</Text>
+					<Text size="lg" className="mt-10">
+						To your success and welcome to the newsletter 🥂
+					</Text>
 				</div>
+				<BackgroundSpicy className="mt-14 overflow-hidden rounded-xl">
+					<Text heading="h2" size="5xl" className="mt-44 text-center text-muted-50">
+						Let's spice things up!
+					</Text>
+					<div className="mb-44 mt-14 flex justify-center">
+						<Button asChild>
+							<Link to="/mentorship">I want to spice things up</Link>
+						</Button>
+					</div>
+				</BackgroundSpicy>
 			</div>
 		</Container>
 	)

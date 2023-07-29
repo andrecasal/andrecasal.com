@@ -5,13 +5,16 @@ import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from
 import { z } from 'zod'
 import { ErrorList, Field } from '~/components/forms.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
+import { Text } from '~/components/ui/text.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { newsletterNameQueryParam, newsletterEmailQueryParam, newsletterOTPQueryParam, newsletterVerificationType } from './newsletter/index.tsx'
 import { emailSchema, nameSchema } from '~/utils/user-validation.ts'
 import { commitSession, getSession } from '~/utils/session.server.ts'
-import { newsletterEmailSessionKey } from './newsletter_.welcome.tsx'
+import { newsletterNameSessionKey } from './newsletter_.welcome.tsx'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
+import { Input } from '~/components/ui/input.tsx'
+import { subscribeUser } from '~/utils/email.server.ts'
 
 const verifySchema = z.object({
 	[newsletterNameQueryParam]: nameSchema,
@@ -43,7 +46,7 @@ const NewsletterVerifyRoute = () => {
 	const isSubmitting = navigation.formAction === formAction
 	const actionData = useActionData<typeof action>()
 
-	const [form, fields] = useForm({
+	const [form, { name, email, code }] = useForm({
 		id: 'signup-verify-form',
 		constraint: getFieldsetConstraint(verifySchema),
 		lastSubmission: actionData?.submission ?? data.submission,
@@ -55,20 +58,27 @@ const NewsletterVerifyRoute = () => {
 
 	return (
 		<div className="container flex flex-col justify-center pb-32 pt-20">
-			<div className="text-center">
-				<h1 className="text-title-xl">Check your email</h1>
-				<p className="mt-3 text-size-lg text-muted-500">We've sent you a code to verify your email address.</p>
+			<div className="mx-auto max-w-md">
+				<Text heading="h1" size="3xl">
+					Confirm your subscription
+				</Text>
+				<Text size="lg" className="mt-6 text-muted-500">
+					Hi <span className="font-semibold">{name.defaultValue}</span>,
+				</Text>
+				<Text size="lg" className="mt-6 text-muted-500">
+					We've sent a link to <span className="font-semibold">{email.defaultValue}</span> to verify your email address. Just click that link.
+				</Text>
+				<Form method="post" className="mx-auto mt-24" {...form.props}>
+					<Input {...conform.input(name)} type="hidden" />
+					<Input {...conform.input(email)} type="hidden" />
+					<p className="my-6 text-size-sm text-muted-500">If the link doesn't work, we've also sent you a code:</p>
+					<Field labelProps={{ htmlFor: code.id, children: 'Code' }} inputProps={{ ...conform.input(code), autoComplete: 'off' }} errors={code.errors} />
+					<ErrorList errors={form.errors} id={form.errorId} />
+					<StatusButton type="submit" className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} disabled={isSubmitting}>
+						Confirm with code
+					</StatusButton>
+				</Form>
 			</div>
-
-			<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
-				<Field labelProps={{ htmlFor: fields.name.id, children: 'Name' }} inputProps={{ ...conform.input(fields.name) }} errors={fields.name.errors} />
-				<Field labelProps={{ htmlFor: fields.email.id, children: 'Email' }} inputProps={{ ...conform.input(fields.email) }} errors={fields.email.errors} />
-				<Field labelProps={{ htmlFor: fields.code.id, children: 'Code' }} inputProps={{ ...conform.input(fields.code) }} errors={fields.code.errors} />
-				<ErrorList errors={form.errors} id={form.errorId} />
-				<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
-					Submit
-				</StatusButton>
-			</Form>
 		</div>
 	)
 }
@@ -128,15 +138,24 @@ async function validate(request: Request, body: URLSearchParams | FormData) {
 	if (!submission.value) {
 		return json({ status: 'error', submission } as const, { status: 400 })
 	}
+
+	const { name, email } = submission.value
 	await prisma.verification.deleteMany({
 		where: {
 			type: newsletterVerificationType,
-			target: submission.value.email,
+			target: email,
 		},
 	})
 	const session = await getSession(request.headers.get('Cookie'))
-	session.set(newsletterEmailSessionKey, submission.value.email)
-	return redirectWithConfetti('/newsletter/welcome', {
-		headers: { 'Set-Cookie': await commitSession(session) },
-	})
+	session.set(newsletterNameSessionKey, name)
+
+	const response = await subscribeUser({ name, email })
+	if (response.status === 'success') {
+		return redirectWithConfetti('/newsletter/welcome', {
+			headers: { 'Set-Cookie': await commitSession(session) },
+		})
+	} else {
+		submission.error[''] = response.error.message
+		return json({ status: 'error', submission } as const, { status: 500 })
+	}
 }

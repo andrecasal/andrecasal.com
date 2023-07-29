@@ -8,8 +8,8 @@ const handlers = [
 	process.env.REMIX_DEV_HTTP_ORIGIN ? rest.post(`${process.env.REMIX_DEV_HTTP_ORIGIN}/ping`, req => req.passthrough()) : null,
 
 	// feel free to remove this conditional from the mock once you've set up resend
-	process.env.MAIL_SERVICE_API_KEY
-		? rest.post(`${process.env.MAIL_SERVICE_API_ENDPOINT}/emails`, async (req, res, ctx) => {
+	process.env.TRANSACTIONAL_EMAIL_SERVICE_API_KEY
+		? rest.post(`${process.env.TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT}`, async (req, res, ctx) => {
 				requiredHeader(req.headers, 'Authorization')
 				const body = await req.json()
 				console.info('🔶 mocked email contents:', body)

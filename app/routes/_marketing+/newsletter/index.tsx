@@ -7,7 +7,7 @@ import { generateTOTP } from '~/utils/totp.server.ts'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { prisma } from '~/utils/db.server.ts'
 import { sendEmail } from '~/utils/email.server.ts'
-import { WelcomeAboardTheNewsletter } from './email.server.tsx'
+import { VerifyNewsletterSubscriptionEmail } from './email/verify.server.tsx'
 import { Newsletter as NewsletterComponent } from '~/components/newsletter.tsx'
 
 export const newsletterNameQueryParam = 'name'
@@ -76,8 +76,8 @@ export async function action({ request }: ActionArgs) {
 
 	const response = await sendEmail({
 		to: email,
-		subject: `Welcome aboard!`,
-		react: <WelcomeAboardTheNewsletter onboardingUrl={newsletterVerifyURL.toString()} otp={otp} />,
+		subject: `Confirm your subscription!`,
+		react: <VerifyNewsletterSubscriptionEmail name={name} onboardingUrl={newsletterVerifyURL.toString()} otp={otp} />,
 	})
 
 	if (response.status === 'success') {

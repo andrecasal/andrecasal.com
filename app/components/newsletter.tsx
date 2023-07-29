@@ -3,7 +3,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
-import { useFetcher } from '@remix-run/react'
+import { Form, useActionData, useFormAction, useNavigation } from '@remix-run/react'
 import { useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
 import { parse } from '@conform-to/zod'
@@ -15,9 +15,12 @@ type NewsletterProps = {
 }
 
 const Newsletter = ({ className, title, description }: NewsletterProps) => {
-	const fetcher = useFetcher<typeof action>()
+	const actionData = useActionData<typeof action>()
+	const formAction = useFormAction()
+	const navigation = useNavigation()
+	const isSubmitting = navigation.formAction === formAction
 	const [form, { name, email }] = useForm({
-		lastSubmission: fetcher.data?.submission,
+		lastSubmission: actionData?.submission,
 		shouldValidate: 'onBlur',
 		onValidate: ({ formData }) => parse(formData, { schema: newsletterSchema }),
 	})
@@ -31,7 +34,7 @@ const Newsletter = ({ className, title, description }: NewsletterProps) => {
 				<Text size="lg" className="mt-4 text-muted-400">
 					Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.
 				</Text>
-				<fetcher.Form method="post" action="/newsletter" className="flex flex-col gap-y-4" {...form.props}>
+				<Form method="post" action="/newsletter" className="flex flex-col gap-y-4" {...form.props}>
 					<div className="mt-6 flex gap-x-4">
 						<div>
 							<Label htmlFor="name" className="sr-only">
@@ -52,10 +55,10 @@ const Newsletter = ({ className, title, description }: NewsletterProps) => {
 							</Text>
 						</div>
 					</div>
-					<Button type="submit" disabled={fetcher.state === 'submitting'}>
+					<Button type="submit" disabled={isSubmitting}>
 						I want my tips
 					</Button>
-				</fetcher.Form>
+				</Form>
 			</div>
 			<div className="space-y-8 xl:contents xl:space-y-0">
 				<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5 xl:col-start-2 xl:row-end-1">
