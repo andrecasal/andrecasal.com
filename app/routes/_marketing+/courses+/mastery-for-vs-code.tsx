@@ -11,6 +11,7 @@ import BackgroundRadial from '../components/bg-radial.tsx'
 import BackgroundDiagonal from '../components/bg-diagonal.tsx'
 import zacharyCassette from '../images/zachary-cassette.jpg'
 import signature from '../images/signature.png'
+import { Newsletter } from '~/components/newsletter.tsx'
 
 const MasteryForVSCode = () => {
 	const features = [
@@ -622,6 +623,15 @@ const MasteryForVSCode = () => {
 						</BackgroundRadial>
 					</div>
 				</div>
+			</Container>
+
+			<Container>
+				<Newsletter
+					className="mt-24"
+					title="Want to be notified of course updates?"
+					description="Subscribe to the newsletter and you'll be the first to know!"
+					buttonText="I want to be the first to know"
+				/>
 			</Container>
 		</>
 	)
