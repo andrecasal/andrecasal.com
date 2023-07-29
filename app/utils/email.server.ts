@@ -41,14 +41,9 @@ export async function sendEmail({
 		...(react ? await renderReactEmail(react) : null),
 	}
 
-	// feel free to remove this condition once you've set up resend
-	if (!process.env.MOCKS) {
-		if (!process.env.TRANSACTIONAL_EMAIL_SERVICE_API_KEY) {
-			console.error(`TRANSACTIONAL_EMAIL_SERVICE_API_KEY not set and we're not in mocks mode.`)
-		}
-		if (!process.env.TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT) {
-			console.error(`TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT not set and we're not in mocks mode.`)
-		}
+	// feel free to remove this condition once you've set up your transactional email service provider
+	if ((!process.env.TRANSACTIONAL_EMAIL_SERVICE_API_KEY || !process.env.TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT) && !process.env.MOCKS) {
+		console.error(`TRANSACTIONAL_EMAIL_SERVICE_API_KEY or TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT not set and we're not in mocks mode.`)
 		console.error(`To send emails, set the both the TRANSACTIONAL_EMAIL_SERVICE_API_KEY and TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT environment variables.`)
 		console.error(`Would have sent the following email:`, JSON.stringify(email))
 		return {
