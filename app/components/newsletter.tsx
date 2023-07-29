@@ -42,7 +42,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 							</Label>
 							<Input id="name" type="text" placeholder="Enter your name" name="name" required defaultValue={name.defaultValue} />
 							<Text size="sm" className="text-danger-foreground">
-								{name.error}
+								{name.error}&nbsp;
 							</Text>
 						</div>
 						<div className="col-span-2">
@@ -51,7 +51,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 							</Label>
 							<Input id="email-address" type="email" placeholder="Enter your email" name="email" autoComplete="email" required defaultValue={email.defaultValue} />
 							<Text size="sm" className="text-danger-foreground">
-								{email.error}
+								{email.error}&nbsp;
 							</Text>
 						</div>
 					</div>
