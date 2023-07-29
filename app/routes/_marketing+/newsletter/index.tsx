@@ -27,6 +27,7 @@ const Newsletter = () => {
 				className="mt-32 sm:mt-56"
 				title="Get exclusive web dev tips that I only share with email subscribers"
 				description="Golden nuggets of code knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks."
+				buttonText="I want my tips"
 			/>
 		</Container>
 	)
