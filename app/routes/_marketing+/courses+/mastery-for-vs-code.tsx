@@ -229,7 +229,7 @@ const MasteryForVSCode = () => {
 	return (
 		<>
 			<BackgroundSquareLines>
-				<Container>
+				<Container className="overflow-x-hidden">
 					<div className="pb-24 pt-10 sm:pb-40 lg:flex lg:pt-40">
 						<div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
 							{/* <div className="mt-24 sm:mt-32 lg:mt-16">
@@ -456,7 +456,7 @@ const MasteryForVSCode = () => {
 							</div>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0">
-							<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
+							<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] rounded-2xl object-cover" />
 						</div>
 					</div>
 				</Container>
@@ -607,7 +607,7 @@ const MasteryForVSCode = () => {
 			</Container>
 			<Container>
 				<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8 ">
-					<div className="relative isolate overflow-hidden bg-muted-50 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+					<div className="relative isolate overflow-hidden bg-muted-50 px-6 py-24 text-center shadow-2xl rounded-3xl sm:px-16">
 						<BackgroundRadial>
 							<Text heading="h2" size="3xl" className="mt-2 sm:text-size-4xl">
 								Boost your VS Code productivity today.

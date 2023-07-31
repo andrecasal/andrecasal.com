@@ -12,19 +12,17 @@ const HeroAndre = () => {
 			<Container className="py-32 sm:py-40">
 				<div className="lg:grid lg:grid-cols-2 lg:gap-x-10">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<div className="flex">
-							<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" className="inline-flex space-x-6" rel="noreferrer">
-								<Badge variant="info" size="md">
-									What's new
-								</Badge>
-								<Text size="sm" asChild>
-									<span className="inline-flex items-center space-x-2 text-size-sm font-medium text-muted-600">
-										<span>Epic Stack collab with Kent C. Dodds</span>
-										<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
-									</span>
-								</Text>
-							</a>
-						</div>
+						<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" className="inline-flex gap-6 flex-wrap" rel="noreferrer">
+							<Badge variant="info" size="md" className="whitespace-nowrap">
+								What's new
+							</Badge>
+							<Text size="sm" asChild>
+								<span className="inline-flex items-center space-x-2 text-size-sm font-medium text-muted-600 whitespace-nowrap">
+									<span>Epic Stack collab with Kent C. Dodds</span>
+									<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
+								</span>
+							</Text>
+						</a>
 						<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
 							Hi! I'm André Casal and I'm a full-stack web dev mentor.
 						</Text>
