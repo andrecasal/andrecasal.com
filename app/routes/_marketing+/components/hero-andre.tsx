@@ -10,8 +10,8 @@ const HeroAndre = () => {
 	return (
 		<BackgroundDiagonal>
 			<Container className="py-32 sm:py-40">
-				<div className="lg:flex lg:gap-x-10">
-					<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+				<div className="lg:grid lg:grid-cols-2 lg:gap-x-10">
+					<div className="mx-auto max-w-2xl lg:mx-0">
 						<div className="flex">
 							<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" className="inline-flex space-x-6" rel="noreferrer">
 								<Badge variant="info" size="md">
@@ -39,7 +39,7 @@ const HeroAndre = () => {
 						</div>
 					</div>
 					<div className="mt-16 sm:mt-24 lg:mt-0">
-						<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
+						<img src="/img/andre.jpg" alt="André Casal" height="100px" className="aspect-[6/5] rounded-2xl object-cover" />
 					</div>
 				</div>
 			</Container>
