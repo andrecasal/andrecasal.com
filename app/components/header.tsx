@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
@@ -8,6 +8,23 @@ import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
 import { type loader as rootLoader } from '~/root.tsx'
 import { Icon } from './ui/icon.tsx'
+
+const navigation = [
+	/* { name: 'Tips', href: '/tips' }, */
+	/* { name: 'Shorts', href: '/shorts' }, */
+	/* { name: 'Articles', href: '/articles' }, */
+	/* { name: 'Talks', href: '/talks' }, */
+	{ name: 'Courses', href: '/courses', children: [
+		{ name: 'All courses', href: '/courses' },
+		{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' },
+	]},
+	{ name: 'Mentorship', href: '/mentorship' },
+	/* { name: 'About', href: '/courses', children: [
+		{ name: 'About André', href: '/about' },
+		{ name: 'Uses', href: '/uses' },
+		{ name: 'Transparency', href: '/transparency' },
+	]} */
+]
 
 export default function Header() {
 	const data = useRouteLoaderData('root') as SerializeFrom<typeof rootLoader>
@@ -30,121 +47,37 @@ export default function Header() {
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<div className="hidden lg:flex lg:gap-x-6">
-								{/* <NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/tips"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Tips
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem> */}
-								{/* <NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/shorts"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Shorts
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem> */}
-								{/* <NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/articles"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Articles
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem> */}
-								{/* <NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/talks"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Talks
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem> */}
-								<NavigationMenuItem>
-									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">Courses</NavigationMenuTrigger>
-									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
-										<NavigationMenuList>
+								{navigation.map(({name, href, children}) => (
+									<Fragment key={name}>
+										{!children ? (
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<Link
-														// eslint-disable-next-line remix-react-routes/require-valid-paths
-														to="/courses"
-														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-													>
-														All courses
-													</Link>
+													<NavLink to={href} className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full">
+														{name}
+													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
+										) : (
 											<NavigationMenuItem>
-												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<Link
-														to="/courses/mastery-for-vs-code"
-														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-													>
-														Mastery for VS Code
-													</Link>
-												</NavigationMenuLink>
+												<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">{name}</NavigationMenuTrigger>
+													<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
+													<NavigationMenuList>
+														{children.map(({name, href}) => <NavigationMenuItem key={name}>
+															<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+																<Link
+																	to={href}
+																	className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+																>
+																	{name}
+																</Link>
+															</NavigationMenuLink>
+														</NavigationMenuItem>)}
+													</NavigationMenuList>
+												</NavigationMenuContent>
 											</NavigationMenuItem>
-										</NavigationMenuList>
-									</NavigationMenuContent>
-								</NavigationMenuItem>
-								<NavigationMenuItem>
-									<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-										<NavLink
-											to="/mentorship"
-											className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-										>
-											Mentorship
-										</NavLink>
-									</NavigationMenuLink>
-								</NavigationMenuItem>
-								{/* <NavigationMenuItem>
-									<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">About</NavigationMenuTrigger>
-									<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
-										<NavigationMenuList>
-											<NavigationMenuItem>
-												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<Link
-														to="/about"
-														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-													>
-														About André
-													</Link>
-												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
-												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<Link
-														to="/uses"
-														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-													>
-														Uses
-													</Link>
-												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
-												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<Link
-														to="/transparency"
-														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-													>
-														Transparency
-													</Link>
-												</NavigationMenuLink>
-											</NavigationMenuItem>
-										</NavigationMenuList>
-									</NavigationMenuContent>
-								</NavigationMenuItem> */}
+										)}
+									</Fragment>
+								))}
 								<Separator className="h-auto" orientation="vertical" />
 								<ThemeSwitch id="mobile" userPreference={data.requestInfo.session.theme} />
 							</div>
@@ -180,116 +113,47 @@ export default function Header() {
 								<div className="mt-6 flow-root">
 									<div className="-my-6 divide-y divide-muted-500/10">
 										<div className="space-y-2 py-6">
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/tips"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Tips
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/shorts"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Shorts
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/articles"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Articles
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/talks"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Talks
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
-											<NavigationMenuItem>
-												<NavigationMenuTrigger className="block w-full rounded-lg px-3 py-2 text-left text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100">
-													Courses
-												</NavigationMenuTrigger>
-												<NavigationMenuContent className="py-2">
-													<NavigationMenuList>
+											{navigation.map(({ name, href, children }) => (
+												<Fragment key={name}>
+													{!children ? (
 														<NavigationMenuItem>
 															<NavigationMenuLink asChild>
 																<NavLink
-																	// eslint-disable-next-line remix-react-routes/require-valid-paths
-																	to="/courses"
-																	className="ml-6 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-																	end
+																	to={href}
+																	className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 																	onClick={() => setOpen(false)}
 																>
-																	All courses
+																	{name}
 																</NavLink>
 															</NavigationMenuLink>
 														</NavigationMenuItem>
+													) : (
 														<NavigationMenuItem>
-															<NavigationMenuLink asChild>
-																<NavLink
-																	to="/courses/mastery-for-vs-code"
-																	className="ml-6 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-																	onClick={() => setOpen(false)}
-																>
-																	Mastery for VS Code
-																</NavLink>
-															</NavigationMenuLink>
+															<NavigationMenuTrigger className="block w-full rounded-lg px-3 py-2 text-left text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100">
+																{name}
+															</NavigationMenuTrigger>
+															<NavigationMenuContent className="py-2">
+																<NavigationMenuList>
+																	{children.map(({ name, href }) => (
+																		<NavigationMenuItem key={name}>
+																			<NavigationMenuLink asChild>
+																				<NavLink
+																					to={href}
+																					className="ml-6 block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
+																					end
+																					onClick={() => setOpen(false)}
+																				>
+																					{name}
+																				</NavLink>
+																			</NavigationMenuLink>
+																		</NavigationMenuItem>
+																	))}
+																</NavigationMenuList>
+															</NavigationMenuContent>
 														</NavigationMenuItem>
-													</NavigationMenuList>
-												</NavigationMenuContent>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/mentorship"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Mentorship
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem>
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/uses"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														Uses
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
-											{/* <NavigationMenuItem>
-												<NavigationMenuLink asChild>
-													<NavLink
-														to="/about"
-														className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
-														onClick={() => setOpen(false)}
-													>
-														About
-													</NavLink>
-												</NavigationMenuLink>
-											</NavigationMenuItem> */}
+													)}
+												</Fragment>
+											))}
 										</div>
 									</div>
 								</div>
