@@ -126,7 +126,7 @@ const Footer = () => {
 									))}
 								</ul>
 							</div>
-							<div className="mt-10 md:mt-0">
+							<div className="xl:mt-10 md:mt-0">
 								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
 									Courses
 								</Text>
