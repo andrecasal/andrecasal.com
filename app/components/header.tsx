@@ -180,7 +180,7 @@ export default function Header() {
 								<div className="mt-6 flow-root">
 									<div className="-my-6 divide-y divide-muted-500/10">
 										<div className="space-y-2 py-6">
-											<NavigationMenuItem>
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/tips"
@@ -190,8 +190,8 @@ export default function Header() {
 														Tips
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
+											</NavigationMenuItem> */}
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/shorts"
@@ -201,8 +201,8 @@ export default function Header() {
 														Shorts
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
+											</NavigationMenuItem> */}
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/articles"
@@ -212,8 +212,8 @@ export default function Header() {
 														Articles
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
+											</NavigationMenuItem> */}
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/talks"
@@ -223,7 +223,7 @@ export default function Header() {
 														Talks
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
+											</NavigationMenuItem> */}
 											<NavigationMenuItem>
 												<NavigationMenuTrigger className="block w-full rounded-lg px-3 py-2 text-left text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100">
 													Courses
@@ -268,7 +268,7 @@ export default function Header() {
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
-											<NavigationMenuItem>
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/uses"
@@ -278,8 +278,8 @@ export default function Header() {
 														Uses
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
-											<NavigationMenuItem>
+											</NavigationMenuItem> */}
+											{/* <NavigationMenuItem>
 												<NavigationMenuLink asChild>
 													<NavLink
 														to="/about"
@@ -289,7 +289,7 @@ export default function Header() {
 														About
 													</NavLink>
 												</NavigationMenuLink>
-											</NavigationMenuItem>
+											</NavigationMenuItem> */}
 										</div>
 									</div>
 								</div>
