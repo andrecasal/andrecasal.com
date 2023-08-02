@@ -1,4 +1,3 @@
-/* import { useForm } from '@conform-to/react' */
 import { Button } from '~/components/ui/button.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Input } from '~/components/ui/input.tsx'
@@ -8,6 +7,7 @@ import { useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
 import { parse } from '@conform-to/zod'
 import { cn } from '~/utils/misc.ts'
+import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
 
 type NewsletterProps = {
 	className?: string
@@ -34,6 +34,12 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 				<Text size="lg" className="mt-4 text-muted-400">
 					{description}
 				</Text>
+				<div className="my-4 flex h-44 gap-4">
+					<img src={guide} alt="Guide to full-stack web development" className="m-4 h-full -rotate-3 transform-gpu rounded-lg shadow-xl" />
+					<Text size="lg" className="mt-4 text-muted-400">
+						Once you subscribe you'll get my free guide to modern full-stack web development and solve analysis paralysis from choosing which tools to use.
+					</Text>
+				</div>
 				<Form method="post" action="/newsletter" className="flex flex-col gap-y-4" {...form.props}>
 					<div className="mt-6 grid grid-cols-3 gap-x-4">
 						<div>
@@ -60,9 +66,9 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 					</Button>
 				</Form>
 			</div>
-			<div className="space-y-8 xl:contents xl:space-y-0">
-				<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5 xl:col-start-2 xl:row-end-1">
-					<blockquote className="flex p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900 xl:grow xl:items-center">
+			<div className="space-y-8">
+				<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5">
+					<blockquote className="flex p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900">
 						<p>“I thought the website was good. But the newsletter? Even better!”</p>
 					</blockquote>
 					<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
