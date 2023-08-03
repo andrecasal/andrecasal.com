@@ -11,7 +11,8 @@ import goncaloBarreiros from './images/goncalo-barreiros.png'
 import pauloJorge from './images/paulo-jorge.png'
 import miguelFerreira from './images/miguel-ferreira.png'
 import satisfactionGuarantee from './images/satisfaction-guarantee.png'
-import signature from './images/signature.png'
+import signatureBlack from './images/signature-black.png'
+import signatureWhite from './images/signature-white.png'
 
 const Tutoring = () => {
 	const features = [
@@ -388,7 +389,7 @@ const Tutoring = () => {
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
+							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
 									<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 								</blockquote>
@@ -421,7 +422,7 @@ const Tutoring = () => {
 											)}
 										>
 											{column.map((testimonial, i) => (
-												<figure key={i} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
+												<figure key={i} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
 														<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
 													</blockquote>
@@ -466,7 +467,7 @@ const Tutoring = () => {
 							<div className="mt-10 flex items-center gap-x-6"></div>
 						</div>
 					</div>
-					<div className="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
+					<div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
 						{stats.map(stat => (
 							<div key={stat.name} className="py-6">
 								<p className="text-sm font-medium leading-6 text-muted-400">{stat.name}</p>
@@ -678,7 +679,8 @@ const Tutoring = () => {
 						</Text>
 					</div>
 					<div className="mt-16 rounded-xl p-8 sm:mt-24 lg:mt-0">
-						<img src={signature} alt="André Casal signature" />
+						<img src={signatureBlack} alt="André Casal signature" className="mt-16 dark:hidden" />
+						<img src={signatureWhite} alt="André Casal signature" className="mt-16 hidden dark:block" />
 					</div>
 				</div>
 			</Container>

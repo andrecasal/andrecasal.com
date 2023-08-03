@@ -228,7 +228,7 @@ const FullStackWebDevMentor = () => {
 								/>
 								<path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
 								<foreignObject width={316} height={684} transform="translate(24 24)" clipPath="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)">
-									<img src="https://tailwindui.com/img/component-images/mobile-app-screenshot.png" alt="" />
+									<img src="/img/vs-code-screenshot.png" alt="VS Code" className="h-full object-cover" />
 								</foreignObject>
 							</svg>
 						</div>
@@ -253,7 +253,7 @@ const FullStackWebDevMentor = () => {
 							</div>
 						</div>
 					</div>
-					<div className="pt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+					<div className="pt-8 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
 						<img className="w-full max-w-none rounded-xl bg-muted-900 shadow-xl ring-1 ring-muted-400/10" src="/img/andre.jpg" alt="André Casal" />
 					</div>
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
