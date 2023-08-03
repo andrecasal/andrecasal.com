@@ -10,7 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/
 import BackgroundRadial from '../components/bg-radial.tsx'
 import BackgroundDiagonal from '../components/bg-diagonal.tsx'
 import zacharyCassette from '../images/zachary-cassette.jpg'
-import signature from '../images/signature.png'
+import signatureBlack from '../images/signature-black.png'
+import signatureWhite from '../images/signature-white.png'
 import { Newsletter } from '~/components/newsletter.tsx'
 
 const MasteryForVSCode = () => {
@@ -440,7 +441,7 @@ const MasteryForVSCode = () => {
 			<BackgroundDiagonal>
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
-						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+						<div className="mx-auto max-w-2xl lg:mx-0">
 							<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
 								Hi! I'm André Casal a seasoned full-stack web developer.
 							</Text>
@@ -601,7 +602,8 @@ const MasteryForVSCode = () => {
 						<Text size="md" className="mt-8">
 							To your success! 🥂
 						</Text>
-						<img src={signature} alt="André Casal signature" className="mt-16" />
+						<img src={signatureBlack} alt="André Casal signature" className="mt-16 dark:hidden" />
+						<img src={signatureWhite} alt="André Casal signature" className="mt-16 hidden dark:block" />
 					</div>
 				</div>
 			</Container>
