@@ -410,7 +410,7 @@ const FullStackWebDevMentor = () => {
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
+							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
 									<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 								</blockquote>
@@ -437,7 +437,7 @@ const FullStackWebDevMentor = () => {
 											)}
 										>
 											{column.map(testimonial => (
-												<figure key={testimonial.author.name} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
+												<figure key={testimonial.author.name} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
 														<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
 													</blockquote>

@@ -63,7 +63,7 @@ const WelcomeAboard = () => {
 							size="6xl"
 							className="mb-44 bg-gradient-to-r from-[hsl(25deg,61%,26%)] via-[hsl(33deg,79%,54%)] to-[hsl(41deg,98%,82%)] bg-clip-text text-transparent"
 						>
-							web development
+							web dev
 						</Text>
 					</div>
 				</BackgroundCover>

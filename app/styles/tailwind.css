@@ -67,7 +67,7 @@
 
 	.dark {
 		color-scheme: dark;
-		--color-background: 0 0% 10%;
+		--color-background: 224 35.7% 4.1%;
 		--color-foreground: 0 0% 100%;
 		--color-danger-foreground: 0 73.7% 61.8%;
 		--color-muted-50: 224 71.4% 4.1%;
@@ -82,6 +82,10 @@
 		--color-muted-900: 220 14.3% 95.9%;
 		--color-muted-950: 210 20% 98%;
 		--color-ring: 239 86.4% 59.6%;
+
+		--color-info-title: 226 70.7% 40.2%;
+		--color-info-foreground: 224 76.3% 48%;
+		--color-info-background: 221 39.3% 11%;
 	}
 }
 
