@@ -213,7 +213,7 @@ const MasteryForVSCode = () => {
 			description: 'The third part is about teaching you all the best practices you need to know for full-stack web development.',
 		},
 		{
-			name: 'Languages, libraries, frameworks, and tools',
+			name: 'Languages, libraries, and frameworks',
 			description: 'The fourth part is all about improving your developer experience and teaching you best practices in your particular tech stack.',
 		},
 		{
@@ -366,7 +366,7 @@ const MasteryForVSCode = () => {
 						</div>
 						<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 							{stats.map(stat => (
-								<div key={stat.id} className="flex flex-col gap-y-3 border-l border-white/10">
+								<div key={stat.id} className="flex flex-col gap-y-3">
 									<Text size="sm" className="font-semibold text-muted-600" asChild>
 										<dt>{stat.name}</dt>
 									</Text>
@@ -390,7 +390,7 @@ const MasteryForVSCode = () => {
 						</Text>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-						<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
+						<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 							<blockquote className="p-12 text-muted-900">
 								<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 							</blockquote>
@@ -417,7 +417,7 @@ const MasteryForVSCode = () => {
 										)}
 									>
 										{column.map(testimonial => (
-											<figure key={testimonial.author.name} className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-muted-900/5">
+											<figure key={testimonial.author.name} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 												<blockquote>
 													<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
 												</blockquote>
@@ -479,7 +479,7 @@ const MasteryForVSCode = () => {
 							{modules.map((module, i) => (
 								<div key={module.name} className="flex flex-col">
 									<dt className="flex items-baseline gap-x-3 text-base font-semibold leading-7 text-muted-900">
-										<span className="text-size-4xl text-muted-200">{i + 1}</span> {module.name}
+										<span className="text-size-6xl text-muted-300">{i + 1}</span> {module.name}
 									</dt>
 									<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
 										<p className="flex-auto">{module.description}</p>
@@ -607,7 +607,7 @@ const MasteryForVSCode = () => {
 			</Container>
 			<Container>
 				<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8 ">
-					<div className="relative isolate overflow-hidden bg-muted-50 px-6 py-24 text-center shadow-2xl rounded-3xl sm:px-16">
+					<div className="relative isolate overflow-hidden rounded-3xl bg-muted-100/80 px-6 py-24 text-center shadow-2xl sm:px-16">
 						<BackgroundRadial>
 							<Text heading="h2" size="3xl" className="mt-2 sm:text-size-4xl">
 								Boost your VS Code productivity today.
