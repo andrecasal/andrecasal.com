@@ -13,7 +13,7 @@ const requiredServerEnvs = [
 	'MARKETING_EMAIL_SERVICE_API_KEY',
 	'MARKETING_EMAIL_SERVICE_API_ENDPOINT',
 	// If you plan on using Sentry, uncomment this line
-	// 'SENTRY_DSN',
+	'SENTRY_DSN',
 ] as const
 
 declare global {
