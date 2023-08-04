@@ -55,14 +55,6 @@ export default function Index() {
 
 	return (
 		<>
-			<button
-				onClick={() =>
-					// @ts-ignore
-					methodDoesNotExist()
-				}
-			>
-				Break the world
-			</button>
 			<HeroAndre />
 			<Brands />
 			<Container>
