@@ -1,4 +1,4 @@
-import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
+import type { V2_MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
@@ -6,10 +6,6 @@ import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Link } from '@remix-run/react'
-
-export const links: LinksFunction = () => {
-	return [{ rel: 'preload', href: '/img/andre-at-piano.jpg', as: 'image' }].filter(Boolean)
-}
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 
