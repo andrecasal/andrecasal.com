@@ -57,7 +57,7 @@
 		"@remix-run/react": "^1.18.0",
 		"@remix-run/router": "^1.7.0",
 		"@remix-run/server-runtime": "^1.18.0",
-		"@sentry/remix": "^7.57.0",
+		"@sentry/remix": "^7.61.1",
 		"address": "^1.2.2",
 		"autoprefixer": "^10.4.14",
 		"bcryptjs": "^2.4.3",

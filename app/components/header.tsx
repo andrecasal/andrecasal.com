@@ -9,15 +9,21 @@ import { type SerializeFrom } from '@remix-run/node'
 import { type loader as rootLoader } from '~/root.tsx'
 import { Icon } from './ui/icon.tsx'
 
+const prefetch = 'intent'
+
 const navigation = [
 	/* { name: 'Tips', href: '/tips' }, */
 	/* { name: 'Shorts', href: '/shorts' }, */
 	/* { name: 'Articles', href: '/articles' }, */
 	/* { name: 'Talks', href: '/talks' }, */
-	{ name: 'Courses', href: '/courses', children: [
-		{ name: 'All courses', href: '/courses' },
-		{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' },
-	]},
+	{
+		name: 'Courses',
+		href: '/courses',
+		children: [
+			{ name: 'All courses', href: '/courses' },
+			{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' },
+		],
+	},
 	{ name: 'Mentorship', href: '/mentorship' },
 	/* { name: 'About', href: '/courses', children: [
 		{ name: 'About André', href: '/about' },
@@ -39,6 +45,7 @@ export default function Header() {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<NavLink
+										prefetch={prefetch}
 										to="/"
 										className="relative -m-3 block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
 									>
@@ -47,12 +54,16 @@ export default function Header() {
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<div className="hidden lg:flex lg:gap-x-6">
-								{navigation.map(({name, href, children}) => (
+								{navigation.map(({ name, href, children }) => (
 									<Fragment key={name}>
 										{!children ? (
 											<NavigationMenuItem>
 												<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-													<NavLink to={href} className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full">
+													<NavLink
+														prefetch={prefetch}
+														to={href}
+														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+													>
 														{name}
 													</NavLink>
 												</NavigationMenuLink>
@@ -60,18 +71,21 @@ export default function Header() {
 										) : (
 											<NavigationMenuItem>
 												<NavigationMenuTrigger className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">{name}</NavigationMenuTrigger>
-													<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
+												<NavigationMenuContent className="absolute top-full rounded-lg border bg-background p-3">
 													<NavigationMenuList>
-														{children.map(({name, href}) => <NavigationMenuItem key={name}>
-															<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
-																<Link
-																	to={href}
-																	className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
-																>
-																	{name}
-																</Link>
-															</NavigationMenuLink>
-														</NavigationMenuItem>)}
+														{children.map(({ name, href }) => (
+															<NavigationMenuItem key={name}>
+																<NavigationMenuLink asChild className="rounded-md px-4 py-3 text-size-sm font-semibold hover:bg-muted-100">
+																	<Link
+																		prefetch={prefetch}
+																		to={href}
+																		className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
+																	>
+																		{name}
+																	</Link>
+																</NavigationMenuLink>
+															</NavigationMenuItem>
+														))}
 													</NavigationMenuList>
 												</NavigationMenuContent>
 											</NavigationMenuItem>
@@ -97,6 +111,7 @@ export default function Header() {
 									<NavigationMenuItem>
 										<NavigationMenuLink asChild>
 											<NavLink
+												prefetch={prefetch}
 												to="/"
 												className="relative block rounded-md p-3 text-size-sm font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 hover:bg-muted-100 aria-[current]:after:max-w-full"
 												onClick={() => setOpen(false)}
@@ -119,6 +134,7 @@ export default function Header() {
 														<NavigationMenuItem>
 															<NavigationMenuLink asChild>
 																<NavLink
+																	prefetch={prefetch}
 																	to={href}
 																	className="block rounded-lg px-3 py-2 text-size-sm font-semibold text-muted-900 hover:bg-muted-50 aria-[current]:bg-muted-100"
 																	onClick={() => setOpen(false)}
