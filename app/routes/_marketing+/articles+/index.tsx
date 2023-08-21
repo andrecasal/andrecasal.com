@@ -1,41 +1,20 @@
-import { Link, useLoaderData } from '@remix-run/react'
-import { Container } from '../../components/ui/container.tsx'
+import { /* Link, */ useLoaderData } from '@remix-run/react'
+import { Container } from '../../../components/ui/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
-import BackgroundBlur from './components/bg-blur.tsx'
+import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
-import { Button } from '~/components/ui/button.tsx'
+/* import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
-import { Label } from '~/components/ui/label.tsx'
+import { Label } from '~/components/ui/label.tsx' */
 import { Text } from '~/components/ui/text.tsx'
 
 export const loader = () => {
 	const posts = [
 		{
 			id: 1,
-			title: 'Boost your conversion rate',
-			href: '#',
-			description:
-				'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-			imageUrl: '/img/andre-at-piano.jpg',
-			date: 'Mar 16, 2020',
-			datetime: '2020-03-16',
-		},
-		{
-			id: 2,
-			title: 'Boost your conversion rate',
-			href: '#',
-			description:
-				'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-			imageUrl: '/img/andre-at-piano.jpg',
-			date: 'Mar 16, 2020',
-			datetime: '2020-03-16',
-		},
-		{
-			id: 3,
-			title: 'Boost your conversion rate',
-			href: '#',
-			description:
-				'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+			title: 'Remix data flow',
+			href: '/articles/remix-data-flow',
+			description: 'This article explains how data flows in a Remix route. It covers the data flow from the server to the browser, and from the browser to the server.',
 			imageUrl: '/img/andre-at-piano.jpg',
 			date: 'Mar 16, 2020',
 			datetime: '2020-03-16',
@@ -45,8 +24,8 @@ export const loader = () => {
 	return { posts, topics }
 }
 
-const Blog = () => {
-	const { posts, topics } = useLoaderData()
+const Articles = () => {
+	const { posts /* , topics */ } = useLoaderData()
 	return (
 		<>
 			<BackgroundBlur>
@@ -57,10 +36,10 @@ const Blog = () => {
 								Great web dev articles
 							</Text>
 							<Text size="lg" className="mt-6 text-muted-800">
-								Well-thought-out solutions to common problems in modern full-stack web development.
+								Articles to make full-stack web dev a cakewalk.
 							</Text>
 						</div>
-						<div className="mx-auto mt-10 max-w-2xl lg:max-w-none">
+						{/* <div className="mx-auto mt-10 max-w-2xl lg:max-w-none">
 							<div className="mt-6 flex max-w-md gap-x-4">
 								<Label htmlFor="search" className="sr-only">
 									Search articles by title or content
@@ -75,8 +54,8 @@ const Blog = () => {
 									</Link>
 								</Button>
 							</div>
-						</div>
-						<div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
+						</div> */}
+						{/* <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
 							<div>
 								<Text size="md">Filter by topic:</Text>
 							</div>
@@ -87,24 +66,18 @@ const Blog = () => {
 									</Button>
 								))}
 							</div>
-						</div>
+						</div> */}
 					</div>
 					<div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 						{posts.map((post: any) => (
 							<ArticlePreview key={post.id} post={post} />
 						))}
-						{posts.map((post: any) => (
-							<ArticlePreview key={post.id} post={post} />
-						))}
-						{posts.map((post: any) => (
-							<ArticlePreview key={post.id} post={post} />
-						))}
 					</div>
-					<div className="flex justify-around">
+					{/* <div className="flex justify-around">
 						<Button variant="secondary" size="lg" className="mt-8 text-muted-600 sm:mt-10 lg:mt-12">
 							Load more articles...
 						</Button>
-					</div>
+					</div> */}
 				</Container>
 			</BackgroundBlur>
 			<Container>
@@ -119,4 +92,4 @@ const Blog = () => {
 	)
 }
 
-export default Blog
+export default Articles
