@@ -26,6 +26,68 @@ export const loginFormSchema = z.object({
 	remember: checkboxSchema(),
 })
 
+export function InlineLogin({ redirectTo, formError }: { redirectTo?: string; formError?: string | null }) {
+	const loginFetcher = useFetcher<typeof action>()
+
+	const [form, fields] = useForm({
+		id: 'inline-login',
+		defaultValue: { redirectTo },
+		constraint: getFieldsetConstraint(loginFormSchema),
+		lastSubmission: loginFetcher.data?.submission,
+		onValidate({ formData }) {
+			return parse(formData, { schema: loginFormSchema })
+		},
+		shouldRevalidate: 'onBlur',
+	})
+
+	return (
+		<div>
+			<div className="mx-auto w-full max-w-md px-8">
+				<loginFetcher.Form method="POST" action={ROUTE_PATH} name="login" {...form.props}>
+					<Field labelProps={{ children: 'Username' }} inputProps={{ ...conform.input(fields.username), autoFocus: true }} errors={fields.username.errors} />
+
+					<Field labelProps={{ children: 'Password' }} inputProps={conform.input(fields.password, { type: 'password' })} errors={fields.password.errors} />
+
+					<div className="flex justify-between">
+						<CheckboxField
+							labelProps={{
+								htmlFor: fields.remember.id,
+								children: 'Remember me',
+							}}
+							buttonProps={conform.input(fields.remember, { type: 'checkbox' })}
+							errors={fields.remember.errors}
+						/>
+
+						<div>
+							<Link to="/forgot-password" className="text-size-sm font-semibold">
+								Forgot password?
+							</Link>
+						</div>
+					</div>
+
+					<input {...conform.input(fields.redirectTo)} type="hidden" />
+					<ErrorList errors={[...form.errors, formError]} id={form.errorId} />
+
+					<div className="flex items-center justify-between gap-6 pt-3">
+						<StatusButton
+							className="w-full"
+							status={loginFetcher.state === 'submitting' ? 'pending' : loginFetcher.data?.status}
+							type="submit"
+							disabled={loginFetcher.state !== 'idle'}
+						>
+							Log in
+						</StatusButton>
+					</div>
+				</loginFetcher.Form>
+				<div className="flex items-center justify-center gap-2 pt-6">
+					<span className="text-muted-500">New here?</span>
+					<Link to="/signup">Create an account</Link>
+				</div>
+			</div>
+		</div>
+	)
+}
+
 export async function action({ request }: DataFunctionArgs) {
 	const formData = await request.formData()
 	const submission = parse(formData, {
@@ -97,66 +159,4 @@ export async function action({ request }: DataFunctionArgs) {
 	} else {
 		throw redirect(safeRedirect(redirectTo), responseInit)
 	}
-}
-
-export function InlineLogin({ redirectTo, formError }: { redirectTo?: string; formError?: string | null }) {
-	const loginFetcher = useFetcher<typeof action>()
-
-	const [form, fields] = useForm({
-		id: 'inline-login',
-		defaultValue: { redirectTo },
-		constraint: getFieldsetConstraint(loginFormSchema),
-		lastSubmission: loginFetcher.data?.submission,
-		onValidate({ formData }) {
-			return parse(formData, { schema: loginFormSchema })
-		},
-		shouldRevalidate: 'onBlur',
-	})
-
-	return (
-		<div>
-			<div className="mx-auto w-full max-w-md px-8">
-				<loginFetcher.Form method="POST" action={ROUTE_PATH} name="login" {...form.props}>
-					<Field labelProps={{ children: 'Username' }} inputProps={{ ...conform.input(fields.username), autoFocus: true }} errors={fields.username.errors} />
-
-					<Field labelProps={{ children: 'Password' }} inputProps={conform.input(fields.password, { type: 'password' })} errors={fields.password.errors} />
-
-					<div className="flex justify-between">
-						<CheckboxField
-							labelProps={{
-								htmlFor: fields.remember.id,
-								children: 'Remember me',
-							}}
-							buttonProps={conform.input(fields.remember, { type: 'checkbox' })}
-							errors={fields.remember.errors}
-						/>
-
-						<div>
-							<Link to="/forgot-password" className="text-size-sm font-semibold">
-								Forgot password?
-							</Link>
-						</div>
-					</div>
-
-					<input {...conform.input(fields.redirectTo)} type="hidden" />
-					<ErrorList errors={[...form.errors, formError]} id={form.errorId} />
-
-					<div className="flex items-center justify-between gap-6 pt-3">
-						<StatusButton
-							className="w-full"
-							status={loginFetcher.state === 'submitting' ? 'pending' : loginFetcher.data?.status}
-							type="submit"
-							disabled={loginFetcher.state !== 'idle'}
-						>
-							Log in
-						</StatusButton>
-					</div>
-				</loginFetcher.Form>
-				<div className="flex items-center justify-center gap-2 pt-6">
-					<span className="text-muted-500">New here?</span>
-					<Link to="/signup">Create an account</Link>
-				</div>
-			</div>
-		</div>
-	)
 }
