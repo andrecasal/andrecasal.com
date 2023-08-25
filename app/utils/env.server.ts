@@ -7,13 +7,14 @@ const requiredServerEnvs = [
 	'SESSION_SECRET',
 	'INTERNAL_COMMAND_TOKEN',
 	'CACHE_DATABASE_PATH',
-	// If you plan to use Resend, uncomment this line
-	'TRANSACTIONAL_EMAIL_SERVICE_API_KEY',
-	'TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT',
+	'TRANSACTIONAL_EMAIL_SERVICE_API_KEY', // If you plan to use Resend, uncomment this line
+	'TRANSACTIONAL_EMAIL_SERVICE_API_ENDPOINT', // If you plan to use Resend, uncomment this line
 	'MARKETING_EMAIL_SERVICE_API_KEY',
 	'MARKETING_EMAIL_SERVICE_API_ENDPOINT',
-	// If you plan on using Sentry, uncomment this line
-	'SENTRY_DSN',
+	'SENTRY_DSN', // If you plan on using Sentry, uncomment this line
+	'SANITY_PROJECT_ID',
+	'SANITY_DATASET',
+	'SANITY_API_ENDPOINT_KEY',
 ] as const
 
 declare global {

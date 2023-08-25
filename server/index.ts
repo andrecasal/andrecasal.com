@@ -8,10 +8,7 @@ import address from 'address'
 import closeWithGrace from 'close-with-grace'
 import helmet from 'helmet'
 import crypto from 'crypto'
-import {
-	type RequestHandler,
-	createRequestHandler as _createRequestHandler,
-} from '@remix-run/express'
+import { type RequestHandler, createRequestHandler as _createRequestHandler } from '@remix-run/express'
 import { wrapExpressCreateRequestHandler } from '@sentry/remix'
 import { type ServerBuild, broadcastDevReady } from '@remix-run/node'
 import getPort, { portNumbers } from 'get-port'
@@ -22,9 +19,7 @@ import chalk from 'chalk'
 import * as remixBuild from '../build/index.js'
 const MODE = process.env.NODE_ENV
 
-const createRequestHandler = wrapExpressCreateRequestHandler(
-	_createRequestHandler,
-)
+const createRequestHandler = wrapExpressCreateRequestHandler(_createRequestHandler)
 
 const BUILD_PATH = '../build/index.js'
 
@@ -33,8 +28,7 @@ let devBuild = build
 
 const app = express()
 
-const getHost = (req: { get: (key: string) => string | undefined }) =>
-	req.get('X-Forwarded-Host') ?? req.get('host') ?? ''
+const getHost = (req: { get: (key: string) => string | undefined }) => req.get('X-Forwarded-Host') ?? req.get('host') ?? ''
 
 // ensure HTTPS only (X-Forwarded-Proto comes from Fly)
 app.use((req, res, next) => {
@@ -66,16 +60,10 @@ app.use(compression())
 app.disable('x-powered-by')
 
 // Remix fingerprints its assets so we can cache forever.
-app.use(
-	'/build',
-	express.static('public/build', { immutable: true, maxAge: '1y' }),
-)
+app.use('/build', express.static('public/build', { immutable: true, maxAge: '1y' }))
 
 // Aggressively cache fonts for a year
-app.use(
-	'/fonts',
-	express.static('public/fonts', { immutable: true, maxAge: '1y' }),
-)
+app.use('/fonts', express.static('public/fonts', { immutable: true, maxAge: '1y' }))
 
 // Everything else (like favicon.ico) is cached for an hour. You may want to be
 // more aggressive with this caching.
@@ -94,14 +82,10 @@ app.use(
 		crossOriginEmbedderPolicy: false,
 		contentSecurityPolicy: {
 			directives: {
-				'connect-src': [
-					MODE === 'development' ? 'ws:' : null,
-					process.env.SENTRY_DSN ? '*.ingest.sentry.io' : null,
-					"'self'",
-				].filter(Boolean),
+				'connect-src': [MODE === 'development' ? 'ws:' : null, process.env.SENTRY_DSN ? '*.ingest.sentry.io' : null, "'self'"].filter(Boolean),
 				'font-src': ["'self'"],
 				'frame-src': ["'self'"],
-				'img-src': ["'self'", 'data:'],
+				'img-src': ['*.sanity.io', "'self'", 'data:'],
 				'script-src': [
 					"'strict-dynamic'",
 					"'self'",
@@ -125,12 +109,7 @@ function getRequestHandler(build: ServerBuild): RequestHandler {
 	return createRequestHandler({ build, mode: MODE, getLoadContext })
 }
 
-app.all(
-	'*',
-	process.env.NODE_ENV === 'development'
-		? (...args) => getRequestHandler(devBuild)(...args)
-		: getRequestHandler(build),
-)
+app.all('*', process.env.NODE_ENV === 'development' ? (...args) => getRequestHandler(devBuild)(...args) : getRequestHandler(build))
 
 const desiredPort = Number(process.env.PORT || 3000)
 const portToUse = await getPort({
@@ -139,19 +118,10 @@ const portToUse = await getPort({
 
 const server = app.listen(portToUse, () => {
 	const addy = server.address()
-	const portUsed =
-		desiredPort === portToUse
-			? desiredPort
-			: addy && typeof addy === 'object'
-			? addy.port
-			: 0
+	const portUsed = desiredPort === portToUse ? desiredPort : addy && typeof addy === 'object' ? addy.port : 0
 
 	if (portUsed !== desiredPort) {
-		console.warn(
-			chalk.yellow(
-				`⚠️  Port ${desiredPort} is not available, using ${portUsed} instead.`,
-			),
-		)
+		console.warn(chalk.yellow(`⚠️  Port ${desiredPort} is not available, using ${portUsed} instead.`))
 	}
 	console.log(`🚀  We have liftoff!`)
 	const localUrl = `http://localhost:${portUsed}`
