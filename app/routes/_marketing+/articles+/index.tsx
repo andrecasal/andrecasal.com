@@ -1,18 +1,64 @@
-import { Link, useLoaderData } from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 import { Container } from '../../../components/ui/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
-import { Input } from '~/components/ui/input.tsx'
-import { Label } from '~/components/ui/label.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { json } from '@remix-run/node'
+import { z } from 'zod'
 
-export const loader = async () => {
-	const sanityProjectId = process.env.SANITY_PROJECT_ID
-	const sanityDataset = process.env.SANITY_DATASET
-	const postQuery = encodeURIComponent(`*[_type=="post"]{
+const sanityProjectId = process.env.SANITY_PROJECT_ID
+const sanityDataset = process.env.SANITY_DATASET
+const sanityEndpoint = `https://${sanityProjectId}.api.sanity.io/v2021-10-21/data/query/${sanityDataset}`
+
+const postSchema = z.object({
+	_id: z.string(),
+	title: z.string(),
+	slug: z.object({
+		current: z.string(),
+	}),
+	categories: z.array(
+		z.object({
+			title: z.string(),
+		}),
+	),
+	mainImage: z.object({
+		asset: z.object({
+			originalFilename: z.string(),
+			url: z.string(),
+		}),
+	}),
+	/* 	body: z.array(
+		z.object({
+			_key: z.string(),
+			_type: z.enum(['block', 'image']),
+			children: z
+				.array(
+					z.object({
+						_key: z.string(),
+						_type: z.literal('span'),
+						text: z.string(),
+					}),
+				)
+				.nullable(),
+			asset: z
+				.object({
+					url: z.string(),
+				})
+				.nullable(),
+		}),
+	), */
+})
+export type Post = z.infer<typeof postSchema>
+const getPostsSuccessSchema = z.object({
+	ms: z.number(),
+	query: z.string(),
+	result: z.array(postSchema),
+})
+
+const getPosts = async () => {
+	const query = encodeURIComponent(`*[_type=="post"]{
 		_id,
 		title,
 		slug{
@@ -23,41 +69,51 @@ export const loader = async () => {
 		},
 		mainImage{
 			asset->{originalFilename, url}
-		},
-		body
+		}
 	}`)
-	const categoriesQuery = encodeURIComponent(`*[_type in ["category"]]{
+	const response = await fetch(`${sanityEndpoint}?query=${query}`, {
+		headers: {
+			Authorization: `Bearer ${process.env.SANITY_API_ENDPOINT_KEY}`,
+			'Content-Type': 'application/json',
+		},
+	})
+	const data = await response.json()
+	return getPostsSuccessSchema.parse(data)
+}
+
+const categoriesSchema = z.object({
+	_id: z.string(),
+	title: z.string(),
+})
+const getCategoriesSuccessSchema = z.object({
+	ms: z.number(),
+	query: z.string(),
+	result: z.array(categoriesSchema),
+})
+
+const getCategories = async () => {
+	const query = encodeURIComponent(`*[_type in ["category"]]{
 		_id,
 		title,
 	}`)
-	const sanityEndpoint = `https://${sanityProjectId}.api.sanity.io/v2021-10-21/data/query/${sanityDataset}`
-
-	const postFetch = await fetch(`${sanityEndpoint}?query=${postQuery}`, {
+	const result = await fetch(`${sanityEndpoint}?query=${query}`, {
 		headers: {
 			Authorization: `Bearer ${process.env.SANITY_API_ENDPOINT_KEY}`,
 			'Content-Type': 'application/json',
 		},
 	})
-	if (postFetch.status !== 200) return json({ error: 'Error fetching posts' }, { status: 500 })
-	const postData = await postFetch.json()
-	const { result: posts } = postData
+	const data = await result.json()
+	return getCategoriesSuccessSchema.parse(data)
+}
 
-	const categoriesFetch = await fetch(`${sanityEndpoint}?query=${categoriesQuery}`, {
-		headers: {
-			Authorization: `Bearer ${process.env.SANITY_API_ENDPOINT_KEY}`,
-			'Content-Type': 'application/json',
-		},
-	})
-	const categoriesData = await categoriesFetch.json()
-	const { result: categories } = categoriesData
-
-	return json({ posts, categories })
+export const loader = async () => {
+	const { result: posts } = await getPosts() // Get posts
+	const { result: categories } = await getCategories() // Get categories
+	return json({ posts, categories } as const)
 }
 
 const Articles = () => {
 	const { posts, categories } = useLoaderData<typeof loader>()
-
-	console.log(posts)
 
 	return (
 		<>
@@ -102,8 +158,8 @@ const Articles = () => {
 						</div>
 					</div>
 					<div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-						{posts.map(({ _id, ...post }: any) => (
-							<ArticlePreview key={_id} post={post} />
+						{posts.map(post => (
+							<ArticlePreview key={post._id} post={post} />
 						))}
 					</div>
 					{/* <div className="flex justify-around">
