@@ -128,7 +128,7 @@
 		"commander": "^11.0.0",
 		"cookie": "^0.5.0",
 		"enforce-unique": "^1.1.1",
-		"esbuild": "^0.18.20",
+		"esbuild": "^0.19.2",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
 		"fs-extra": "^11.1.1",
