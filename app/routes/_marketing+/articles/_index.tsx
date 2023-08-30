@@ -3,29 +3,50 @@ import { Container } from '../../../components/ui/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
-/* import { Button } from '~/components/ui/button.tsx'
-import { Input } from '~/components/ui/input.tsx'
+import { Button } from '~/components/ui/button.tsx'
+/* import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx' */
 import { Text } from '~/components/ui/text.tsx'
+import { Title as RemixDataFlowTitle } from './remix-data-flow/index.tsx'
+import remixDataFlow from '~/routes/_marketing+/articles/remix-data-flow/remix-data-flow.png'
+import { useState } from 'react'
+import { json } from '@remix-run/node'
+
+export type Post = {
+	title: string
+	href: string
+	description: string
+	imageUrl: string
+	topics: string[]
+}
 
 export const loader = () => {
-	const posts = [
+	const posts: Post[] = [
 		{
-			id: 1,
-			title: 'Remix data flow',
+			title: RemixDataFlowTitle,
 			href: '/articles/remix-data-flow',
-			description: 'This article explains how data flows in a Remix route. It covers the data flow from the server to the browser, and from the browser to the server.',
-			imageUrl: '/img/andre-at-piano.jpg',
-			date: 'Mar 16, 2020',
-			datetime: '2020-03-16',
+			description: 'Understand how data flows in a Remix route.',
+			imageUrl: remixDataFlow,
+			topics: ['Remix', 'Full-stack'],
 		},
 	]
-	const topics = ['React', 'JavaScript', 'TypeScript', 'CSS', 'HTML', 'Tailwind CSS', 'Remix', 'Performance', 'Open Source', 'UX']
-	return { posts, topics }
+	const tags = ['Remix', 'Full-stack']
+	return json({ posts, tags })
 }
 
 const Articles = () => {
-	const { posts /* , topics */ } = useLoaderData()
+	const loaderData = useLoaderData<typeof loader>()
+	const [tagsArray, setTagsArray] = useState<{ tag: string; selected: boolean }[]>(loaderData.tags.map((tag: string) => ({ tag, selected: false })))
+	const [postsArray, setPostsArray] = useState<Post[]>(loaderData.posts)
+
+	const handleTagClick = (t: string) => {
+		const newTagsArray = tagsArray.map(({ tag, selected }) => ({ tag, selected: tag === t ? !selected : selected }))
+		const selectedTags = newTagsArray.filter(({ selected }) => selected)
+		const newPostsArray = loaderData.posts.filter(({ topics }) => selectedTags.length === 0 || topics.some(topic => selectedTags.some(({ tag }) => tag === topic)))
+		setTagsArray(newTagsArray)
+		setPostsArray(newPostsArray)
+	}
+
 	return (
 		<>
 			<BackgroundBlur>
@@ -55,22 +76,22 @@ const Articles = () => {
 								</Button>
 							</div>
 						</div> */}
-						{/* <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
+						<div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
 							<div>
 								<Text size="md">Filter by topic:</Text>
 							</div>
 							<div className="flex flex-wrap gap-4">
-								{topics.map((topic: any) => (
-									<Button key={topic} variant="secondary" size="pill">
-										{topic}
+								{tagsArray.map(({ tag, selected }) => (
+									<Button key={tag} variant={selected ? 'primary' : 'secondary'} size="pill" onClick={() => handleTagClick(tag)}>
+										{tag}
 									</Button>
 								))}
 							</div>
-						</div> */}
+						</div>
 					</div>
 					<div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-						{posts.map((post: any) => (
-							<ArticlePreview key={post.id} post={post} />
+						{postsArray.map(post => (
+							<ArticlePreview key={post.title} post={post} />
 						))}
 					</div>
 					{/* <div className="flex justify-around">

@@ -14,7 +14,7 @@ const prefetch = 'intent'
 const navigation = [
 	/* { name: 'Tips', href: '/tips' }, */
 	/* { name: 'Shorts', href: '/shorts' }, */
-	/* { name: 'Articles', href: '/articles' }, */
+	{ name: 'Articles', href: '/articles' },
 	/* { name: 'Talks', href: '/talks' }, */
 	{
 		name: 'Courses',
