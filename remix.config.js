@@ -11,7 +11,7 @@ export default {
 	tailwind: true,
 	postcss: true,
 	watchPaths: ['./tailwind.config.ts'],
-	serverDependenciesToBundle: ['classgroup', 'usehooks-ts'],
+	serverDependenciesToBundle: ['classgroup', 'usehooks-ts', 'mdx-bundler', 'mdx-bundler/client'],
 	future: {
 		v2_headers: true,
 		v2_meta: true,
