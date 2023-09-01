@@ -2,7 +2,7 @@ import { Text } from '~/components/ui/text.tsx'
 import remixDataFlow from './remix-data-flow.png'
 import { type V2_MetaFunction } from '@remix-run/node'
 
-export const Title = 'Remix Data Flow 🔥'
+export const title = 'Remix Data Flow 🔥'
 
 export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Data flow in a Remix route' }]
@@ -12,42 +12,38 @@ const RemixDataFlow = () => {
 	return (
 		<>
 			<Text heading="h1" size="6xl">
-				{Title}
+				{title}
 			</Text>
 			<div className="mt-10 max-w-2xl">
 				<Text size="lg" className="mt-6">
-					When React emerged, one of its standout features was the "one-way data flow," detailed in the React documentation's "Thinking in React" section. This concept ensures that
-					changes in your underlying data model lead to UI updates, promoting modularity and speed. The primary idea is that data flows unidirectionally throughout your
-					application, enhancing its clarity and comprehensibility.
+					When React emerged, one of its standout features was the "one-way data flow". The primary idea is that data flows unidirectionally throughout your app. The UI is merelly
+					a reflection of your data and any changes your UI makes to the data, will trigger a re-render of the UI to reflect those changes. The cycle is data {'->'} UI {'->'} data
+					update {'->'} UI update. This promotes clarity, comprehensibility, modularity and development speed.
 				</Text>
 				<Text size="md" className="mt-6">
-					Imagine a hierarchy of components: the top one receives your data model as a prop. If you modify the underlying data model and invoke root.render(), the UI reflects the
-					changes. This approach clarifies UI updates and modification locations. However, a slight misnomer exists: this one-way flow pertains to the client only. Real-world
-					applications often require two-way data flow: between the client and the server for data persistence and synchronization.
+					However, a slight misnomer exists: this one-way flow pertains to the client only. If you want to sync data between your client and your server, you have to step into
+					two-way data flow, with state management tools like Redux or Apollo, where you send updates to the server (one-way), receive responses (two-way), and sync the remote
+					state with the local state. React will pick things up from here and make the UI reflect the new client data. This two-way data flow is a hassle and an error prone
+					process.
 				</Text>
 				<Text size="md" className="mt-6">
-					Enter Remix: a key Remix feature is simplifying interactions with the server for data injection into components. Remix extends the data flow across the network, ensuring
-					a true one-way cycle: from server (loader) to client (component) and back to the server (action).
+					One way to think about Remix is that it extends the unidirectional data flow across the network, ensuring a true one-way cycle: from server (loader) to client (component)
+					and back to the server (action+loader). The cycle is remote state {'->'} UI {'->'} remote state update {'->'} UI update.
 				</Text>
 				<figure className="mt-16">
 					<img className="rounded-xl bg-gray-50 object-cover" src={remixDataFlow} alt="Remix Data Flow" />
 					<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">Data flow in a Remix route</figcaption>
 				</figure>
 				<Text size="md" className="mt-6">
-					In traditional React, all state resides on the client; to persist specific components, you need to step out of the one-way flow and sync data with the server, a
-					potentially error-prone process. Remix transforms this approach by disentangling remote state from local state.
-				</Text>
-				<Text size="md" className="mt-6">
-					Remote state encompasses persistent data like user information, brought into your app from Remix mechanisms. This state lives off the client. In contrast, local state
-					comprises transient data, stored on the client (via React state or local storage), not requiring network synchronization.
+					Remote state that lives off the client, like user information, is sent to the client using loaders. Any data updates are sent back to the server's actions, which will
+					trigger a data reload to reflect any data updates, which will, in turn, update the UI accordingly.
 				</Text>
 				<Text size="md" className="mt-6">
 					Remix's "state management" solutions (although not labeled as such) encompass forms, fetchers, loaders, and actions. These tools maintain persistent state sync between
 					client and server, ensuring a cyclical one-way flow of data.
 				</Text>
 				<Text size="md" className="mt-6">
-					With Remix, your UI becomes a function of network-wide state, extending the analogy of React's virtual DOM abstraction. Just as React manages DOM updates via state, Remix
-					simplifies API-layer data persistence.
+					With Remix, your UI becomes a function of network-wide state, extending the analogy of React's one-way data flow from the client to the server.
 				</Text>
 				<Text size="md" className="mt-6">
 					In Remix, managing client-side state synchronization with the server becomes seamless. Mutations trigger state changes, with loaders refetching updated data and updating
@@ -55,9 +51,11 @@ const RemixDataFlow = () => {
 				</Text>
 				<Text size="md" className="mt-6">
 					Remix simplifies complexity in web development. By working before JavaScript, it ensures progressive enhancement for users and reduces complexity for developers. State
-					management tools like Redux and Apollo, while valuable, become unnecessary due to Remix's design. When using Remix, application state management concerns fade away.
-					Whether your app works without JavaScript or not, Remix manages complexities associated with state management, providing a streamlined approach to building web
-					applications.
+					management tools like Redux and Apollo, while valuable, become unnecessary due to Remix's design. When using Remix, remote state management concerns fade away. Whether
+					your app works without JavaScript or not, Remix manages complexities associated with state management, providing a streamlined approach to building web applications.
+				</Text>
+				<Text size="md" className="mt-6">
+					This simplified one-way data flow model is a huge win and why I no longer build apps with anything else but Remix.
 				</Text>
 			</div>
 		</>

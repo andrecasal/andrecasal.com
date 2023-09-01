@@ -7,10 +7,10 @@ import { Button } from '~/components/ui/button.tsx'
 /* import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx' */
 import { Text } from '~/components/ui/text.tsx'
-import { Title as RemixDataFlowTitle } from './remix-data-flow/index.tsx'
-import remixDataFlow from '~/routes/_marketing+/articles/remix-data-flow/remix-data-flow.png'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
+import { title as RemixDataFlowTitle } from './remix-data-flow/index.tsx'
+import remixDataFlow from './remix-data-flow/remix-data-flow.png'
 
 export type Post = {
 	title: string
@@ -30,7 +30,7 @@ export const loader = () => {
 			topics: ['Remix', 'Full-stack'],
 		},
 	]
-	const tags = ['Remix', 'Full-stack']
+	const tags = posts.map(({ topics }) => topics).flat()
 	return json({ posts, tags })
 }
 
