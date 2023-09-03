@@ -30,7 +30,7 @@ export const loader = () => {
 			topics: ['Remix', 'Full-stack'],
 		},
 	]
-	const tags = posts.map(({ topics }) => topics).flat()
+	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
 	return json({ posts, tags })
 }
 
