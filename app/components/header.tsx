@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
@@ -35,9 +35,17 @@ const navigation = [
 export default function Header() {
 	const data = useRouteLoaderData('root') as SerializeFrom<typeof rootLoader>
 	const [open, setOpen] = useState(false)
+	const ref = useRef<HTMLDivElement | null>(null)
+
+	useLayoutEffect(() => {
+		if (!ref.current) return
+		const styles = window.getComputedStyle(ref.current)
+		const fullHeight = ref.current.offsetHeight + parseInt(styles.marginTop) + parseInt(styles.marginBottom)
+		document.documentElement.style.setProperty(`--header-height`, `${fullHeight}px`)
+	})
 
 	return (
-		<Container className="mb-8">
+		<Container className="mb-8" ref={ref}>
 			<Dialog open={open} onOpenChange={setOpen}>
 				<header>
 					<NavigationMenu>
