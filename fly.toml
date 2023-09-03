@@ -1,4 +1,4 @@
-app = "andrecasal-com-1a6e"
+app = "andrecasal-com"
 primary_region = "mad"
 kill_signal = "SIGINT"
 kill_timeout = 5
