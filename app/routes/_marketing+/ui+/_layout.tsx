@@ -8,6 +8,7 @@ import { NavLink, Outlet } from '@remix-run/react'
 const SideMenu = () => {
 	const gettingStarted = [
 		{ name: 'Installation', href: '/ui/installation', disabled: true },
+		{ name: 'Architecture', href: '/ui/architecture', disabled: false },
 		{ name: 'Principles', href: '/ui/principles', disabled: false },
 	]
 
