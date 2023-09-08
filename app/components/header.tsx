@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
@@ -38,7 +38,8 @@ export default function Header() {
 	const [open, setOpen] = useState(false)
 	const ref = useRef<HTMLDivElement | null>(null)
 
-	useLayoutEffect(() => {
+	/** Using useEffect instead of useLayoutEffect to avoid hydration mismatch. See https://reactjs.org/link/uselayouteffect-ssr. */
+	useEffect(() => {
 		if (!ref.current) return
 		const styles = window.getComputedStyle(ref.current)
 		const fullHeight = ref.current.offsetHeight + parseInt(styles.marginTop) + parseInt(styles.marginBottom)
