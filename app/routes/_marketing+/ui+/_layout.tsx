@@ -7,7 +7,7 @@ import { NavLink, Outlet } from '@remix-run/react'
 
 const SideMenu = () => {
 	const gettingStarted = [
-		{ name: 'Installation', href: '/ui/installation', disabled: true },
+		{ name: 'Installation', href: '/ui/installation', disabled: false },
 		{ name: 'Architecture', href: '/ui/architecture', disabled: false },
 		{ name: 'Principles', href: '/ui/principles', disabled: false },
 	]
@@ -27,7 +27,7 @@ const SideMenu = () => {
 
 	const typography = [
 		{ name: 'Text', href: '/ui/typography/text', disabled: true },
-		{ name: 'Heading', href: '/ui/typography/heading', disabled: true },
+		{ name: 'Heading', href: '/ui/typography/heading', disabled: false },
 		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
 		{ name: 'Code', href: '/ui/typography/code', disabled: true },
 		{ name: 'Em', href: '/ui/typography/em', disabled: true },
@@ -174,7 +174,7 @@ const UI = () => {
 					<div className="sticky top-0 hidden h-[calc(100vh-var(--header-height))] min-w-[16rem] overflow-scroll rounded-lg border lg:block">
 						<SideMenu />
 					</div>
-					<div className="max-w-2xl flex-grow px-4 sm:px-6 lg:px-8">
+					<div className="flex-grow px-4 sm:px-6 lg:px-8">
 						<Outlet />
 					</div>
 				</div>

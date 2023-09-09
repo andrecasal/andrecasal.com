@@ -253,7 +253,7 @@ const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filen
 	return (
 		<Highlight code={code} language={extension} theme={cobalt2Theme}>
 			{({ style, tokens, getLineProps, getTokenProps }) => (
-				<div ref={ref} className={cn('group overflow-hidden rounded-xl font-code text-size-xs leading-5 sm:text-size-md sm:leading-6', className)} style={style} {...props}>
+				<div ref={ref} className={cn('group overflow-hidden rounded-xl font-code text-size-xs leading-5 sm:text-size-sm sm:leading-6', className)} style={style} {...props}>
 					<div className="flex items-center justify-between bg-foreground/20">
 						<div className="flex items-center gap-2 pl-3">
 							<div className="h-[12px] w-[12px] rounded-full bg-[#FE5650]"></div>
@@ -273,7 +273,7 @@ const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filen
 								<li key={i}>{i + 1}</li>
 							))}
 						</ol>
-						<pre className="flex-1 overflow-x-auto py-2 pl-0.5">
+						<pre className="flex-1 overflow-x-auto py-2 pl-2 pr-4">
 							{tokens.map((line, i) => (
 								<div key={i} {...getLineProps({ line })}>
 									{line.map((token, key) => (
