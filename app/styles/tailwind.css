@@ -37,29 +37,28 @@
 		--color-muted-900: 221 39.3% 11%;
 		--color-muted-950: 224 71.4% 4.1%;
 		--color-ring: 243 75.4% 58.6%;
-		--container-max-width: 80rem;
+
+		--container-max-width: 80rem; /* 1280px */
 		--container-padding-x: 1rem;
 
-		--typography-size-6xl: 3.75rem;
-		--typography-size-6xl-line-height: 1;
-		--typography-size-5xl: 3rem;
-		--typography-size-5xl-line-height: 1;
-		--typography-size-4xl: 2.25rem;
-		--typography-size-4xl-line-height: 2.5rem;
-		--typography-size-3xl: 1.875rem;
-		--typography-size-3xl-line-height: 2.25rem;
-		--typography-size-2xl: 1.5rem;
-		--typography-size-2xl-line-height: 2rem;
-		--typography-size-xl: 1.25rem;
-		--typography-size-xl-line-height: 1.75rem;
-		--typography-size-lg: 1.125rem;
-		--typography-size-lg-line-height: 1;
-		--typography-size-md: 1rem;
-		--typography-size-md-line-height: 1;
-		--typography-size-sm: 0.875rem;
-		--typography-size-sm-line-height: 1;
-		--typography-size-xs: 0.75rem;
-		--typography-size-xs-line-height: 1;
+		/* Tell the browser to interpolate between the two scales, based on the current viewport width */
+		/* Use this fluid type calculator: https://utopia.fyi/type/calculator/?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+		--text-size-4xl: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+		--text-size-4xl-line-height: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+		--text-size-3xl: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+		--text-size-3xl-line-height: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+		--text-size-2xl: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+		--text-size-2xl-line-height: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+		--text-size-xl: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+		--text-size-xl-line-height: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+		--text-size-lg: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
+		--text-size-lg-line-height: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
+		--text-size-md: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+		--text-size-md-line-height: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+		--text-size-sm: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
+		--text-size-sm-line-height: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
+		--text-size-xs: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
+		--text-size-xs-line-height: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
 
 		--radius: 0.375rem;
 		--min-tap-target: 24px;
