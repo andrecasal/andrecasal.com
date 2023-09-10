@@ -170,11 +170,11 @@ const UI = () => {
 				</SlideInDialog>
 			</div>
 			<Container>
-				<div className="flex items-baseline">
-					<div className="sticky top-0 hidden h-[calc(100vh-var(--header-height))] min-w-[16rem] overflow-scroll rounded-lg border lg:block">
+				<div className="grid w-full grid-cols-1 lg:grid-cols-[18rem_minmax(0,_1fr)]">
+					<div className="hidden h-[calc(100vh-var(--header-height))] rounded-lg border lg:block">
 						<SideMenu />
 					</div>
-					<div className="flex-grow px-4 sm:px-6 lg:px-8">
+					<div className="px-4 sm:px-6 lg:px-8">
 						<Outlet />
 					</div>
 				</div>
