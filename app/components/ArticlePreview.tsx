@@ -1,6 +1,6 @@
-import { Text } from '~/components/ui/text.tsx'
 import { type Post } from '~/routes/_marketing+/articles/_index.tsx'
 import { Badge } from './ui/badge.tsx'
+import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 
 export const ArticlePreview = ({ post }: { post: Post }) => {
 	return (
@@ -8,12 +8,13 @@ export const ArticlePreview = ({ post }: { post: Post }) => {
 			<img src={post.imageUrl} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
 			<div className="absolute inset-0 -z-10 bg-gradient-to-t from-muted-900 via-muted-900/40" />
 			<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-muted-900/10" />
-			<Text heading="h3" size="lg" className="mt-3 font-semibold leading-6 text-background">
+			<Heading as="h3" size="lg" className="mt-3 text-background">
 				<a href={post.href}>
+					{/* This span 👇 makes the link clickable on the entire area */}
 					<span className="absolute inset-0" />
 					{post.title}
 				</a>
-			</Text>
+			</Heading>
 			<div className="mt-4 flex flex-wrap items-center gap-1 overflow-hidden text-size-sm text-muted-300">
 				{post.topics.map(topic => (
 					<Badge key={topic} variant="muted" size="sm" className="whitespace-nowrap">

@@ -1,10 +1,10 @@
 import { Text } from '~/components/ui/text.tsx'
 
-const Principles = () => {
+const DevelopmentPrinciples = () => {
 	return (
 		<>
 			<Text heading="h1" size="4xl" className="mt-8 lg:mt-0">
-				Principles
+				Development Principles
 			</Text>
 			<ul className="ml-4 mt-4 list-disc">
 				<li>Props over Composition where possible</li>
@@ -42,4 +42,4 @@ const Principles = () => {
 		</>
 	)
 }
-export default Principles
+export default DevelopmentPrinciples

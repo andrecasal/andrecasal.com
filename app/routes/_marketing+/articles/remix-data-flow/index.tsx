@@ -3,6 +3,7 @@ import remixDataFlow from './remix-data-flow.png'
 import { type V2_MetaFunction } from '@remix-run/node'
 
 export const title = 'Remix Data Flow 🔥'
+export const description = 'Understand how data flows in a Remix route.'
 
 export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Data flow in a Remix route' }]

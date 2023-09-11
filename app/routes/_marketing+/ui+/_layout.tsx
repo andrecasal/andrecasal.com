@@ -9,7 +9,8 @@ const SideMenu = () => {
 	const gettingStarted = [
 		{ name: 'Installation', href: '/ui/installation', disabled: false },
 		{ name: 'Architecture', href: '/ui/architecture', disabled: false },
-		{ name: 'Principles', href: '/ui/principles', disabled: false },
+		{ name: 'Design Principles', href: '/ui/design-principles', disabled: false },
+		{ name: 'Development Principles', href: '/ui/development-principles', disabled: false },
 	]
 
 	const theme = [

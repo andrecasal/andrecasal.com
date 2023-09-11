@@ -9,8 +9,13 @@ import { Label } from '~/components/ui/label.tsx' */
 import { Text } from '~/components/ui/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
-import { title as RemixDataFlowTitle } from './remix-data-flow/index.tsx'
-import remixDataFlow from './remix-data-flow/remix-data-flow.png'
+import { title as RemixDataFlowTitle, description as RemixDataFlowDescription } from './remix-data-flow/index.tsx'
+import remixDataFlowImage from './remix-data-flow/remix-data-flow.png'
+import {
+	title as FluidTypographySizingWithModularScalesTitle,
+	description as FluidTypographySizingWithModularScalesDescription,
+} from './fluid-typography-sizing-with-modular-scales/index.tsx'
+import fluidTypographySizingWithModularScalesImage from './fluid-typography-sizing-with-modular-scales/fluid-typography.png'
 
 export type Post = {
 	title: string
@@ -24,10 +29,17 @@ export const loader = () => {
 	const posts: Post[] = [
 		{
 			title: RemixDataFlowTitle,
+			description: RemixDataFlowDescription,
+			imageUrl: remixDataFlowImage,
 			href: '/articles/remix-data-flow',
-			description: 'Understand how data flows in a Remix route.',
-			imageUrl: remixDataFlow,
 			topics: ['Remix', 'Full-stack'],
+		},
+		{
+			title: FluidTypographySizingWithModularScalesTitle,
+			description: FluidTypographySizingWithModularScalesDescription,
+			imageUrl: fluidTypographySizingWithModularScalesImage,
+			href: '/articles/fluid-typography-sizing-with-modular-scales',
+			topics: ['Typography', 'CSS'],
 		},
 	]
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
@@ -40,9 +52,12 @@ const Articles = () => {
 	const [postsArray, setPostsArray] = useState<Post[]>(loaderData.posts)
 
 	const handleTagClick = (t: string) => {
+		// Select the clicked tag
 		const newTagsArray = tagsArray.map(({ tag, selected }) => ({ tag, selected: tag === t ? !selected : selected }))
+		// Get all selected tags
 		const selectedTags = newTagsArray.filter(({ selected }) => selected)
-		const newPostsArray = loaderData.posts.filter(({ topics }) => selectedTags.length === 0 || topics.some(topic => selectedTags.some(({ tag }) => tag === topic)))
+		// Filter posts by selected tags
+		const newPostsArray = loaderData.posts.filter(({ topics }) => selectedTags.length === 0 || topics.some(topic => selectedTags.every(({ tag }) => tag === topic)))
 		setTagsArray(newTagsArray)
 		setPostsArray(newPostsArray)
 	}
