@@ -1,8 +1,5 @@
 # andreacasal.com
 
-![GitHub last commit](https://img.shields.io/github/last-commit/andrecasal/andreacasal.com)
-![GitHub license](https://img.shields.io/github/license/andrecasal/andreacasal.com)
-
 Welcome to the official repository for [andreacasal.com](https://andrecasal.com). It is also a hub for the accessible React UI library, [andrecasal/ui](https://github.com/andrecasal/ui).
 
 ## Table of Contents
