@@ -1,54 +1,16 @@
-<div align="center">
-  <h1 align="center"><a href="https://www.epicweb.dev/epic-stack">The Epic Stack 🚀</a></h1>
-  <strong align="center">
-    Ditch analysis paralysis and start shipping Epic Web apps.
-  </strong>
-  <p>
-    This is an opinionated project starter and reference that allows teams to
-    ship their ideas to production faster and on a more stable foundation based
-    on the experience of <a href="https://kentcdodds.com">Kent C. Dodds</a> and
-    <a href="https://github.com/epicweb-dev/epic-stack/graphs/contributors">contributors</a>.
-  </p>
-</div>
+# andreacasal.com
 
-```sh
-npx create-remix@latest --typescript --install --template epicweb-dev/epic-stack
-```
+![GitHub last commit](https://img.shields.io/github/last-commit/andrecasal/andreacasal.com)
+![GitHub license](https://img.shields.io/github/license/andrecasal/andreacasal.com)
 
-[![The Epic Stack](https://github-production-user-asset-6210df.s3.amazonaws.com/1500684/246885449-1b00286c-aa3d-44b2-9ef2-04f694eb3592.png)](https://www.epicweb.dev/epic-stack)
+Welcome to the official repository for [andreacasal.com](https://andrecasal.com). It is also a hub for the accessible React UI library, [andrecasal/ui](https://github.com/andrecasal/ui).
 
-[The Epic Stack](https://www.epicweb.dev/epic-stack)
+## Table of Contents
 
-<hr />
+- [andreacasal.com](#andreacasalcom)
+	- [Table of Contents](#table-of-contents)
+	- [Why](#why)
 
-## Watch Kent's Introduction to The Epic Stack
+## Why
 
-[![screenshot of a YouTube video](https://github-production-user-asset-6210df.s3.amazonaws.com/1500684/242088051-6beafa78-41c6-47e1-b999-08d3d3e5cb57.png)](https://www.youtube.com/watch?v=yMK5SVRASxM)
-
-["The Epic Stack" by Kent C. Dodds at #RemixConf 2023 💿](https://www.youtube.com/watch?v=yMK5SVRASxM)
-
-## Docs
-
-[Read the docs](https://github.com/epicweb-dev/epic-stack/blob/main/docs)
-(please 🙏).
-
-## Support
-
-- 🆘 Join the
-  [discussion on GitHub](https://github.com/epicweb-dev/epic-stack/discussions)
-  and the [KCD Community on Discord](https://kcd.im/discord).
-- 💡 Create an
-  [idea discussion](https://github.com/epicweb-dev/epic-stack/discussions/new?category=ideas)
-  for suggestions.
-- 🐛 Open a [GitHub issue](https://github.com/epicweb-dev/epic-stack/issues) to
-  report a bug.
-
-## Branding
-
-Want to talk about the Epic Stack in a blog post or talk? Great! Here are some
-assets you can use in your material:
-[EpicWeb.dev/brand](https://epicweb.dev/brand)
-
-## Thanks
-
-You rock 🪨
+I open-sourced my website so you can contribute to the development of andrecasal/ui, but also so you can see how I use it in a real-world scenario on my own website.
