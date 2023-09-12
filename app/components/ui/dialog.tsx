@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 import { cn } from '~/utils/misc.ts'
 import { Icon } from './icon.tsx'
@@ -76,9 +75,9 @@ const DialogClose = React.forwardRef<
 		>
 			{children ?? (
 				<>
-					<Text as="span" className="h-4 w-4">
+					<span className="h-4 w-4">
 						<Icon name="cross-1" />
-					</Text>
+					</span>
 					<span className="sr-only">Close</span>
 				</>
 			)}

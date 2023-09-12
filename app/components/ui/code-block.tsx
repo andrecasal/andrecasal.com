@@ -5,7 +5,6 @@ import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from './accessible-icon.tsx'
 import { cn } from '~/utils/misc.ts'
 import { Icon } from './icon.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 const cobalt2Theme: PrismTheme = {
 	plain: {
@@ -278,7 +277,7 @@ const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filen
 							{tokens.map((line, i) => (
 								<div key={i} {...getLineProps({ line })}>
 									{line.map((token, key) => (
-										<Text as="span" key={key} {...getTokenProps({ token })} />
+										<span key={key} {...getTokenProps({ token })} />
 									))}
 								</div>
 							))}
