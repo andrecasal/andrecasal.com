@@ -355,7 +355,7 @@ const Tutoring = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<Heading as="h1" size="4xl" className="sm:text-size-6xl mt-10">
+							<Heading as="h1" size="4xl" className="mt-10">
 								About André
 							</Heading>
 							<Text size="lg" className="mt-6 text-muted-700">

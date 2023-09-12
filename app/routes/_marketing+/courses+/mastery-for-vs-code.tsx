@@ -580,7 +580,7 @@ const MasteryForVSCode = () => {
 						<Heading as="h2" size="md" className="text-brand">
 							Closing Statement
 						</Heading>
-						<Heading as="h2" size="4xl" className="sm:text-size-6xl mt-2 text-muted-900">
+						<Heading as="h2" size="4xl" className="mt-2 text-muted-900">
 							A note on excellency
 						</Heading>
 						<Text size="lg" className="mt-6 text-muted-600">
@@ -614,7 +614,7 @@ const MasteryForVSCode = () => {
 				<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8 ">
 					<div className="relative isolate overflow-hidden rounded-3xl bg-muted-100/80 px-6 py-24 text-center shadow-2xl sm:px-16">
 						<BackgroundRadial>
-							<Heading as="h2" size="3xl" className="mt-2 sm:text-size-4xl">
+							<Heading as="h2" size="3xl" className="mt-2">
 								Boost your VS Code productivity today.
 							</Heading>
 							<Text size="lg" className="mx-auto mt-6 max-w-xl">
