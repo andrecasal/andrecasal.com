@@ -1,3 +1,4 @@
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import { StatusButton } from '~/components/ui/status-button.tsx'
@@ -53,7 +54,7 @@ export default function TwoFactorRoute() {
 		<div className="flex flex-col gap-4">
 			{data.is2FAEnabled ? (
 				<>
-					<p className="text-size-sm">You have enabled two-factor authentication.</p>
+					<Text size="sm">You have enabled two-factor authentication.</Text>
 					<toggle2FAFetcher.Form method="POST" preventScrollReset>
 						<StatusButton variant="secondary" type="submit" name="intent" value="disable" status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'} className="mx-auto">
 							Disable 2FA
@@ -62,14 +63,14 @@ export default function TwoFactorRoute() {
 				</>
 			) : (
 				<>
-					<p>You have not enabled two-factor authentication yet.</p>
-					<p className="text-size-sm">
+					<Text>You have not enabled two-factor authentication yet.</Text>
+					<Text size="sm">
 						Two factor authentication adds an extra layer of security to your account. You will need to enter a code from an authenticator app like{' '}
 						<a className="underline" href="https://1password.com/">
 							1Password
 						</a>{' '}
 						to log in.
-					</p>
+					</Text>
 					<toggle2FAFetcher.Form method="POST" preventScrollReset>
 						<StatusButton type="submit" name="intent" value="enable" status={toggle2FAFetcher.state === 'loading' ? 'pending' : 'idle'} className="mx-auto">
 							Enable 2FA

@@ -6,6 +6,8 @@ import { authenticator, requireAnonymous } from '~/utils/auth.server.ts'
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import { InlineLogin } from '../resources+/login.tsx'
 import { Verifier, unverifiedSessionKey } from '../resources+/verify.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAnonymous(request)
@@ -39,8 +41,10 @@ export default function LoginPage() {
 		<div className="flex min-h-full flex-col justify-center pb-32 pt-20">
 			<div className="mx-auto w-full max-w-md">
 				<div className="flex flex-col gap-3 text-center">
-					<h1 className="text-title-xl">Welcome back!</h1>
-					<p className="text-size-lg text-muted-500">Please enter your details.</p>
+					<Heading size="xl">Welcome back!</Heading>
+					<Text size="lg" className="text-muted-500">
+						Please enter your details.
+					</Text>
 				</div>
 				<Spacer size="xs" />
 				{data.unverified ? <Verifier redirectTo={redirectTo} /> : <InlineLogin redirectTo={redirectTo} formError={data.formError} />}

@@ -78,13 +78,13 @@ const WelcomeAboard = () => {
 						Here's your break from analysis paralysis
 					</Heading>
 					<img src={analysisParalysis} alt="Analysis paralysis" className="mt-6 rounded-xl" />
-					<p className="mt-6 text-xl leading-8">
+					<Text size="xl" className="mt-6 leading-8">
 						Modern full-stack web dev is both fantastic and exhausting because there are so many great tools available. Solve the{' '}
 						<span className="font-semibold">analysis paralysis</span> by standing on the shoulders of seasoned web developers and skip the big distraction of choosing what tech
 						to use and get to the point: <span className="font-semibold">build quality products fast</span>.
-					</p>
+					</Text>
 					<div className="mt-10 max-w-2xl">
-						<p>Here's the list of technologies you should be using:</p>
+						<Text>Here's the list of technologies you should be using:</Text>
 						<ul className="mt-8 max-w-xl space-y-8 text-muted-600">
 							<li className="flex gap-x-3">
 								<span>
@@ -224,10 +224,10 @@ const WelcomeAboard = () => {
 								</span>
 							</li>
 						</ul>
-						<p className="mt-8">
+						<Text className="mt-8">
 							By combining these technologies, you can create a modern, performant, and user-friendly web application with a strong emphasis on code quality, security, and
 							accessibility in an extremely short amount of time.
-						</p>
+						</Text>
 						<hr className="mt-14" />
 						<Heading as="h2" size="3xl" className="mt-16 text-muted-900">
 							From good to great

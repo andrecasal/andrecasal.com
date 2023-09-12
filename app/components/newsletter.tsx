@@ -70,7 +70,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 			<div className="space-y-8">
 				<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5">
 					<blockquote className="flex p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900">
-						<p>“I thought the website was good. But the newsletter? Even better!”</p>
+						<Text>“I thought the website was good. But the newsletter? Even better!”</Text>
 					</blockquote>
 					<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 						<div className="flex-auto">

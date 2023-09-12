@@ -5,6 +5,7 @@ import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { useLoaderData } from '@remix-run/react'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -23,7 +24,7 @@ const HeadingRoute = () => {
 			<Heading as="h1" className="mt-8">
 				Heading Component
 			</Heading>
-			<p className="mt-4">A semantic heading element that allows customization of size, weight, alignment, and other typographic properties.</p>
+			<Text className="mt-4">A semantic heading element that allows customization of size, weight, alignment, and other typographic properties.</Text>
 
 			<Heading as="h2" size="xl" className="mt-8">
 				Source

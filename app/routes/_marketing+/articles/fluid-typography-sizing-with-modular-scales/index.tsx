@@ -1,5 +1,6 @@
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { Heading } from '../../ui+/components/typography/heading.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 
 export const title = 'Fluid Typography Sizing with Modular Scales'
@@ -143,67 +144,67 @@ const FluidTypographySizingWithModularScales = () => {
 				<Heading as="h2" size="2xl" className="mt-10">
 					Introduction
 				</Heading>
-				<p className="mt-8">
+				<Text className="mt-8">
 					Typography is a fundamental aspect of web design, and choosing the right sizes for your fonts is important for creating visually appealing and readable content. However,
 					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen sizes.
-				</p>
-				<p className="mt-8">
+				</Text>
+				<Text className="mt-8">
 					Developers today are often handed a collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px).
 					The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and resources. It also perpetuates the archaic
 					practice of creating device-specific websites.
-				</p>
-				<p className="mt-8">
+				</Text>
+				<Text className="mt-8">
 					Often, developers are left to guess at the logic of sizing, if any, used in the design process. This usually leads to a high number of hacky (and often similar) values in
 					the codebase, needlessly increasing the development effort and the complexity of the project.
-				</p>
-				<p className="mt-8">In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.</p>
+				</Text>
+				<Text className="mt-8">In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.</Text>
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Modular scale
 				</Heading>
-				<p className="mt-4">
+				<Text className="mt-4">
 					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5 (a "major third"), 2:3 (a "perfect fifth"),
 					or the "golden ratio" of 1:1.618 are commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen
 					ratio to calculate the subsequent sizes in your scale.
-				</p>
-				<p className="mt-4">
+				</Text>
+				<Text className="mt-4">
 					While the mathematical elegance of this approach is appealing, it has a deal-breaker limitation: limited size options. You could try different ratios and equations, but
 					at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
-				</p>
+				</Text>
 				<CodeBlock code={modularScale} filename="modular-scale" extension="css" className="mt-8" />
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Hand-picked scale
 				</Heading>
 
-				<p className="mt-4">
+				<Text className="mt-4">
 					When it comes to interface design, it's more pragmatic to hand-pick the values. This approach grants you complete control over the number and variety of sizes.
-				</p>
-				<p className="mt-4">
+				</Text>
+				<Text className="mt-4">
 					A good example of a scale that works well with most projects and align nicely with its own spacing is{' '}
 					<a href="https://tailwindcss.com/docs/font-size" target="_blank" rel="noreferrer">
 						TailwindCSS's typographic scale
 					</a>
 					.
-				</p>
+				</Text>
 				<CodeBlock code={tailwindCSSScale} filename="tailwind" extension="css" className="mt-8" />
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Breakpoint-based type sizing
 				</Heading>
-				<p className="mt-8">
+				<Text className="mt-8">
 					Traditionally, web designers rely on font sizes and a set of breakpoints to control how each of those sizes vary across screen sizes. Developers are often handed a
 					collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px). Breakpoint-based type sizing is hacky
 					and lacks a well-thought-out scaling strategy. The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and
 					resources. The better we want it to work, the more stuff you need to design and develop.
-				</p>
+				</Text>
 				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="css" className="mt-8" />
-				<p className="mt-4">This starts to become ridiculous 😅.</p>
+				<Text className="mt-4">This starts to become ridiculous 😅.</Text>
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Fluid type sizing
 				</Heading>
-				<p className="mt-8">
+				<Text className="mt-8">
 					The{' '}
 					<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" target="_blank" rel="noreferrer" className="underline">
 						clamp() function
@@ -212,18 +213,18 @@ const FluidTypographySizingWithModularScales = () => {
 					text scales smoothly between these values based on the viewport size. For example, you can use clamp(16px, 5vw, 24px) to set a font size that is 16 pixels on smaller
 					screens, 5% of the viewport width on medium screens, and a maximum of 24 pixels on larger screens. This results in a seamless transition of font sizes as the screen size
 					changes, providing a better reading experience for users.
-				</p>
-				<p className="mt-4">The design process to implement fluid typography is simple:</p>
+				</Text>
+				<Text className="mt-4">The design process to implement fluid typography is simple:</Text>
 				<ul className="ml-4 mt-4 list-disc">
 					<li>Define a type scale for a small screen</li>
 					<li>Define a type scale for a large screen</li>
 					<li>Tell the browser to interpolate between the two scales, based on the current viewport width</li>
 				</ul>
 				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="css" className="mt-8" />
-				<p className="mt-4">
+				<Text className="mt-4">
 					Fluid type sizing has the browser, instead of the designer and developer, decide on the type size depending on the viewport width, making both designers and developers
 					more efficient.
-				</p>
+				</Text>
 			</div>
 		</>
 	)

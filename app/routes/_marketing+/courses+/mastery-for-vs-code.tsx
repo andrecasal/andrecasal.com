@@ -483,10 +483,13 @@ const MasteryForVSCode = () => {
 							{modules.map((module, i) => (
 								<div key={module.name} className="flex flex-col">
 									<dt className="flex items-baseline gap-x-3 text-base font-semibold leading-7 text-muted-900">
-										<span className="text-size-6xl text-muted-300">{i + 1}</span> {module.name}
+										<Text as="span" size="4xl" className="text-muted-300">
+											{i + 1}
+										</Text>{' '}
+										{module.name}
 									</dt>
 									<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-										<p className="flex-auto">{module.description}</p>
+										<Text className="flex-auto">{module.description}</Text>
 									</dd>
 								</div>
 							))}
@@ -532,14 +535,14 @@ const MasteryForVSCode = () => {
 								<Text size="md" className="font-semibold text-muted-600">
 									Pay once, own it forever
 								</Text>
-								<p className="mt-6 flex items-baseline justify-center gap-x-2">
+								<Text className="mt-6 flex items-baseline justify-center gap-x-2">
 									<Text as="span" size="4xl" className="font-bold">
 										€180
 									</Text>
 									<Text as="span" size="sm" className="font-semibold tracking-wide text-muted-600">
 										EUR
 									</Text>
-								</p>
+								</Text>
 								<Button variant="primary" size="wide" asChild className="mt-10">
 									<a href="https://andrecasal.gumroad.com/l/vscode" target="_blank" rel="noopener noreferrer">
 										I want to master VS Code

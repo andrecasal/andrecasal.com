@@ -11,6 +11,7 @@ import { prisma } from '~/utils/db.server.ts'
 import { Field } from '~/components/forms.tsx'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { getTOTPAuthUri, verifyTOTP } from '~/utils/totp.server.ts'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 export const verificationType = '2fa-verify'
 
@@ -152,17 +153,17 @@ export default function TwoFactorRoute() {
 		<div>
 			<div className="flex flex-col items-center gap-4">
 				<img alt="qr code" src={data.qrCode} className="w-56" />
-				<p>Scan this QR code with your authenticator app.</p>
-				<p className="text-size-sm">If you cannot scan the QR code, you can manually add this account to your authenticator app using this code:</p>
+				<Text>Scan this QR code with your authenticator app.</Text>
+				<Text size="sm">If you cannot scan the QR code, you can manually add this account to your authenticator app using this code:</Text>
 				<div className="p-3">
 					<pre className="whitespace-pre-wrap break-all text-size-sm" aria-label="One-time Password URI">
 						{data.otpUri}
 					</pre>
 				</div>
-				<p className="text-size-sm">
+				<Text size="sm">
 					Once you've added the account, enter the code from your authenticator app below. Once you enable 2FA, you will need to enter a code from your authenticator app every time
 					you log in or perform important actions. Do not lose access to your authenticator app, or you will lose access to your account.
-				</p>
+				</Text>
 				<toggle2FAFetcher.Form method="POST" preventScrollReset className="w-full" {...form.props}>
 					<Field
 						labelProps={{

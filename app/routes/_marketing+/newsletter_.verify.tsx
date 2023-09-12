@@ -72,7 +72,9 @@ const NewsletterVerifyRoute = () => {
 				<Form method="post" className="mx-auto mt-24" {...form.props}>
 					<Input {...conform.input(name)} type="hidden" />
 					<Input {...conform.input(email)} type="hidden" />
-					<p className="my-6 text-size-sm text-muted-500">If the link doesn't work, we've also sent you a code:</p>
+					<Text size="sm" className="my-6 text-muted-500">
+						If the link doesn't work, we've also sent you a code:
+					</Text>
 					<Field labelProps={{ htmlFor: code.id, children: 'Code' }} inputProps={{ ...conform.input(code), autoComplete: 'off' }} errors={code.errors} />
 					<ErrorList errors={form.errors} id={form.errorId} />
 					<StatusButton type="submit" className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} disabled={isSubmitting}>

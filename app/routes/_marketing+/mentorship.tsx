@@ -505,14 +505,14 @@ const FullStackWebDevMentor = () => {
 									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Text as="span" size="4xl" weight="bold">
 											€1024
 										</Text>
 										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
 										</Text>
-									</p>
+									</Text>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call
@@ -554,14 +554,14 @@ const FullStackWebDevMentor = () => {
 									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Text as="span" size="4xl" weight="bold">
 											€640
 										</Text>
 										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
 										</Text>
-									</p>
+									</Text>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call

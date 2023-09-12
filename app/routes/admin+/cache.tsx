@@ -9,6 +9,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { cache, getAllCacheKeys, lruCache, searchCacheKeys } from '~/utils/cache.server.ts'
 import { Field } from '~/components/forms.tsx'
 import { requireAdmin } from '~/utils/permissions.server.ts'
+import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAdmin(request)
@@ -77,7 +78,7 @@ export default function CacheAdminRoute() {
 
 	return (
 		<div className="container">
-			<h1 className="text-title-xl">Cache Admin</h1>
+			<Heading size="xl">Cache Admin</Heading>
 			<Spacer size="2xs" />
 			<Form method="get" className="flex flex-col gap-4" onChange={e => handleFormChange(e.currentTarget)}>
 				<div className="flex-1">

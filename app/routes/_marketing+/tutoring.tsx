@@ -344,7 +344,7 @@ const Tutoring = () => {
 									{feature.name}
 								</dt>
 								<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-									<p className="flex-auto">{feature.description}</p>
+									<Text className="flex-auto">{feature.description}</Text>
 								</dd>
 							</div>
 						))}
@@ -471,10 +471,14 @@ const Tutoring = () => {
 					<div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
 						{stats.map(stat => (
 							<div key={stat.name} className="py-6">
-								<p className="text-sm font-medium leading-6 text-muted-400">{stat.name}</p>
-								<p className="mt-2 flex items-baseline gap-x-2">
-									<span className="text-4xl font-semibold tracking-tight">{stat.value}</span>
-								</p>
+								<Text size="sm" weight="medium" className="leading-6 text-muted-400">
+									{stat.name}
+								</Text>
+								<Text className="mt-2 flex items-baseline gap-x-2">
+									<Text as="span" size="4xl" weight="semibold" className="tracking-tight">
+										{stat.value}
+									</Text>
+								</Text>
 							</div>
 						))}
 					</div>
@@ -587,14 +591,14 @@ const Tutoring = () => {
 									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Text as="span" size="4xl" weight="bold">
 											€640
 										</Text>
 										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
 										</Text>
-									</p>
+									</Text>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call
@@ -637,14 +641,14 @@ const Tutoring = () => {
 									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay per hour
 									</Text>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Text as="span" size="4xl" weight="bold">
 											€40
 										</Text>
 										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
 										</Text>
-									</p>
+									</Text>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noopener noreferrer">
 											Schedule a tutoring session

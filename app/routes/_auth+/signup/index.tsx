@@ -12,6 +12,8 @@ import { getDomainUrl } from '~/utils/misc.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { SignupEmail } from './email.server.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 
 export const onboardingOTPQueryParam = 'code'
 export const onboardingEmailQueryParam = 'email'
@@ -128,8 +130,10 @@ export default function SignupRoute() {
 	return (
 		<div className="container flex flex-col justify-center pb-32 pt-20">
 			<div className="text-center">
-				<h1 className="text-title-xl">Let's start your journey!</h1>
-				<p className="mt-3 text-size-lg text-muted-500">Please enter your email.</p>
+				<Heading size="xl">Let's start your journey!</Heading>
+				<Text size="lg" className="mt-3 text-muted-500">
+					Please enter your email.
+				</Text>
 			</div>
 			<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
 				<Field
