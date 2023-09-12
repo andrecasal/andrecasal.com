@@ -28,7 +28,7 @@ const SideMenu = () => {
 	]
 
 	const typography = [
-		{ name: 'Text', href: '/ui/typography/text', disabled: true },
+		{ name: 'Text', href: '/ui/typography/text', disabled: false },
 		{ name: 'Heading', href: '/ui/typography/heading', disabled: false },
 		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
 		{ name: 'Code', href: '/ui/typography/code', disabled: true },

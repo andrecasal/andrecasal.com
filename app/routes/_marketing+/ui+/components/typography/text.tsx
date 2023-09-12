@@ -38,7 +38,7 @@ type TextType = 'p' | 'span' | 'div'
 
 type TextProps = { as?: TextType } & VariantProps<typeof textVariants> & { children: ReactNode } & HTMLAttributes<HTMLParagraphElement>
 
-const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = '4xl', weight = 'bold', align = 'left', children, className, ...props }, ref) => {
+const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = 'md', weight = 'bold', align = 'left', children, className, ...props }, ref) => {
 	const Comp = as
 	return (
 		<Comp ref={ref} className={cn(textVariants({ size, weight, align }), className)} {...props}>
