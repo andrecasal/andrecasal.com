@@ -1,6 +1,7 @@
 import { Text } from '~/components/ui/text.tsx'
 import remixDataFlow from './remix-data-flow.png'
 import { type V2_MetaFunction } from '@remix-run/node'
+import { Heading } from '../../ui+/components/typography/heading.tsx'
 
 export const title = 'Remix Data Flow 🔥'
 export const description = 'Understand how data flows in a Remix route.'
@@ -12,9 +13,9 @@ export const meta: V2_MetaFunction = () => {
 const RemixDataFlow = () => {
 	return (
 		<>
-			<Text heading="h1" size="6xl">
+			<Heading as="h1" size="4xl">
 				{title}
-			</Text>
+			</Heading>
 			<div className="mt-10 max-w-2xl">
 				<Text size="lg" className="mt-6">
 					When React emerged, one of its standout features was the "one-way data flow". The primary idea is that data flows unidirectionally throughout your app. The UI is merelly

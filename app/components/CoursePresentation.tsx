@@ -2,6 +2,7 @@ import { Text } from '~/components/ui/text.tsx'
 import { Button } from './ui/button.tsx'
 import { Link } from '@remix-run/react'
 import { Icon } from './ui/icon.tsx'
+import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 
 export const CoursePresentation = ({
 	course: {
@@ -21,12 +22,12 @@ export const CoursePresentation = ({
 	}
 }) => {
 	return (
-		<div className="relative isolate mx-auto flex max-w-2xl flex-col gap-16 bg-foreground/5 px-6 py-16 ring-1 ring-foreground/10 rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:py-20 xl:gap-x-20 xl:px-20">
+		<div className="relative isolate mx-auto flex max-w-2xl flex-col gap-16 rounded-3xl bg-foreground/5 px-6 py-16 ring-1 ring-foreground/10 sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:py-20 xl:gap-x-20 xl:px-20">
 			<img className="w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src={img} alt="" />
 			<div className="w-full flex-auto">
-				<Text heading="h2" size="3xl" className="sm:text-size-4xl">
+				<Heading as="h2" size="3xl">
 					{title}
-				</Text>
+				</Heading>
 				<Text size="lg" className="mt-6 text-muted-700">
 					{description}
 				</Text>

@@ -7,6 +7,7 @@ import analysisParalysis from './images/guy-looking-at-vending-machines.jpg'
 import BackgroundSpicy from './components/bg-spicy.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import BackgroundCover from './components/bg-cover.tsx'
+import { Heading } from './ui+/components/typography/heading.tsx'
 
 export const newsletterNameSessionKey = 'newsletterEmail'
 
@@ -30,9 +31,9 @@ const WelcomeAboard = () => {
 					<Text size="md" className="font-semibold text-brand">
 						Thank you for subscribing
 					</Text>
-					<Text heading="h1" size="4xl" className="mt-2 text-muted-900 sm:text-5xl">
+					<Heading as="h1" size="4xl" className="mt-2 text-muted-900">
 						Welcome aboard, {name}!
-					</Text>
+					</Heading>
 					<Text size="xl" className="mt-6">
 						Expect some pretty awesome stuff in your inbox soon!
 						<br />
@@ -44,35 +45,38 @@ const WelcomeAboard = () => {
 			<Container>
 				<BackgroundCover className="rounded-3xl">
 					<div className="mx-auto max-w-3xl text-center text-base leading-7 text-muted-700">
-						<Text
-							heading="h2"
-							size="6xl"
+						<Heading
+							as="h2"
+							size="4xl"
+							align="center"
 							className="mt-44 bg-gradient-to-r from-[hsl(25deg,61%,26%)] via-[hsl(33deg,79%,54%)] to-[hsl(41deg,98%,82%)] bg-clip-text text-transparent"
 						>
 							Guide to modern
-						</Text>
-						<Text
-							heading="h2"
-							size="6xl"
+						</Heading>
+						<Heading
+							as="h2"
+							size="4xl"
+							align="center"
 							className="my-14 bg-gradient-to-r from-[hsl(25deg,61%,26%)] via-[hsl(33deg,79%,54%)] to-[hsl(41deg,98%,82%)] bg-clip-text text-transparent"
 						>
 							full-stack
-						</Text>
-						<Text
-							heading="h2"
-							size="6xl"
+						</Heading>
+						<Heading
+							as="h2"
+							size="4xl"
+							align="center"
 							className="mb-44 bg-gradient-to-r from-[hsl(25deg,61%,26%)] via-[hsl(33deg,79%,54%)] to-[hsl(41deg,98%,82%)] bg-clip-text text-transparent"
 						>
 							web dev
-						</Text>
+						</Heading>
 					</div>
 				</BackgroundCover>
 			</Container>
 			<Container>
 				<div className="mx-auto max-w-3xl text-base leading-7 text-muted-700">
-					<Text heading="h2" size="3xl" className="mt-14 text-muted-900 sm:text-4xl">
+					<Heading as="h2" size="3xl" className="mt-14 text-muted-900">
 						Here's your break from analysis paralysis
-					</Text>
+					</Heading>
 					<img src={analysisParalysis} alt="Analysis paralysis" className="mt-6 rounded-xl" />
 					<p className="mt-6 text-xl leading-8">
 						Modern full-stack web dev is both fantastic and exhausting because there are so many great tools available. Solve the{' '}
@@ -225,9 +229,9 @@ const WelcomeAboard = () => {
 							accessibility in an extremely short amount of time.
 						</p>
 						<hr className="mt-14" />
-						<Text heading="h2" size="3xl" className="mt-16 text-muted-900">
+						<Heading as="h2" size="3xl" className="mt-16 text-muted-900">
 							From good to great
-						</Text>
+						</Heading>
 						<Text size="lg" className="mt-6">
 							Luckily, Remix supports{' '}
 							<a href="https://remix.run/docs/en/main/pages/stacks" target="_blank" rel="noreferrer" className="font-semibold text-brand underline-offset-4 hover:underline">
@@ -269,9 +273,9 @@ const WelcomeAboard = () => {
 						</Text>
 					</div>
 					<BackgroundSpicy className="mt-14 overflow-hidden rounded-xl">
-						<Text heading="h2" size="5xl" className="mt-44 text-center text-muted-50">
+						<Heading as="h2" size="4xl" className="mt-44 text-center text-muted-50">
 							Let's spice things up!
-						</Text>
+						</Heading>
 						<div className="mb-44 mt-14 flex justify-center">
 							<Button asChild>
 								<Link to="/mentorship">I want to spice things up</Link>

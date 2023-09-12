@@ -1,12 +1,11 @@
-import { Text } from '~/components/ui/text.tsx'
 import { Heading } from './components/typography/heading.tsx'
 
 const DesignPrinciples = () => {
 	return (
 		<div className="max-w-2xl">
-			<Text heading="h1" size="4xl" className="mt-8 lg:mt-0">
+			<Heading as="h1" size="3xl" className="mt-8 lg:mt-0">
 				Design Principles
-			</Text>
+			</Heading>
 			<ul className="ml-4 mt-4 list-disc">
 				<li>Hand-picked scale</li>
 				<li>Fluid typography</li>
@@ -25,9 +24,9 @@ const DesignPrinciples = () => {
 			</p>
 			<p className="mt-4">For interface design, an alternative and more practical approach is to hand-pick the font sizes. This is the approach I took for this library.</p>
 
-			<Text heading="h2" size="xl" className="mt-14">
+			<Heading as="h2" size="xl" className="mt-14">
 				Fluid typography
-			</Text>
+			</Heading>
 			<p className="mt-8">
 				Traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen sizes. Developers are often handed a
 				collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px). Breakpoint-based type sizing is hacky and

@@ -170,7 +170,7 @@ const FluidTypographySizingWithModularScales = () => {
 					While the mathematical elegance of this approach is appealing, it has a deal-breaker limitation: limited size options. You could try different ratios and equations, but
 					at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
 				</p>
-				<CodeBlock code={modularScale} filename="modular-scale" extension="jsx" className="mt-8" />
+				<CodeBlock code={modularScale} filename="modular-scale" extension="css" className="mt-8" />
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Hand-picked scale
@@ -186,7 +186,7 @@ const FluidTypographySizingWithModularScales = () => {
 					</a>
 					.
 				</p>
-				<CodeBlock code={tailwindCSSScale} filename="tailwind" extension="jsx" className="mt-8" />
+				<CodeBlock code={tailwindCSSScale} filename="tailwind" extension="css" className="mt-8" />
 
 				<Heading as="h2" size="2xl" className="mt-16">
 					Breakpoint-based type sizing
@@ -197,7 +197,7 @@ const FluidTypographySizingWithModularScales = () => {
 					and lacks a well-thought-out scaling strategy. The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and
 					resources. The better we want it to work, the more stuff you need to design and develop.
 				</p>
-				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="jsx" className="mt-8" />
+				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="css" className="mt-8" />
 				<p className="mt-4">This starts to become ridiculous 😅.</p>
 
 				<Heading as="h2" size="2xl" className="mt-16">
@@ -219,7 +219,7 @@ const FluidTypographySizingWithModularScales = () => {
 					<li>Define a type scale for a large screen</li>
 					<li>Tell the browser to interpolate between the two scales, based on the current viewport width</li>
 				</ul>
-				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="jsx" className="mt-8" />
+				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="css" className="mt-8" />
 				<p className="mt-4">
 					Fluid type sizing has the browser, instead of the designer and developer, decide on the type size depending on the viewport width, making both designers and developers
 					more efficient.

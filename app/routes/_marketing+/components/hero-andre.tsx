@@ -5,6 +5,7 @@ import { Container } from '~/components/ui/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
 import { Text } from '~/components/ui/text.tsx'
+import { Heading } from '../ui+/components/typography/heading.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -23,9 +24,9 @@ const HeroAndre = () => {
 								</span>
 							</Text>
 						</a>
-						<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
+						<Heading as="h1" size="4xl" className="mt-10">
 							Hi! I'm André Casal.
-						</Text>
+						</Heading>
 						<Text size="lg" className="mt-6 text-muted-700">
 							I help full-stack web devs create profitable one-person businesses.
 						</Text>

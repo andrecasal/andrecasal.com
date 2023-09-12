@@ -16,6 +16,7 @@ import {
 	description as FluidTypographySizingWithModularScalesDescription,
 } from './fluid-typography-sizing-with-modular-scales/index.tsx'
 import fluidTypographySizingWithModularScalesImage from './fluid-typography-sizing-with-modular-scales/fluid-typography.png'
+import { Heading } from '../ui+/components/typography/heading.tsx'
 
 export type Post = {
 	title: string
@@ -68,9 +69,9 @@ const Articles = () => {
 				<Container>
 					<div className="py-24 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0">
-							<Text heading="h1" size="4xl" className="sm:text-size-6xl">
+							<Heading as="h1" size="4xl">
 								Great web dev articles
-							</Text>
+							</Heading>
 							<Text size="lg" className="mt-6 text-muted-800">
 								Articles to make full-stack web dev a cakewalk.
 							</Text>

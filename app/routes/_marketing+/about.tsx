@@ -1,6 +1,7 @@
 import { Container } from '~/components/ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import HeroAndre from './components/hero-andre.tsx'
+import { Heading } from './ui+/components/typography/heading.tsx'
 
 export default function AboutRoute() {
 	const stats = [
@@ -99,9 +100,9 @@ export default function AboutRoute() {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<Text heading="h2" size="3xl" className="sm:text-size-4xl">
+						<Heading as="h2" size="3xl" className="sm:text-size-4xl">
 							Conclusion
-						</Text>
+						</Heading>
 						<Text size="lg" className="mt-6 text-muted-600">
 							This is my conclusion.
 						</Text>

@@ -4,6 +4,7 @@ import { ScrollArea } from './components/ui/scroll-area.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
+import { Heading } from './components/typography/heading.tsx'
 
 const SideMenu = () => {
 	const gettingStarted = [
@@ -91,49 +92,49 @@ const SideMenu = () => {
 	return (
 		<ScrollArea>
 			<div className="px-6 pb-10">
-				<Text heading="h2" size="xs" className="mt-10 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-10 text-muted-400">
 					Getting started
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{gettingStarted.map(link => (
 						<BoldNavLink key={link.href} {...link} />
 					))}
 				</div>
-				<Text heading="h2" size="xs" className="mt-7 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
 					Theme
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{theme.map(link => (
 						<BoldNavLink key={link.href} {...link} />
 					))}
 				</div>
-				<Text heading="h2" size="xs" className="mt-7 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
 					Layout
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{layout.map(link => (
 						<BoldNavLink key={link.href} {...link} />
 					))}
 				</div>
-				<Text heading="h2" size="xs" className="mt-7 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
 					Typography
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{typography.map(link => (
 						<BoldNavLink key={link.href} {...link} />
 					))}
 				</div>
-				<Text heading="h2" size="xs" className="mt-7 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
 					Components
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{components.map(link => (
 						<BoldNavLink key={link.href} {...link} />
 					))}
 				</div>
-				<Text heading="h2" size="xs" className="mt-7 text-muted-400">
+				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
 					Utilities
-				</Text>
+				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{utilities.map(link => (
 						<BoldNavLink key={link.href} {...link} />

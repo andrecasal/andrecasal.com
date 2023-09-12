@@ -15,6 +15,7 @@ import { newsletterNameSessionKey } from './newsletter_.welcome.tsx'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
 import { Input } from '~/components/ui/input.tsx'
 import { subscribeUser } from '~/utils/email.server.ts'
+import { Heading } from './ui+/components/typography/heading.tsx'
 
 const verifySchema = z.object({
 	[newsletterNameQueryParam]: nameSchema,
@@ -59,9 +60,9 @@ const NewsletterVerifyRoute = () => {
 	return (
 		<div className="container flex flex-col justify-center pb-32 pt-20">
 			<div className="mx-auto max-w-md">
-				<Text heading="h1" size="3xl">
+				<Heading as="h1" size="3xl">
 					Confirm your subscription
-				</Text>
+				</Heading>
 				<Text size="lg" className="mt-6 text-muted-500">
 					Hi <span className="font-semibold">{name.defaultValue}</span>,
 				</Text>

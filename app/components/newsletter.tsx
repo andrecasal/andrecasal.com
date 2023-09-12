@@ -8,6 +8,7 @@ import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/i
 import { parse } from '@conform-to/zod'
 import { cn } from '~/utils/misc.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
+import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 
 type NewsletterProps = {
 	className?: string
@@ -28,9 +29,9 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 	return (
 		<div className={cn('mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2', className)}>
 			<div className="flex flex-col justify-between">
-				<Text heading="h2" size="3xl" className="sm:text-size-4xl">
+				<Heading as="h2" size="2xl">
 					{title}
-				</Text>
+				</Heading>
 				<Text size="lg" className="mt-4 text-muted-400">
 					{description}
 				</Text>

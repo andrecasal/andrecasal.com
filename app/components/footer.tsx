@@ -1,3 +1,4 @@
+import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from './ui/container.tsx'
 import { Text } from '~/components/ui/text.tsx'
 
@@ -94,9 +95,9 @@ const Footer = () => {
 				<div className="mt-8 border-t border-muted-900/10 pb-8 pt-8 sm:mt-12 sm:pt-12 lg:mt-16 lg:pt-16">
 					<div className="md:grid md:grid-cols-2 md:gap-8">
 						<div className="space-y-8">
-							<Text heading="h2" size="2xl" className="font-semibold tracking-normal">
+							<Heading as="h2" size="2xl" className="font-semibold tracking-normal">
 								André Casal
-							</Text>
+							</Heading>
 							<Text size="md" className="text-muted-600">
 								Making the world a better place through constructing elegant software.
 							</Text>
@@ -111,9 +112,9 @@ const Footer = () => {
 						</div>
 						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
 							<div>
-								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
 									Sitemap
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.sitemap.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -126,10 +127,10 @@ const Footer = () => {
 									))}
 								</ul>
 							</div>
-							<div className="xl:mt-10 md:mt-0">
-								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+							<div className="md:mt-0 xl:mt-10">
+								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
 									Courses
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.courses.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -143,9 +144,9 @@ const Footer = () => {
 								</ul>
 							</div>
 							{/* <div className="mt-10 md:mt-0">
-								<Text heading="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
 									Legal
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.legal.map(item => (
 										<Text key={item.name} size="sm" asChild>

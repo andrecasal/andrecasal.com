@@ -1,14 +1,15 @@
 import { Text } from '~/components/ui/text.tsx'
+import { Heading } from './components/typography/heading.tsx'
 
 const UI = () => {
 	return (
 		<>
-			<Text heading="h1" size="4xl">
-				andrecasal/ui 😄 🎉
-			</Text>
-			<Text heading="h2" size="2xl" className="mt-14">
+			<Heading as="h1" size="4xl">
+				andrecasal/ui
+			</Heading>
+			<Heading as="h2" size="2xl" className="mt-14">
 				Why
-			</Text>
+			</Heading>
 			<Text size="md" className="mt-2">
 				Because I was unsatisfied with the current state of UI libraries:
 			</Text>
@@ -43,9 +44,9 @@ const UI = () => {
 					doesn't abstract enough, making it almost as low level as Radix UI and lacks many components.
 				</li>
 			</ul>
-			<Text heading="h2" size="2xl" className="mt-14">
+			<Heading as="h2" size="2xl" className="mt-14">
 				Goal
-			</Text>
+			</Heading>
 			<Text size="md" className="mt-2">
 				The andrecasal/ui library aims to:
 			</Text>

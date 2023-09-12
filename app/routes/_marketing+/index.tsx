@@ -6,6 +6,7 @@ import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/components/ui/text.tsx'
 import { Link } from '@remix-run/react'
+import { Heading } from './ui+/components/typography/heading.tsx'
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 
@@ -56,9 +57,9 @@ export default function Index() {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<Text heading="h2" size="md" className="text-brand">
+						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need to
-						</Text>
+						</Heading>
 						<Text size="3xl" className="mt-4 font-bold sm:text-size-4xl">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer

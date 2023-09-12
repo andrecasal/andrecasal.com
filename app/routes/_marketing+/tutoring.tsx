@@ -13,6 +13,7 @@ import miguelFerreira from './images/miguel-ferreira.png'
 import satisfactionGuarantee from './images/satisfaction-guarantee.png'
 import signatureBlack from './images/signature-black.png'
 import signatureWhite from './images/signature-white.png'
+import { Heading } from './ui+/components/typography/heading.tsx'
 
 const Tutoring = () => {
 	const features = [
@@ -208,9 +209,9 @@ const Tutoring = () => {
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-20">
 					<div className="pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:pb-56 lg:pt-48 xl:col-span-6">
 						<div className="mx-auto max-w-2xl lg:mx-0">
-							<Text heading="h1" size="4xl" className="mt-24 sm:mt-10 sm:text-size-6xl">
+							<Heading as="h1" size="4xl" className="mt-24 sm:mt-10">
 								Tutoring
-							</Text>
+							</Heading>
 							<Text size="lg" className="mt-6 text-muted-600">
 								I've been tutoring college students on computer science for over 16 years. I've helped hundreds of students get through their classes and graduate. I can help
 								you too.
@@ -234,9 +235,9 @@ const Tutoring = () => {
 					<Text size="md" className="font-semibold text-brand">
 						I understand the
 					</Text>
-					<Text heading="h2" size="3xl" className="mt-2 text-muted-900 sm:text-size-4xl">
+					<Heading as="h2" size="3xl" className="mt-2 text-muted-900">
 						College life
-					</Text>
+					</Heading>
 					<Text className="mt-6 text-xl leading-8">
 						Ok, so you're in college and you don't want to be disrespected, shamed, or humiliated by your peers. Much less by your teachers. Having gone through college and been
 						a tutor for more than 16 years, I know how you feel. You feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
@@ -260,9 +261,9 @@ const Tutoring = () => {
 							Are you looking for a better solution to improve your grades, and feel proud of yourself and the things you'll be able to accomplish? That's why I'm here. To help
 							you dominate the subject matter, deliver well-made projects on time, and get top grades with tutoring dedicated to you!
 						</Text>
-						<Text heading="h3" size="2xl" className="mt-16 text-muted-900">
+						<Heading as="h3" size="2xl" className="mt-16 text-muted-900">
 							From beginner to expert
-						</Text>
+						</Heading>
 						<Text className="mt-10">
 							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. Wow, son, you're doing well in college! Imagine your teachers:
 							guys, if you have questions direct them to him, he knows this stuff! Imagine your colleagues recognizing your knowledge, and asking for study sessions with you!
@@ -272,9 +273,9 @@ const Tutoring = () => {
 						<Text size="md" className="font-semibold text-brand">
 							How it feels like
 						</Text>
-						<Text heading="h2" size="3xl" className="mt-2 text-muted-900 sm:text-size-4xl">
+						<Heading as="h2" size="3xl" className="mt-2 text-muted-900">
 							Working with me
-						</Text>
+						</Heading>
 						<figure className="mt-16">
 							<img className="aspect-video rounded-xl bg-muted-50 object-cover" src={andreOnMacBookPro} alt="André on a Zoom call with a student" />
 							<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-muted-500">André on a Zoom call with a student.</figcaption>
@@ -324,9 +325,9 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-24 sm:py-32">
 				<div className="mx-auto max-w-2xl lg:text-center">
-					<Text heading="h2" size="md" className="text-brand">
+					<Heading as="h2" size="md" align="center" className="text-brand">
 						Everything you need to be a
-					</Text>
+					</Heading>
 					<Text size="3xl" className="mt-2 font-bold text-muted-900 sm:text-size-4xl">
 						Successful student
 					</Text>
@@ -354,9 +355,9 @@ const Tutoring = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<Text heading="h1" size="4xl" className="mt-10 sm:text-size-6xl">
+							<Heading as="h1" size="4xl" className="sm:text-size-6xl mt-10">
 								About André
-							</Text>
+							</Heading>
 							<Text size="lg" className="mt-6 text-muted-700">
 								André has been working as a software engineer, for more than 16 years, with companies like Calouste Gulbenkian Foundation, American TV network NBC, and energy
 								drink Monster Energy. He has provided technical direction to countless startups, and managed teams of over 20 people. Currently, he helps other software
@@ -381,9 +382,9 @@ const Tutoring = () => {
 				<Container>
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
-							<Text heading="h2" size="md" className="text-brand">
+							<Heading as="h2" size="md" align="center" className="text-brand">
 								Testimonials
-							</Text>
+							</Heading>
 							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
 								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</Text>
@@ -457,9 +458,9 @@ const Tutoring = () => {
 				<Container className="py-24 sm:py-32">
 					<div className="lg:flex lg:items-center lg:gap-x-10 lg:pt-40">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<Text heading="h2" size="4xl" className="mt-10 max-w-xl text-muted-900 sm:text-size-6xl">
+							<Heading as="h2" size="3xl" className="mt-10 max-w-xl text-muted-900">
 								The subjects I teach
-							</Text>
+							</Heading>
 							<Text size="lg" className="mt-6 text-muted-600">
 								I've been teaching computer science and software engineering for more than 16 years, so I've mastered quite a few subjects. Below you can find a
 								non-exhaustive list of the subjects I can help you with.
@@ -484,9 +485,9 @@ const Tutoring = () => {
 					<div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
 						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div>
-								<Text heading="h3" size="md">
+								<Heading as="h3" size="md">
 									Programming
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.programming.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -496,9 +497,9 @@ const Tutoring = () => {
 								</ul>
 							</div>
 							<div className="mt-10 md:mt-0">
-								<Text heading="h3" size="md">
+								<Heading as="h3" size="md">
 									Web Development
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.webdev.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -510,9 +511,9 @@ const Tutoring = () => {
 						</div>
 						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div>
-								<Text heading="h3" size="md">
+								<Heading as="h3" size="md">
 									Computer Science
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.computerscience.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -522,9 +523,9 @@ const Tutoring = () => {
 								</ul>
 							</div>
 							<div className="mt-10 md:mt-0">
-								<Text heading="h3" size="md">
+								<Heading as="h3" size="md">
 									Math
-								</Text>
+								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.math.map(item => (
 										<Text key={item.name} size="sm" asChild>
@@ -540,9 +541,9 @@ const Tutoring = () => {
 			<Container className="pt-44">
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<Text heading="h2" size="3xl" className="mt-2 font-bold sm:text-size-4xl" id="pricing">
+						<Heading as="h2" size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple no-tricks pricing
-						</Text>
+						</Heading>
 						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
 							I charge 40€ per hour. The payments are done per session.
 							<br />
@@ -551,16 +552,16 @@ const Tutoring = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<Text heading="h3" size="2xl">
+							<Heading as="h3" size="2xl">
 								Continuous tutoring (4h/week)
-							</Text>
+							</Heading>
 							<Text size="md" className="mt-6 text-muted-600">
 								This is the most popular plan for students wanting <strong>excellent grades</strong>.<br /> Chat is always available.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-4">
-								<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
+								<Heading as="h4" size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
-								</Text>
+								</Heading>
 								<div className="h-px flex-auto bg-muted-100" />
 							</div>
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
@@ -600,17 +601,17 @@ const Tutoring = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<Text heading="h3" size="2xl">
+							<Heading as="h3" size="2xl">
 								Single session
-							</Text>
+							</Heading>
 							<Text size="md" className="mt-6 text-muted-600">
 								Need help with a <strong>single project</strong> or <strong>exams</strong>?<br />
 								Schedule however many of these sessions you want.
 							</Text>
 							<div className="mt-10 flex items-center gap-x-4">
-								<Text heading="h4" size="sm" className="flex-none font-semibold text-brand">
+								<Heading as="h4" size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
-								</Text>
+								</Heading>
 								<div className="h-px flex-auto bg-muted-100" />
 							</div>
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
@@ -650,9 +651,9 @@ const Tutoring = () => {
 			<Container className="pt-14">
 				<div className="py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:py-40">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-						<Text heading="h2" size="4xl" className="mt-10 max-w-lg text-muted-900 sm:text-size-6xl">
+						<Heading as="h2" size="4xl" className="mt-10 text-muted-900">
 							Satisfaction Guaranteed
-						</Text>
+						</Heading>
 						<Text size="lg" className="mt-6 text-muted-600">
 							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in 16 years of tutoring, no one
 							has ever asked for their money back - I'll give you your money back.
@@ -666,9 +667,9 @@ const Tutoring = () => {
 			<Container className="pt-14">
 				<div className="py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:py-40">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-						<Text heading="h2" size="4xl" className="mt-10 max-w-lg text-muted-900 sm:text-size-6xl">
+						<Heading as="h2" size="4xl" className="mt-10 max-w-lg text-muted-900">
 							A note to you
-						</Text>
+						</Heading>
 						<Text size="lg" className="mt-6 text-muted-600">
 							I just want to thank you for taking the time to read about my tutoring service. It continues to be a tremendous honor to have so many students trust me to help
 							them find a better way of going through college. I sincerely hope you decide to get tutoring lessons, even if not with me, because I know it to be such a good
