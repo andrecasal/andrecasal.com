@@ -100,7 +100,7 @@ export default function AboutRoute() {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<Heading as="h2" size="3xl" className="sm:text-size-4xl">
+						<Heading as="h2" size="3xl">
 							Conclusion
 						</Heading>
 						<Text size="lg" className="mt-6 text-muted-600">
