@@ -164,7 +164,9 @@ const UI = () => {
 				<SlideInDialog>
 					<SlideInDialogTrigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-start gap-2 rounded-lg p-2.5 lg:hidden">
 						<Icon name="bars-3" className="h-6 min-h-tap w-6 min-w-tap" aria-hidden="true" />
-						<span className="whitespace-nowrap">Open side menu</span>
+						<Text as="span" className="whitespace-nowrap">
+							Open side menu
+						</Text>
 					</SlideInDialogTrigger>
 					<SlideInDialogContent side="left" title="andrecasal/ui side menu" className="lg:hidden">
 						<SideMenu />

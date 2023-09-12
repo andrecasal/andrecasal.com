@@ -240,7 +240,7 @@ const MasteryForVSCode = () => {
 									Latest updates
 								</Badge>
 								<Text as="span" size="sm" className="inline-flex items-center space-x-2 font-medium text-muted-600">
-									<span>Add AI assistance</span>
+									<Text as="span">Add AI assistance</Text>
 									<Icon name="chevron-right" className="h-5 w-5 text-muted-400" aria-hidden="true" />
 								</Text>
 							</Link>

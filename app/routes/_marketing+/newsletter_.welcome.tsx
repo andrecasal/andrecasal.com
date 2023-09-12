@@ -80,148 +80,154 @@ const WelcomeAboard = () => {
 					<img src={analysisParalysis} alt="Analysis paralysis" className="mt-6 rounded-xl" />
 					<Text size="xl" className="mt-6 leading-8">
 						Modern full-stack web dev is both fantastic and exhausting because there are so many great tools available. Solve the{' '}
-						<span className="font-semibold">analysis paralysis</span> by standing on the shoulders of seasoned web developers and skip the big distraction of choosing what tech
-						to use and get to the point: <span className="font-semibold">build quality products fast</span>.
+						<Text as="span" weight="semibold">
+							analysis paralysis
+						</Text>{' '}
+						by standing on the shoulders of seasoned web developers and skip the big distraction of choosing what tech to use and get to the point:{' '}
+						<Text as="span" weight="semibold">
+							build quality products fast
+						</Text>
+						.
 					</Text>
 					<div className="mt-10 max-w-2xl">
 						<Text>Here's the list of technologies you should be using:</Text>
 						<ul className="mt-8 max-w-xl space-y-8 text-muted-600">
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Remix.</strong> Forget next.js, Gatsby, and other web frameworks. Remix provides the best foundation for
 									building full-stack web applications. It offers a well-structured and opinionated architecture, enabling developers to create scalable and maintainable
 									projects.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">React.</strong> Forget Angular, Vue, Svelte, and other UI frameworks. React is the king of UI frameworks
 									and the best way to build user interfaces.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">TypeScript.</strong> Learn to use TypeScript if you haven't already. TypeScript brings strong typing to
 									JavaScript, enhancing code quality and developer productivity. By catching type-related errors during development, TypeScript helps create more robust and
 									reliable applications.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">ESLint.</strong> ESLint is a powerful tool for identifying potential issues early in the development
 									process. This keeps the code code clean, readable, and adheres to best practices, improving code quality effortlessly.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Prettier.</strong> It automatically formats code, ensuring consistent styles across the entire project.
 									This saves a lot of time formatting and reduces the chance of formatting-related bugs.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Radix UI.</strong> Radix UI is a collection of accessible and keyboard-friendly components that can be
 									easily customized to suit your project's needs. By leveraging Radix UI, you can create inclusive user interfaces while saving development time and effort.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">TailwindCSS.</strong> TailwindCSS is a utility-first CSS framework that enables rapid and flexible
 									styling. Combined with andrecasal/ui (coming soon 😎), it offers additional pre-built components and styles (that you control using CSS variables),
 									reducing building your interface to putting legos together and greatly increasing development speed.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Light/Dark/System theme switcher.</strong> Providing users with a theme switcher enhances the user
 									experience, allowing them to choose their preferred appearance. Implementing it without a flash of incorrect theme ensures a seamless transition between
 									themes, creating a polished and professional feel.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Conform.</strong> Conform is a valuable tool for creating forms with progressive enhancement and type
 									safety. It enables smoother user interactions and helps prevent data-related bugs through its type-safe approach.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Zod.</strong> Zod is a powerful validation library that ensures data integrity by validating form inputs
 									on both the client and server sides. By using Zod, you can maintain consistent data quality throughout your application.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Resend.</strong> Resend offers a generous 3000 emails/month free tier and is very easy to use.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">React Email.</strong> React Email offers a collection of high-quality, unstyled components for creating
 									beautiful emails using React and TypeScript. You can also create a page to easily visualize them - they are just React components.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Prisma.</strong> Prisma is a feature-rich ORM (Object-Relational Mapping) tool that simplifies database
 									interactions. It provides a type-safe query builder, easing the process of database access and manipulation while preventing common database-related bugs.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Git & GitHub Actions.</strong> Leveraging Git and GitHub Actions streamlines the deployment process,
 									making it easier to manage and release updates. Automated workflows ensure consistent deployments, reducing the chance of deployment-related errors.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Fly.io.</strong> Fly.io is a platform that optimizes web app deployments, offering better performance and
 									scaling capabilities. By using Fly.io, you can deliver your application with lower latency and improved reliability.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Cachified and better-sqlite3.</strong> Cachified and better-sqlite3 provide caching solutions, enhancing
 									application performance by reducing unnecessary database queries. In-memory and in-SQLite caching minimize data retrieval time, resulting in faster
 									response times for users.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Playwright.</strong> Forget Cypress. Playwright is the best tool for automating end-to-end testing across
 									different browsers. It ensures the functionality and stability of your web application, allowing you to catch and fix issues before they reach users.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">MSW.</strong> MSW (Mock Service Worker) enables local mocking of third-party API requests during
 									development and testing. This allows for independent testing of components and ensures smooth development even when external APIs are not available.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Vitest and Testing Library.</strong> Vitest and Testing Library are essential for writing comprehensive
 									unit tests. These tools facilitate the creation of reliable test suites, increasing confidence in the codebase's correctness and stability.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Stripe.</strong> Stripe is a popular and reliable payment processing platform, offering a seamless
 									payment experience for users. By integrating Stripe, you can easily handle transactions and manage e-commerce functionalities in your application.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Sentry.</strong> Sentry is a robust error monitoring and logging tool that helps you identify and fix
 									issues in real-time. It provides valuable insights into application errors, enabling faster debugging and improving overall application stability.
-								</span>
+								</Text>
 							</li>
 							<li className="flex gap-x-3">
-								<span>
+								<Text as="span">
 									<strong className="font-semibold text-muted-900">Grafana.</strong> Grafana is a powerful data visualization tool that allows you to create comprehensive
 									dashboards for monitoring various aspects of your running application. By utilizing Grafana, you can gain valuable insights into the performance and usage
 									patterns of your app.
-								</span>
+								</Text>
 							</li>
 						</ul>
 						<Text className="mt-8">
@@ -254,12 +260,18 @@ const WelcomeAboard = () => {
 							ready to go in less than a day's work.
 						</Text>
 						<Text size="lg" className="mt-10">
-							So here's my gift to you: if you want to become a full-stack web developer, you can use the <span className="font-semibold">Epic Stack</span> as a starting point
-							for your project. It's a great way to get a head start on your project and it's free.
+							So here's my gift to you: if you want to become a full-stack web developer, you can use the{' '}
+							<Text as="span" weight="semibold">
+								Epic Stack
+							</Text>{' '}
+							as a starting point for your project. It's a great way to get a head start on your project and it's free.
 						</Text>
 						<Text size="lg" className="mt-10">
-							And soon you'll also be able to use <span className="font-semibold">andrecasal/ui</span>, my headless UI component library, to hit the ground running building
-							your apps!
+							And soon you'll also be able to use{' '}
+							<Text as="span" weight="semibold">
+								andrecasal/ui
+							</Text>
+							, my headless UI component library, to hit the ground running building your apps!
 						</Text>
 						<Text size="lg" className="mt-10">
 							And if you'd like a seasoned full-stack web developer to help you become super productive, feel free to{' '}

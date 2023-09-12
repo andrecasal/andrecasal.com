@@ -271,23 +271,23 @@ const FullStackWebDevMentor = () => {
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
 										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<span>
+										<Text as="span">
 											<strong className="font-semibold text-muted-900">Modern tools.</strong> Forget analysis paralysis. I'll guide you through the best tools for the
 											job.
-										</span>
+										</Text>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<span>
+										<Text as="span">
 											<strong className="font-semibold text-muted-900">Knowledge.</strong> I'll teach you everything you need to know to ship world-class products.
-										</span>
+										</Text>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="mountain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<span>
+										<Text as="span">
 											<strong className="font-semibold text-muted-900">Real-world experience.</strong> We will build a real, production-ready, full-stack web app
 											together from start to finish.
-										</span>
+										</Text>
 									</li>
 								</ul>
 							</div>

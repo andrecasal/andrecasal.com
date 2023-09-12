@@ -18,7 +18,7 @@ const HeroAndre = () => {
 								What's new
 							</Badge>
 							<Text as="span" size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
-								<span>Epic Stack collab with Kent C. Dodds</span>
+								<Text as="span">Epic Stack collab with Kent C. Dodds</Text>
 								<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
 							</Text>
 						</a>

@@ -16,6 +16,7 @@ import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { twoFAVerificationType } from '../settings+/profile.two-factor.tsx'
 import { unverifiedSessionKey } from './verify.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 const ROUTE_PATH = '/resources/login'
 
@@ -80,7 +81,9 @@ export function InlineLogin({ redirectTo, formError }: { redirectTo?: string; fo
 					</div>
 				</loginFetcher.Form>
 				<div className="flex items-center justify-center gap-2 pt-6">
-					<span className="text-muted-500">New here?</span>
+					<Text as="span" className="text-muted-500">
+						New here?
+					</Text>
 					<Link to="/signup">Create an account</Link>
 				</div>
 			</div>

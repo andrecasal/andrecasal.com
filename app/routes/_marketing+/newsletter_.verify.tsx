@@ -64,10 +64,18 @@ const NewsletterVerifyRoute = () => {
 					Confirm your subscription
 				</Heading>
 				<Text size="lg" className="mt-6 text-muted-500">
-					Hi <span className="font-semibold">{name.defaultValue}</span>,
+					Hi{' '}
+					<Text as="span" weight="semibold">
+						{name.defaultValue}
+					</Text>
+					,
 				</Text>
 				<Text size="lg" className="mt-6 text-muted-500">
-					We've sent a link to <span className="font-semibold">{email.defaultValue}</span> to verify your email address. Just click that link.
+					We've sent a link to{' '}
+					<Text as="span" weight="semibold">
+						{email.defaultValue}
+					</Text>{' '}
+					to verify your email address. Just click that link.
 				</Text>
 				<Form method="post" className="mx-auto mt-24" {...form.props}>
 					<Input {...conform.input(name)} type="hidden" />
