@@ -1,4 +1,4 @@
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from './ui/button.tsx'
 import { Link } from '@remix-run/react'
 import { Icon } from './ui/icon.tsx'
@@ -33,12 +33,12 @@ export const CoursePresentation = ({
 				</Text>
 				<ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-size-md sm:grid-cols-2">
 					{benefits.map(benefit => (
-						<Text key={benefit} size="md" asChild>
-							<li className="flex gap-x-3">
+						<li key={benefit}>
+							<Text as="span" size="md" className="flex gap-x-3">
 								<Icon name="check" className="h-7 w-5 flex-none" aria-hidden="true" />
 								{benefit}
-							</li>
-						</Text>
+							</Text>
+						</li>
 					))}
 				</ul>
 				<div className="mt-10 flex">

@@ -4,7 +4,7 @@ import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Link } from '@remix-run/react'
 import { Heading } from './ui+/components/typography/heading.tsx'
 
@@ -60,7 +60,7 @@ export default function Index() {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need to
 						</Heading>
-						<Text size="3xl" className="mt-4 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-4 font-bold">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer
 						</Text>
@@ -70,15 +70,17 @@ export default function Index() {
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
 								<Link key={feature.name} to={feature.link} className="rounded-xl p-4 hover:bg-muted-100">
-									<Text size="md" asChild>
-										<dt className="flex gap-2 font-bold text-muted-900">
+									<dt>
+										<Text as="span" size="md" className="flex gap-2 font-bold text-muted-900">
 											<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
 											{feature.name}
-										</dt>
-									</Text>
-									<Text size="md" asChild>
-										<dd className="mt-2 text-muted-600">{feature.description}</dd>
-									</Text>
+										</Text>
+									</dt>
+									<dd className="mt-2 text-muted-600">
+										<Text as="span" size="md">
+											{feature.description}
+										</Text>
+									</dd>
 								</Link>
 							))}
 						</dl>

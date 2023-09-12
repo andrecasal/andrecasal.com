@@ -4,7 +4,7 @@ import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '../ui+/components/typography/heading.tsx'
 
 const HeroAndre = () => {
@@ -17,11 +17,9 @@ const HeroAndre = () => {
 							<Badge variant="info" size="md" className="whitespace-nowrap">
 								What's new
 							</Badge>
-							<Text size="sm" asChild>
-								<span className="inline-flex items-center space-x-2 whitespace-nowrap text-size-sm font-medium text-muted-600">
-									<span>Epic Stack collab with Kent C. Dodds</span>
-									<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
-								</span>
+							<Text as="span" size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
+								<span>Epic Stack collab with Kent C. Dodds</span>
+								<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
 							</Text>
 						</a>
 						<Heading as="h1" size="4xl" className="mt-10">

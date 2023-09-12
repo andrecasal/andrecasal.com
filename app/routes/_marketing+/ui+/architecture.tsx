@@ -1,5 +1,5 @@
 import { Container } from '~/components/ui/container.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import architecture from './images/architecture.jpg'
 import { Heading } from './components/typography/heading.tsx'
 

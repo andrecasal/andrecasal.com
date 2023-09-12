@@ -1,7 +1,7 @@
 import { redirect, json, type LoaderArgs } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Container } from '~/components/ui/container.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import analysisParalysis from './images/guy-looking-at-vending-machines.jpg'
 import BackgroundSpicy from './components/bg-spicy.tsx'
@@ -28,7 +28,7 @@ const WelcomeAboard = () => {
 		<>
 			<Container>
 				<div className="mx-auto max-w-3xl text-base leading-7 text-muted-700">
-					<Text size="md" className="font-semibold text-brand">
+					<Text size="md" weight="semibold" className="text-brand">
 						Thank you for subscribing
 					</Text>
 					<Heading as="h1" size="4xl" className="mt-2 text-muted-900">

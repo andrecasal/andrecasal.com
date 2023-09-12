@@ -54,7 +54,7 @@
 		--text-size-lg: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
 		--text-size-lg-line-height: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
 		--text-size-md: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-		--text-size-md-line-height: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+		--text-size-md-line-height: clamp(1.6rem, calc(0.91rem + 0.43vw), 1.8rem);
 		--text-size-sm: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
 		--text-size-sm-line-height: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
 		--text-size-xs: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);

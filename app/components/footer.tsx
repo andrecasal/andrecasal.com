@@ -1,6 +1,6 @@
 import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from './ui/container.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 const navigation = {
 	social: [
@@ -117,13 +117,13 @@ const Footer = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.sitemap.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>
+										<li key={item.name}>
+											<Text as="span" size="sm">
 												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
 													{item.name}
 												</a>
-											</li>
-										</Text>
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>
@@ -133,13 +133,13 @@ const Footer = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.courses.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>
-												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
+										<li key={item.name}>
+											<Text as="span" size="sm">
+												<a href={item.href} className="text-muted-600 hover:text-muted-900">
 													{item.name}
 												</a>
-											</li>
-										</Text>
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>

@@ -6,7 +6,7 @@ import BackgroundBlur from './components/bg-blur.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import zacharyCassette from './images/zachary-cassette.jpg'
 import { Heading } from './ui+/components/typography/heading.tsx'
 
@@ -244,7 +244,7 @@ const FullStackWebDevMentor = () => {
 								<Heading as="h2" size="md" className="text-brand">
 									Full-stack web development
 								</Heading>
-								<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+								<Text size="3xl" className="mt-2 font-bold">
 									Can be overwhelming
 								</Text>
 								<Text size="xl" className="mt-6 text-muted-700">
@@ -301,7 +301,7 @@ const FullStackWebDevMentor = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-2 font-bold">
 							To ship modern full-stack web apps
 						</Text>
 						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
@@ -312,17 +312,17 @@ const FullStackWebDevMentor = () => {
 						<dl className="relative grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 							{features.map(feature => (
 								<div key={feature.name} className="flex flex-col">
-									<Text size="md" asChild>
-										<dt className="flex items-center gap-x-3 font-semibold text-muted-900">
+									<dt>
+										<Text as="span" size="md" weight="semibold" className="flex items-center gap-x-3 text-muted-900">
 											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 											{feature.name}
-										</dt>
-									</Text>
-									<Text size="md" asChild>
-										<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-											<p className="flex-auto">{feature.description}</p>
-										</dd>
-									</Text>
+										</Text>
+									</dt>
+									<dd>
+										<Text size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+											{feature.description}
+										</Text>
+									</dd>
 								</div>
 							))}
 							{!open ? <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-background sm:h-32" /> : null}
@@ -332,17 +332,17 @@ const FullStackWebDevMentor = () => {
 								<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 									{moreFeatures.map(feature => (
 										<div key={feature.name} className="flex flex-col">
-											<Text size="md" asChild>
-												<dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+											<dt>
+												<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 													<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 													{feature.name}
-												</dt>
-											</Text>
-											<Text size="md" asChild>
-												<dd className="mt-4 flex flex-auto flex-col text-muted-600">
-													<p className="flex-auto">{feature.description}</p>
-												</dd>
-											</Text>
+												</Text>
+											</dt>
+											<dd>
+												<Text size="md" className="mt-4 flex flex-auto flex-col text-muted-600">
+													{feature.description}
+												</Text>
+											</dd>
 										</div>
 									))}
 								</dl>
@@ -385,12 +385,16 @@ const FullStackWebDevMentor = () => {
 								<dl className="w-64 space-y-8 xl:w-80">
 									{stats.map(stat => (
 										<div key={stat.label} className="flex flex-col-reverse gap-y-4">
-											<Text size="md" asChild>
-												<dt className="text-muted-600">{stat.label}</dt>
-											</Text>
-											<Text size="5xl" className="mt-2 font-semibold text-muted-900" asChild>
-												<dd>{stat.value}</dd>
-											</Text>
+											<dt>
+												<Text size="md" className="text-muted-600">
+													{stat.label}
+												</Text>
+											</dt>
+											<dd>
+												<Text as="span" size="4xl" weight="semibold" className="mt-2 text-muted-900">
+													{stat.value}
+												</Text>
+											</dd>
 										</div>
 									))}
 								</dl>
@@ -406,19 +410,19 @@ const FullStackWebDevMentor = () => {
 							<Heading as="h2" align="center" size="md" className="text-brand">
 								Testimonials
 							</Heading>
-							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							<Text size="3xl" weight="bold" className="mt-2">
 								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
-									<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
+									<Text size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 								</blockquote>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt={featuredTestimonial.author.name} />
 									<div className="flex-auto">
-										<Text size="sm" className="font-semibold">
+										<Text size="sm" weight="semibold">
 											{featuredTestimonial.author.name}
 										</Text>
 									</div>
@@ -445,7 +449,7 @@ const FullStackWebDevMentor = () => {
 													<figcaption className="mt-6 flex items-center gap-x-4">
 														{/* <img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt="" /> */}
 														<div>
-															<Text size="sm" className="font-semibold">
+															<Text size="sm" weight="semibold">
 																{testimonial.author.name}
 															</Text>
 														</div>
@@ -466,7 +470,7 @@ const FullStackWebDevMentor = () => {
 						<Heading as="h2" size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple no-tricks pricing
 						</Heading>
-						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
+						<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 							I charge ~80€ per hour. The payments are done monthly.
 							<br />
 							Here are the most common plans mentees go for.
@@ -498,15 +502,15 @@ const FullStackWebDevMentor = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" className="font-semibold text-muted-600">
+									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text size="5xl" className="font-bold" asChild>
-											<span>€1024</span>
+										<Text as="span" size="4xl" weight="bold">
+											€1024
 										</Text>
-										<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-											<span>EUR</span>
+										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
 										</Text>
 									</p>
 									<Button variant="primary" size="wide" asChild className="mt-10">
@@ -547,15 +551,15 @@ const FullStackWebDevMentor = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" className="font-semibold text-muted-600">
+									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text size="5xl" className="font-bold" asChild>
-											<span>€640</span>
+										<Text as="span" size="4xl" weight="bold">
+											€640
 										</Text>
-										<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-											<span>EUR</span>
+										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
 										</Text>
 									</p>
 									<Button variant="primary" size="wide" asChild className="mt-10">

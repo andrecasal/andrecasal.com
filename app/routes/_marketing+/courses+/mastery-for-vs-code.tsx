@@ -3,7 +3,7 @@ import BackgroundSquareLines from '../components/bg-square-lines.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 /* import { Badge } from '~/components/ui/badge.tsx' */
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion.tsx'
@@ -239,11 +239,9 @@ const MasteryForVSCode = () => {
 								<Badge variant="info" size="md">
 									Latest updates
 								</Badge>
-								<Text size="sm" asChild>
-									<span className="inline-flex items-center space-x-2 text-size-sm font-medium text-muted-600">
-										<span>Add AI assistance</span>
-										<Icon name="chevron-right" className="h-5 w-5 text-muted-400" aria-hidden="true" />
-									</span>
+								<Text as="span" size="sm" className="inline-flex items-center space-x-2 font-medium text-muted-600">
+									<span>Add AI assistance</span>
+									<Icon name="chevron-right" className="h-5 w-5 text-muted-400" aria-hidden="true" />
 								</Text>
 							</Link>
 						</div> */}
@@ -284,7 +282,7 @@ const MasteryForVSCode = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Course Overview
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-2 font-bold">
 							Efficient full-stack web development
 						</Text>
 						<Text size="lg" className="mt-6 text-muted-700">
@@ -295,17 +293,17 @@ const MasteryForVSCode = () => {
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
 								<div key={feature.name} className="flex flex-col">
-									<Text size="md" asChild>
-										<dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+									<dt>
+										<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 											{feature.name}
-										</dt>
-									</Text>
-									<Text size="md" asChild>
-										<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-											<p className="flex-auto">{feature.description}</p>
-										</dd>
-									</Text>
+										</Text>
+									</dt>
+									<dd>
+										<Text size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+											{feature.description}
+										</Text>
+									</dd>
 								</div>
 							))}
 						</dl>
@@ -318,7 +316,7 @@ const MasteryForVSCode = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-2 font-bold">
 							Benefits of the course
 						</Text>
 						<Text size="lg" className="mt-6 text-muted-700">
@@ -336,17 +334,17 @@ const MasteryForVSCode = () => {
 					<dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-muted-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
 						{moreFeatures.map(feature => (
 							<div key={feature.name} className="flex flex-col">
-								<Text size="md" asChild>
-									<dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+								<dt>
+									<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 										<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										{feature.name}
-									</dt>
-								</Text>
-								<Text size="md" asChild>
-									<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-										<p className="flex-auto">{feature.description}</p>
-									</dd>
-								</Text>
+									</Text>
+								</dt>
+								<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+									<Text size="md" className="flex-auto">
+										{feature.description}
+									</Text>
+								</dd>
 							</div>
 						))}
 					</dl>
@@ -359,7 +357,7 @@ const MasteryForVSCode = () => {
 							<Heading as="h2" size="md" className="text-brand">
 								Track record
 							</Heading>
-							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							<Text size="3xl" className="mt-2 font-bold">
 								Trusted by thousands of devs worldwide
 							</Text>
 							<Text size="lg" className="mt-6 text-muted-700">
@@ -369,12 +367,16 @@ const MasteryForVSCode = () => {
 						<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 							{stats.map(stat => (
 								<div key={stat.id} className="flex flex-col gap-y-3">
-									<Text size="sm" className="font-semibold text-muted-600" asChild>
-										<dt>{stat.name}</dt>
-									</Text>
-									<Text size="3xl" asChild>
-										<dd className="order-first font-semibold tracking-tight text-muted-900">{stat.value}</dd>
-									</Text>
+									<dt>
+										<Text as="span" size="sm" className="font-semibold text-muted-600">
+											{stat.name}
+										</Text>
+									</dt>
+									<dd>
+										<Text as="span" size="3xl" className="order-first font-semibold tracking-tight text-muted-900">
+											{stat.value}
+										</Text>
+									</dd>
 								</div>
 							))}
 						</dl>
@@ -387,7 +389,7 @@ const MasteryForVSCode = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Testimonials
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-2 font-bold">
 							I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 						</Text>
 					</div>
@@ -443,7 +445,7 @@ const MasteryForVSCode = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0">
-							<Heading as="h1" size="4xl" className="mt-10">
+							<Heading as="h1" size="3xl" className="mt-10">
 								Hi! I'm André Casal a seasoned full-stack web developer.
 							</Heading>
 							<Text size="lg" className="mt-6 text-muted-700">
@@ -469,7 +471,7 @@ const MasteryForVSCode = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Easy to follow modules
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+						<Text size="3xl" className="mt-2 font-bold">
 							Course structure
 						</Text>
 						<Text size="lg" className="mt-6 text-gray-600">
@@ -497,7 +499,7 @@ const MasteryForVSCode = () => {
 					<Heading as="h2" size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 						Enroll now
 					</Heading>
-					<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
+					<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 						Gain instant access to the <strong>Mastery for VS Code</strong> course.
 					</Text>
 				</div>
@@ -531,11 +533,11 @@ const MasteryForVSCode = () => {
 									Pay once, own it forever
 								</Text>
 								<p className="mt-6 flex items-baseline justify-center gap-x-2">
-									<Text size="5xl" className="font-bold" asChild>
-										<span>€180</span>
+									<Text as="span" size="4xl" className="font-bold">
+										€180
 									</Text>
-									<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-										<span>EUR</span>
+									<Text as="span" size="sm" className="font-semibold tracking-wide text-muted-600">
+										EUR
 									</Text>
 								</p>
 								<Button variant="primary" size="wide" asChild className="mt-10">

@@ -1,5 +1,5 @@
 import { Button } from '~/components/ui/button.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
 import { Form, useActionData, useNavigation } from '@remix-run/react'

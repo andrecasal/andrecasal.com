@@ -1,7 +1,7 @@
 import { Newsletter } from '~/components/newsletter.tsx'
 import { CodeBlock, type Language } from '~/components/ui/code-block.tsx'
 import { Container } from '~/components/ui/container.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from './ui+/components/typography/heading.tsx'
 
 const Tips = () => {
@@ -51,7 +51,7 @@ console.log(sortedArray) // ['I', 'must', 'study']`,
 					<Heading as="h2" size="md" className="text-brand">
 						Golden nuggets of knowledge
 					</Heading>
-					<Text size="3xl" className="mt-2 font-bold sm:text-4xl">
+					<Text size="3xl" weight="bold" className="mt-2">
 						Hot tips to upgrade your skills
 					</Text>
 					<Text size="lg" className="mt-6 text-muted-600">
@@ -62,7 +62,7 @@ console.log(sortedArray) // ['I', 'must', 'study']`,
 			</div>
 			{tips.map(({ title, description, filename, extension, code }, i) => (
 				<div key={i} className="py-24 sm:py-32">
-					<Text size="3xl" className="mt-2 font-bold sm:text-4xl">
+					<Text size="3xl" weight="bold" className="mt-2">
 						{title}
 					</Text>
 					<Text size="lg" className="mt-6 text-muted-600">

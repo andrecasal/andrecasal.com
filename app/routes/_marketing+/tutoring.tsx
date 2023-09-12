@@ -1,5 +1,5 @@
 import { Container } from '~/components/ui/container.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import BackgroundDiagonal from './components/bg-diagonal.tsx'
@@ -232,13 +232,13 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-32">
 				<div className="max-w-3xl text-muted-700">
-					<Text size="md" className="font-semibold text-brand">
+					<Text size="md" weight="semibold" className="text-brand">
 						I understand the
 					</Text>
 					<Heading as="h2" size="3xl" className="mt-2 text-muted-900">
 						College life
 					</Heading>
-					<Text className="mt-6 text-xl leading-8">
+					<Text size="xl" className="mt-6 leading-8">
 						Ok, so you're in college and you don't want to be disrespected, shamed, or humiliated by your peers. Much less by your teachers. Having gone through college and been
 						a tutor for more than 16 years, I know how you feel. You feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
 						won't magically make your grades go up. Besides, spending more time reading the recommended books won't help because you can't lose any more time and you're already
@@ -270,7 +270,7 @@ const Tutoring = () => {
 						</Text>
 					</div>
 					<div className="mt-44 max-w-2xl">
-						<Text size="md" className="font-semibold text-brand">
+						<Text size="md" weight="semibold" className="text-brand">
 							How it feels like
 						</Text>
 						<Heading as="h2" size="3xl" className="mt-2 text-muted-900">
@@ -328,7 +328,7 @@ const Tutoring = () => {
 					<Heading as="h2" size="md" align="center" className="text-brand">
 						Everything you need to be a
 					</Heading>
-					<Text size="3xl" className="mt-2 font-bold text-muted-900 sm:text-size-4xl">
+					<Text size="3xl" weight="bold" className="mt-2 text-muted-900">
 						Successful student
 					</Text>
 					<Text size="lg" className="mt-6 text-muted-600">
@@ -385,19 +385,19 @@ const Tutoring = () => {
 							<Heading as="h2" size="md" align="center" className="text-brand">
 								Testimonials
 							</Heading>
-							<Text size="3xl" className="mt-2 font-bold sm:text-size-4xl">
+							<Text size="3xl" weight="bold" className="mt-2">
 								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</Text>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
-									<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
+									<Text size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
 								</blockquote>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" />
 									<div className="flex-auto">
-										<Text size="sm" className="font-semibold">
+										<Text size="sm" weight="semibold">
 											{featuredTestimonial.author.name}
 										</Text>
 										<div className="flex gap-0.5">
@@ -432,7 +432,7 @@ const Tutoring = () => {
 															<img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt={testimonial.author.name} />
 														) : null}
 														<div>
-															<Text size="sm" className="font-semibold">
+															<Text size="sm" weight="semibold">
 																{testimonial.author.name}
 															</Text>
 															<div className="flex gap-0.5">
@@ -490,9 +490,11 @@ const Tutoring = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.programming.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>{item.name}</li>
-										</Text>
+										<li key={item.name}>
+											<Text as="span" size="sm">
+												{item.name}
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>
@@ -502,9 +504,11 @@ const Tutoring = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.webdev.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>{item.name}</li>
-										</Text>
+										<li key={item.name}>
+											<Text as="span" size="sm">
+												{item.name}
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>
@@ -516,9 +520,11 @@ const Tutoring = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.computerscience.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>{item.name}</li>
-										</Text>
+										<li key={item.name}>
+											<Text as="span" size="sm">
+												{item.name}
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>
@@ -528,9 +534,11 @@ const Tutoring = () => {
 								</Heading>
 								<ul className="mt-6 space-y-4">
 									{navigation.math.map(item => (
-										<Text key={item.name} size="sm" asChild>
-											<li>{item.name}</li>
-										</Text>
+										<li key={item.name}>
+											<Text as="span" size="sm">
+												{item.name}
+											</Text>
+										</li>
 									))}
 								</ul>
 							</div>
@@ -544,7 +552,7 @@ const Tutoring = () => {
 						<Heading as="h2" size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple no-tricks pricing
 						</Heading>
-						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
+						<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 							I charge 40€ per hour. The payments are done per session.
 							<br />
 							Here are the most common plans mentees go for.
@@ -576,15 +584,15 @@ const Tutoring = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" className="font-semibold text-muted-600">
+									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
 									</Text>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text size="5xl" className="font-bold" asChild>
-											<span>€640</span>
+										<Text as="span" size="4xl" weight="bold">
+											€640
 										</Text>
-										<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-											<span>EUR</span>
+										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
 										</Text>
 									</p>
 									<Button variant="primary" size="wide" asChild className="mt-10">
@@ -626,15 +634,15 @@ const Tutoring = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" className="font-semibold text-muted-600">
+									<Text size="md" weight="semibold" className="text-muted-600">
 										Pay per hour
 									</Text>
 									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text size="5xl" className="font-bold" asChild>
-											<span>€40</span>
+										<Text as="span" size="4xl" weight="bold">
+											€40
 										</Text>
-										<Text size="sm" className="font-semibold tracking-wide text-muted-600" asChild>
-											<span>EUR</span>
+										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
 										</Text>
 									</p>
 									<Button variant="primary" size="wide" asChild className="mt-10">

@@ -1,4 +1,4 @@
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from './components/typography/heading.tsx'
 
 const UI = () => {

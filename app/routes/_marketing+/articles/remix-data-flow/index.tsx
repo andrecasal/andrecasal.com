@@ -1,4 +1,4 @@
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import remixDataFlow from './remix-data-flow.png'
 import { type V2_MetaFunction } from '@remix-run/node'
 import { Heading } from '../../ui+/components/typography/heading.tsx'

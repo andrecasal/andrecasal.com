@@ -5,7 +5,7 @@ import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from
 import { z } from 'zod'
 import { ErrorList, Field } from '~/components/forms.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { newsletterNameQueryParam, newsletterEmailQueryParam, newsletterOTPQueryParam, newsletterVerificationType } from './newsletter/index.tsx'

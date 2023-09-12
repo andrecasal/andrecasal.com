@@ -1,7 +1,7 @@
 import { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent } from './components/ui/slide-in-dialog.tsx'
 import { Container } from '~/components/ui/container.tsx'
 import { ScrollArea } from './components/ui/scroll-area.tsx'
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
 import { Heading } from './components/typography/heading.tsx'

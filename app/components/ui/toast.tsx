@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import cg from 'classgroup'
 import { cn } from '~/utils/misc.ts'
 import { Icon } from './icon.tsx'
-import { Text } from './text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from './button.tsx'
 
 const ToastProvider = ToastPrimitives.Provider
@@ -77,18 +77,24 @@ const ToastClose = forwardRef<ElementRef<typeof ToastPrimitives.Close>, Componen
 ))
 ToastClose.displayName = ToastPrimitives.Close.displayName
 
-const ToastTitle = forwardRef<ElementRef<typeof ToastPrimitives.Title>, ComponentPropsWithoutRef<typeof ToastPrimitives.Title>>(({ className, ...props }, ref) => (
-	<Text size="sm" className="font-medium text-muted-900 group-[.danger]:text-danger-title" asChild>
-		<ToastPrimitives.Title ref={ref} {...props} />
-	</Text>
+const ToastTitle = forwardRef<ElementRef<typeof ToastPrimitives.Title>, ComponentPropsWithoutRef<typeof ToastPrimitives.Title>>(({ className, children, ...props }, ref) => (
+	<ToastPrimitives.Title ref={ref} {...props} asChild>
+		<Text size="sm" className="font-medium text-muted-900 group-[.danger]:text-danger-title">
+			{children}
+		</Text>
+	</ToastPrimitives.Title>
 ))
 ToastTitle.displayName = ToastPrimitives.Title.displayName
 
-const ToastDescription = forwardRef<ElementRef<typeof ToastPrimitives.Description>, ComponentPropsWithoutRef<typeof ToastPrimitives.Description>>(({ className, ...props }, ref) => (
-	<Text size="sm" className="text-muted-500 group-[.danger]:text-danger-foreground" asChild>
-		<ToastPrimitives.Description ref={ref} {...props} />
-	</Text>
-))
+const ToastDescription = forwardRef<ElementRef<typeof ToastPrimitives.Description>, ComponentPropsWithoutRef<typeof ToastPrimitives.Description>>(
+	({ className, children, ...props }, ref) => (
+		<ToastPrimitives.Description ref={ref} {...props}>
+			<Text size="sm" className="text-muted-500 group-[.danger]:text-danger-foreground">
+				{children}
+			</Text>
+		</ToastPrimitives.Description>
+	),
+)
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
 type ToastProps = ComponentPropsWithoutRef<typeof Toast>

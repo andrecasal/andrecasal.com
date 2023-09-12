@@ -6,7 +6,7 @@ import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
 /* import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx' */
-import { Text } from '~/components/ui/text.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
 import { title as RemixDataFlowTitle, description as RemixDataFlowDescription } from './remix-data-flow/index.tsx'
