@@ -5,7 +5,7 @@ import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
 
 export const title = 'Fluid Typography Sizing and Scales'
-export const description = 'Understand how you can size typography fluidly and why hand-picked scales are better than modular scales.'
+export const description = 'Learn how you can size typography fluidly and why hand-picked scales are better than modular scales.'
 
 const FluidTypographySizingWithModularScales = () => {
 	const modularScale = `:root {
@@ -275,9 +275,9 @@ const FluidTypographySizingWithModularScales = () => {
 					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen widths.
 				</Text>
 				<Text size="xl" className="mt-8">
-					Developers today are often handed a collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px).
-					The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and resources. It also perpetuates the archaic
-					practice of creating device-specific websites.
+					Developers today are often handed a collection of mockups for mobile (320px), large mobile (640px), tablet (768px), small desktop (1024px), medium desktop (1280px), and
+					large desktop (1536px). The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and resources. It also
+					perpetuates the archaic practice of creating device-specific websites.
 				</Text>
 				<Text size="xl" className="mt-8">
 					Often, developers are left to guess at the logic of sizing, if any, used in the design process. This usually leads to a high number of hacky (and often similar) values in
