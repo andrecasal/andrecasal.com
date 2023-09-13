@@ -291,12 +291,12 @@ const FluidTypographySizingWithModularScales = () => {
 					Modular scale
 				</Heading>
 				<Text size="xl" className="mt-4">
-					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5 (a "major third"), 2:3 (a "perfect fifth"),
-					or the "golden ratio" of 1:1.618 are commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen
-					ratio to calculate the subsequent sizes in your scale.
+					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5, 2:3, or the "golden ratio" of 1:1.618 are
+					commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen ratio to calculate the subsequent sizes
+					in your scale.
 				</Text>
 				<Text size="xl" className="mt-4">
-					While the mathematical elegance of this approach is appealing, it has a deal-breaker limitation: limited size options. You could try different ratios and equations, but
+					While the mathematical elegance of this approach is appealing, it has a deal-breaking limitation: limited size options. You could try different ratios and equations, but
 					at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
 				</Text>
 				<CodeBlock code={modularScale} filename="modular-scale" extension="css" className="mt-8" />
@@ -395,9 +395,9 @@ const FluidTypographySizingWithModularScales = () => {
 					text looks good at any screen width. It's at the higher steps that the text starts to look too underwhelming on large screens.
 				</Text>
 				<Text size="xl" className="mt-8">
-					This change in variation is explained by two opposing forces: the need to increase the font size to make the text more readable on larger screens and the fact that users
-					don't resize their browser windows to see the same content bigger, but to see more content. So, as a general rule, headings vary in size quite a bit, while body text not
-					as much.
+					This change in variation is explained by two opposing forces: the need to increase the font size to prevent underwhelming and awkward sizes on larger screens and the fact
+					that users don't resize their browser windows to see the same content bigger, but to see more content. So, as a general rule, headings vary in size quite a bit so that
+					the design remains balanced, while body text doesn't vary as much so users can see more of it.
 				</Text>
 				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="css" className="mt-8" />
 				<Text size="xl" className="mt-4">
@@ -441,12 +441,12 @@ const FluidTypographySizingWithModularScales = () => {
 					units instead of fractional values, for good reasons I won't get into here.
 				</Text>
 				<Text size="xl" className="mt-4">
-					Look at that xs step. It's 12px on small screens and 14px on large screens, a 2px difference, but there are 3 breakpoints in between. What round values should the
+					Look at that xs step. It's 12px on small screens and 14px on large screens, a 2px difference, but there are 4 breakpoints in between. What round values should the
 					designer choose for those middle breakpoints? Well, either 12px, 13px, or 14px. But it's guaranteed there will be repetition. This is a weird situation where the right
 					value is really a fractional one, but the designer is forced to choose a round value, and the developer is left guessing at the logic - if any - behind those values.
 				</Text>
 				<Text size="xl" className="mt-4">
-					I don't want to get too technical here, but fractional pixel values are not a problem web developers - most screens today either have more than one physical pixel per
+					I don't want to get too technical here, but fractional pixel values are not a problem for web developers - most screens today either have more than one physical pixel per
 					virtual pixel or employ anti-alias on the surrounding pixels to make the text look crisp at any subpixel value. This is automatically handled by the browser and OS.
 				</Text>
 
@@ -467,8 +467,8 @@ const FluidTypographySizingWithModularScales = () => {
 				</Text>
 				<Text size="xl" className="mt-4">
 					However, this vw unit isn't ideal: the font can start to grow too soon, too late, too slow, or too fast. What you want is a linear growth rate from the minimum viewport
-					size, 320px say, to the maximum supported viewport size, 1536px say. Imagine the font size on the y axis and the viewport width on the x axis. Here's how we can use CSS
-					variables and the calc() function to calculate the exact growth rate we want.
+					size, 320px say, to the maximum width the website will have, 1536px say. Imagine the font size on the y axis and the viewport width on the x axis. Here's how we can use
+					CSS variables and the calc() function to calculate the exact growth rate we want between those two points, using the general equation of a straight line: y = mx + c.
 				</Text>
 				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="css" className="mt-8" />
 				<Text size="xl" className="mt-4">
@@ -499,7 +499,7 @@ const FluidTypographySizingWithModularScales = () => {
 					now take multiple columns instead, taking more space horizontally and pulling the content upwards.
 				</Text>
 				<Text size="xl" className="mt-4">
-					The other reason is that the text's line height also changes, so even if you only had text, like in a blog post, without any layout shifts, the text below would still
+					The other reason is that the text's line height also changes, so even if you only had text, like in this blog post, without any layout shifts, the text below would still
 					move up and down as you resize the window.
 				</Text>
 				<Text size="xl" className="mt-4">
