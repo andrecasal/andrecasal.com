@@ -71,6 +71,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			fontSize: {
+				'size-6xl': ['var(--text-size-6xl)', { lineHeight: 'var(--text-size-6xl-line-height)' }],
+				'size-5xl': ['var(--text-size-5xl)', { lineHeight: 'var(--text-size-5xl-line-height)' }],
 				'size-4xl': ['var(--text-size-4xl)', { lineHeight: 'var(--text-size-4xl-line-height)' }],
 				'size-3xl': ['var(--text-size-3xl)', { lineHeight: 'var(--text-size-3xl-line-height)' }],
 				'size-2xl': ['var(--text-size-2xl)', { lineHeight: 'var(--text-size-2xl-line-height)' }],
@@ -104,7 +106,7 @@ export default {
 				'container-lg': 'calc(var(--container-padding-x) + 1rem)',
 			},
 			maxWidth: {
-				container: 'var(--container-max-width)',
+				container: 'calc(var(--container-max-width) * 1rem)',
 			},
 			minWidth: {
 				tap: 'var(--min-tap-target)',

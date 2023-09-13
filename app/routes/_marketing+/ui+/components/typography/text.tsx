@@ -6,6 +6,8 @@ import { cn } from '~/utils/misc.ts'
 const textVariants = cva('', {
 	variants: {
 		size: {
+			'6xl': 'text-size-6xl',
+			'5xl': 'text-size-5xl',
 			'4xl': 'text-size-4xl',
 			'3xl': 'text-size-3xl',
 			'2xl': 'text-size-2xl',

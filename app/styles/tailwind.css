@@ -38,27 +38,111 @@
 		--color-muted-950: 224 71.4% 4.1%;
 		--color-ring: 243 75.4% 58.6%;
 
-		--container-max-width: 80rem; /* 1280px */
+		--container-min-width: 20; /* 320px */
+		--container-max-width: 96; /* 1536px */
 		--container-padding-x: 1rem;
 
-		/* Tell the browser to interpolate between the two scales, based on the current viewport width */
-		/* Use this fluid type calculator: https://utopia.fyi/type/calculator/?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-		--text-size-4xl: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
-		--text-size-4xl-line-height: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
-		--text-size-3xl: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
-		--text-size-3xl-line-height: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
-		--text-size-2xl: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-		--text-size-2xl-line-height: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-		--text-size-xl: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-		--text-size-xl-line-height: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-		--text-size-lg: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-		--text-size-lg-line-height: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-		--text-size-md: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-		--text-size-md-line-height: clamp(1.6rem, calc(0.91rem + 0.43vw), 1.8rem);
-		--text-size-sm: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-		--text-size-sm-line-height: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-		--text-size-xs: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
-		--text-size-xs-line-height: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
+		--text-size-deltaX: calc(var(--container-max-width) - var(--container-min-width));
+		/* 6xl */
+		--text-size-6xl-min-font-size: 4.5; /* 👈 you can edit this value (in rem) */
+		--text-size-6xl-max-font-size: 8; /* 👈 you can edit this value (in rem) */
+		--text-size-6xl-deltaY: calc(var(--text-size-6xl-max-font-size) - var(--text-size-6xl-min-font-size));
+		--text-size-6xl-gradient: calc(var(--text-size-6xl-deltaY) / var(--text-size-deltaX));
+		--text-size-6xl-intercept: calc(var(--text-size-6xl-min-font-size) - (var(--text-size-6xl-gradient) * var(--container-min-width)));
+		--text-size-6xl-font-size: calc(var(--text-size-6xl-gradient) * 100vw + var(--text-size-6xl-intercept) * 1rem);
+		--text-size-6xl: clamp(calc(var(--text-size-6xl-min-font-size) * 1rem), var(--text-size-6xl-font-size), calc(var(--text-size-6xl-max-font-size) * 1rem));
+
+		/* 5xl */
+		--text-size-5xl-min-font-size: 3; /* 👈 you can edit this value (in rem) */
+		--text-size-5xl-max-font-size: 6; /* 👈 you can edit this value (in rem) */
+		--text-size-5xl-deltaY: calc(var(--text-size-5xl-max-font-size) - var(--text-size-5xl-min-font-size));
+		--text-size-5xl-gradient: calc(var(--text-size-5xl-deltaY) / var(--text-size-deltaX));
+		--text-size-5xl-intercept: calc(var(--text-size-5xl-min-font-size) - (var(--text-size-5xl-gradient) * var(--container-min-width)));
+		--text-size-5xl-font-size: calc(var(--text-size-5xl-gradient) * 100vw + var(--text-size-5xl-intercept) * 1rem);
+		--text-size-5xl: clamp(calc(var(--text-size-5xl-min-font-size) * 1rem), var(--text-size-5xl-font-size), calc(var(--text-size-5xl-max-font-size) * 1rem));
+
+		/* 4xl */
+		--text-size-4xl-min-font-size: 2.25; /* 👈 you can edit this value (in rem) */
+		--text-size-4xl-max-font-size: 3.75; /* 👈 you can edit this value (in rem) */
+		--text-size-4xl-deltaY: calc(var(--text-size-4xl-max-font-size) - var(--text-size-4xl-min-font-size));
+		--text-size-4xl-gradient: calc(var(--text-size-4xl-deltaY) / var(--text-size-deltaX));
+		--text-size-4xl-intercept: calc(var(--text-size-4xl-min-font-size) - (var(--text-size-4xl-gradient) * var(--container-min-width)));
+		--text-size-4xl-font-size: calc(var(--text-size-4xl-gradient) * 100vw + var(--text-size-4xl-intercept) * 1rem);
+		--text-size-4xl: clamp(calc(var(--text-size-4xl-min-font-size) * 1rem), var(--text-size-4xl-font-size), calc(var(--text-size-4xl-max-font-size) * 1rem));
+
+		/* 3xl */
+		--text-size-3xl-min-font-size: 1.875; /* 👈 you can edit this value (in rem) */
+		--text-size-3xl-max-font-size: 2.25; /* 👈 you can edit this value (in rem) */
+		--text-size-3xl-deltaY: calc(var(--text-size-3xl-max-font-size) - var(--text-size-3xl-min-font-size));
+		--text-size-3xl-gradient: calc(var(--text-size-3xl-deltaY) / var(--text-size-deltaX));
+		--text-size-3xl-intercept: calc(var(--text-size-3xl-min-font-size) - (var(--text-size-3xl-gradient) * var(--container-min-width)));
+		--text-size-3xl-font-size: calc(var(--text-size-3xl-gradient) * 100vw + var(--text-size-3xl-intercept) * 1rem);
+		--text-size-3xl: clamp(calc(var(--text-size-3xl-min-font-size) * 1rem), var(--text-size-3xl-font-size), calc(var(--text-size-3xl-max-font-size) * 1rem));
+
+		/* 2xl */
+		--text-size-2xl-min-font-size: 1.5; /* 👈 you can edit this value (in rem) */
+		--text-size-2xl-max-font-size: 1.875; /* 👈 you can edit this value (in rem) */
+		--text-size-2xl-deltaY: calc(var(--text-size-2xl-max-font-size) - var(--text-size-2xl-min-font-size));
+		--text-size-2xl-gradient: calc(var(--text-size-2xl-deltaY) / var(--text-size-deltaX));
+		--text-size-2xl-intercept: calc(var(--text-size-2xl-min-font-size) - (var(--text-size-2xl-gradient) * var(--container-min-width)));
+		--text-size-2xl-font-size: calc(var(--text-size-2xl-gradient) * 100vw + var(--text-size-2xl-intercept) * 1rem);
+		--text-size-2xl: clamp(calc(var(--text-size-2xl-min-font-size) * 1rem), var(--text-size-2xl-font-size), calc(var(--text-size-2xl-max-font-size) * 1rem));
+
+		/* xl */
+		--text-size-xl-min-font-size: 1.25; /* 👈 you can edit this value (in rem) */
+		--text-size-xl-max-font-size: 1.5; /* 👈 you can edit this value (in rem) */
+		--text-size-xl-deltaY: calc(var(--text-size-xl-max-font-size) - var(--text-size-xl-min-font-size));
+		--text-size-xl-gradient: calc(var(--text-size-xl-deltaY) / var(--text-size-deltaX));
+		--text-size-xl-intercept: calc(var(--text-size-xl-min-font-size) - (var(--text-size-xl-gradient) * var(--container-min-width)));
+		--text-size-xl-font-size: calc(var(--text-size-xl-gradient) * 100vw + var(--text-size-xl-intercept) * 1rem);
+		--text-size-xl: clamp(calc(var(--text-size-xl-min-font-size) * 1rem), var(--text-size-xl-font-size), calc(var(--text-size-xl-max-font-size) * 1rem));
+
+		/* lg */
+		--text-size-lg-min-font-size: 1.125; /* 👈 you can edit this value (in rem) */
+		--text-size-lg-max-font-size: 1.25; /* 👈 you can edit this value (in rem) */
+		--text-size-lg-deltaY: calc(var(--text-size-lg-max-font-size) - var(--text-size-lg-min-font-size));
+		--text-size-lg-gradient: calc(var(--text-size-lg-deltaY) / var(--text-size-deltaX));
+		--text-size-lg-intercept: calc(var(--text-size-lg-min-font-size) - (var(--text-size-lg-gradient) * var(--container-min-width)));
+		--text-size-lg-font-size: calc(var(--text-size-lg-gradient) * 100vw + var(--text-size-lg-intercept) * 1rem);
+		--text-size-lg: clamp(calc(var(--text-size-lg-min-font-size) * 1rem), var(--text-size-lg-font-size), calc(var(--text-size-lg-max-font-size) * 1rem));
+
+		/* md */
+		--text-size-md-min-font-size: 1; /* 👈 you can edit this value (in rem) */
+		--text-size-md-max-font-size: 1.125; /* 👈 you can edit this value (in rem) */
+		--text-size-md-deltaY: calc(var(--text-size-md-max-font-size) - var(--text-size-md-min-font-size));
+		--text-size-md-gradient: calc(var(--text-size-md-deltaY) / var(--text-size-deltaX));
+		--text-size-md-intercept: calc(var(--text-size-md-min-font-size) - (var(--text-size-md-gradient) * var(--container-min-width)));
+		--text-size-md-font-size: calc(var(--text-size-md-gradient) * 100vw + var(--text-size-md-intercept) * 1rem);
+		--text-size-md: clamp(calc(var(--text-size-md-min-font-size) * 1rem), var(--text-size-md-font-size), calc(var(--text-size-md-max-font-size) * 1rem));
+
+		/* sm */
+		--text-size-sm-min-font-size: 0.875; /* 👈 you can edit this value (in rem) */
+		--text-size-sm-max-font-size: 1; /* 👈 you can edit this value (in rem) */
+		--text-size-sm-deltaY: calc(var(--text-size-sm-max-font-size) - var(--text-size-sm-min-font-size));
+		--text-size-sm-gradient: calc(var(--text-size-sm-deltaY) / var(--text-size-deltaX));
+		--text-size-sm-intercept: calc(var(--text-size-sm-min-font-size) - (var(--text-size-sm-gradient) * var(--container-min-width)));
+		--text-size-sm-font-size: calc(var(--text-size-sm-gradient) * 100vw + var(--text-size-sm-intercept) * 1rem);
+		--text-size-sm: clamp(calc(var(--text-size-sm-min-font-size) * 1rem), var(--text-size-sm-font-size), calc(var(--text-size-sm-max-font-size) * 1rem));
+
+		/* xs */
+		--text-size-xs-min-font-size: 0.75; /* 👈 you can edit this value (in rem) */
+		--text-size-xs-max-font-size: 0.875; /* 👈 you can edit this value (in rem) */
+		--text-size-xs-deltaY: calc(var(--text-size-xs-max-font-size) - var(--text-size-xs-min-font-size));
+		--text-size-xs-gradient: calc(var(--text-size-xs-deltaY) / var(--text-size-deltaX));
+		--text-size-xs-intercept: calc(var(--text-size-xs-min-font-size) - (var(--text-size-xs-gradient) * var(--container-min-width)));
+		--text-size-xs-font-size: calc(var(--text-size-xs-gradient) * 100vw + var(--text-size-xs-intercept) * 1rem);
+		--text-size-xs: clamp(calc(var(--text-size-xs-min-font-size) * 1rem), var(--text-size-xs-font-size), calc(var(--text-size-xs-max-font-size) * 1rem));
+
+		--text-size-xs-line-height: clamp(1.125rem, 6.2vw, 1.75rem); /* 12px <-> 14px => 18px <-> 28px */
+		--text-size-sm-line-height: clamp(1.25rem, 6.2vw, 2rem); /* 20px <-> 32px */
+		--text-size-md-line-height: clamp(1.5rem, 6vw, 2.25rem); /* 24px <-> 36px */
+		--text-size-lg-line-height: clamp(1.75rem, 5.8vw, 2.25rem); /* 28px <-> 36px */
+		--text-size-xl-line-height: clamp(2rem, 6.5vw, 2.5rem); /* 32px <-> 40px */
+		--text-size-2xl-line-height: 1.5;
+		--text-size-3xl-line-height: 1.5;
+		--text-size-4xl-line-height: 1.2;
+		--text-size-5xl-line-height: 1.2;
+		--text-size-6xl-line-height: 1.2;
 
 		--radius: 0.375rem;
 		--min-tap-target: 24px;

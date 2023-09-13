@@ -2,9 +2,10 @@ import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
+import { type CSSProperties } from 'react'
 
-export const title = 'Fluid Typography Sizing with Modular Scales'
-export const description = 'Understand how you can size typography fluidly and with modular scales.'
+export const title = 'Fluid Typography Sizing and Scales'
+export const description = 'Understand how you can size typography fluidly and why hand-picked scales are better than modular scales.'
 
 const FluidTypographySizingWithModularScales = () => {
 	const modularScale = `:root {
@@ -96,134 +97,431 @@ const FluidTypographySizingWithModularScales = () => {
 	--text-size-4xl: 36px;
 	--text-size-5xl: 48px;
 	--text-size-6xl: 60px;
-	--text-size-7xl: 72px;
-	--text-size-8xl: 96px;
-	--text-size-9xl: 128px;
 
-	/* Large mobile screens */
-	@media screen and (min-width: 400px) {
-		/* Override the sizes that need to be adapted */
+	@media screen and (min-width: 640px) {
+		--text-size-xs: 12.5501618122977px;
+		--text-size-sm: 14.5501618122977px;
+		--text-size-md: 16.5501618122977px;
+		--text-size-lg: 18.5501618122977px;
+		--text-size-xl: 21.1003236245954px;
+		--text-size-2xl: 25.6504854368933px;
+		--text-size-3xl: 31.6504854368933px;
+		--text-size-4xl: 42.6019417475728px;
+		--text-size-5xl: 61.2038834951456px;
+		--text-size-6xl: 78.705501618123px;
 	}
 
-	/* Tablet screens */
 	@media screen and (min-width: 768px) {
-		/* Override the sizes that need to be adapted */
+		--text-size-xs: 12.757281553398px;
+		--text-size-sm: 14.757281553398px;
+		--text-size-md: 16.757281553398px;
+		--text-size-lg: 18.757281553398px;
+		--text-size-xl: 21.5145631067961px;
+		--text-size-2xl: 26.2718446601942px;
+		--text-size-3xl: 32.2718446601942px;
+		--text-size-4xl: 45.0873786407767px;
+		--text-size-5xl: 66.1747572815534px;
+		--text-size-6xl: 85.747572815534px;
 	}
 
-	/* Small desktop screens */
 	@media screen and (min-width: 1024px) {
-		/* Override the sizes that need to be adapted */
+		--text-size-xs: 13.1715210355987px;
+		--text-size-sm: 15.1715210355987px;
+		--text-size-md: 17.1715210355987px;
+		--text-size-lg: 19.1715210355987px;
+		--text-size-xl: 22.3430420711974px;
+		--text-size-2xl: 27.5145631067962px;
+		--text-size-3xl: 33.5145631067962px;
+		--text-size-4xl: 50.0582524271844px;
+		--text-size-5xl: 76.116504854369px;
+		--text-size-6xl: 99.8317152103561px;
 	}
 
-	/* Large desktop screens */
-	@media screen and (min-width: 1440px) {
-		/* Override the sizes that need to be adapted */
+	@media screen and (min-width: 1280px) {
+		--text-size-xs: 13.2701754385965px;
+		--text-size-sm: 15.2701754385965px;
+		--text-size-md: 17.2701754385965px;
+		--text-size-lg: 19.2701754385965px;
+		--text-size-xl: 22.5403508771929px;
+		--text-size-2xl: 27.8105263157894px;
+		--text-size-3xl: 33.8105263157894px;
+		--text-size-4xl: 51.2421052631579px;
+		--text-size-5xl: 78.4842105263158px;
+		--text-size-6xl: 103.185964912281px;
+	}
+
+	@media screen and (min-width: 1536px) {
+		--text-size-xs: 14px;
+		--text-size-sm: 16px;
+		--text-size-md: 18px;
+		--text-size-lg: 20px;
+		--text-size-xl: 24px;
+		--text-size-2xl: 30px;
+		--text-size-3xl: 36px;
+		--text-size-4xl: 60px;
+		--text-size-5xl: 96px;
+		--text-size-6xl: 128px;
 	}
 }`
 
-	const fluidTypeSizing = `/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	const fluidTypeSizing = `:root {
+	--container-min-width: 20; /* 320px */
+	--container-max-width: 96; /* 1536px */
 
-:root {
-	--text-size-xs: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.80rem);
-	--text-size-sm: clamp(0.83rem, calc(0.78rem + 0.29vw), 1.00rem);
-	--text-size-md: clamp(1.00rem, calc(0.91rem + 0.43vw), 1.25rem);
-	--text-size-lg: clamp(1.20rem, calc(1.07rem + 0.63vw), 1.56rem);
-	--text-size-xl: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-	--text-size-2xl: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-	--text-size-3xl: clamp(2.07rem, calc(1.73rem + 1.70vw), 3.05rem);
-	--text-size-4xl: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+	--text-size-deltaX: calc(var(--container-max-width) - var(--container-min-width));
+	/* 6xl */
+	--text-size-6xl-min-font-size: 4.500; /* 👈 you can edit this value (in rem) */
+	--text-size-6xl-max-font-size: 8.000; /* 👈 you can edit this value (in rem) */
+	--text-size-6xl-deltaY: calc(var(--text-size-6xl-max-font-size) - var(--text-size-6xl-min-font-size));
+	--text-size-6xl-gradient: calc(var(--text-size-6xl-deltaY) / var(--text-size-deltaX));
+	--text-size-6xl-intercept: calc(var(--text-size-6xl-min-font-size) - (var(--text-size-6xl-gradient) * var(--container-min-width)));
+	--text-size-6xl-font-size: calc(var(--text-size-6xl-gradient) * 100vw + var(--text-size-6xl-intercept) *  1rem);
+	--text-size-6xl: clamp(calc(var(--text-size-6xl-min-font-size) * 1rem), var(--text-size-6xl-font-size), calc(var(--text-size-6xl-max-font-size) * 1rem));
+
+	/* 5xl */
+	--text-size-5xl-min-font-size: 3.000; /* 👈 you can edit this value (in rem) */
+	--text-size-5xl-max-font-size: 6.000; /* 👈 you can edit this value (in rem) */
+	--text-size-5xl-deltaY: calc(var(--text-size-5xl-max-font-size) - var(--text-size-5xl-min-font-size));
+	--text-size-5xl-gradient: calc(var(--text-size-5xl-deltaY) / var(--text-size-deltaX));
+	--text-size-5xl-intercept: calc(var(--text-size-5xl-min-font-size) - (var(--text-size-5xl-gradient) * var(--container-min-width)));
+	--text-size-5xl-font-size: calc(var(--text-size-5xl-gradient) * 100vw + var(--text-size-5xl-intercept) * 1rem);
+	--text-size-5xl: clamp(calc(var(--text-size-5xl-min-font-size) * 1rem), var(--text-size-5xl-font-size), calc(var(--text-size-5xl-max-font-size) * 1rem));
+	
+	/* 4xl */
+	--text-size-4xl-min-font-size: 2.250; /* 👈 you can edit this value (in rem) */
+	--text-size-4xl-max-font-size: 3.750; /* 👈 you can edit this value (in rem) */
+	--text-size-4xl-deltaY: calc(var(--text-size-4xl-max-font-size) - var(--text-size-4xl-min-font-size));
+	--text-size-4xl-gradient: calc(var(--text-size-4xl-deltaY) / var(--text-size-deltaX));
+	--text-size-4xl-intercept: calc(var(--text-size-4xl-min-font-size) - (var(--text-size-4xl-gradient) * var(--container-min-width)));
+	--text-size-4xl-font-size: calc(var(--text-size-4xl-gradient) * 100vw + var(--text-size-4xl-intercept) * 1rem);
+	--text-size-4xl: clamp(calc(var(--text-size-4xl-min-font-size) * 1rem), var(--text-size-4xl-font-size), calc(var(--text-size-4xl-max-font-size) * 1rem));
+
+	/* 3xl */
+	--text-size-3xl-min-font-size: 1.875; /* 👈 you can edit this value (in rem) */
+	--text-size-3xl-max-font-size: 2.250; /* 👈 you can edit this value (in rem) */
+	--text-size-3xl-deltaY: calc(var(--text-size-3xl-max-font-size) - var(--text-size-3xl-min-font-size));
+	--text-size-3xl-gradient: calc(var(--text-size-3xl-deltaY) / var(--text-size-deltaX));
+	--text-size-3xl-intercept: calc(var(--text-size-3xl-min-font-size) - (var(--text-size-3xl-gradient) * var(--container-min-width)));
+	--text-size-3xl-font-size: calc(var(--text-size-3xl-gradient) * 100vw + var(--text-size-3xl-intercept) * 1rem);
+	--text-size-3xl: clamp(calc(var(--text-size-3xl-min-font-size) * 1rem), var(--text-size-3xl-font-size), calc(var(--text-size-3xl-max-font-size) * 1rem));
+
+	/* 2xl */
+	--text-size-2xl-min-font-size: 1.500; /* 👈 you can edit this value (in rem) */
+	--text-size-2xl-max-font-size: 1.875; /* 👈 you can edit this value (in rem) */
+	--text-size-2xl-deltaY: calc(var(--text-size-2xl-max-font-size) - var(--text-size-2xl-min-font-size));
+	--text-size-2xl-gradient: calc(var(--text-size-2xl-deltaY) / var(--text-size-deltaX));
+	--text-size-2xl-intercept: calc(var(--text-size-2xl-min-font-size) - (var(--text-size-2xl-gradient) * var(--container-min-width)));
+	--text-size-2xl-font-size: calc(var(--text-size-2xl-gradient) * 100vw + var(--text-size-2xl-intercept) * 1rem);
+	--text-size-2xl: clamp(calc(var(--text-size-2xl-min-font-size) * 1rem), var(--text-size-2xl-font-size), calc(var(--text-size-2xl-max-font-size) * 1rem));
+
+	/* xl */
+	--text-size-xl-min-font-size: 1.250; /* 👈 you can edit this value (in rem) */
+	--text-size-xl-max-font-size: 1.500; /* 👈 you can edit this value (in rem) */
+	--text-size-xl-deltaY: calc(var(--text-size-xl-max-font-size) - var(--text-size-xl-min-font-size));
+	--text-size-xl-gradient: calc(var(--text-size-xl-deltaY) / var(--text-size-deltaX));
+	--text-size-xl-intercept: calc(var(--text-size-xl-min-font-size) - (var(--text-size-xl-gradient) * var(--container-min-width)));
+	--text-size-xl-font-size: calc(var(--text-size-xl-gradient) * 100vw + var(--text-size-xl-intercept) * 1rem);
+	--text-size-xl: clamp(calc(var(--text-size-xl-min-font-size) * 1rem), var(--text-size-xl-font-size), calc(var(--text-size-xl-max-font-size) * 1rem));
+
+	/* lg */
+	--text-size-lg-min-font-size: 1.125; /* 👈 you can edit this value (in rem) */
+	--text-size-lg-max-font-size: 1.250; /* 👈 you can edit this value (in rem) */
+	--text-size-lg-deltaY: calc(var(--text-size-lg-max-font-size) - var(--text-size-lg-min-font-size));
+	--text-size-lg-gradient: calc(var(--text-size-lg-deltaY) / var(--text-size-deltaX));
+	--text-size-lg-intercept: calc(var(--text-size-lg-min-font-size) - (var(--text-size-lg-gradient) * var(--container-min-width)));
+	--text-size-lg-font-size: calc(var(--text-size-lg-gradient) * 100vw + var(--text-size-lg-intercept) * 1rem);
+	--text-size-lg: clamp(calc(var(--text-size-lg-min-font-size) * 1rem), var(--text-size-lg-font-size), calc(var(--text-size-lg-max-font-size) * 1rem));
+
+	/* md */
+	--text-size-md-min-font-size: 1.000; /* 👈 you can edit this value (in rem) */
+	--text-size-md-max-font-size: 1.125; /* 👈 you can edit this value (in rem) */
+	--text-size-md-deltaY: calc(var(--text-size-md-max-font-size) - var(--text-size-md-min-font-size));
+	--text-size-md-gradient: calc(var(--text-size-md-deltaY) / var(--text-size-deltaX));
+	--text-size-md-intercept: calc(var(--text-size-md-min-font-size) - (var(--text-size-md-gradient) * var(--container-min-width)));
+	--text-size-md-font-size: calc(var(--text-size-md-gradient) * 100vw + var(--text-size-md-intercept) * 1rem);
+	--text-size-md: clamp(calc(var(--text-size-md-min-font-size) * 1rem), var(--text-size-md-font-size), calc(var(--text-size-md-max-font-size) * 1rem));
+
+	/* sm */
+	--text-size-sm-min-font-size: 0.875; /* 👈 you can edit this value (in rem) */
+	--text-size-sm-max-font-size: 1.000; /* 👈 you can edit this value (in rem) */
+	--text-size-sm-deltaY: calc(var(--text-size-sm-max-font-size) - var(--text-size-sm-min-font-size));
+	--text-size-sm-gradient: calc(var(--text-size-sm-deltaY) / var(--text-size-deltaX));
+	--text-size-sm-intercept: calc(var(--text-size-sm-min-font-size) - (var(--text-size-sm-gradient) * var(--container-min-width)));
+	--text-size-sm-font-size: calc(var(--text-size-sm-gradient) * 100vw + var(--text-size-sm-intercept) * 1rem);
+	--text-size-sm: clamp(calc(var(--text-size-sm-min-font-size) * 1rem), var(--text-size-sm-font-size), calc(var(--text-size-sm-max-font-size) * 1rem));
+
+	/* xs */
+	--text-size-xs-min-font-size: 0.750; /* 👈 you can edit this value (in rem) */
+	--text-size-xs-max-font-size: 0.875; /* 👈 you can edit this value (in rem) */
+	--text-size-xs-deltaY: calc(var(--text-size-xs-max-font-size) - var(--text-size-xs-min-font-size));
+	--text-size-xs-gradient: calc(var(--text-size-xs-deltaY) / var(--text-size-deltaX));
+	--text-size-xs-intercept: calc(var(--text-size-xs-min-font-size) - (var(--text-size-xs-gradient) * var(--container-min-width)));
+	--text-size-xs-font-size: calc(var(--text-size-xs-gradient) * 100vw + var(--text-size-xs-intercept) * 1rem);
+	--text-size-xs: clamp(calc(var(--text-size-xs-min-font-size) * 1rem), var(--text-size-xs-font-size), calc(var(--text-size-xs-max-font-size) * 1rem));
 }`
 
 	return (
 		<>
-			<Heading as="h1" size="3xl" className="mt-10">
+			<Heading as="h1" size="4xl" className="mt-10">
 				{title}
 			</Heading>
-			<div className="mt-8 max-w-2xl">
+			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidTypographySizingWithModularScales} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />
-				<Heading as="h2" size="2xl" className="mt-10">
+				<Heading as="h2" size="4xl" className="mt-10">
 					Introduction
 				</Heading>
-				<Text className="mt-8">
+				<Text size="xl" className="mt-8">
 					Typography is a fundamental aspect of web design, and choosing the right sizes for your fonts is important for creating visually appealing and readable content. However,
-					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen sizes.
+					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen widths.
 				</Text>
-				<Text className="mt-8">
+				<Text size="xl" className="mt-8">
 					Developers today are often handed a collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px).
 					The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and resources. It also perpetuates the archaic
 					practice of creating device-specific websites.
 				</Text>
-				<Text className="mt-8">
+				<Text size="xl" className="mt-8">
 					Often, developers are left to guess at the logic of sizing, if any, used in the design process. This usually leads to a high number of hacky (and often similar) values in
 					the codebase, needlessly increasing the development effort and the complexity of the project.
 				</Text>
-				<Text className="mt-8">In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.</Text>
+				<Text size="xl" className="mt-8">
+					In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.
+				</Text>
 
-				<Heading as="h2" size="2xl" className="mt-16">
+				<Heading as="h2" size="4xl" className="mt-16">
 					Modular scale
 				</Heading>
-				<Text className="mt-4">
+				<Text size="xl" className="mt-4">
 					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5 (a "major third"), 2:3 (a "perfect fifth"),
 					or the "golden ratio" of 1:1.618 are commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen
 					ratio to calculate the subsequent sizes in your scale.
 				</Text>
-				<Text className="mt-4">
+				<Text size="xl" className="mt-4">
 					While the mathematical elegance of this approach is appealing, it has a deal-breaker limitation: limited size options. You could try different ratios and equations, but
 					at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
 				</Text>
 				<CodeBlock code={modularScale} filename="modular-scale" extension="css" className="mt-8" />
+				<Text size="xl" className="mt-4">
+					Here's the modular scale in action.
+				</Text>
+			</div>
+			<div
+				className="mt-4 leading-none"
+				style={
+					{
+						'--base-font-size': '16px',
+						'--ratio': 1.25,
+						'--text-size-9xl':
+							'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-8xl':
+							'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-7xl':
+							'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-6xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-5xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-4xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-3xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-2xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio))',
+						'--text-size-xl': 'calc(var(--base-font-size) * var(--ratio) * var(--ratio))',
+						'--text-size-lg': 'calc(var(--base-font-size) * var(--ratio))',
+						'--text-size-md': 'calc(var(--base-font-size))',
+						'--text-size-sm': 'calc(var(--base-font-size) / var(--ratio))',
+						'--text-size-xs': 'calc(var(--base-font-size) / var(--ratio) / var(--ratio))',
+					} as CSSProperties
+				}
+			>
+				<p className="text-[length:var(--text-size-9xl)]">Text at 9xl</p>
+				<p className="text-[length:var(--text-size-8xl)]">Text at 8xl</p>
+				<p className="text-[length:var(--text-size-7xl)]">Text at 7xl</p>
+				<p className="text-[length:var(--text-size-6xl)]">Text at 6xl</p>
+				<p className="text-[length:var(--text-size-5xl)]">Text at 5xl</p>
+				<p className="text-[length:var(--text-size-4xl)]">Text at 4xl</p>
+				<p className="text-[length:var(--text-size-3xl)]">Text at 3xl</p>
+				<p className="text-[length:var(--text-size-2xl)]">Text at 2xl</p>
+				<p className="text-[length:var(--text-size-xl)]">Text at xl</p>
+				<p className="text-[length:var(--text-size-lg)]">Text at lg</p>
+				<p className="text-[length:var(--text-size-md)]">Text at md</p>
+				<p className="text-[length:var(--text-size-sm)]">Text at sm</p>
+				<p className="text-[length:var(--text-size-xs)]">Text at xs</p>
+			</div>
 
-				<Heading as="h2" size="2xl" className="mt-16">
+			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
+				<Heading as="h2" size="4xl" className="mt-16">
 					Hand-picked scale
 				</Heading>
 
-				<Text className="mt-4">
+				<Text size="xl" className="mt-4">
 					When it comes to interface design, it's more pragmatic to hand-pick the values. This approach grants you complete control over the number and variety of sizes.
 				</Text>
-				<Text className="mt-4">
-					A good example of a scale that works well with most projects and align nicely with its own spacing is{' '}
+				<Text size="xl" className="mt-4">
+					A good example of a scale that works well with most projects and aligns nicely with its own spacing is{' '}
 					<a href="https://tailwindcss.com/docs/font-size" target="_blank" rel="noreferrer">
 						TailwindCSS's typographic scale
 					</a>
 					.
 				</Text>
 				<CodeBlock code={tailwindCSSScale} filename="tailwind" extension="css" className="mt-8" />
+				<Text size="xl" className="mt-4">
+					Here's TailwindCSS's hand-picked typographic scale in action.
+				</Text>
+				<div className="mt-4">
+					<p className="text-9xl">Text at 9xl</p>
+					<p className="text-8xl">Text at 8xl</p>
+					<p className="text-7xl">Text at 7xl</p>
+					<p className="text-6xl">Text at 6xl</p>
+					<p className="text-5xl">Text at 5xl</p>
+					<p className="text-4xl">Text at 4xl</p>
+					<p className="text-3xl">Text at 3xl</p>
+					<p className="text-2xl">Text at 2xl</p>
+					<p className="text-xl">Text at xl</p>
+					<p className="text-lg">Text at lg</p>
+					<p className="text-md">Text at md</p>
+					<p className="text-sm">Text at sm</p>
+					<p className="text-xs">Text at xs</p>
+				</div>
+				<Text size="xl" className="mt-4">
+					Most of the text on a website is body text. Notice how you have more choices for appropriate body text sizes between xs and xl with this hand-picked scale.
+				</Text>
 
-				<Heading as="h2" size="2xl" className="mt-16">
+				<Heading as="h2" size="4xl" className="mt-16">
 					Breakpoint-based type sizing
 				</Heading>
-				<Text className="mt-8">
-					Traditionally, web designers rely on font sizes and a set of breakpoints to control how each of those sizes vary across screen sizes. Developers are often handed a
-					collection of mockups for mobile (320px), large mobile (400px), tablet (768px), small desktop (1024px), and large desktop (1440px). Breakpoint-based type sizing is hacky
-					and lacks a well-thought-out scaling strategy. The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and
-					resources. The better we want it to work, the more stuff you need to design and develop.
+				<Text size="xl" className="mt-8">
+					The first thing you need to understand about breakpoint-based type sizing is that if we're going to change the font size at different screen sizes, we don't need as many
+					steps. A font size larger than 60px will never be used on a mobile screen - that would be too overwhelming. Instead, we'll cap the steps off at the 6xl step and have it
+					scale up as the screen width increases.
+				</Text>
+				<Text size="xl" className="mt-8">
+					Another thing to note is that the widest variations occur at the higher steps. It's nice to be able to adapt the lower steps if we want to, but as a general rule, small
+					text looks good at any screen width. It's at the higher steps that the text starts to look too underwhelming on large screens.
+				</Text>
+				<Text size="xl" className="mt-8">
+					This change in variation is explained by two opposing forces: the need to increase the font size to make the text more readable on larger screens and the fact that users
+					don't resize their browser windows to see the same content bigger, but to see more content. So, as a general rule, headings vary in size quite a bit, while body text not
+					as much.
 				</Text>
 				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="css" className="mt-8" />
-				<Text className="mt-4">This starts to become ridiculous 😅.</Text>
+				<Text size="xl" className="mt-4">
+					Here's the breakpoint-based type sizing in action. Notice how the text size increases suddenly as the screen width increases, creating a jarring experience, more
+					noticeable on the larger steps.
+				</Text>
+				<div className="mt-4">
+					<p className="text-[60px] sm:text-[78.705501618123px] md:text-[85.747572815534px] lg:text-[99.8317152103561px] xl:text-[103.185964912281px] 2xl:text-[128px]">
+						Text at 6xl
+					</p>
+					<p className="text-[48px] sm:text-[61.2038834951456px] md:text-[66.1747572815534px] lg:text-[76.116504854369px] xl:text-[78.4842105263158px] 2xl:text-[96px]">
+						Text at 5xl
+					</p>
+					<p className="text-[36px] sm:text-[42.6019417475728px] md:text-[45.0873786407767px] lg:text-[50.0582524271844px] xl:text-[51.2421052631579px] 2xl:text-[60px]">
+						Text at 4xl
+					</p>
+					<p className="text-[30px] sm:text-[31.6504854368933px] md:text-[32.2718446601942px] lg:text-[33.5145631067962px] xl:text-[33.8105263157894px] 2xl:text-[36px]">
+						Text at 3xl
+					</p>
+					<p className="text-[24px] sm:text-[25.6504854368933px] md:text-[26.2718446601942px] lg:text-[27.5145631067962px] xl:text-[27.8105263157894px] 2xl:text-[30px]">
+						Text at 2xl
+					</p>
+					<p className="text-[20px] sm:text-[21.1003236245954px] md:text-[21.5145631067961px] lg:text-[22.3430420711974px] xl:text-[22.5403508771929px] 2xl:text-[24px]">
+						Text at xl
+					</p>
+					<p className="text-[18px] sm:text-[18.5501618122977px] md:text-[18.757281553398px] lg:text-[19.1715210355987px] xl:text-[19.2701754385965px] 2xl:text-[20px]">
+						Text at lg
+					</p>
+					<p className="text-[16px] sm:text-[16.5501618122977px] md:text-[16.757281553398px] lg:text-[17.1715210355987px] xl:text-[17.2701754385965px] 2xl:text-[18px]">
+						Text at md
+					</p>
+					<p className="text-[14px] sm:text-[14.5501618122977px] md:text-[14.757281553398px] lg:text-[15.1715210355987px] xl:text-[15.2701754385965px] 2xl:text-[16px]">
+						Text at sm
+					</p>
+					<p className="text-[12px] sm:text-[12.5501618122977px] md:text-[12.757281553398px] lg:text-[13.1715210355987px] xl:text-[13.2701754385965px] 2xl:text-[14px]">
+						Text at xs
+					</p>
+				</div>
+				<Text size="xl" className="mt-4">
+					There are two major problems with this technique: the effort required to design all those mockups is tremendous and designers usually prefer to play with round pixel
+					units instead of fractional values, for good reasons I won't get into here.
+				</Text>
+				<Text size="xl" className="mt-4">
+					Look at that xs step. It's 12px on small screens and 14px on large screens, a 2px difference, but there are 3 breakpoints in between. What round values should the
+					designer choose for those middle breakpoints? Well, either 12px, 13px, or 14px. But it's guaranteed there will be repetition. This is a weird situation where the right
+					value is really a fractional one, but the designer is forced to choose a round value, and the developer is left guessing at the logic - if any - behind those values.
+				</Text>
+				<Text size="xl" className="mt-4">
+					I don't want to get too technical here, but fractional pixel values are not a problem web developers - most screens today either have more than one physical pixel per
+					virtual pixel or employ anti-alias on the surrounding pixels to make the text look crisp at any subpixel value. This is automatically handled by the browser and OS.
+				</Text>
 
-				<Heading as="h2" size="2xl" className="mt-16">
+				<Heading as="h2" size="4xl" className="mt-16">
 					Fluid type sizing
 				</Heading>
-				<Text className="mt-8">
+				<Text size="xl" className="mt-8">
 					The{' '}
 					<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" target="_blank" rel="noreferrer" className="underline">
 						clamp() function
 					</a>
 					, introduced in CSS, offers a more fluid and responsive approach to typography sizing. It allows designers to define a minimum and maximum font size range, ensuring that
-					text scales smoothly between these values based on the viewport size. For example, you can use clamp(16px, 5vw, 24px) to set a font size that is 16 pixels on smaller
-					screens, 5% of the viewport width on medium screens, and a maximum of 24 pixels on larger screens. This results in a seamless transition of font sizes as the screen size
-					changes, providing a better reading experience for users.
+					text scales smoothly between these values based on the viewport size.
 				</Text>
-				<Text className="mt-4">The design process to implement fluid typography is simple:</Text>
-				<ul className="ml-4 mt-4 list-disc">
-					<li>Define a type scale for a small screen</li>
-					<li>Define a type scale for a large screen</li>
-					<li>Tell the browser to interpolate between the two scales, based on the current viewport width</li>
-				</ul>
+				<Text size="xl" className="mt-4">
+					For example, you can use the <code>clamp(16px, 5vw, 24px)</code> to set a font size that is 5% of the viewport width, 16 pixels on small screens, and a maximum of 24
+					pixels on larger screens. This results in a seamless transition of font sizes as the screen size changes, providing a better reading experience for users.
+				</Text>
+				<Text size="xl" className="mt-4">
+					However, this vw unit isn't ideal: the font can start to grow too soon, too late, too slow, or too fast. What you want is a linear growth rate from the minimum viewport
+					size, 320px say, to the maximum supported viewport size, 1536px say. Imagine the font size on the y axis and the viewport width on the x axis. Here's how we can use CSS
+					variables and the calc() function to calculate the exact growth rate we want.
+				</Text>
 				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="css" className="mt-8" />
-				<Text className="mt-4">
-					Fluid type sizing has the browser, instead of the designer and developer, decide on the type size depending on the viewport width, making both designers and developers
-					more efficient.
+				<Text size="xl" className="mt-4">
+					Here's the fluid type sizing in action. Notice how the text size increases smoothly as the screen width increases, more noticeable on the larger steps.
+				</Text>
+				<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
+					<p className="text-size-6xl">Text at 6xl</p>
+					<p className="text-size-5xl">Text at 5xl</p>
+					<p className="text-size-4xl">Text at 4xl</p>
+					<p className="text-size-3xl">Text at 3xl</p>
+					<p className="text-size-2xl">Text at 2xl</p>
+					<p className="text-size-xl">Text at xl</p>
+					<p className="text-size-lg">Text at lg</p>
+					<p className="text-size-md">Text at md</p>
+					<p className="text-size-sm">Text at sm</p>
+					<p className="text-size-xs">Text at xs</p>
+				</div>
+				<Text size="xl" className="mt-4">
+					The design process to implement fluid typography is rather simple for both designers and developers. Designers only have to draw two mockups: one for small screens and
+					one for large screens. While the developer only needs to tell the browser to interpolate between the two scales, based on the current viewport width.
+				</Text>
+				<Heading as="h2" size="4xl" className="mt-16">
+					A note on layout shift
+				</Heading>
+				<Text size="xl" className="mt-4">
+					You might notice that, as you resize the browser window, the text moves up and down quite a bit here. There's two reasons for this. One is layout shift: users don't
+					resize their browser windows to see the same content bigger, but to see more content, so as you increase the window's width, things that used to take up a single column
+					now take multiple columns instead, taking more space horizontally and pulling the content upwards.
+				</Text>
+				<Text size="xl" className="mt-4">
+					The other reason is that the text's line height also changes, so even if you only had text, like in a blog post, without any layout shifts, the text below would still
+					move up and down as you resize the window.
+				</Text>
+				<Text size="xl" className="mt-4">
+					This effect compounds vertically, so the more you move away from the top, the more noticeable this effect is.
+				</Text>
+				<Text size="xl" className="mt-4">
+					If you wish to see this effect without the text moving up and down too much, visit any other page on this website that contains large text and see how it resizes smoothly
+					as you resize the browser window.
+				</Text>
+				<Heading as="h2" size="4xl" className="mt-16">
+					Note on accessibility
+				</Heading>
+				<Text size="xl" className="mt-4">
+					Whatever techniques you use for typographic scales and viewport width-based sizing, you should always make sure to use rem units for font sizes, so that users can change
+					the base font size in their browser settings.
+				</Text>
+				<Heading as="h2" size="4xl" className="mt-16">
+					Conclusion
+				</Heading>
+				<Text size="xl" className="mt-4">
+					In conclusion, between modular or hand-picked scales, hand-picked scales offer the right amount of control, while between breakpoint-based and fluid type sizing, fluid
+					type sizing offers a significantly more efficient design and development process, a smoother user experience, and solves the problem of fractional pixel values.
 				</Text>
 			</div>
 		</>

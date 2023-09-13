@@ -301,7 +301,7 @@ const FullStackWebDevMentor = () => {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need
 						</Heading>
-						<Text size="3xl" className="mt-2 font-bold">
+						<Text size="3xl" weight="bold" align="center" className="mt-2">
 							To ship modern full-stack web apps
 						</Text>
 						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
