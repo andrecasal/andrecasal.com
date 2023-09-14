@@ -112,7 +112,7 @@ const TextRoute = () => {
 						<tr>
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">tracking</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'tighter', 'tight', 'normal', 'wide', 'wider', 'widest'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">null</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">undefined</td>
 						</tr>
 					</tbody>
 				</table>
