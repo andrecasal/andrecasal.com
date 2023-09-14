@@ -274,13 +274,15 @@ const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filen
 							))}
 						</ol>
 						<pre className="flex-1 overflow-x-auto py-2 pl-2 pr-4">
-							{tokens.map((line, i) => (
-								<div key={i} {...getLineProps({ line })}>
-									{line.map((token, key) => (
-										<span key={key} {...getTokenProps({ token })} />
-									))}
-								</div>
-							))}
+							<code>
+								{tokens.map((line, i) => (
+									<div key={i} {...getLineProps({ line })}>
+										{line.map((token, key) => (
+											<span key={key} {...getTokenProps({ token })} />
+										))}
+									</div>
+								))}
+							</code>
 						</pre>
 					</div>
 				</div>
