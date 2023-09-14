@@ -1,7 +1,7 @@
 import { type HTMLAttributes, forwardRef, type ReactNode } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const textVariants = cva('', {
 	variants: {

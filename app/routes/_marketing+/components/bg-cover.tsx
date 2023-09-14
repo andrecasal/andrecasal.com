@@ -1,5 +1,5 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const BackgroundCover = ({ className, children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
 	return (

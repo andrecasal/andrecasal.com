@@ -1,6 +1,6 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import spicy from '../images/pickled-stardust.jpg'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const BackgroundSpicy = ({ className, children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
 	return (

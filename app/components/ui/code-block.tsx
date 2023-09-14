@@ -3,7 +3,7 @@ import { Highlight } from 'prism-react-renderer'
 import type { PrismTheme } from 'prism-react-renderer/dist/'
 import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from './accessible-icon.tsx'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
 
 const cobalt2Theme: PrismTheme = {

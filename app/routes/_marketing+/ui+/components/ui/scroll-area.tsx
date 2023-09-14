@@ -1,6 +1,6 @@
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area'
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 interface ScrollAreaProps extends ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {
 	scrollbars?: 'vertical' | 'horizontal' | 'both'

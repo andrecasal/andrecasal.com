@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 export type CheckboxProps = Omit<ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>, 'type'> & {
 	type?: string

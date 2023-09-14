@@ -2,7 +2,7 @@ import { forwardRef, type ElementRef, type ComponentPropsWithoutRef, type ReactE
 import * as ToastPrimitives from '@radix-ui/react-toast'
 import { cva, type VariantProps } from 'class-variance-authority'
 import cg from 'classgroup'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from './button.tsx'

@@ -2,7 +2,7 @@ import { type ButtonHTMLAttributes, forwardRef } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const buttonVariants = cva(
 	'inline-flex whitespace-nowrap items-center justify-center rounded-md text-size-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',

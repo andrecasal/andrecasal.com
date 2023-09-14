@@ -6,7 +6,7 @@ import { Form, useActionData, useNavigation } from '@remix-run/react'
 import { useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
 import { parse } from '@conform-to/zod'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
 import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 

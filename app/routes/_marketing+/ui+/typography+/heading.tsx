@@ -1,9 +1,9 @@
 import { json } from '@remix-run/node'
 import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
-import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
+import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 

@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const Separator = forwardRef<ElementRef<typeof SeparatorPrimitive.Root>, ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>>(
 	({ className, orientation = 'horizontal', decorative = true, ...props }, ref) => (

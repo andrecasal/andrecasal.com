@@ -3,7 +3,7 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { type ComponentPropsWithoutRef, forwardRef, type ElementRef } from 'react'
 import { Icon } from '~/components/ui/icon.tsx'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const SlideInDialog = DialogPrimitive.Root
 

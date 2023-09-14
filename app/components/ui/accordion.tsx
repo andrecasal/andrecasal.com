@@ -1,7 +1,7 @@
 import { forwardRef, type ElementRef, type ComponentPropsWithoutRef } from 'react'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
 
 const Accordion = AccordionPrimitive.Root

@@ -1,6 +1,6 @@
 import { type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const badgeVariants = cva('rounded-full ring-1 ring-inset inline-block', {
 	variants: {

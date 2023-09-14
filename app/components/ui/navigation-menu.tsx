@@ -2,7 +2,7 @@ import { type ElementRef, forwardRef, type ComponentPropsWithoutRef } from 'reac
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
 import { cva } from 'class-variance-authority'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
 
 /* NavigationMenu */

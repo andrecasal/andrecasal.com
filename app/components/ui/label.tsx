@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as LabelPrimitive from '@radix-ui/react-label'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '~/utils/misc.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const labelVariants = cva('text-size-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70')
 
