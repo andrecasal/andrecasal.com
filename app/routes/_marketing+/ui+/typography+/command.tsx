@@ -19,7 +19,7 @@ export const loader = async () => {
 
 const CommandRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const headingSource = `<Code>npm i -D tailwindcss</Code>`
+	const commandSource = `<Text>This is an inline command <Command code={\`npm i -D tailwindcss\`} />.</Text>`
 
 	return (
 		<>
@@ -36,7 +36,7 @@ const CommandRoute = () => {
 			<Heading as="h2" size="xl" className="mt-8">
 				Usage Example
 			</Heading>
-			<CodeBlock code={headingSource} filename="CommandExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={commandSource} filename="CommandExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the command component in action.</Text>
 			<Text className="mt-4">
 				This is an inline command <Command code={`npm i -D tailwindcss`} />.
