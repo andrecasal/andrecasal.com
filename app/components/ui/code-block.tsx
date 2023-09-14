@@ -232,13 +232,13 @@ const cobalt2Theme: PrismTheme = {
 
 export type Language = 'css' | 'jsx' | 'tsx' | 'swift' | 'kotlin' | 'objectivec' | 'js-extras' | 'reason' | 'rust' | 'graphql' | 'yaml' | 'go' | 'cpp' | 'markdown' | 'js' | 'ts'
 
-interface CodeBlockProps extends HTMLAttributes<HTMLDivElement> {
+type CodeBlockProps = {
 	filename: string
 	extension: Language
 	code: string
-}
+} & HTMLAttributes<HTMLDivElement>
 
-const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, filename, extension, code, ...props }, ref) => {
+const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(({ className, code, filename, extension, ...props }, ref) => {
 	const [showCopyIcon, setShowCopyIcon] = useState(true)
 	const [, copy] = useCopyToClipboard()
 

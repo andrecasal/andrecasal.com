@@ -45,7 +45,7 @@ const TextRoute = () => {
 			<Heading as="h1" className="mt-8">
 				Heading Component
 			</Heading>
-			<Text className="mt-4">A semantic heading element that allows customization of size, weight, alignment, and other typographic properties.</Text>
+			<Text className="mt-4">A semantic heading element that allows customization of size, weight, alignment, and tracking.</Text>
 
 			<Heading as="h2" size="xl" className="mt-8">
 				Source
@@ -93,16 +93,16 @@ const TextRoute = () => {
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'p'</td>
 						</tr>
 						<tr>
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">size</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'md'</td>
+						</tr>
+						<tr>
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">weight</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
 								'thin' | 'extralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold' | 'black'
 							</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'normal'</td>
-						</tr>
-						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">size</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'md'</td>
 						</tr>
 						<tr>
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">align</td>
