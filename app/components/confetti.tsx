@@ -1,11 +1,10 @@
 import { Index as ConfettiShower } from 'confetti-react'
 import { ClientOnly } from 'remix-utils'
+import { useWindowSize } from 'usehooks-ts'
 
-/**
- * confetti is a unique random identifier which re-renders the component
- */
-export function Confetti({ confetti }: { confetti?: string }) {
-	return (
-		<ClientOnly>{() => <ConfettiShower key={confetti} run={Boolean(confetti)} recycle={false} numberOfPieces={500} width={window.innerWidth} height={window.innerHeight} />}</ClientOnly>
-	)
+export function Confetti({ id }: { id?: string | null }) {
+	const { width, height } = useWindowSize()
+	if (!id) return null
+
+	return <ClientOnly>{() => <ConfettiShower key={id} run={Boolean(id)} recycle={false} numberOfPieces={500} width={width} height={height} />}</ClientOnly>
 }

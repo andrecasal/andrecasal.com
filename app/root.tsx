@@ -122,7 +122,7 @@ function App() {
 					<Outlet />
 				</div>
 				<Footer />
-				<Confetti confetti={data.flash?.confetti} />
+				<Confetti id={data.flash?.confetti} />
 				<Toaster />
 				<ScrollRestoration nonce={nonce} />
 				<Scripts nonce={nonce} />
