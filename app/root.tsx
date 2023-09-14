@@ -20,6 +20,7 @@ import { getFlashSession } from './utils/flash-session.server.ts'
 import { useToast } from './utils/useToast.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import Footer from './components/footer.tsx'
+import { FathomScript, useTrackPageview } from './utils/fathom.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -106,6 +107,7 @@ function App() {
 	const nonce = useNonce()
 	const theme = useTheme()
 	useToast(data.flash?.toast)
+	useTrackPageview()
 
 	return (
 		<html lang="en" className={`${theme} h-full`}>
@@ -133,6 +135,7 @@ function App() {
 					}}
 				/>
 				<LiveReload nonce={nonce} />
+				<FathomScript nonce={nonce} data-site={data.ENV.FATHOM_ANALYTICS_SITE_ID} />
 			</body>
 		</html>
 	)

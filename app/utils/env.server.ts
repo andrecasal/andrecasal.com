@@ -14,6 +14,7 @@ const requiredServerEnvs = [
 	'MARKETING_EMAIL_SERVICE_API_ENDPOINT',
 	// If you plan on using Sentry, uncomment this line
 	'SENTRY_DSN',
+	'FATHOM_ANALYTICS_SITE_ID',
 ] as const
 
 declare global {
@@ -43,6 +44,7 @@ export function getEnv() {
 	return {
 		MODE: process.env.NODE_ENV,
 		SENTRY_DSN: process.env.SENTRY_DSN,
+		FATHOM_ANALYTICS_SITE_ID: process.env.FATHOM_ANALYTICS_SITE_ID,
 	}
 }
 
