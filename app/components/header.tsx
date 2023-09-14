@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import { Container } from '~/components/ui/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
@@ -8,6 +8,7 @@ import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
 import { type loader as rootLoader } from '~/root.tsx'
 import { Icon } from './ui/icon.tsx'
+import { useIsomorphicLayoutEffect } from 'usehooks-ts'
 
 const prefetch = 'intent'
 
@@ -38,8 +39,7 @@ export default function Header() {
 	const [open, setOpen] = useState(false)
 	const ref = useRef<HTMLDivElement | null>(null)
 
-	/** Using useEffect instead of useLayoutEffect to avoid hydration mismatch. See https://reactjs.org/link/uselayouteffect-ssr. */
-	useEffect(() => {
+	useIsomorphicLayoutEffect(() => {
 		if (!ref.current) return
 		const styles = window.getComputedStyle(ref.current)
 		const fullHeight = ref.current.offsetHeight + parseInt(styles.marginTop) + parseInt(styles.marginBottom)
