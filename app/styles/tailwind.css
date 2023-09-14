@@ -133,6 +133,7 @@
 		--text-size-xs-font-size: calc(var(--text-size-xs-gradient) * 100vw + var(--text-size-xs-intercept) * 1rem);
 		--text-size-xs: clamp(calc(var(--text-size-xs-min-font-size) * 1rem), var(--text-size-xs-font-size), calc(var(--text-size-xs-max-font-size) * 1rem));
 
+		/* Line height (this depends on paragraph length) */
 		--text-size-xs-line-height: clamp(1.125rem, 6.2vw, 1.75rem); /* 12px <-> 14px => 18px <-> 28px */
 		--text-size-sm-line-height: clamp(1.25rem, 6.2vw, 2rem); /* 20px <-> 32px */
 		--text-size-md-line-height: clamp(1.5rem, 6vw, 2.25rem); /* 24px <-> 36px */
@@ -143,6 +144,18 @@
 		--text-size-4xl-line-height: 1.2;
 		--text-size-5xl-line-height: 1.2;
 		--text-size-6xl-line-height: 1.2;
+
+		/* Default tracking. Can be overridden by the 'tracking' prop on the <Heading /> and <Text /> components) */
+		--text-size-xs-tracking: 0em;
+		--text-size-sm-tracking: 0em;
+		--text-size-md-tracking: 0em;
+		--text-size-lg-tracking: 0em;
+		--text-size-xl-tracking: 0em;
+		--text-size-2xl-tracking: -0.025em;
+		--text-size-3xl-tracking: -0.025em;
+		--text-size-4xl-tracking: -0.025em;
+		--text-size-5xl-tracking: -0.05em;
+		--text-size-6xl-tracking: -0.05em;
 
 		--radius: 0.375rem;
 		--min-tap-target: 24px;

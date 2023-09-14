@@ -18,6 +18,16 @@ export const loader = async () => {
 
 const HeadingRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
+	const headingSource = `<Heading size="6xl">Heading 6xl</Heading>
+<Heading size="5xl">Heading 5xl</Heading>
+<Heading size="4xl">Heading 4xl</Heading>
+<Heading size="3xl">Heading 3xl</Heading>
+<Heading size="2xl">Heading 2xl</Heading>
+<Heading size="xl">Heading xl</Heading>
+<Heading size="lg">Heading lg</Heading>
+<Heading size="md">Heading md</Heading>
+<Heading size="sm">Heading sm</Heading>
+<Heading size="xs">Heading xs</Heading>`
 
 	return (
 		<>
@@ -34,7 +44,18 @@ const HeadingRoute = () => {
 			<Heading as="h2" size="xl" className="mt-8">
 				Usage Example
 			</Heading>
-			<CodeBlock code={`<Heading as="h1">The quick brown fox jumps over the lazy dog</Heading>`} filename="HeadingExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={headingSource} filename="HeadingExample" extension="tsx" className="mt-4" />
+			<Text className="mt-4">Here's the heading component in action.</Text>
+			<Heading size="6xl">Heading 6xl</Heading>
+			<Heading size="5xl">Heading 5xl</Heading>
+			<Heading size="4xl">Heading 4xl</Heading>
+			<Heading size="3xl">Heading 3xl</Heading>
+			<Heading size="2xl">Heading 2xl</Heading>
+			<Heading size="xl">Heading xl</Heading>
+			<Heading size="lg">Heading lg</Heading>
+			<Heading size="md">Heading md</Heading>
+			<Heading size="sm">Heading sm</Heading>
+			<Heading size="xs">Heading xs</Heading>
 
 			<Heading as="h2" size="xl" className="mt-8">
 				Props
@@ -76,6 +97,11 @@ const HeadingRoute = () => {
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">align</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'left' | 'center' | 'right'</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'left'</td>
+						</tr>
+						<tr>
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">tracking</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'tighter', 'tight', 'normal', 'wide', 'wider', 'widest'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">null</td>
 						</tr>
 					</tbody>
 				</table>

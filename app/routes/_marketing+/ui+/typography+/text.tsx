@@ -18,6 +18,27 @@ export const loader = async () => {
 
 const TextRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
+	const paragraphSource = `<Text size="6xl">Text 6xl</Text>
+<Text size="5xl">Text 5xl</Text>
+<Text size="4xl">Text 4xl</Text>
+<Text size="3xl">Text 3xl</Text>
+<Text size="2xl">Text 2xl</Text>
+<Text size="xl">Text xl</Text>
+<Text size="lg">Text lg</Text>
+<Text size="md">Text md</Text>
+<Text size="sm">Text sm</Text>
+<Text size="xs">Text xs</Text>`
+	const trackingSource = `/* Default tracking. Can be overridden by the 'tracking' prop on the <Heading /> and <Text /> components) */
+--text-size-xs-tracking: 0em;
+--text-size-sm-tracking: 0em;
+--text-size-md-tracking: 0em;
+--text-size-lg-tracking: 0em;
+--text-size-xl-tracking: 0em;
+--text-size-2xl-tracking: -0.025em;
+--text-size-3xl-tracking: -0.025em;
+--text-size-4xl-tracking: -0.025em;
+--text-size-5xl-tracking: -0.05em;
+--text-size-6xl-tracking: -0.05em;`
 
 	return (
 		<>
@@ -34,7 +55,18 @@ const TextRoute = () => {
 			<Heading as="h2" size="xl" className="mt-8">
 				Usage Example
 			</Heading>
-			<CodeBlock code={`<Text as="p">The quick brown fox jumps over the lazy dog</Text>`} filename="TextExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={paragraphSource} filename="TextExample" extension="tsx" className="mt-4" />
+			<Text className="mt-4">Here's the {'<Text />'} component in action.</Text>
+			<Text size="6xl">Text 6xl</Text>
+			<Text size="5xl">Text 5xl</Text>
+			<Text size="4xl">Text 4xl</Text>
+			<Text size="3xl">Text 3xl</Text>
+			<Text size="2xl">Text 2xl</Text>
+			<Text size="xl">Text xl</Text>
+			<Text size="lg">Text lg</Text>
+			<Text size="md">Text md</Text>
+			<Text size="sm">Text sm</Text>
+			<Text size="xs">Text xs</Text>
 
 			<Heading as="h2" size="xl" className="mt-8">
 				Props
@@ -77,9 +109,16 @@ const TextRoute = () => {
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'left' | 'center' | 'right'</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'left'</td>
 						</tr>
+						<tr>
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">tracking</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'tighter', 'tight', 'normal', 'wide', 'wider', 'widest'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">null</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
+			<Text className="mt-4">The tracking's default value depends on the size prop and is controlled through CSS variables.</Text>
+			<CodeBlock code={trackingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)
 }

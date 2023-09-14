@@ -33,6 +33,14 @@ const textVariants = cva('', {
 			center: 'text-center',
 			right: 'text-right',
 		},
+		tracking: {
+			tighter: 'tracking-tighter',
+			tight: 'tracking-tight',
+			normal: 'tracking-normal',
+			wide: 'tracking-wide',
+			wider: 'tracking-wider',
+			widest: 'tracking-widest',
+		},
 	},
 })
 
@@ -40,10 +48,10 @@ type TextType = 'p' | 'span' | 'div'
 
 type TextProps = { as?: TextType } & VariantProps<typeof textVariants> & { children: ReactNode } & HTMLAttributes<HTMLParagraphElement>
 
-const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = 'md', weight = 'normal', align = 'left', children, className, ...props }, ref) => {
+const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = 'md', weight = 'normal', align = 'left', tracking, children, className, ...props }, ref) => {
 	const Comp = as
 	return (
-		<Comp ref={ref} className={cn(textVariants({ size, weight, align }), className)} {...props}>
+		<Comp ref={ref} className={cn(textVariants({ size, weight, align, tracking }), className)} {...props}>
 			{children}
 		</Comp>
 	)

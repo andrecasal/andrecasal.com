@@ -61,6 +61,18 @@ export default {
 				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
 				code: ['var(--font-code)', ...defaultTheme.fontFamily.mono],
 			},
+			fontSize: {
+				'size-6xl': ['var(--text-size-6xl)', { lineHeight: 'var(--text-size-6xl-line-height)', letterSpacing: 'var(--text-size-6xl-tracking)' }],
+				'size-5xl': ['var(--text-size-5xl)', { lineHeight: 'var(--text-size-5xl-line-height)', letterSpacing: 'var(--text-size-5xl-tracking)' }],
+				'size-4xl': ['var(--text-size-4xl)', { lineHeight: 'var(--text-size-4xl-line-height)', letterSpacing: 'var(--text-size-4xl-tracking)' }],
+				'size-3xl': ['var(--text-size-3xl)', { lineHeight: 'var(--text-size-3xl-line-height)', letterSpacing: 'var(--text-size-3xl-tracking)' }],
+				'size-2xl': ['var(--text-size-2xl)', { lineHeight: 'var(--text-size-2xl-line-height)', letterSpacing: 'var(--text-size-2xl-tracking)' }],
+				'size-xl': ['var(--text-size-xl)', { lineHeight: 'var(--text-size-xl-line-height)', letterSpacing: 'var(--text-size-xl-tracking)' }],
+				'size-lg': ['var(--text-size-lg)', { lineHeight: 'var(--text-size-lg-line-height)', letterSpacing: 'var(--text-size-lg-tracking)' }],
+				'size-md': ['var(--text-size-md)', { lineHeight: 'var(--text-size-md-line-height)', letterSpacing: 'var(--text-size-md-tracking)' }],
+				'size-sm': ['var(--text-size-sm)', { lineHeight: 'var(--text-size-sm-line-height)', letterSpacing: 'var(--text-size-sm-tracking)' }],
+				'size-xs': ['var(--text-size-xs)', { lineHeight: 'var(--text-size-xs-line-height)', letterSpacing: 'var(--text-size-xs-tracking)' }],
+			},
 			backgroundImage: {
 				diamonds:
 					'repeating-linear-gradient(-45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, transparent 4px, transparent 10px), repeating-linear-gradient(45deg, hsl(var(--color-background)), hsl(var(--color-background)) 4px, hsl(var(--color-muted-200)) 4px, hsl(var(--color-muted-200)) 10px)',
@@ -69,18 +81,6 @@ export default {
 				lg: 'calc(var(--radius))',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
-			},
-			fontSize: {
-				'size-6xl': ['var(--text-size-6xl)', { lineHeight: 'var(--text-size-6xl-line-height)' }],
-				'size-5xl': ['var(--text-size-5xl)', { lineHeight: 'var(--text-size-5xl-line-height)' }],
-				'size-4xl': ['var(--text-size-4xl)', { lineHeight: 'var(--text-size-4xl-line-height)' }],
-				'size-3xl': ['var(--text-size-3xl)', { lineHeight: 'var(--text-size-3xl-line-height)' }],
-				'size-2xl': ['var(--text-size-2xl)', { lineHeight: 'var(--text-size-2xl-line-height)' }],
-				'size-xl': ['var(--text-size-xl)', { lineHeight: 'var(--text-size-xl-line-height)' }],
-				'size-lg': ['var(--text-size-lg)', { lineHeight: 'var(--text-size-lg-line-height)' }],
-				'size-md': ['var(--text-size-md)', { lineHeight: 'var(--text-size-md-line-height)' }],
-				'size-sm': ['var(--text-size-sm)', { lineHeight: 'var(--text-size-sm-line-height)' }],
-				'size-xs': ['var(--text-size-xs)', { lineHeight: 'var(--text-size-xs-line-height)' }],
 			},
 			keyframes: {
 				'accordion-down': {

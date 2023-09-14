@@ -32,6 +32,14 @@ const headingVariants = cva('', {
 			center: 'text-center',
 			right: 'text-right',
 		},
+		tracking: {
+			tighter: 'tracking-tighter',
+			tight: 'tracking-tight',
+			normal: 'tracking-normal',
+			wide: 'tracking-wide',
+			wider: 'tracking-wider',
+			widest: 'tracking-widest',
+		},
 	},
 })
 
@@ -50,10 +58,10 @@ type HeadingProps = { as?: HeadingType } & VariantProps<typeof headingVariants> 
  * @param {string} className - Additional CSS classes to be applied to the heading.
  * @param {HTMLAttributes<HTMLHeadingElement>} props - Additional HTML attributes to be passed to the underlying heading element.
  */
-const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ as = 'h1', size = '4xl', weight = 'bold', align = 'left', children, className, ...props }, ref) => {
+const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ as = 'h1', size = '4xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
 	const Comp = as
 	return (
-		<Comp ref={ref} className={cn(headingVariants({ size, weight, align }), className)} {...props}>
+		<Comp ref={ref} className={cn(headingVariants({ size, weight, align, tracking }), className)} {...props}>
 			{children}
 		</Comp>
 	)
