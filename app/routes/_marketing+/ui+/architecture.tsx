@@ -33,12 +33,18 @@ const Architecture = () => {
 			</Heading>
 			<Text size="md" className="mt-2">
 				These CSS variables drive custom, prefixed, utility-based TailwindCSS classes. This has a few benefits:
-				<ul className="ml-4 mt-2 list-disc">
-					<li>It becomes obvious which classes are original to TailwindCSS and which are controlled by CSS variables.</li>
-					<li>The usual utility-based benefits (small codebase, no classes you don't know whether or not you can delete, etc)</li>
-					<li>Theme transitions without a Flash Of Incorrect Theme</li>
-				</ul>
 			</Text>
+			<ul className="ml-4 mt-2 list-disc">
+				<li>
+					<Text size="md">It becomes obvious which classes are original to TailwindCSS and which are controlled by CSS variables.</Text>
+				</li>
+				<li>
+					<Text size="md">The usual utility-based benefits (small codebase, no classes you don't know whether or not you can delete, etc)</Text>
+				</li>
+				<li>
+					<Text size="md">Theme transitions without a Flash Of Incorrect Theme</Text>
+				</li>
+			</ul>
 			<Heading as="h2" size="2xl" className="mt-14">
 				Components use the custom classes
 			</Heading>
