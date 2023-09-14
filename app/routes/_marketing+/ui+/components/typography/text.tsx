@@ -1,4 +1,4 @@
-import { type HTMLAttributes, forwardRef, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '~/utils/tailwind-merge.ts'
