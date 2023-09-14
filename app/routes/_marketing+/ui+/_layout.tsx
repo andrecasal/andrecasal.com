@@ -5,8 +5,9 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
 import { Heading } from './components/typography/heading.tsx'
+import { useState } from 'react'
 
-const SideMenu = () => {
+const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 	const gettingStarted = [
 		{ name: 'Installation', href: '/ui/installation', disabled: false },
 		{ name: 'Architecture', href: '/ui/architecture', disabled: false },
@@ -97,7 +98,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{gettingStarted.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
@@ -105,7 +106,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{theme.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
@@ -113,7 +114,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{layout.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
@@ -121,7 +122,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{typography.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
@@ -129,7 +130,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{components.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
@@ -137,7 +138,7 @@ const SideMenu = () => {
 				</Heading>
 				<div className="mt-2 flex flex-col text-sm">
 					{utilities.map(link => (
-						<BoldNavLink key={link.href} {...link} />
+						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
 					))}
 				</div>
 			</div>
@@ -145,23 +146,32 @@ const SideMenu = () => {
 	)
 }
 
-const BoldNavLink = ({ name, href, disabled }: { name: string; href: string; disabled: boolean }) => {
+type BoldNavLinkProps = {
+	name: string
+	href: string
+	disabled: boolean
+	onClick: () => void
+}
+
+const BoldNavLink = ({ name, href, disabled, onClick, ...props }: BoldNavLinkProps) => {
 	return disabled ? (
-		<Text size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400">
+		<Text size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400" {...props}>
 			{name} (soon)
 		</Text>
 	) : (
-		<NavLink to={href} className="-mx-2 rounded p-2 aria-[current]:font-bold">
+		<NavLink to={href} className="-mx-2 rounded p-2 aria-[current]:font-bold" onClick={() => onClick()} {...props}>
 			{name}
 		</NavLink>
 	)
 }
 
 const UI = () => {
+	const [isOpen, setIsOpen] = useState(false)
+
 	return (
 		<>
 			<div className="shadow-sm">
-				<SlideInDialog>
+				<SlideInDialog open={isOpen} onOpenChange={setIsOpen}>
 					<SlideInDialogTrigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-start gap-2 rounded-lg p-2.5 lg:hidden">
 						<Icon name="bars-3" className="h-6 min-h-tap w-6 min-w-tap" aria-hidden="true" />
 						<Text as="span" className="whitespace-nowrap">
@@ -169,7 +179,7 @@ const UI = () => {
 						</Text>
 					</SlideInDialogTrigger>
 					<SlideInDialogContent side="left" title="andrecasal/ui side menu" className="lg:hidden">
-						<SideMenu />
+						<SideMenu setIsOpen={setIsOpen} />
 					</SlideInDialogContent>
 				</SlideInDialog>
 			</div>
