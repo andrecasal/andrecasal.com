@@ -517,6 +517,33 @@ const FluidTypographySizingWithModularScales = () => {
 					the base font size in their browser settings.
 				</Text>
 				<Heading as="h2" size="4xl" className="mt-16">
+					The map of the terrain
+				</Heading>
+				<Text size="xl" className="mt-4">
+					Before we go, let's zoom out and look at the big picture. Typography on the web has the following concerns: font family, font size, paragraph length, line height, letter
+					spacing, and vertical alignment. Until I write articles on the other topics, here's a quick list of what you need to know (without explanations).
+				</Text>
+				<ul className="mt-8 list-disc pl-5">
+					<li>
+						<Text size="xl">Font family: ignore ypefaces with less than 5 weights.</Text>
+					</li>
+					<li>
+						<Text size="xl">Font size: treated in this article.</Text>
+					</li>
+					<li>
+						<Text size="xl">Paragraph length: Make sure body text stays between 45 and 75 characters.</Text>
+					</li>
+					<li>
+						<Text size="xl">Line height: scale it proportionally to paragraph length at 1.5em for 45 characters and 2em for 75 characters. Use ems, not rems here.</Text>
+					</li>
+					<li>
+						<Text size="xl">Letter spacing: big titles usually need tighter letter spacing, while body text doesn't.</Text>
+					</li>
+					<li>
+						<Text size="xl">Vertical alignment: baseline, not center.</Text>
+					</li>
+				</ul>
+				<Heading as="h2" size="4xl" className="mt-16">
 					Conclusion
 				</Heading>
 				<Text size="xl" className="mt-4">
