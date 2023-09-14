@@ -40,12 +40,7 @@ function getCookieValue(cookieString: string, name: ClientHintNames) {
  * @returns an object with the client hints and their values
  */
 export function getHints(request?: Request) {
-	const cookieString =
-		typeof document !== 'undefined'
-			? document.cookie
-			: typeof request !== 'undefined'
-			? request.headers.get('Cookie') ?? ''
-			: ''
+	const cookieString = typeof document !== 'undefined' ? document.cookie : typeof request !== 'undefined' ? request.headers.get('Cookie') ?? '' : ''
 
 	return Object.entries(clientHints).reduce(
 		(acc, [name, hint]) => {
@@ -57,9 +52,7 @@ export function getHints(request?: Request) {
 			return acc
 		},
 		{} as {
-			[name in ClientHintNames]: ReturnType<
-				(typeof clientHints)[name]['transform']
-			>
+			[name in ClientHintNames]: ReturnType<(typeof clientHints)[name]['transform']>
 		},
 	)
 }
@@ -82,9 +75,7 @@ export function ClientHintCheck({ nonce }: { nonce: string }) {
 	React.useEffect(() => {
 		const themeQuery = window.matchMedia('(prefers-color-scheme: dark)')
 		function handleThemeChange() {
-			document.cookie = `${clientHints.theme.cookieName}=${
-				themeQuery.matches ? 'dark' : 'light'
-			}`
+			document.cookie = `${clientHints.theme.cookieName}=${themeQuery.matches ? 'dark' : 'light'};path=/`
 			revalidate()
 		}
 		themeQuery.addEventListener('change', handleThemeChange)
@@ -115,7 +106,8 @@ ${Object.values(clientHints)
 for (const hint of hints) {
 	if (hint.cookie !== hint.actual) {
 		cookieChanged = true;
-		document.cookie = hint.name + '=' + hint.actual;
+		document.cookie = hint.name + '=' + hint.actual + ';path=/';
+		console.log('cookie changed', hint.name, hint.actual);
 	}
 }
 if (cookieChanged) {
