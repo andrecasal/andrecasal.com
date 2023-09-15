@@ -25,7 +25,6 @@ declare global {
 
 export function init() {
 	for (const env of requiredServerEnvs) {
-		console.log('env var', env)
 		invariant(process.env[env], `${env} is required`)
 	}
 }
