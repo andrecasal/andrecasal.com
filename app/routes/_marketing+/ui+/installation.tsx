@@ -6,6 +6,7 @@ import { Heading } from './components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
+import { CommandLine } from './components/typography/command-line.tsx'
 
 export const loader = async () => {
 	const basePath = '../'
@@ -31,13 +32,13 @@ const Installation = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Dependencies
 			</Heading>
-			<Text className="mt-8">This library has TailwindCSS as a development dependency:</Text>
+			<Text className="mt-8">This library has development dependency:</Text>
 			<Text className="mt-8">
-				<code>npm i -D tailwindcss</code>
+				<CommandLine command={`npm i -D tailwindcss`} variant="block" />
 			</Text>
-			<Text className="mt-8">And clsx and tailwind-merge as regular dependencies:</Text>
+			<Text className="mt-8">And the following regular dependencies:</Text>
 			<Text className="mt-8">
-				<code>npm i clsx tailwind-merge</code>
+				<CommandLine command={`npm i clsx tailwind-merge class-variance-authority usehooks-ts tailwindcss-animate tailwindcss-radix`} variant="block" />
 			</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">

@@ -32,7 +32,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Text', href: '/ui/typography/text', disabled: false },
 		{ name: 'Heading', href: '/ui/typography/heading', disabled: false },
 		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
-		{ name: 'Command', href: '/ui/typography/command', disabled: false },
+		{ name: 'Command Line', href: '/ui/typography/command-line', disabled: false },
 		{ name: 'Em', href: '/ui/typography/em', disabled: true },
 		{ name: 'Kbd', href: '/ui/typography/kbd', disabled: true },
 		{ name: 'Link', href: '/ui/typography/link', disabled: true },
