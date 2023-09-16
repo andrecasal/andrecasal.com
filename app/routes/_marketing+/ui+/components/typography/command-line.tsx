@@ -3,6 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from '~/components/ui/accessible-icon.tsx'
+import { Tooltip } from '~/routes/_marketing+/ui+/components/ui/tooltip.tsx'
 
 const commandLineVariants = cva('notranslate rounded-lg overflow-hidden text-white bg-[rgb(24,46,63)]', {
 	variants: {
@@ -32,8 +33,8 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 		.map(line => line.text)
 		.join('\n')
 
-	const handleCopy = (e: MouseEvent<HTMLButtonElement>) => {
-		copy(allCommandsString)
+	const handleCopy = (commandToCopy: string) => {
+		copy(commandToCopy)
 		if (showCopyIcon) {
 			setShowCopyIcon(false)
 			setTimeout(() => setShowCopyIcon(true), 1000)
@@ -68,7 +69,7 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 				</div>
 				<div className={codeOverflows ? `shadow-[rgba(0,0,15,0.5)_-10px_0_5px_0]` : ``}>
 					{linesWithoutLogs.length > 0 ? (
-						<button className={`min-h-tap min-w-tap rounded-lg px-4 hover:bg-muted-100/10 ${lines.length > 1 ? 'py-2' : ''}`} onClick={handleCopy}>
+						<button className={`min-h-tap min-w-tap rounded-lg px-4 hover:bg-muted-100/10 ${lines.length > 1 ? 'py-2' : ''}`} onClick={() => handleCopy(allCommandsString)}>
 							{showCopyIcon ? <AccessibleIcon name="copy" label="Copy to clipboard" /> : <AccessibleIcon name="check" label="Saved to clipboard" />}
 						</button>
 					) : null}
@@ -77,12 +78,14 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 		</pre>
 	) : (
 		linesWithoutLogs.map(({ text }, i) => (
-			<>
-				<pre key={text} className={cn(commandLineVariants({ variant }), className)} {...props}>
-					<code>{text}</code>
-				</pre>
-				{linesWithoutLogs.length > 1 && i < linesWithoutLogs.length - 1 ? ' ' : ''}
-			</>
+			<Tooltip key={text} content={showCopyIcon ? 'Click to copy to clipboard' : 'Saved to clipboard!'}>
+				<span onClick={() => handleCopy(text)} className="cursor-pointer">
+					<pre className={cn(commandLineVariants({ variant }), className)} {...props}>
+						<code>{text}</code>
+					</pre>
+					{linesWithoutLogs.length > 1 && i < linesWithoutLogs.length - 1 ? ' ' : ''}
+				</span>
+			</Tooltip>
 		))
 	)
 }

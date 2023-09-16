@@ -21,6 +21,7 @@ import { useToast } from './utils/useToast.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import Footer from './components/footer.tsx'
 import { FathomScript, useTrackPageview } from './utils/fathom.tsx'
+import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 export const links: LinksFunction = () => {
 	return [
@@ -119,23 +120,25 @@ function App() {
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-background text-foreground antialiased">
-				<Header />
-				<div className="flex-1">
-					<Outlet />
-				</div>
-				<Footer />
-				<Confetti id={data.flash?.confetti} />
-				<Toaster />
-				<ScrollRestoration nonce={nonce} />
-				<Scripts nonce={nonce} />
-				<script
-					nonce={nonce}
-					dangerouslySetInnerHTML={{
-						__html: `window.ENV = ${JSON.stringify(data.ENV)}`,
-					}}
-				/>
-				<LiveReload nonce={nonce} />
-				<FathomScript nonce={nonce} data-site={data.ENV.FATHOM_ANALYTICS_SITE_ID} />
+				<TooltipPrimitive.Provider>
+					<Header />
+					<div className="flex-1">
+						<Outlet />
+					</div>
+					<Footer />
+					<Confetti id={data.flash?.confetti} />
+					<Toaster />
+					<ScrollRestoration nonce={nonce} />
+					<Scripts nonce={nonce} />
+					<script
+						nonce={nonce}
+						dangerouslySetInnerHTML={{
+							__html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+						}}
+					/>
+					<LiveReload nonce={nonce} />
+					<FathomScript nonce={nonce} data-site={data.ENV.FATHOM_ANALYTICS_SITE_ID} />
+				</TooltipPrimitive.Provider>
 			</body>
 		</html>
 	)

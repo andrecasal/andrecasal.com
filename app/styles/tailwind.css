@@ -37,6 +37,8 @@
 		--color-muted-900: 221 39.3% 11%;
 		--color-muted-950: 224 71.4% 4.1%;
 		--color-ring: 243 75.4% 58.6%;
+		--color-tooltip-background: var(--color-foreground);
+		--color-tooltip-foreground: var(--color-background);
 
 		--container-min-width: 20; /* 320px */
 		--container-max-width: 96; /* 1536px */

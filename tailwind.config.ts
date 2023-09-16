@@ -55,6 +55,10 @@ export default {
 					title: 'hsl(var(--color-danger-title) / <alpha-value>)',
 					background: 'hsl(var(--color-danger-background) / <alpha-value>)',
 				},
+				tooltip: {
+					background: 'hsl(var(--color-tooltip-background) / <alpha-value>)',
+					foreground: 'hsl(var(--color-tooltip-foreground) / <alpha-value>)',
+				},
 				ring: 'hsl(var(--color-ring) / <alpha-value>)',
 			},
 			fontFamily: {
