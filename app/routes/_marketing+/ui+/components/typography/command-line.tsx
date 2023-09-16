@@ -1,4 +1,4 @@
-import { useState, type HTMLAttributes, type MouseEvent, useRef, useEffect } from 'react'
+import { useState, type HTMLAttributes, useRef, useEffect } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { useCopyToClipboard } from 'usehooks-ts'
