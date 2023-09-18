@@ -66,29 +66,23 @@ function App() {
 				tailwind.css
 			</Heading>
 			<Text className="mt-4">
-				You can control the entire theme through the <code>tailwind.css</code> file. Here's mine:
+				You can control the entire theme through the <code>tailwind.css</code> file.
 			</Text>
 			<CodeBlock code={tailwindCSSCode} filename="tailwind" extension="css" className="mt-8" />
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				tailwind.config.ts
 			</Heading>
-			<Text className="mt-4">Then you'll need the custom Tailwind classes that use those CSS variables. Here's my tailwind.config.ts.</Text>
+			<Text className="mt-4">
+				Then, you'll need the <code>tailwind.config.ts</code> that uses those CSS variables.
+			</Text>
 			<CodeBlock code={tailwindConfigCode} filename="tailwind.config" extension="ts" className="mt-8" />
 
 			<Text className="mt-8">
-				Finally you'll also need the utility <code>cn()</code> function. The <code>extendTailwindMerge()</code> is there to tell twMerge to which class groups the 'text-muted' and
-				'text-size' classes belong to (otherwise it doesn't know how to resolve the conflicts).
+				Finally, you'll also need the utility <code>cn()</code> function. The <code>extendTailwindMerge()</code> is there to tell <code>twMerge()</code> which classes belong to which
+				groups, so it knows how to merge them.
 			</Text>
 			<CodeBlock code={tailwindMergeCode} filename="tailwind-merge" extension="ts" className="mt-8" />
-
-			<Text className="mt-8">
-				Ok, you're ready to start using the components. You can copy+paste the ones you need or download the repo. You'll find all components{' '}
-				<a href="https://github.com/andrecasal/andrecasal.com/tree/main/app/routes/_marketing%2B/ui%2B/components" target="_blank" className="underline" rel="noreferrer">
-					here
-				</a>
-				.
-			</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Providers
@@ -101,6 +95,17 @@ function App() {
 				component, you need to wrap your app with the tooltip's provider.
 			</Text>
 			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Ready
+			</Heading>
+			<Text className="mt-8">
+				Ok, you're ready to start using the components. You can copy+paste the ones you need or download the repo. You'll find all components{' '}
+				<a href="https://github.com/andrecasal/andrecasal.com/tree/main/app/routes/_marketing%2B/ui%2B/components" target="_blank" className="underline" rel="noreferrer">
+					here
+				</a>
+				.
+			</Text>
 		</>
 	)
 }
