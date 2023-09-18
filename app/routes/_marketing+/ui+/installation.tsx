@@ -5,7 +5,7 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from './components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { json } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 import { CommandLine } from './components/typography/command-line.tsx'
 
 export const loader = async () => {
@@ -23,6 +23,27 @@ export const loader = async () => {
 
 const Installation = () => {
 	const { tailwindConfigCode, tailwindCSSCode, tailwindMergeCode } = useLoaderData<typeof loader>()
+
+	const tooltipProviderInRoot = `import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+...
+
+function App() {	
+	return (
+		<html>
+			<head>
+				...
+			</head>
+			<body>
+				<TooltipPrimitive.Provider delayDuration={300}>
+					<Header />
+					<Outlet />
+					<Footer />
+					...
+				</TooltipPrimitive.Provider>
+			</body>
+		</html>
+	)
+}`
 
 	return (
 		<>
@@ -68,6 +89,18 @@ const Installation = () => {
 				</a>
 				.
 			</Text>
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Providers
+			</Heading>
+			<Text className="mt-4">
+				In order to use the{' '}
+				<Link to="/ui/ui/tooltip" className="underline">
+					<code>{'<Tooltip />'}</code>
+				</Link>{' '}
+				component, you need to wrap your app with the tooltip's provider.
+			</Text>
+			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
 		</>
 	)
 }
