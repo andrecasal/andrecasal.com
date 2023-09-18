@@ -87,10 +87,6 @@ function App() {
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
 					Closes when the trigger is activated or when pressing escape.
 				</li>
-				<li className="flex items-center">
-					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
-					Supports custom timings.
-				</li>
 			</ul>
 
 			<Heading as="h2" size="xl" className="mt-8">
