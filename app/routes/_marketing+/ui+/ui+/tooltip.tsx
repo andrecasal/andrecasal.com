@@ -71,14 +71,10 @@ function App() {
 			</Heading>
 			<Text className="mt-4">A popup that displays related information when a button receives keyboard focus or the mouse hovers over it.</Text>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Features
 			</Heading>
 			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
-				<li className="flex items-center">
-					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
-					Provider to control display delay globally.
-				</li>
 				<li className="flex items-center">
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
 					Opens when the trigger is focused or hovered.
@@ -87,12 +83,16 @@ function App() {
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
 					Closes when the trigger is activated or when pressing escape.
 				</li>
+				<li className="flex items-center">
+					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
+					Provider to control display delay globally.
+				</li>
 			</ul>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Keyboard interactions
 			</Heading>
-			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+			<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-gray-300">
 					<thead className="bg-gray-50">
 						<tr>
@@ -137,7 +137,7 @@ function App() {
 				</table>
 			</div>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
 			</Heading>
 			<CodeBlock code={usageExample} filename="TooltipExample" extension="tsx" className="mt-4" />
@@ -149,10 +149,10 @@ function App() {
 				in action.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Props
 			</Heading>
-			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+			<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-gray-300">
 					<thead className="bg-gray-50">
 						<tr>
@@ -177,7 +177,7 @@ function App() {
 				</table>
 			</div>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Installation
 			</Heading>
 			<Text className="mt-4">
@@ -194,23 +194,27 @@ function App() {
 				<code>text-tooltip-foreground</code>, <code>bg-tooltip-background</code>, or <code>text-green-500</code> for example.
 			</Text>
 			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
+
+			<Heading as="h3" size="2xl" className="mt-8">
+				Provider
+			</Heading>
 			<Text className="mt-4">
 				Additionally, the tooltip component's display delay is controlled globally by a tooltip provider, so you'll need to add the provider to your app's root component. A slight
 				delay (300-500 milliseconds) is recommended to prevent accidental hover-triggered tooltips from appearing too quickly and becoming distracting.
 			</Text>
 			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="lg" className="mt-8">
+			<Heading as="h3" size="2xl" className="mt-8">
 				Dependencies
 			</Heading>
 			<CommandLine command="npm i @radix-ui/react-tooltip" variant="block" className="mt-4" />
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Source
 			</Heading>
 			<CodeBlock code={source} filename="tooltip" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<Heading as="h2" size="3xl" className="mt-8">
 				Styling
 			</Heading>
 			<Text className="mt-4">The tooltip's styling is controlled through CSS variables.</Text>
