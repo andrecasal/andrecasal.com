@@ -8,7 +8,7 @@ const Tooltip = forwardRef<ElementRef<typeof TooltipPrimitive.Content>, TooltipP
 	const [isOpen, setIsOpen] = useState(false)
 
 	return (
-		<TooltipPrimitive.Root open={isOpen} onOpenChange={setIsOpen} delayDuration={0}>
+		<TooltipPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
 			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
 			<TooltipPrimitive.Portal /* container={container} forceMount={forceMount} */>
 				<TooltipPrimitive.Content

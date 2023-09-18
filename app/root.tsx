@@ -120,7 +120,7 @@ function App() {
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-background text-foreground antialiased">
-				<TooltipPrimitive.Provider>
+				<TooltipPrimitive.Provider delayDuration={300}>
 					<Header />
 					<div className="flex-1">
 						<Outlet />

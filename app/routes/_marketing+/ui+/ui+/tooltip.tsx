@@ -31,6 +31,38 @@ const TooltipRoute = () => {
 	const stylingSource = `--tooltip-color-background: var(--color-foreground);
 --tooltip-color-foreground: var(--color-background);
 --tooltip-text-size: var(--text-size-sm);`
+	const twMerge = `import { type ClassValue, clsx } from 'clsx'
+import { extendTailwindMerge } from 'tailwind-merge'
+
+const twMerge = extendTailwindMerge({
+	classGroups: {
+		spacing: [{ 'text-size': ['tooltip'] }],
+	},
+})
+
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs))
+}`
+	const tooltipProviderInRoot = `import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+...
+
+function App() {	
+	return (
+		<html>
+			<head>
+				...
+			</head>
+			<body>
+				<TooltipPrimitive.Provider delayDuration={300}>
+					<Header />
+					<Outlet />
+					<Footer />
+					...
+				</TooltipPrimitive.Provider>
+			</body>
+		</html>
+	)
+}`
 
 	return (
 		<>
@@ -157,12 +189,20 @@ const TooltipRoute = () => {
 				<Link to="/ui/installation" className="underline">
 					global installation guide
 				</Link>{' '}
-				that will install everything you need to use all the components or you can install the tooltip component by itself by installing its dependencies.
+				that will install everything you need to use all the components or you can install the tooltip component by itself by installing its dependencies and wrap your app with the
+				tooltip provider.
 			</Text>
 			<Text className="mt-4">
-				Either way, you'll need the <code>extendTailwindMerge()</code> function so that <code>twMerge()</code> knows to which category the tooltip's Tailwind custom classes{' '}
-				<code>bg-tooltip-background</code>, <code>text-size-tooltip</code>, and <code>text-tooltip-foreground</code> belong to.
+				Either way, you'll need the to add <code>'tooltip'</code> to the <code>spacing</code> key on the <code>extendTailwindMerge()</code> function, so <code>twMerge()</code> knows
+				that the tooltip's custom class <code>text-size-tooltip</code> belongs to the sizing category, so it won't conflict with color classes like{' '}
+				<code>text-tooltip-foreground</code>, <code>bg-tooltip-background</code>, or <code>text-green-500</code> for example.
 			</Text>
+			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
+			<Text className="mt-4">
+				Additionally, the tooltip component's display delay is controlled globally by a tooltip provider, so you'll need to add the provider to your app's root component. A slight
+				delay (300-500 milliseconds) is recommended to prevent accidental hover-triggered tooltips from appearing too quickly and becoming distracting.
+			</Text>
+			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
 
 			<Heading as="h2" size="lg" className="mt-8">
 				Dependencies
