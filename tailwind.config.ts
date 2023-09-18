@@ -56,8 +56,8 @@ export default {
 					background: 'hsl(var(--color-danger-background) / <alpha-value>)',
 				},
 				tooltip: {
-					background: 'hsl(var(--color-tooltip-background) / <alpha-value>)',
-					foreground: 'hsl(var(--color-tooltip-foreground) / <alpha-value>)',
+					background: 'hsl(var(--tooltip-color-background) / <alpha-value>)',
+					foreground: 'hsl(var(--tooltip-color-foreground) / <alpha-value>)',
 				},
 				ring: 'hsl(var(--color-ring) / <alpha-value>)',
 			},
@@ -76,6 +76,7 @@ export default {
 				'size-md': ['var(--text-size-md)', { lineHeight: 'var(--text-size-md-line-height)', letterSpacing: 'var(--text-size-md-tracking)' }],
 				'size-sm': ['var(--text-size-sm)', { lineHeight: 'var(--text-size-sm-line-height)', letterSpacing: 'var(--text-size-sm-tracking)' }],
 				'size-xs': ['var(--text-size-xs)', { lineHeight: 'var(--text-size-xs-line-height)', letterSpacing: 'var(--text-size-xs-tracking)' }],
+				'size-tooltip': 'var(--tooltip-text-size)',
 			},
 			backgroundImage: {
 				diamonds:

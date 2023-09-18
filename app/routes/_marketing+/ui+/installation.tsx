@@ -32,7 +32,7 @@ const Installation = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Dependencies
 			</Heading>
-			<Text className="mt-8">This library has development dependency:</Text>
+			<Text className="mt-8">This library has a development dependency:</Text>
 			<Text className="mt-8">
 				<CommandLine command={`npm i -D tailwindcss`} variant="block" />
 			</Text>

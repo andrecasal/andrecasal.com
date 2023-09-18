@@ -43,7 +43,7 @@ const TextRoute = () => {
 	return (
 		<>
 			<Heading as="h1" className="mt-8">
-				Text Component
+				Text
 			</Heading>
 			<Text className="mt-4">A semantic text element that allows customization of size, weight, alignment, and tracking.</Text>
 

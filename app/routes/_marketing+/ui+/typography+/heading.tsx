@@ -32,7 +32,7 @@ const HeadingRoute = () => {
 	return (
 		<>
 			<Heading as="h1" className="mt-8">
-				Heading Component
+				Heading
 			</Heading>
 			<Text className="mt-4">A semantic heading element that allows customization of size, weight, alignment, and tracking.</Text>
 

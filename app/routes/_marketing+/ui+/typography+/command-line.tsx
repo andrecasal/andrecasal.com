@@ -119,7 +119,7 @@ npm run dev\`
 	return (
 		<>
 			<Heading as="h1" className="mt-8">
-				Command Line Component
+				Command Line
 			</Heading>
 			<Text className="mt-4">A semantic command line element that allows for both inline and block commands and supports copying commands to the clipboard.</Text>
 

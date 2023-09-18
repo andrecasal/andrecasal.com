@@ -2,7 +2,7 @@
 // then run "npm run gen-svg-sprite"
 
 import { type SVGProps } from 'react'
-import { cn } from '~/utils/tailwind.server.ts'
+import { cn } from '~/utils/tailwind-merge.ts'
 import href from './icon.svg'
 export { href }
 
