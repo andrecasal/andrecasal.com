@@ -54,9 +54,7 @@ type HeadingProps = { as?: HeadingType } & VariantProps<typeof headingVariants> 
  * @param {string} [weight='bold'] - The font weight of the heading (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
  * @param {string} [size='4xl'] - The size variant of the heading (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [align='left'] - The text alignment of the heading (left, center, or right).
- * @param {ReactNode} children - The content to be displayed within the heading.
- * @param {string} className - Additional CSS classes to be applied to the heading.
- * @param {HTMLAttributes<HTMLHeadingElement>} props - Additional HTML attributes to be passed to the underlying heading element.
+ * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
 const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ as = 'h1', size = '4xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
 	const Comp = as

@@ -47,6 +47,15 @@ type TextType = 'p' | 'span' | 'div'
 
 type TextProps = { as?: TextType } & VariantProps<typeof textVariants> & { children: ReactNode } & HTMLAttributes<HTMLParagraphElement>
 
+/**
+ * A text component.
+ *
+ * @param {HeadingType} [as='p'] - The HTML text element type (p, span, or div).
+ * @param {string} [weight='bold'] - The font weight of the heading (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
+ * @param {string} [size='4xl'] - The size variant of the heading (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
+ * @param {string} [align='left'] - The text alignment of the heading (left, center, or right).
+ * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
+ */
 const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = 'md', weight = 'normal', align = 'left', tracking, children, className, ...props }, ref) => {
 	const Comp = as
 	return (
