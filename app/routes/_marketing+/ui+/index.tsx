@@ -61,7 +61,7 @@ const UI = () => {
 			</Heading>
 			<Text size="lg" className="mt-4">
 				The andrecasal/ui library aims to be a high-quality library that allows you to create complex UIs very fast. This means it needs to be easy to understand, easy to use, and
-				needs a clear separation between of concerns between design and functionality.
+				needs a clear separation of concerns between design and functionality.
 			</Text>
 			<Text size="lg" className="mt-4">
 				When you're focused on coding the UI, you don't care about how it looks, but you need to know you'll have complete control over it in the future. Likewise, when you're
