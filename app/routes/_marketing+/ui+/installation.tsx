@@ -44,6 +44,7 @@ function App() {
 		</html>
 	)
 }`
+	const radixDependencies = `@radix-ui/react-tooltip`
 
 	return (
 		<>
@@ -53,48 +54,51 @@ function App() {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Dependencies
 			</Heading>
-			<Text className="mt-8">This library has a development dependency:</Text>
-			<Text className="mt-8">
-				<CommandLine command={`npm i -D tailwindcss`} variant="block" />
+			<Text className="mt-4">
+				This library has a development dependency. <CommandLine command={`npm i -D tailwindcss`} variant="block" />
 			</Text>
-			<Text className="mt-8">And the following regular dependencies:</Text>
 			<Text className="mt-8">
+				And the following regular dependencies.{' '}
 				<CommandLine command={`npm i clsx tailwind-merge class-variance-authority usehooks-ts tailwindcss-animate tailwindcss-radix`} variant="block" />
+			</Text>
+			<Text className="mt-8">
+				Eventually, you'll need all of the Radix UI dependencies. For now, while the library is being developed, this is the list of dependencies you'll need.
+				<CommandLine command={radixDependencies} variant="block" />
 			</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				tailwind.css
 			</Heading>
-			<Text className="mt-4">
+			<Text className="mt-2">
 				You can control the entire theme through the <code>tailwind.css</code> file.
 			</Text>
-			<CodeBlock code={tailwindCSSCode} filename="tailwind" extension="css" className="mt-8" />
+			<CodeBlock code={tailwindCSSCode} filename="tailwind" extension="css" className="mt-2" />
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				tailwind.config.ts
 			</Heading>
-			<Text className="mt-4">
+			<Text className="mt-2">
 				Then, you'll need the <code>tailwind.config.ts</code> that uses those CSS variables.
 			</Text>
-			<CodeBlock code={tailwindConfigCode} filename="tailwind.config" extension="ts" className="mt-8" />
+			<CodeBlock code={tailwindConfigCode} filename="tailwind.config" extension="ts" className="mt-2" />
 
 			<Text className="mt-8">
 				Finally, you'll also need the utility <code>cn()</code> function. The <code>extendTailwindMerge()</code> is there to tell <code>twMerge()</code> which classes belong to which
 				groups, so it knows how to merge them.
 			</Text>
-			<CodeBlock code={tailwindMergeCode} filename="tailwind-merge" extension="ts" className="mt-8" />
+			<CodeBlock code={tailwindMergeCode} filename="tailwind-merge" extension="ts" className="mt-2" />
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Providers
 			</Heading>
-			<Text className="mt-4">
+			<Text className="mt-2">
 				In order to use the{' '}
 				<Link to="/ui/ui/tooltip" className="underline">
 					<code>{'<Tooltip />'}</code>
 				</Link>{' '}
 				component, you need to wrap your app with the tooltip's provider.
 			</Text>
-			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
+			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-2" />
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Ready
