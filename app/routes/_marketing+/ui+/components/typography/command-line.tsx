@@ -22,16 +22,16 @@ type CommandLineProps = { command: string | CommandAndLogArray } & VariantProps<
 	}
 
 export const CommandLine = ({ command = '', variant = 'inline', className, ...props }: CommandLineProps) => {
+	// Copy to clipboard
 	const [showCopyIcon, setShowCopyIcon] = useState(true)
 	const [, copy] = useCopyToClipboard()
-	const ref = useRef<HTMLDivElement>(null)
-	const [codeOverflows, setCodeOverflows] = useState(false)
+	// Extract commands
 	const lines = Array.isArray(command) ? command : command.split('\n').map(line => ({ type: 'command', text: line }))
 	const linesWithoutLogs = lines.filter(line => line.type === 'command')
-	const allCommandsString = lines
-		.filter(line => line.type === 'command')
-		.map(line => line.text)
-		.join('\n')
+	const allCommandsString = linesWithoutLogs.map(line => line.text).join('\n')
+	// Code overflows
+	const ref = useRef<HTMLDivElement>(null)
+	const [codeOverflows, setCodeOverflows] = useState(false)
 
 	const handleCopy = (commandToCopy: string) => {
 		copy(commandToCopy)

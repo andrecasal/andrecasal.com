@@ -525,7 +525,7 @@ const FluidTypographySizingWithModularScales = () => {
 				</Text>
 				<ul className="mt-8 list-disc pl-5">
 					<li>
-						<Text size="xl">Font family: ignore ypefaces with less than 5 weights.</Text>
+						<Text size="xl">Font family: ignore typefaces with less than 5 weights.</Text>
 					</li>
 					<li>
 						<Text size="xl">Font size: treated in this article.</Text>
@@ -534,7 +534,7 @@ const FluidTypographySizingWithModularScales = () => {
 						<Text size="xl">Paragraph length: Make sure body text stays between 45 and 75 characters.</Text>
 					</li>
 					<li>
-						<Text size="xl">Line height: scale it proportionally to paragraph length at 1.5em for 45 characters and 2em for 75 characters. Use ems, not rems here.</Text>
+						<Text size="xl">Line height: scale it proportionally to paragraph length at 1.5em for 45 characters and 2em for 75 characters. Use ems, not rems.</Text>
 					</li>
 					<li>
 						<Text size="xl">Letter spacing: big titles usually need tighter letter spacing, while body text doesn't.</Text>
@@ -543,6 +543,10 @@ const FluidTypographySizingWithModularScales = () => {
 						<Text size="xl">Vertical alignment: baseline, not center.</Text>
 					</li>
 				</ul>
+				<Text size="xl" className="mt-4">
+					Once you've learned about these topics, you've covered everything you need to know about typography to be an efficient web developer.
+				</Text>
+
 				<Heading as="h2" size="4xl" className="mt-16">
 					Conclusion
 				</Heading>
