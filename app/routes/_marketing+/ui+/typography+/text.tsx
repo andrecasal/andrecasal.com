@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { Icon } from '~/components/ui/icon.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -45,7 +46,31 @@ const TextRoute = () => {
 			<Heading as="h1" className="mt-8">
 				Text
 			</Heading>
-			<Text className="mt-4">A semantic text element that allows customization of size, weight, alignment, and tracking.</Text>
+			<Text className="mt-4">A semantic text element that allows customization of typographic attributes.</Text>
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Features
+			</Heading>
+			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
+				<li className="flex">
+					<span>
+						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+					</span>
+					Allows control of all typographic attributes: size, weight, alignment, and tracking.
+				</li>
+				<li className="flex">
+					<span>
+						<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
+					</span>
+					Closes when the trigger is activated or when pressing escape.
+				</li>
+				<li className="flex">
+					<span>
+						<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
+					</span>
+					Some cool feature
+				</li>
+			</ul>
 
 			<Heading as="h2" size="xl" className="mt-8">
 				Source
