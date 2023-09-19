@@ -26,7 +26,7 @@ const CommandLineRoute = () => {
 			<Heading as="h1" className="mt-8">
 				Command Line
 			</Heading>
-			<Text className="mt-4">A semantic command line element that allows for both inline and block commands and supports copying commands to the clipboard.</Text>
+			<Text className="mt-4 max-w-3xl">A semantic command line element that allows for both inline and block commands and supports copying commands to the clipboard.</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Features
@@ -243,6 +243,18 @@ Ok to proceed? (y) y`,
 				Source
 			</Heading>
 			<CodeBlock code={source} filename="command-line" extension="tsx" className="mt-4" />
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Styling
+			</Heading>
+			<Text className="mt-4 max-w-3xl">
+				This component is made for developers, so the styling is not based on CSS variables a designer can control, but it's built-in into the component and you can change it however
+				you like. I made it look like the{' '}
+				<a href="https://github.com/wesbos/Cobalt2-iterm" target="_blank" rel="noreferrer">
+					Cobalt2 powerline
+				</a>
+				, which is what I use in my VS Code.
+			</Text>
 		</>
 	)
 }
