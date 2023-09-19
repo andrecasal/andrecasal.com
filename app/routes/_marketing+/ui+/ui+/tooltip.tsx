@@ -85,7 +85,10 @@ function App() {
 				</li>
 				<li className="flex items-center">
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
-					Provider to control display delay globally.
+					<Link to="#provider" className="underline">
+						Provider
+					</Link>
+					&nbsp;to control display delay globally.
 				</li>
 			</ul>
 
@@ -195,7 +198,7 @@ function App() {
 			</Text>
 			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
 
-			<Heading as="h3" size="2xl" className="mt-8">
+			<Heading as="h3" size="2xl" className="mt-8" id="provider">
 				Provider
 			</Heading>
 			<Text className="mt-4">
