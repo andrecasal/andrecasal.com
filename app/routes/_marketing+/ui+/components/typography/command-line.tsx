@@ -26,7 +26,7 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 	const [showCopyIcon, setShowCopyIcon] = useState(true)
 	const [, copy] = useCopyToClipboard()
 	// Extract commands
-	const lines = Array.isArray(command) ? command : command.split('\n').map(line => ({ type: 'command', text: line }))
+	const lines = Array.isArray(command) ? command : [{ type: 'command', text: command }]
 	const linesWithoutLogs = lines.filter(line => line.type === 'command')
 	const allCommandsString = linesWithoutLogs.map(line => line.text).join('\n')
 	// Code overflows
