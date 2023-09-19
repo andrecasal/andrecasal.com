@@ -200,12 +200,12 @@ const TextRoute = () => {
 				Alignment and weight are pretty much standard at this point, but the quantity and values for the sizes and trackings aren't - that's decided by the designer.
 			</Text>
 			<Text className="mt-4">
-				Imagine that you use utility classes throughout your codebase and your designer decides that a certain typography element, the big titles say, should go from 60px to 48px.
-				You have to go through the entire codebase and change all titles from text-6xl to text-5xl.
+				Imagine that you use utility classes throughout your codebase and your designer decides that a certain typography element, the big paragraphs say, should go from 60px to
+				48px. You have to go through the entire codebase and change all titles from text-6xl to text-5xl.
 			</Text>
 			<Text className="mt-4">
-				"Ok, André, but I could just create custom utility classes that use CSS variables and if the designer would need to change all titles to another size, he would just change
-				the CSS variable value".
+				"Ok, André, but I could just create custom utility classes that use CSS variables and if the designer would need to change all paragraphs to another size, he would just
+				change the CSS variable value".
 			</Text>
 			<Text className="mt-4">
 				Yes you could, but that has two problems: you're now forced to learn about and remember to use those custom utility classes. If you forget to use them, and the designer
