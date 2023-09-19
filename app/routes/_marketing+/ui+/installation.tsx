@@ -106,6 +106,13 @@ function App() {
 				</a>
 				.
 			</Text>
+			<Text className="mt-8">
+				Installation didn't work? Is something missing? Please file an issue{' '}
+				<a href="https://github.com/andrecasal/andrecasal.com/issues" target="_blank" rel="noreferrer" className="underline">
+					here
+				</a>{' '}
+				and I'll do my best to add any missing steps to the documentation.
+			</Text>
 		</>
 	)
 }

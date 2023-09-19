@@ -33,7 +33,7 @@ const UI = () => {
 					Radix Themes
 				</a>{' '}
 				is a good attempt at it, and I take a lot of inspiration from it, but is using plain old CSS (instead of utility classes) 🤢 and you need an extra CSS file for each component
-				🤮.
+				🤮. It also doesn't have some components that Radix UI has, like the Accordion component, which is confusing 🤔.
 			</Text>
 			<Text size="lg" className="mt-4">
 				<a href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="underline">
