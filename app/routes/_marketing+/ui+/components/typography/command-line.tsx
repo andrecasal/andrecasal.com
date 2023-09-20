@@ -54,7 +54,7 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 					{lines.map(({ type, text }, i) => (
 						<div key={i} className="flex gap-4">
 							{type === 'command' ? (
-								<div className="flex items-stretch justify-stretch">
+								<div className="flex select-none items-stretch justify-stretch">
 									<div className="bg-blue-500 pl-2 pr-1.5">~</div>
 									<div>
 										<svg viewBox="0 0 30 100" className="h-full">
