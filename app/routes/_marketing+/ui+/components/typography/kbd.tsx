@@ -6,7 +6,7 @@ import { cn } from '~/utils/tailwind-merge.ts'
  */
 const Kbd = forwardRef<ElementRef<'kbd'>, { children: ReactNode } & HTMLAttributes<ElementRef<'kbd'>>>(({ children, className, ...props }, ref) => {
 	return (
-		<kbd ref={ref} className={cn('rounded-lg border border-muted-200 bg-muted-50 p-1.5 font-mono text-xs shadow-sm', className)} {...props}>
+		<kbd ref={ref} className={cn('rounded-lg border border-muted-200 bg-muted-50 p-1.5 align-middle font-mono text-xs shadow-sm', className)} {...props}>
 			{children}
 		</kbd>
 	)
