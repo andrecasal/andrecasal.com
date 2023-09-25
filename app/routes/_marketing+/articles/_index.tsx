@@ -1,14 +1,13 @@
-import { /* Link, */ useLoaderData } from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 import { Container } from '../../../components/ui/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
-/* import { Input } from '~/components/ui/input.tsx'
-import { Label } from '~/components/ui/label.tsx' */
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
+import { Heading } from '../ui+/components/typography/heading.tsx'
 import { title as RemixDataFlowTitle, description as RemixDataFlowDescription } from './remix-data-flow/index.tsx'
 import remixDataFlowImage from './remix-data-flow/remix-data-flow.png'
 import {
@@ -16,7 +15,8 @@ import {
 	description as FluidTypographySizingWithModularScalesDescription,
 } from './fluid-typography-sizing-with-modular-scales/index.tsx'
 import fluidTypographySizingWithModularScalesImage from './fluid-typography-sizing-with-modular-scales/fluid-typography.png'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { title as fluidSpaceSizingTitle, description as fluidSpaceSizingDescription } from './fluid-space-sizing/index.tsx'
+import fluidSpaceSizingImage from './fluid-space-sizing/fluid-space-sizing.png'
 
 export type Post = {
 	title: string
@@ -40,7 +40,14 @@ export const loader = () => {
 			description: FluidTypographySizingWithModularScalesDescription,
 			imageUrl: fluidTypographySizingWithModularScalesImage,
 			href: '/articles/fluid-typography-sizing-with-modular-scales',
-			topics: ['Typography', 'CSS'],
+			topics: ['Typography', 'CSS', 'Design Systems'],
+		},
+		{
+			title: fluidSpaceSizingTitle,
+			description: fluidSpaceSizingDescription,
+			imageUrl: fluidSpaceSizingImage,
+			href: '/articles/fluid-space-sizing',
+			topics: ['Spacing', 'CSS', 'Design Systems'],
 		},
 	]
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
