@@ -19,8 +19,7 @@ export const loader = async () => {
 
 const HeadingRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const usageSource = `<Kbd>Shift + Tab</Kbd>`
-	const stylingSource = `--container-min-width: 20; /* 320px */`
+	const usageSource = `<p>Press <Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, <Kbd>Shift + Down</Kbd> to move things by 10px.</p>`
 
 	return (
 		<>
@@ -31,23 +30,19 @@ const HeadingRoute = () => {
 			<Text className="mt-4">
 				This component is merely a styling layer on top of the <code>{'<kbr>'}</code> tag.
 			</Text>
-
 			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
 			</Heading>
-			<CodeBlock code={usageSource} filename="HeadingExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={usageSource} filename="KbdExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the Kbd component in action.</Text>
-			<Kbd>Shift + Tab</Kbd>
+			<p>
+				Press <Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, <Kbd>Shift + Down</Kbd> to move things by 10px.
+			</p>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Source
 			</Heading>
 			<CodeBlock code={source} filename="kbd" extension="tsx" className="mt-4" />
-
-			<Heading as="h2" size="3xl" className="mt-8">
-				Styling
-			</Heading>
-			<CodeBlock code={stylingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)
 }
