@@ -2,6 +2,7 @@ import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
+import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 
 export const title = 'Fluid Space Sizing'
 export const description = 'Learn about the cement that holds the bricks of components together: space.'
@@ -29,8 +30,9 @@ const FluidSpaceSizing = () => {
 					And the difference between an exquisitely elegant design and a graceless one. So it's no wonder designers are rightly taught to pay great attention to whitespace.
 				</Text>
 				<Text size="xl" className="mt-8">
-					However, it remains one of the most unnecessarily unsystematized aspects of web design and development. Most designers still space things out by hand: {'shift+<'},{' '}
-					{'shift+>'}, {'shift+^'}, and {'shift+down'} to move things around by increments of 10px and counting 10, 20, 30 in their heads is the bread and butter of spacing.
+					However, it remains one of the most unnecessarily unsystematized aspects of web design and development. Most designers still space things out by hand:{' '}
+					<Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, and <Kbd>Shift + Down</Kbd> to move things around by increments of 10px and counting 10, 20, 30
+					in their heads is the bread and butter of spacing.
 				</Text>
 				<Text size="xl" className="mt-8">
 					As for developers, spacing is handled with hard-coded utility classes 🥴, infinitely growing BEM classes 🤢, or, God forbid, plain old ah hoc CSS 🤮. Out of all of these,
