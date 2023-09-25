@@ -34,7 +34,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
 		{ name: 'Command Line', href: '/ui/typography/command-line', disabled: false },
 		{ name: 'Em', href: '/ui/typography/em', disabled: true },
-		{ name: 'Kbd', href: '/ui/typography/kbd', disabled: true },
+		{ name: 'Kbd', href: '/ui/typography/kbd', disabled: false },
 		{ name: 'Link', href: '/ui/typography/link', disabled: true },
 		{ name: 'Quote', href: '/ui/typography/quote', disabled: true },
 		{ name: 'Strong', href: '/ui/typography/strong', disabled: true },
