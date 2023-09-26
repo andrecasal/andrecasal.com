@@ -15,6 +15,7 @@ import invariant from 'tiny-invariant'
 import { StatusButton } from '~/components/ui/status-button.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
+import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 
 const verifySchema = z.object({
 	[forgotPasswordTargetQueryParam]: z.union([emailSchema, usernameSchema]),
@@ -141,48 +142,50 @@ export default function ForgotPasswordVerifyRoute() {
 	})
 
 	return (
-		<div className="container pb-32 pt-20">
-			<div className="flex flex-col justify-center">
-				<>
-					<div className="text-center">
-						<Heading as="h1" size="xl">
-							Check your email
-						</Heading>
-						<Text size="lg" className="mt-3 text-muted-500">
-							We've sent you a code to verify your password reset.
-						</Text>
-					</div>
-					<Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
-						<Field
-							labelProps={{
-								htmlFor: fields.usernameOrEmail.id,
-								children: 'Username or Email',
-							}}
-							inputProps={conform.input(fields.usernameOrEmail)}
-							errors={fields.usernameOrEmail.errors}
-						/>
-						<Field
-							labelProps={{
-								htmlFor: fields.code.id,
-								children: 'Code',
-							}}
-							inputProps={{ ...conform.input(fields.code), autoFocus: true }}
-							errors={fields.code.errors}
-						/>
-						<ErrorList errors={form.errors} id={form.errorId} />
-
-						<div className="mt-6">
-							<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
-								Submit
-							</StatusButton>
+		<Container>
+			<div className="pb-32 pt-20">
+				<div className="flex flex-col justify-center">
+					<>
+						<div className="text-center">
+							<Heading as="h1" size="xl">
+								Check your email
+							</Heading>
+							<Text size="lg" className="mt-3 text-muted-500">
+								We've sent you a code to verify your password reset.
+							</Text>
 						</div>
-					</Form>
-				</>
-				<Link to="/login" className="mt-11 text-center text-size-md font-bold">
-					Back to Login
-				</Link>
+						<Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
+							<Field
+								labelProps={{
+									htmlFor: fields.usernameOrEmail.id,
+									children: 'Username or Email',
+								}}
+								inputProps={conform.input(fields.usernameOrEmail)}
+								errors={fields.usernameOrEmail.errors}
+							/>
+							<Field
+								labelProps={{
+									htmlFor: fields.code.id,
+									children: 'Code',
+								}}
+								inputProps={{ ...conform.input(fields.code), autoFocus: true }}
+								errors={fields.code.errors}
+							/>
+							<ErrorList errors={form.errors} id={form.errorId} />
+
+							<div className="mt-6">
+								<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
+									Submit
+								</StatusButton>
+							</div>
+						</Form>
+					</>
+					<Link to="/login" className="mt-11 text-center text-size-md font-bold">
+						Back to Login
+					</Link>
+				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }
 

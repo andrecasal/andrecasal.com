@@ -14,6 +14,7 @@ import { emailSchema, usernameSchema } from '~/utils/user-validation.ts'
 import { ForgotPasswordEmail } from './email.server.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 
 export const forgotPasswordOTPQueryParam = 'code'
 export const forgotPasswordTargetQueryParam = 'usernameOrEmail'
@@ -113,46 +114,48 @@ export default function ForgotPasswordRoute() {
 	})
 
 	return (
-		<div className="container pb-32 pt-20">
-			<div className="flex flex-col justify-center">
-				<div className="text-center">
-					<Heading size="xl">Forgot Password</Heading>
-					<Text size="lg" className="mt-3 text-muted-500">
-						No worries, we'll send you reset instructions.
-					</Text>
-				</div>
-				<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
-					<div>
-						<Field
-							labelProps={{
-								htmlFor: fields.usernameOrEmail.id,
-								children: 'Username or Email',
-							}}
-							inputProps={{
-								autoFocus: true,
-								...conform.input(fields.usernameOrEmail),
-							}}
-							errors={fields.usernameOrEmail.errors}
-						/>
+		<Container>
+			<div className="pb-32 pt-20">
+				<div className="flex flex-col justify-center">
+					<div className="text-center">
+						<Heading size="xl">Forgot Password</Heading>
+						<Text size="lg" className="mt-3 text-muted-500">
+							No worries, we'll send you reset instructions.
+						</Text>
 					</div>
-					<ErrorList errors={form.errors} id={form.errorId} />
+					<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
+						<div>
+							<Field
+								labelProps={{
+									htmlFor: fields.usernameOrEmail.id,
+									children: 'Username or Email',
+								}}
+								inputProps={{
+									autoFocus: true,
+									...conform.input(fields.usernameOrEmail),
+								}}
+								errors={fields.usernameOrEmail.errors}
+							/>
+						</div>
+						<ErrorList errors={form.errors} id={form.errorId} />
 
-					<div className="mt-6">
-						<StatusButton
-							className="w-full"
-							status={forgotPassword.state === 'submitting' ? 'pending' : forgotPassword.data?.status ?? 'idle'}
-							type="submit"
-							disabled={forgotPassword.state !== 'idle'}
-						>
-							Recover password
-						</StatusButton>
-					</div>
-				</forgotPassword.Form>
-				<Link to="/login" className="mt-11 text-center text-size-md font-bold">
-					Back to Login
-				</Link>
+						<div className="mt-6">
+							<StatusButton
+								className="w-full"
+								status={forgotPassword.state === 'submitting' ? 'pending' : forgotPassword.data?.status ?? 'idle'}
+								type="submit"
+								disabled={forgotPassword.state !== 'idle'}
+							>
+								Recover password
+							</StatusButton>
+						</div>
+					</forgotPassword.Form>
+					<Link to="/login" className="mt-11 text-center text-size-md font-bold">
+						Back to Login
+					</Link>
+				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }
 

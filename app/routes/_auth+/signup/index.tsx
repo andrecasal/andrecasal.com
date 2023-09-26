@@ -14,6 +14,7 @@ import { emailSchema } from '~/utils/user-validation.ts'
 import { SignupEmail } from './email.server.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 
 export const onboardingOTPQueryParam = 'code'
 export const onboardingEmailQueryParam = 'email'
@@ -128,28 +129,30 @@ export default function SignupRoute() {
 	})
 
 	return (
-		<div className="container flex flex-col justify-center pb-32 pt-20">
-			<div className="text-center">
-				<Heading size="xl">Let's start your journey!</Heading>
-				<Text size="lg" className="mt-3 text-muted-500">
-					Please enter your email.
-				</Text>
+		<Container>
+			<div className="flex flex-col justify-center pb-32 pt-20">
+				<div className="text-center">
+					<Heading size="xl">Let's start your journey!</Heading>
+					<Text size="lg" className="mt-3 text-muted-500">
+						Please enter your email.
+					</Text>
+				</div>
+				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
+					<Field
+						labelProps={{
+							htmlFor: fields.email.id,
+							children: 'Email',
+						}}
+						inputProps={{ ...conform.input(fields.email), autoFocus: true }}
+						errors={fields.email.errors}
+					/>
+					<ErrorList errors={form.errors} id={form.errorId} />
+					<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
+						Submit
+					</StatusButton>
+				</Form>
 			</div>
-			<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
-				<Field
-					labelProps={{
-						htmlFor: fields.email.id,
-						children: 'Email',
-					}}
-					inputProps={{ ...conform.input(fields.email), autoFocus: true }}
-					errors={fields.email.errors}
-				/>
-				<ErrorList errors={form.errors} id={form.errorId} />
-				<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
-					Submit
-				</StatusButton>
-			</Form>
-		</div>
+		</Container>
 	)
 }
 

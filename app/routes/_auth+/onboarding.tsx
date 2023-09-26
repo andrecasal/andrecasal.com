@@ -14,6 +14,7 @@ import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
+import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 
 export const onboardingEmailSessionKey = 'onboardingEmail'
 
@@ -128,99 +129,103 @@ export default function OnboardingPage() {
 	const redirectTo = searchParams.get('redirectTo') || '/'
 
 	return (
-		<div className="container flex min-h-full flex-col justify-center pb-32 pt-20">
-			<div className="mx-auto w-full max-w-lg">
-				<div className="flex flex-col gap-3 text-center">
-					<Heading size="xl">Welcome aboard!</Heading>
-					<Text size="lg" className="text-muted-500">
-						Please enter your details.
-					</Text>
-				</div>
-				<Spacer size="xs" />
-				<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...form.props}>
-					<Field
-						labelProps={{ htmlFor: fields.username.id, children: 'Username' }}
-						inputProps={{
-							...conform.input(fields.username),
-							autoComplete: 'username',
-							autoFocus: typeof actionData === 'undefined' || typeof fields.username.initialError !== 'undefined',
-						}}
-						errors={fields.username.errors}
-					/>
-					<Field
-						labelProps={{ htmlFor: fields.name.id, children: 'Name' }}
-						inputProps={{
-							...conform.input(fields.name),
-							autoComplete: 'name',
-						}}
-						errors={fields.name.errors}
-					/>
-					<Field
-						labelProps={{ htmlFor: fields.password.id, children: 'Password' }}
-						inputProps={{
-							...conform.input(fields.password, { type: 'password' }),
-							autoComplete: 'new-password',
-						}}
-						errors={fields.password.errors}
-					/>
-
-					<Field
-						labelProps={{
-							htmlFor: fields.confirmPassword.id,
-							children: 'Confirm Password',
-						}}
-						inputProps={{
-							...conform.input(fields.confirmPassword, { type: 'password' }),
-							autoComplete: 'new-password',
-						}}
-						errors={fields.confirmPassword.errors}
-					/>
-
-					<CheckboxField
-						labelProps={{
-							htmlFor: fields.agreeToTermsOfServiceAndPrivacyPolicy.id,
-							children: 'Do you agree to our Terms of Service and Privacy Policy?',
-						}}
-						buttonProps={conform.input(fields.agreeToTermsOfServiceAndPrivacyPolicy, { type: 'checkbox' })}
-						errors={fields.agreeToTermsOfServiceAndPrivacyPolicy.errors}
-					/>
-
-					<CheckboxField
-						labelProps={{
-							htmlFor: fields.agreeToMailingList.id,
-							children: 'Would you like to receive special discounts and offers?',
-						}}
-						buttonProps={conform.input(fields.agreeToMailingList, {
-							type: 'checkbox',
-						})}
-						errors={fields.agreeToMailingList.errors}
-					/>
-
-					<CheckboxField
-						labelProps={{
-							htmlFor: fields.remember.id,
-							children: 'Remember me',
-						}}
-						buttonProps={conform.input(fields.remember, { type: 'checkbox' })}
-						errors={fields.remember.errors}
-					/>
-
-					<input name={fields.redirectTo.name} type="hidden" value={redirectTo} />
-
-					<ErrorList errors={[...form.errors, data.formError]} id={form.errorId} />
-
-					<div className="flex items-center justify-between gap-6">
-						<StatusButton
-							className="w-full"
-							status={navigation.state === 'submitting' && navigation.formAction === formAction && navigation.formMethod === 'POST' ? 'pending' : actionData?.status ?? 'idle'}
-							type="submit"
-							disabled={navigation.state !== 'idle'}
-						>
-							Create an account
-						</StatusButton>
+		<Container>
+			<div className="flex min-h-full flex-col justify-center pb-32 pt-20">
+				<div className="mx-auto w-full max-w-lg">
+					<div className="flex flex-col gap-3 text-center">
+						<Heading size="xl">Welcome aboard!</Heading>
+						<Text size="lg" className="text-muted-500">
+							Please enter your details.
+						</Text>
 					</div>
-				</Form>
+					<Spacer size="xs" />
+					<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...form.props}>
+						<Field
+							labelProps={{ htmlFor: fields.username.id, children: 'Username' }}
+							inputProps={{
+								...conform.input(fields.username),
+								autoComplete: 'username',
+								autoFocus: typeof actionData === 'undefined' || typeof fields.username.initialError !== 'undefined',
+							}}
+							errors={fields.username.errors}
+						/>
+						<Field
+							labelProps={{ htmlFor: fields.name.id, children: 'Name' }}
+							inputProps={{
+								...conform.input(fields.name),
+								autoComplete: 'name',
+							}}
+							errors={fields.name.errors}
+						/>
+						<Field
+							labelProps={{ htmlFor: fields.password.id, children: 'Password' }}
+							inputProps={{
+								...conform.input(fields.password, { type: 'password' }),
+								autoComplete: 'new-password',
+							}}
+							errors={fields.password.errors}
+						/>
+
+						<Field
+							labelProps={{
+								htmlFor: fields.confirmPassword.id,
+								children: 'Confirm Password',
+							}}
+							inputProps={{
+								...conform.input(fields.confirmPassword, { type: 'password' }),
+								autoComplete: 'new-password',
+							}}
+							errors={fields.confirmPassword.errors}
+						/>
+
+						<CheckboxField
+							labelProps={{
+								htmlFor: fields.agreeToTermsOfServiceAndPrivacyPolicy.id,
+								children: 'Do you agree to our Terms of Service and Privacy Policy?',
+							}}
+							buttonProps={conform.input(fields.agreeToTermsOfServiceAndPrivacyPolicy, { type: 'checkbox' })}
+							errors={fields.agreeToTermsOfServiceAndPrivacyPolicy.errors}
+						/>
+
+						<CheckboxField
+							labelProps={{
+								htmlFor: fields.agreeToMailingList.id,
+								children: 'Would you like to receive special discounts and offers?',
+							}}
+							buttonProps={conform.input(fields.agreeToMailingList, {
+								type: 'checkbox',
+							})}
+							errors={fields.agreeToMailingList.errors}
+						/>
+
+						<CheckboxField
+							labelProps={{
+								htmlFor: fields.remember.id,
+								children: 'Remember me',
+							}}
+							buttonProps={conform.input(fields.remember, { type: 'checkbox' })}
+							errors={fields.remember.errors}
+						/>
+
+						<input name={fields.redirectTo.name} type="hidden" value={redirectTo} />
+
+						<ErrorList errors={[...form.errors, data.formError]} id={form.errorId} />
+
+						<div className="flex items-center justify-between gap-6">
+							<StatusButton
+								className="w-full"
+								status={
+									navigation.state === 'submitting' && navigation.formAction === formAction && navigation.formMethod === 'POST' ? 'pending' : actionData?.status ?? 'idle'
+								}
+								type="submit"
+								disabled={navigation.state !== 'idle'}
+							>
+								Create an account
+							</StatusButton>
+						</div>
+					</Form>
+				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }

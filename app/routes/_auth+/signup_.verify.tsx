@@ -12,6 +12,7 @@ import { onboardingEmailSessionKey } from './onboarding.tsx'
 import { onboardingEmailQueryParam, onboardingOTPQueryParam, verificationType } from './signup/index.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
+import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 
 const verifySchema = z.object({
 	[onboardingEmailQueryParam]: z.string().email(),
@@ -125,40 +126,42 @@ export default function SignupVerifyRoute() {
 	})
 
 	return (
-		<div className="container flex flex-col justify-center pb-32 pt-20">
-			<div className="text-center">
-				<Heading size="xl">Check your email</Heading>
-				<Text size="lg" className="mt-3 text-muted-500">
-					We've sent you a code to verify your email address.
-				</Text>
-			</div>
+		<Container>
+			<div className="flex flex-col justify-center pb-32 pt-20">
+				<div className="text-center">
+					<Heading size="xl">Check your email</Heading>
+					<Text size="lg" className="mt-3 text-muted-500">
+						We've sent you a code to verify your email address.
+					</Text>
+				</div>
 
-			<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
-				<Field
-					labelProps={{
-						htmlFor: fields.email.id,
-						children: 'Email',
-					}}
-					inputProps={{
-						...conform.input(fields.email),
-					}}
-					errors={fields.email.errors}
-				/>
-				<Field
-					labelProps={{
-						htmlFor: fields.code.id,
-						children: 'Code',
-					}}
-					inputProps={{
-						...conform.input(fields.code),
-					}}
-					errors={fields.code.errors}
-				/>
-				<ErrorList errors={form.errors} id={form.errorId} />
-				<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
-					Submit
-				</StatusButton>
-			</Form>
-		</div>
+				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
+					<Field
+						labelProps={{
+							htmlFor: fields.email.id,
+							children: 'Email',
+						}}
+						inputProps={{
+							...conform.input(fields.email),
+						}}
+						errors={fields.email.errors}
+					/>
+					<Field
+						labelProps={{
+							htmlFor: fields.code.id,
+							children: 'Code',
+						}}
+						inputProps={{
+							...conform.input(fields.code),
+						}}
+						errors={fields.code.errors}
+					/>
+					<ErrorList errors={form.errors} id={form.errorId} />
+					<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
+						Submit
+					</StatusButton>
+				</Form>
+			</div>
+		</Container>
 	)
 }

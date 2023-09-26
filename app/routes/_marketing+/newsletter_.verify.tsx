@@ -16,6 +16,7 @@ import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
 import { Input } from '~/components/ui/input.tsx'
 import { subscribeUser } from '~/utils/email.server.ts'
 import { Heading } from './ui+/components/typography/heading.tsx'
+import { Container } from './ui+/components/layout/container.tsx'
 
 const verifySchema = z.object({
 	[newsletterNameQueryParam]: nameSchema,
@@ -58,39 +59,41 @@ const NewsletterVerifyRoute = () => {
 	})
 
 	return (
-		<div className="container flex flex-col justify-center pb-32 pt-20">
-			<div className="mx-auto max-w-md">
-				<Heading as="h1" size="3xl">
-					Confirm your subscription
-				</Heading>
-				<Text size="lg" className="mt-6 text-muted-500">
-					Hi{' '}
-					<Text as="span" weight="semibold">
-						{name.defaultValue}
+		<Container>
+			<div className="flex flex-col justify-center pb-32 pt-20">
+				<div className="mx-auto max-w-md">
+					<Heading as="h1" size="3xl">
+						Confirm your subscription
+					</Heading>
+					<Text size="lg" className="mt-6 text-muted-500">
+						Hi{' '}
+						<Text as="span" weight="semibold">
+							{name.defaultValue}
+						</Text>
+						,
 					</Text>
-					,
-				</Text>
-				<Text size="lg" className="mt-6 text-muted-500">
-					We've sent a link to{' '}
-					<Text as="span" weight="semibold">
-						{email.defaultValue}
-					</Text>{' '}
-					to verify your email address. Just click that link.
-				</Text>
-				<Form method="post" className="mx-auto mt-24" {...form.props}>
-					<Input {...conform.input(name)} type="hidden" />
-					<Input {...conform.input(email)} type="hidden" />
-					<Text size="sm" className="my-6 text-muted-500">
-						If the link doesn't work, we've also sent you a code:
+					<Text size="lg" className="mt-6 text-muted-500">
+						We've sent a link to{' '}
+						<Text as="span" weight="semibold">
+							{email.defaultValue}
+						</Text>{' '}
+						to verify your email address. Just click that link.
 					</Text>
-					<Field labelProps={{ htmlFor: code.id, children: 'Code' }} inputProps={{ ...conform.input(code), autoComplete: 'off' }} errors={code.errors} />
-					<ErrorList errors={form.errors} id={form.errorId} />
-					<StatusButton type="submit" className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} disabled={isSubmitting}>
-						Confirm with code
-					</StatusButton>
-				</Form>
+					<Form method="post" className="mx-auto mt-24" {...form.props}>
+						<Input {...conform.input(name)} type="hidden" />
+						<Input {...conform.input(email)} type="hidden" />
+						<Text size="sm" className="my-6 text-muted-500">
+							If the link doesn't work, we've also sent you a code:
+						</Text>
+						<Field labelProps={{ htmlFor: code.id, children: 'Code' }} inputProps={{ ...conform.input(code), autoComplete: 'off' }} errors={code.errors} />
+						<ErrorList errors={form.errors} id={form.errorId} />
+						<StatusButton type="submit" className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} disabled={isSubmitting}>
+							Confirm with code
+						</StatusButton>
+					</Form>
+				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }
 

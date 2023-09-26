@@ -1,5 +1,6 @@
 import { isRouteErrorResponse, useParams, useRouteError } from '@remix-run/react'
 import { type ErrorResponse } from '@remix-run/router'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { getErrorMessage } from '~/utils/misc.ts'
 
@@ -26,13 +27,15 @@ export function GeneralErrorBoundary({
 	}
 
 	return (
-		<div className="text-title-lg container flex items-center justify-center p-20">
-			{isRouteErrorResponse(error)
-				? (statusHandlers?.[error.status] ?? defaultStatusHandler)({
-						error,
-						params,
-				  })
-				: unexpectedErrorHandler(error)}
-		</div>
+		<Container>
+			<div className="text-title-lg flex items-center justify-center p-20">
+				{isRouteErrorResponse(error)
+					? (statusHandlers?.[error.status] ?? defaultStatusHandler)({
+							error,
+							params,
+					  })
+					: unexpectedErrorHandler(error)}
+			</div>
+		</Container>
 	)
 }
