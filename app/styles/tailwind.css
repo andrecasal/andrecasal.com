@@ -235,6 +235,22 @@
 		--tooltip-color-background: var(--color-foreground);
 		--tooltip-color-foreground: var(--color-background);
 		--tooltip-text-size: var(--text-size-sm);
+
+		.kbd {
+			margin: var(--space-0);
+			padding: var(--space-4);
+			border-color: hsl(var(--color-muted-200));
+			border-width: var(--space-1);
+			border-radius: var(--radius);
+			font-family: var(--font-code);
+			font-size: var(--text-size-xs);
+			line-height: var(--text-line-height-xs);
+			letter-spacing: var(--text-tracking-xs);
+			background-color: hsl(var(--color-muted-50));
+			color: hsl(var(--color-muted-900));
+			box-shadow: var(--space-0) var(--space-1) var(--space-2) var(--space-0) hsl(var(--color-foreground) / 0.05);
+			vertical-align: middle;
+		}
 	}
 
 	.dark {
