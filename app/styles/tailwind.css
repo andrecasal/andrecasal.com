@@ -300,11 +300,16 @@
 /* Container */
 @layer base {
 	:root {
-		--container-deltaY: calc(var(--scale-13) - var(--scale-4));
+		/* 👇 Edit these values */
+		--container-min-padding: var(--scale-4);
+		--container-max-padding: var(--scale-13);
+
+		/* Calculations */
+		--container-deltaY: calc(var(--container-max-padding) - var(--container-min-padding));
 		--container-gradient: calc(var(--container-deltaY) / var(--size-deltaX));
-		--container-intercept: calc(var(--scale-4) - (var(--container-gradient) * var(--content-min-width)));
+		--container-intercept: calc(var(--container-min-padding) - (var(--container-gradient) * var(--content-min-width)));
 		--container-padding-size: calc(var(--container-gradient) * 100vw + var(--container-intercept) * 1rem);
-		--container-padding-x: clamp(calc(var(--scale-4) * 1rem), var(--container-padding-size), calc(var(--scale-13) * 1rem));
+		--container-padding-x: clamp(calc(var(--container-min-padding) * 1rem), var(--container-padding-size), calc(var(--container-max-padding) * 1rem));
 	}
 }
 
