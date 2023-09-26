@@ -28,9 +28,14 @@ const TooltipRoute = () => {
 	</Tooltip>{' '}
 	in action.
 </Text>`
-	const stylingSource = `--tooltip-color-background: var(--color-foreground);
---tooltip-color-foreground: var(--color-background);
---tooltip-text-size: var(--text-size-sm);`
+	const stylingSource = `.tooltip {
+	border-radius: calc(var(--radius) - 2px);
+	background-color: hsl(var(--color-foreground));
+	padding-left: var(--space-5);
+	padding-right: var(--space-5);
+	font-size: var(--text-size-sm);
+	color: hsl(var(--color-background));
+}`
 	const twMerge = `import { type ClassValue, clsx } from 'clsx'
 import { extendTailwindMerge } from 'tailwind-merge'
 
@@ -220,7 +225,6 @@ function App() {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Styling
 			</Heading>
-			<Text className="mt-4">The tooltip's styling is controlled through CSS variables.</Text>
 			<CodeBlock code={stylingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)
