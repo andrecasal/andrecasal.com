@@ -4,6 +4,7 @@
 		"esbenp.prettier-vscode",
 		"prisma.prisma",
 		"bradlc.vscode-tailwindcss",
-		"csstools.postcss"
+		"csstools.postcss",
+		"pflannery.vscode-versionlens"
 	]
 }
