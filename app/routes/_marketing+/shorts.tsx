@@ -1,5 +1,5 @@
 import { Newsletter } from '~/components/newsletter.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 const Shorts = () => {

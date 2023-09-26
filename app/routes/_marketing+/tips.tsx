@@ -1,6 +1,6 @@
 import { Newsletter } from '~/components/newsletter.tsx'
 import { CodeBlock, type Language } from '~/components/ui/code-block.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from './ui+/components/typography/heading.tsx'
 

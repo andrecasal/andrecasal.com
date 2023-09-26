@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Button } from '~/components/ui/button.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 export default function Talks() {

@@ -1,5 +1,5 @@
 import { Fragment, useRef, useState } from 'react'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
@@ -114,7 +114,7 @@ export default function Header() {
 							</div>
 						</NavigationMenuList>
 					</NavigationMenu>
-					<DialogContent className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-container sm:max-w-sm sm:px-container-sm sm:ring-1 sm:ring-muted-900/10 lg:hidden lg:px-container-lg">
+					<DialogContent className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-container sm:max-w-sm sm:ring-1 sm:ring-muted-900/10 lg:hidden">
 						<NavigationMenu orientation="vertical" className="py-4 ">
 							<NavigationMenuList>
 								<div className="flex items-baseline justify-between">

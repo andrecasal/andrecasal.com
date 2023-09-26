@@ -1,5 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
-import { Container } from '../../../components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'

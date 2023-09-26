@@ -1,4 +1,4 @@
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { json, type ActionArgs, redirect } from '@remix-run/node'
 import { parse } from '@conform-to/zod'
 import { z } from 'zod'

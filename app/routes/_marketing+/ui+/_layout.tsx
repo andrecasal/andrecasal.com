@@ -1,5 +1,5 @@
 import { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent } from './components/ui/slide-in-dialog.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { ScrollArea } from './components/ui/scroll-area.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
@@ -24,7 +24,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Box', href: '/ui/layout/box', disabled: true },
 		{ name: 'Flex', href: '/ui/layout/flex', disabled: true },
 		{ name: 'Grid', href: '/ui/layout/grid', disabled: true },
-		{ name: 'Container', href: '/ui/layout/container', disabled: true },
+		{ name: 'Container', href: '/ui/layout/container', disabled: false },
 		{ name: 'Section', href: '/ui/layout/section', disabled: true },
 	]
 

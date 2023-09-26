@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible.tsx'
 import BackgroundSquareLines from './components/bg-square-lines.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Button } from '~/components/ui/button.tsx'

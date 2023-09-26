@@ -10,11 +10,7 @@ import { Button } from './button.tsx'
 const ToastProvider = ToastPrimitives.Provider
 
 const ToastViewport = forwardRef<ElementRef<typeof ToastPrimitives.Viewport>, ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>>(({ className, ...props }, ref) => (
-	<ToastPrimitives.Viewport
-		ref={ref}
-		className={cn('fixed inset-0 z-[100] mx-auto flex w-full max-w-container flex-col-reverse gap-2 p-container sm:p-container-sm lg:p-container-lg', className)}
-		{...props}
-	/>
+	<ToastPrimitives.Viewport ref={ref} className={cn('fixed inset-0 z-[100] mx-auto flex w-full max-w-container flex-col-reverse gap-2 p-container', className)} {...props} />
 ))
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 

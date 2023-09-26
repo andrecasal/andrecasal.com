@@ -1,5 +1,5 @@
 import DiamondBackground from './bg-diamonds.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { trusted } from '../logos/logos.ts'
 import { Heading } from '../ui+/components/typography/heading.tsx'

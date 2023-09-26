@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react'
 import BackgroundDiagonal from './bg-diagonal.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'

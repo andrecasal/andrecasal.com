@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Configuration (you probably shouldn't change this) */
-/* Color Scheme */
+/* Color Scheme (you probably shouldn't change this) */
 @layer base {
 	:root {
 		color-scheme: light;
@@ -14,7 +13,7 @@
 	}
 }
 
-/* Minimum tap target */
+/* Minimum tap target (you probably shouldn't change this) */
 @layer base {
 	:root {
 		--min-tap-target: 24px;
@@ -30,74 +29,90 @@
 @layer base {
 	:root {
 		/* 👇 Edit these values */
-		--container-min-width: 20; /* 320px */
-		--container-max-width: 96; /* 1536px */
-		--space-20-min-size: 10; /* 160px */
-		--space-20-max-size: 26; /* 416px */
-		--space-19-min-size: 8; /* 128px */
-		--space-19-max-size: 16; /* 256px */
-		--space-18-min-size: 5; /* 80px */
-		--space-18-max-size: 9; /* 144px */
-		--space-17-min-size: 4; /* 64px */
-		--space-17-max-size: 6; /* 96px */
-		--space-16-min-size: 3; /* 48px */
-		--space-16-max-size: 4; /* 64px */
-		--space-15-min-size: 2.5; /* 40px */
-		--space-15-max-size: 3; /* 48px */
-		--space-14: 2.25rem; /* 36px */
-		--space-13: 2rem; /* 32px */
-		--space-12: 1.75rem; /* 28px */
-		--space-11: 1.5rem; /* 24px */
-		--space-10: 1.25rem; /* 20px */
-		--space-9: 1rem; /* 16px */
-		--space-8: 0.875rem; /* 14px */
-		--space-7: 0.75rem; /* 12px */
-		--space-6: 0.625rem; /* 10px */
-		--space-5: 0.5rem; /* 8px */
-		--space-4: 0.375rem; /* 6px */
-		--space-3: 0.25rem; /* 4px */
-		--space-2: 0.125rem; /* 2px */
-		--space-1: 0.0625rem; /* 1px */
-		--space-0: 0rem; /* 0px */
+		--content-min-width: 20; /* 320px */
+		--content-max-width: 96; /* 1536px */
+		--scale-20-min-size: 10; /* 160px */
+		--scale-20-max-size: 26; /* 416px */
+		--scale-19-min-size: 8; /* 128px */
+		--scale-19-max-size: 16; /* 256px */
+		--scale-18-min-size: 5; /* 80px */
+		--scale-18-max-size: 9; /* 144px */
+		--scale-17-min-size: 4; /* 64px */
+		--scale-17-max-size: 6; /* 96px */
+		--scale-16-min-size: 3; /* 48px */
+		--scale-16-max-size: 4; /* 64px */
+		--scale-15-min-size: 2.5; /* 40px */
+		--scale-15-max-size: 3; /* 48px */
+		--scale-14: 2.25; /* 36px */
+		--scale-13: 2; /* 32px */
+		--scale-12: 1.75; /* 28px */
+		--scale-11: 1.5; /* 24px */
+		--scale-10: 1.25; /* 20px */
+		--scale-9: 1; /* 16px */
+		--scale-8: 0.875; /* 14px */
+		--scale-7: 0.75; /* 12px */
+		--scale-6: 0.625; /* 10px */
+		--scale-5: 0.5; /* 8px */
+		--scale-4: 0.375; /* 6px */
+		--scale-3: 0.25; /* 4px */
+		--scale-2: 0.125; /* 2px */
+		--scale-1: 0.0625; /* 1px */
+		--scale-0: 0; /* 0px */
 
 		/* Calculations (you only need to change this if you need to add or change sizes from fixed to fluid) */
-		--size-deltaX: calc(var(--container-max-width) - var(--container-min-width));
+		--size-deltaX: calc(var(--content-max-width) - var(--content-min-width));
 		/* space-20 */
-		--space-20-deltaY: calc(var(--space-20-max-size) - var(--space-20-min-size));
+		--space-20-deltaY: calc(var(--scale-20-max-size) - var(--scale-20-min-size));
 		--space-20-gradient: calc(var(--space-20-deltaY) / var(--size-deltaX));
-		--space-20-intercept: calc(var(--space-20-min-size) - (var(--space-20-gradient) * var(--container-min-width)));
+		--space-20-intercept: calc(var(--scale-20-min-size) - (var(--space-20-gradient) * var(--content-min-width)));
 		--space-20-font-size: calc(var(--space-20-gradient) * 100vw + var(--space-20-intercept) * 1rem);
-		--space-20: clamp(calc(var(--space-20-min-size) * 1rem), var(--space-20-font-size), calc(var(--space-20-max-size) * 1rem));
+		--space-20: clamp(calc(var(--scale-20-min-size) * 1rem), var(--space-20-font-size), calc(var(--scale-20-max-size) * 1rem));
 		/* space-19 */
-		--space-19-deltaY: calc(var(--space-19-max-size) - var(--space-19-min-size));
+		--space-19-deltaY: calc(var(--scale-19-max-size) - var(--scale-19-min-size));
 		--space-19-gradient: calc(var(--space-19-deltaY) / var(--size-deltaX));
-		--space-19-intercept: calc(var(--space-19-min-size) - (var(--space-19-gradient) * var(--container-min-width)));
+		--space-19-intercept: calc(var(--scale-19-min-size) - (var(--space-19-gradient) * var(--content-min-width)));
 		--space-19-font-size: calc(var(--space-19-gradient) * 100vw + var(--space-19-intercept) * 1rem);
-		--space-19: clamp(calc(var(--space-19-min-size) * 1rem), var(--space-19-font-size), calc(var(--space-19-max-size) * 1rem));
+		--space-19: clamp(calc(var(--scale-19-min-size) * 1rem), var(--space-19-font-size), calc(var(--scale-19-max-size) * 1rem));
 		/* space-18 */
-		--space-18-deltaY: calc(var(--space-18-max-size) - var(--space-18-min-size));
+		--space-18-deltaY: calc(var(--scale-18-max-size) - var(--scale-18-min-size));
 		--space-18-gradient: calc(var(--space-18-deltaY) / var(--size-deltaX));
-		--space-18-intercept: calc(var(--space-18-min-size) - (var(--space-18-gradient) * var(--container-min-width)));
+		--space-18-intercept: calc(var(--scale-18-min-size) - (var(--space-18-gradient) * var(--content-min-width)));
 		--space-18-font-size: calc(var(--space-18-gradient) * 100vw + var(--space-18-intercept) * 1rem);
-		--space-18: clamp(calc(var(--space-18-min-size) * 1rem), var(--space-18-font-size), calc(var(--space-18-max-size) * 1rem));
+		--space-18: clamp(calc(var(--scale-18-min-size) * 1rem), var(--space-18-font-size), calc(var(--scale-18-max-size) * 1rem));
 		/* space-17 */
-		--space-17-deltaY: calc(var(--space-17-max-size) - var(--space-17-min-size));
+		--space-17-deltaY: calc(var(--scale-17-max-size) - var(--scale-17-min-size));
 		--space-17-gradient: calc(var(--space-17-deltaY) / var(--size-deltaX));
-		--space-17-intercept: calc(var(--space-17-min-size) - (var(--space-17-gradient) * var(--container-min-width)));
+		--space-17-intercept: calc(var(--scale-17-min-size) - (var(--space-17-gradient) * var(--content-min-width)));
 		--space-17-font-size: calc(var(--space-17-gradient) * 100vw + var(--space-17-intercept) * 1rem);
-		--space-17: clamp(calc(var(--space-17-min-size) * 1rem), var(--space-17-font-size), calc(var(--space-17-max-size) * 1rem));
+		--space-17: clamp(calc(var(--scale-17-min-size) * 1rem), var(--space-17-font-size), calc(var(--scale-17-max-size) * 1rem));
 		/* space-16 */
-		--space-16-deltaY: calc(var(--space-16-max-size) - var(--space-16-min-size));
+		--space-16-deltaY: calc(var(--scale-16-max-size) - var(--scale-16-min-size));
 		--space-16-gradient: calc(var(--space-16-deltaY) / var(--size-deltaX));
-		--space-16-intercept: calc(var(--space-16-min-size) - (var(--space-16-gradient) * var(--container-min-width)));
+		--space-16-intercept: calc(var(--scale-16-min-size) - (var(--space-16-gradient) * var(--content-min-width)));
 		--space-16-font-size: calc(var(--space-16-gradient) * 100vw + var(--space-16-intercept) * 1rem);
-		--space-16: clamp(calc(var(--space-16-min-size) * 1rem), var(--space-16-font-size), calc(var(--space-16-max-size) * 1rem));
+		--space-16: clamp(calc(var(--scale-16-min-size) * 1rem), var(--space-16-font-size), calc(var(--scale-16-max-size) * 1rem));
 		/* space-15 */
-		--space-15-deltaY: calc(var(--space-15-max-size) - var(--space-15-min-size));
+		--space-15-deltaY: calc(var(--scale-15-max-size) - var(--scale-15-min-size));
 		--space-15-gradient: calc(var(--space-15-deltaY) / var(--size-deltaX));
-		--space-15-intercept: calc(var(--space-15-min-size) - (var(--space-15-gradient) * var(--container-min-width)));
+		--space-15-intercept: calc(var(--scale-15-min-size) - (var(--space-15-gradient) * var(--content-min-width)));
 		--space-15-font-size: calc(var(--space-15-gradient) * 100vw + var(--space-15-intercept) * 1rem);
-		--space-15: clamp(calc(var(--space-15-min-size) * 1rem), var(--space-15-font-size), calc(var(--space-15-max-size) * 1rem));
+		--space-15: clamp(calc(var(--scale-15-min-size) * 1rem), var(--space-15-font-size), calc(var(--scale-15-max-size) * 1rem));
+		/* space-14 to space-0 */
+		--space-14: calc(var(--scale-14) * 1rem);
+		--space-13: calc(var(--scale-13) * 1rem);
+		--space-12: calc(var(--scale-12) * 1rem);
+		--space-11: calc(var(--scale-11) * 1rem);
+		--space-10: calc(var(--scale-10) * 1rem);
+		--space-9: calc(var(--scale-9) * 1rem);
+		--space-8: calc(var(--scale-8) * 1rem);
+		--space-7: calc(var(--scale-7) * 1rem);
+		--space-6: calc(var(--scale-6) * 1rem);
+		--space-5: calc(var(--scale-5) * 1rem);
+		--space-4: calc(var(--scale-4) * 1rem);
+		--space-3: calc(var(--scale-3) * 1rem);
+		--space-2: calc(var(--scale-2) * 1rem);
+		--space-1: calc(var(--scale-1) * 1rem);
+		--space-0: calc(var(--scale-0) * 1rem);
 	}
 }
 
@@ -165,61 +180,61 @@
 		/* text-size-6xl */
 		--text-size-6xl-deltaY: calc(var(--text-size-6xl-max-size) - var(--text-size-6xl-min-size));
 		--text-size-6xl-gradient: calc(var(--text-size-6xl-deltaY) / var(--size-deltaX));
-		--text-size-6xl-intercept: calc(var(--text-size-6xl-min-size) - (var(--text-size-6xl-gradient) * var(--container-min-width)));
+		--text-size-6xl-intercept: calc(var(--text-size-6xl-min-size) - (var(--text-size-6xl-gradient) * var(--content-min-width)));
 		--text-size-6xl-font-size: calc(var(--text-size-6xl-gradient) * 100vw + var(--text-size-6xl-intercept) * 1rem);
 		--text-size-6xl: clamp(calc(var(--text-size-6xl-min-size) * 1rem), var(--text-size-6xl-font-size), calc(var(--text-size-6xl-max-size) * 1rem));
 		/* text-size-5xl */
 		--text-size-5xl-deltaY: calc(var(--text-size-5xl-max-size) - var(--text-size-5xl-min-size));
 		--text-size-5xl-gradient: calc(var(--text-size-5xl-deltaY) / var(--size-deltaX));
-		--text-size-5xl-intercept: calc(var(--text-size-5xl-min-size) - (var(--text-size-5xl-gradient) * var(--container-min-width)));
+		--text-size-5xl-intercept: calc(var(--text-size-5xl-min-size) - (var(--text-size-5xl-gradient) * var(--content-min-width)));
 		--text-size-5xl-font-size: calc(var(--text-size-5xl-gradient) * 100vw + var(--text-size-5xl-intercept) * 1rem);
 		--text-size-5xl: clamp(calc(var(--text-size-5xl-min-size) * 1rem), var(--text-size-5xl-font-size), calc(var(--text-size-5xl-max-size) * 1rem));
 		/* text-size-4xl */
 		--text-size-4xl-deltaY: calc(var(--text-size-4xl-max-size) - var(--text-size-4xl-min-size));
 		--text-size-4xl-gradient: calc(var(--text-size-4xl-deltaY) / var(--size-deltaX));
-		--text-size-4xl-intercept: calc(var(--text-size-4xl-min-size) - (var(--text-size-4xl-gradient) * var(--container-min-width)));
+		--text-size-4xl-intercept: calc(var(--text-size-4xl-min-size) - (var(--text-size-4xl-gradient) * var(--content-min-width)));
 		--text-size-4xl-font-size: calc(var(--text-size-4xl-gradient) * 100vw + var(--text-size-4xl-intercept) * 1rem);
 		--text-size-4xl: clamp(calc(var(--text-size-4xl-min-size) * 1rem), var(--text-size-4xl-font-size), calc(var(--text-size-4xl-max-size) * 1rem));
 		/* text-size-3xl */
 		--text-size-3xl-deltaY: calc(var(--text-size-3xl-max-size) - var(--text-size-3xl-min-size));
 		--text-size-3xl-gradient: calc(var(--text-size-3xl-deltaY) / var(--size-deltaX));
-		--text-size-3xl-intercept: calc(var(--text-size-3xl-min-size) - (var(--text-size-3xl-gradient) * var(--container-min-width)));
+		--text-size-3xl-intercept: calc(var(--text-size-3xl-min-size) - (var(--text-size-3xl-gradient) * var(--content-min-width)));
 		--text-size-3xl-font-size: calc(var(--text-size-3xl-gradient) * 100vw + var(--text-size-3xl-intercept) * 1rem);
 		--text-size-3xl: clamp(calc(var(--text-size-3xl-min-size) * 1rem), var(--text-size-3xl-font-size), calc(var(--text-size-3xl-max-size) * 1rem));
 		/* text-size-2xl */
 		--text-size-2xl-deltaY: calc(var(--text-size-2xl-max-size) - var(--text-size-2xl-min-size));
 		--text-size-2xl-gradient: calc(var(--text-size-2xl-deltaY) / var(--size-deltaX));
-		--text-size-2xl-intercept: calc(var(--text-size-2xl-min-size) - (var(--text-size-2xl-gradient) * var(--container-min-width)));
+		--text-size-2xl-intercept: calc(var(--text-size-2xl-min-size) - (var(--text-size-2xl-gradient) * var(--content-min-width)));
 		--text-size-2xl-font-size: calc(var(--text-size-2xl-gradient) * 100vw + var(--text-size-2xl-intercept) * 1rem);
 		--text-size-2xl: clamp(calc(var(--text-size-2xl-min-size) * 1rem), var(--text-size-2xl-font-size), calc(var(--text-size-2xl-max-size) * 1rem));
 		/* text-size-xl */
 		--text-size-xl-deltaY: calc(var(--text-size-xl-max-size) - var(--text-size-xl-min-size));
 		--text-size-xl-gradient: calc(var(--text-size-xl-deltaY) / var(--size-deltaX));
-		--text-size-xl-intercept: calc(var(--text-size-xl-min-size) - (var(--text-size-xl-gradient) * var(--container-min-width)));
+		--text-size-xl-intercept: calc(var(--text-size-xl-min-size) - (var(--text-size-xl-gradient) * var(--content-min-width)));
 		--text-size-xl-font-size: calc(var(--text-size-xl-gradient) * 100vw + var(--text-size-xl-intercept) * 1rem);
 		--text-size-xl: clamp(calc(var(--text-size-xl-min-size) * 1rem), var(--text-size-xl-font-size), calc(var(--text-size-xl-max-size) * 1rem));
 		/* text-size-lg */
 		--text-size-lg-deltaY: calc(var(--text-size-lg-max-size) - var(--text-size-lg-min-size));
 		--text-size-lg-gradient: calc(var(--text-size-lg-deltaY) / var(--size-deltaX));
-		--text-size-lg-intercept: calc(var(--text-size-lg-min-size) - (var(--text-size-lg-gradient) * var(--container-min-width)));
+		--text-size-lg-intercept: calc(var(--text-size-lg-min-size) - (var(--text-size-lg-gradient) * var(--content-min-width)));
 		--text-size-lg-font-size: calc(var(--text-size-lg-gradient) * 100vw + var(--text-size-lg-intercept) * 1rem);
 		--text-size-lg: clamp(calc(var(--text-size-lg-min-size) * 1rem), var(--text-size-lg-font-size), calc(var(--text-size-lg-max-size) * 1rem));
 		/* text-size-md */
 		--text-size-md-deltaY: calc(var(--text-size-md-max-size) - var(--text-size-md-min-size));
 		--text-size-md-gradient: calc(var(--text-size-md-deltaY) / var(--size-deltaX));
-		--text-size-md-intercept: calc(var(--text-size-md-min-size) - (var(--text-size-md-gradient) * var(--container-min-width)));
+		--text-size-md-intercept: calc(var(--text-size-md-min-size) - (var(--text-size-md-gradient) * var(--content-min-width)));
 		--text-size-md-font-size: calc(var(--text-size-md-gradient) * 100vw + var(--text-size-md-intercept) * 1rem);
 		--text-size-md: clamp(calc(var(--text-size-md-min-size) * 1rem), var(--text-size-md-font-size), calc(var(--text-size-md-max-size) * 1rem));
 		/* text-size-sm */
 		--text-size-sm-deltaY: calc(var(--text-size-sm-max-size) - var(--text-size-sm-min-size));
 		--text-size-sm-gradient: calc(var(--text-size-sm-deltaY) / var(--size-deltaX));
-		--text-size-sm-intercept: calc(var(--text-size-sm-min-size) - (var(--text-size-sm-gradient) * var(--container-min-width)));
+		--text-size-sm-intercept: calc(var(--text-size-sm-min-size) - (var(--text-size-sm-gradient) * var(--content-min-width)));
 		--text-size-sm-font-size: calc(var(--text-size-sm-gradient) * 100vw + var(--text-size-sm-intercept) * 1rem);
 		--text-size-sm: clamp(calc(var(--text-size-sm-min-size) * 1rem), var(--text-size-sm-font-size), calc(var(--text-size-sm-max-size) * 1rem));
 		/* text-size-xs */
 		--text-size-xs-deltaY: calc(var(--text-size-xs-max-size) - var(--text-size-xs-min-size));
 		--text-size-xs-gradient: calc(var(--text-size-xs-deltaY) / var(--size-deltaX));
-		--text-size-xs-intercept: calc(var(--text-size-xs-min-size) - (var(--text-size-xs-gradient) * var(--container-min-width)));
+		--text-size-xs-intercept: calc(var(--text-size-xs-min-size) - (var(--text-size-xs-gradient) * var(--content-min-width)));
 		--text-size-xs-font-size: calc(var(--text-size-xs-gradient) * 100vw + var(--text-size-xs-intercept) * 1rem);
 		--text-size-xs: clamp(calc(var(--text-size-xs-min-size) * 1rem), var(--text-size-xs-font-size), calc(var(--text-size-xs-max-size) * 1rem));
 	}
@@ -282,6 +297,18 @@
 }
 
 /* Components */
+/* Container */
+@layer base {
+	:root {
+		--container-deltaY: calc(var(--scale-13) - var(--scale-4));
+		--container-gradient: calc(var(--container-deltaY) / var(--size-deltaX));
+		--container-intercept: calc(var(--scale-4) - (var(--container-gradient) * var(--content-min-width)));
+		--container-padding-size: calc(var(--container-gradient) * 100vw + var(--container-intercept) * 1rem);
+		--container-padding-x: clamp(calc(var(--scale-4) * 1rem), var(--container-padding-size), calc(var(--scale-13) * 1rem));
+	}
+}
+
+/* Kbd */
 .kbd {
 	margin: var(--space-0);
 	padding: var(--space-4);
@@ -298,6 +325,7 @@
 	vertical-align: middle;
 }
 
+/* Tooltip */
 .tooltip {
 	border-radius: calc(var(--radius) - 2px);
 	background-color: hsl(var(--color-foreground));
@@ -305,10 +333,4 @@
 	padding-right: var(--space-5);
 	font-size: var(--text-size-sm);
 	color: hsl(var(--color-background));
-}
-
-@layer base {
-	:root {
-		--container-padding-x: 1rem;
-	}
 }

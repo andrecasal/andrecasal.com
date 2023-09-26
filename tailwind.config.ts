@@ -107,8 +107,6 @@ export default {
 			},
 			spacing: {
 				container: 'var(--container-padding-x)',
-				'container-sm': 'calc(var(--container-padding-x) + 0.5rem)',
-				'container-lg': 'calc(var(--container-padding-x) + 1rem)',
 				'space-20': 'var(--space-20)',
 				'space-19': 'var(--space-19)',
 				'space-18': 'var(--space-18)',
@@ -132,7 +130,7 @@ export default {
 				'space-0': 'var(--space-0)',
 			},
 			maxWidth: {
-				container: 'calc(var(--container-max-width) * 1rem)',
+				container: 'calc(var(--content-max-width) * 1rem)',
 			},
 			minWidth: {
 				tap: 'var(--min-tap-target)',

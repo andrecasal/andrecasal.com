@@ -1,6 +1,6 @@
 import { redirect, json, type LoaderArgs } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { Container } from '~/components/ui/container.tsx'
+import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import analysisParalysis from './images/guy-looking-at-vending-machines.jpg'
