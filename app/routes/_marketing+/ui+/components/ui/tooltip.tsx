@@ -11,12 +11,7 @@ const Tooltip = forwardRef<ElementRef<typeof TooltipPrimitive.Content>, TooltipP
 		<TooltipPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
 			<TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
 			<TooltipPrimitive.Portal /* container={container} forceMount={forceMount} */>
-				<TooltipPrimitive.Content
-					sideOffset={4}
-					collisionPadding={10}
-					ref={ref}
-					className={cn('rounded-md bg-tooltip-background px-2 text-size-tooltip text-tooltip-foreground', className)}
-				>
+				<TooltipPrimitive.Content sideOffset={4} collisionPadding={10} ref={ref} className={cn('tooltip', className)}>
 					{content}
 					<TooltipPrimitive.Arrow className="fill-tooltip-background" />
 				</TooltipPrimitive.Content>
