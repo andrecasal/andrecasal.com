@@ -89,7 +89,7 @@ const HeadingRoute = () => {
 			<Heading as="h1" className="mt-8">
 				Flex
 			</Heading>
-			<Text className="mt-4">Component for creating flex layouts.</Text>
+			<Text className="mt-4">Component for creating unidimensional flex layouts.</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Features
@@ -229,7 +229,7 @@ const HeadingRoute = () => {
 				Notes
 			</Heading>
 			<Text className="mt-4">
-				If you set <code>inline</code>, justify has no meaning because the <code>{'<Flex />'}</code> has as less width as possible.
+				If you set <code>inline</code>, justify has no meaning because the <code>{'<Flex />'}</code> has the least width possible.
 			</Text>
 			<Text className="mt-4">
 				If you set <code>align="stretch"</code>, the children shouldn't have a fixed height. Otherwise they won't stretch.
