@@ -198,7 +198,7 @@ const HeadingRoute = () => {
 						</tr>
 						<tr>
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">direction</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row' | 'row-reverse' | 'col' | 'col-reverse'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row' | 'col'</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row'</td>
 						</tr>
 						<tr>
@@ -215,11 +215,6 @@ const HeadingRoute = () => {
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">gap</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'0' ... '20'</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'0'</td>
-						</tr>
-						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">wrap</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'no-wrap' | 'wrap' | 'wrap-reverse'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'no-wrap'</td>
 						</tr>
 					</tbody>
 				</table>
