@@ -173,7 +173,7 @@ const HeadingRoute = () => {
 					<span>
 						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 					</span>
-					Allows control of size, weight, alignment, and tracking.
+					Allows control of the typographic attributes of size, weight, alignment, and tracking.
 				</li>
 				<li className="flex">
 					<span>
@@ -182,40 +182,6 @@ const HeadingRoute = () => {
 					Clear separation of concerns between semantics and design.
 				</li>
 			</ul>
-
-			<Heading as="h2" size="3xl" className="mt-8">
-				Why
-			</Heading>
-			<Text className="mt-4">
-				You might be surprised (or overjoyed 😄) to see a <code>{'<Heading />'}</code> component. Allow me to explain.
-			</Text>
-			<Text className="mt-4">Why do this:</Text>
-			<CodeBlock code={`<Heading size="6xl" weight="bold" align="center" tracking="tight">Title</Heading>`} filename="SomeComponent" extension="tsx" />
-			<Text className="mt-4">Instead of this:</Text>
-			<CodeBlock code={`<h1 className="text-6xl font-bold text-center tracking-tight">Title</h1>`} filename="SomeComponent" extension="tsx" />
-			<Text className="mt-4">
-				Because you and your designer need a <strong>common language without adding a cognitive burnen on you</strong>.
-			</Text>
-			<Text className="mt-4">
-				Alignment and weight are pretty much standard at this point, but the quantity and values for the sizes and trackings aren't - that's decided by the designer.
-			</Text>
-			<Text className="mt-4">
-				Imagine that you use utility classes throughout your codebase and your designer decides that a certain typography element, the big titles say, should go from 60px to 48px.
-				You have to go through the entire codebase and change all titles from text-6xl to text-5xl.
-			</Text>
-			<Text className="mt-4">
-				"Ok, André, but I could just create custom utility classes that use CSS variables and if the designer would need to change all titles to another size, he would just change
-				the CSS variable value".
-			</Text>
-			<Text className="mt-4">
-				Yes you could, but that has two problems: you're now forced to learn about and remember to use those custom utility classes. If you forget to use them, and the designer
-				changes the CSS variable it uses, the design will break where you've forgotten. The other problem is that there's no distinction between utility classes that are typographic
-				attributes and one that aren't. It's all mixed together in the className string.
-			</Text>
-			<Text className="mt-4">
-				By using the {'<Heading />'} component, you have a clear interface between you and the designer (or you and the design 🤭) available as props, leaving non-typographic
-				attributes to the <code>className=""</code>. This way you're not forced to memorize custom tailwind classes, while giving the designer complete control over the typography.
-			</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
