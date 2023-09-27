@@ -232,8 +232,27 @@ const HeadingRoute = () => {
 				If you set <code>inline</code>, justify has no meaning because the <code>{'<Flex />'}</code> has the least width possible.
 			</Text>
 			<Text className="mt-4">
-				If you set <code>align="stretch"</code>, the children shouldn't have a fixed height. Otherwise they won't stretch.
+				If you set <code>align="stretch"</code>, the children shouldn't have a fixed height, because otherwise, they won't stretch.
 			</Text>
+			<Text className="mt-4">
+				Flexbox loses a lot of its power if you use <code>flex-wrap: wrap</code>, so this option is omitted on purpose. If you need to wrap, you should probably use a grid instead.
+			</Text>
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Accessibility
+			</Heading>
+			<Text className="mt-4">
+				Changing visual order creates a disconnect between content and presentation and is, therefore, bad for accessibility. For this reason, I've purposely ommitted the following
+				options:
+			</Text>
+			<ul className="ml-4 mt-2 list-disc">
+				<li>
+					<code>direction</code> does not support <code>row-reverse</code> and <code>col-reverse</code> options.
+				</li>
+				<li>
+					<code>wrap</code> does not support the <code>wrap-reverse</code> option.
+				</li>
+			</ul>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Source

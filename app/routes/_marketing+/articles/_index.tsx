@@ -29,11 +29,11 @@ export type Post = {
 export const loader = () => {
 	const posts: Post[] = [
 		{
-			title: RemixDataFlowTitle,
-			description: RemixDataFlowDescription,
-			imageUrl: remixDataFlowImage,
-			href: '/articles/remix-data-flow',
-			topics: ['Remix', 'Full-stack'],
+			title: fluidSpaceSizingTitle,
+			description: fluidSpaceSizingDescription,
+			imageUrl: fluidSpaceSizingImage,
+			href: '/articles/fluid-space-sizing',
+			topics: ['Spacing', 'CSS', 'Design Systems'],
 		},
 		{
 			title: FluidTypographySizingWithModularScalesTitle,
@@ -43,11 +43,11 @@ export const loader = () => {
 			topics: ['Typography', 'CSS', 'Design Systems'],
 		},
 		{
-			title: fluidSpaceSizingTitle,
-			description: fluidSpaceSizingDescription,
-			imageUrl: fluidSpaceSizingImage,
-			href: '/articles/fluid-space-sizing',
-			topics: ['Spacing', 'CSS', 'Design Systems'],
+			title: RemixDataFlowTitle,
+			description: RemixDataFlowDescription,
+			imageUrl: remixDataFlowImage,
+			href: '/articles/remix-data-flow',
+			topics: ['Remix', 'Full-stack'],
 		},
 	]
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
