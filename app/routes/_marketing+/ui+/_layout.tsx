@@ -24,13 +24,11 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Container', href: '/ui/layout/container', disabled: false },
 		{ name: 'Flex', href: '/ui/layout/flex', disabled: false },
 		{ name: 'Grid', href: '/ui/layout/grid', disabled: false },
-		{ name: 'Section', href: '/ui/layout/section', disabled: true },
-		{ name: 'Box', href: '/ui/layout/box', disabled: true },
 	]
 
 	const typography = [
-		{ name: 'Text', href: '/ui/typography/text', disabled: false },
 		{ name: 'Heading', href: '/ui/typography/heading', disabled: false },
+		{ name: 'Text', href: '/ui/typography/text', disabled: false },
 		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
 		{ name: 'Command Line', href: '/ui/typography/command-line', disabled: false },
 		{ name: 'Em', href: '/ui/typography/em', disabled: true },
