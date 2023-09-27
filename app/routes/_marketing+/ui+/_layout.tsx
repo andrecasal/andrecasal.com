@@ -21,11 +21,11 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 	]
 
 	const layout = [
-		{ name: 'Box', href: '/ui/layout/box', disabled: true },
-		{ name: 'Flex', href: '/ui/layout/flex', disabled: true },
-		{ name: 'Grid', href: '/ui/layout/grid', disabled: true },
 		{ name: 'Container', href: '/ui/layout/container', disabled: false },
+		{ name: 'Flex', href: '/ui/layout/flex', disabled: false },
+		{ name: 'Grid', href: '/ui/layout/grid', disabled: true },
 		{ name: 'Section', href: '/ui/layout/section', disabled: true },
+		{ name: 'Box', href: '/ui/layout/box', disabled: true },
 	]
 
 	const typography = [
