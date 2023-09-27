@@ -1,6 +1,6 @@
 import { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent } from './components/ui/slide-in-dialog.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { ScrollArea } from './components/ui/scroll-area.tsx'
+import { ScrollArea } from './components/layout/scroll-area.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
@@ -24,6 +24,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Container', href: '/ui/layout/container', disabled: false },
 		{ name: 'Flex', href: '/ui/layout/flex', disabled: false },
 		{ name: 'Grid', href: '/ui/layout/grid', disabled: false },
+		{ name: 'Scroll Area', href: '/ui/layout/scroll-area', disabled: false },
 	]
 
 	const typography = [
@@ -66,7 +67,6 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Popover', href: '/ui/ui/popover', disabled: true },
 		{ name: 'Progress', href: '/ui/ui/progress', disabled: true },
 		{ name: 'Radio Group', href: '/ui/ui/radio-group', disabled: true },
-		{ name: 'Scroll Area', href: '/ui/ui/scroll-area', disabled: true },
 		{ name: 'Select', href: '/ui/ui/select', disabled: true },
 		{ name: 'Separator', href: '/ui/ui/separator', disabled: true },
 		{ name: 'Skeleton', href: '/ui/ui/skeleton', disabled: true },
