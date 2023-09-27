@@ -24,8 +24,8 @@ const HeadingRoute = () => {
 @layer base {
 	:root {
 		/* 👇 Edit these values */
-		--container-min-padding: var(--scale-4);
-		--container-max-padding: var(--scale-13);
+		--container-min-padding: var(--scale-4); /* 6px */
+		--container-max-padding: var(--scale-13); /* 32px */
 
 		/* Calculations */
 		--container-deltaY: calc(var(--container-max-padding) - var(--container-min-padding));
