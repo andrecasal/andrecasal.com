@@ -302,7 +302,7 @@ const HeadingRoute = () => {
 						</tr>
 						<tr>
 							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">flow</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row' | 'col' | 'row-dense' | 'col-dense'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row' | 'col'</td>
 							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'row'</td>
 						</tr>
 						<tr>
@@ -345,11 +345,24 @@ const HeadingRoute = () => {
 				If you set <code>align="stretch"</code>, the children shouldn't have a fixed height. Otherwise they won't stretch.
 			</Text>
 			<Text className="mt-4">
-				Setting <code>justify="stretch"</code> has the same effect as setting <code>w-full</code> on all the children (assuming the <code>flow="row"</code>).
+				Setting <code>justify="stretch"</code> has the same effect as setting <code>w-full</code> on all the children (assuming <code>flow="row"</code>).
 			</Text>
 			<Text className="mt-4">
-				Setting <code>align="stretch"</code> has the same effect as setting <code>h-full</code> on all the children (assuming the <code>flow="row"</code>).
+				Setting <code>align="stretch"</code> has the same effect as setting <code>h-full</code> on all the children (assuming <code>flow="row"</code>).
 			</Text>
+
+			<Heading as="h2" size="3xl" className="mt-8">
+				Accessibility
+			</Heading>
+			<Text className="mt-4">
+				Changing visual order creates a disconnect between content and presentation and is, therefore, bad for accessibility. For this reason, I've purposely ommitted the following
+				option:
+			</Text>
+			<ul className="ml-4 mt-2 list-disc">
+				<li>
+					<code>direction</code> does not support <code>row-dense</code> and <code>col-dense</code> options.
+				</li>
+			</ul>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Source

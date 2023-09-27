@@ -8,8 +8,6 @@ const gridVariants = cva('grid', {
 		flow: {
 			row: 'grid-flow-row',
 			col: 'grid-flow-col',
-			'row-dense': 'grid-flow-row-dense',
-			'col-dense': 'grid-flow-col-dense',
 		},
 		justify: {
 			start: 'justify-items-start',

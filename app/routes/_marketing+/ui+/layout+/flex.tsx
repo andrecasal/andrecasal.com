@@ -238,14 +238,11 @@ const HeadingRoute = () => {
 			</Heading>
 			<Text className="mt-4">
 				Changing visual order creates a disconnect between content and presentation and is, therefore, bad for accessibility. For this reason, I've purposely ommitted the following
-				options:
+				option:
 			</Text>
 			<ul className="ml-4 mt-2 list-disc">
 				<li>
-					<code>direction</code> does not support <code>row-reverse</code> and <code>col-reverse</code> options.
-				</li>
-				<li>
-					<code>wrap</code> does not support the <code>wrap-reverse</code> option.
+					<code>flow</code> does not support <code>row-dense</code> and <code>col-dense</code> options.
 				</li>
 			</ul>
 
