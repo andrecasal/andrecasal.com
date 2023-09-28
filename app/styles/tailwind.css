@@ -323,11 +323,11 @@
 	}
 
 	.tabslist {
-		@apply flex gap-space-6 rounded-lg bg-muted-200 p-space-3;
+		@apply flex justify-between gap-space-8 rounded-lg bg-muted-200 p-space-3;
 	}
 
 	.tabstrigger {
-		@apply cursor-pointer rounded-md border px-space-14 py-space-4 text-muted-600 data-[state=active]:border-muted-100 data-[state=active]:bg-background data-[state=active]:text-muted-900 data-[state=active]:shadow-sm;
+		@apply cursor-pointer rounded-md border px-space-8 py-space-4 text-muted-600 data-[state=active]:border-muted-100 data-[state=active]:bg-background data-[state=active]:text-muted-900 data-[state=active]:shadow-sm;
 	}
 
 	.tabscontent {
