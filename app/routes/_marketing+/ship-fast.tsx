@@ -189,7 +189,7 @@ const ShipFast = () => {
 				<Text size="lg" className="mx-auto mt-4 max-w-3xl text-center">
 					Spend your time building your startup, not integrating APIs. ShipFast provides you with the boilerplate code you need to launch, FAST.
 				</Text>
-				<Tabs.Root defaultValue="more" className="mt-14 w-full">
+				<Tabs.Root defaultValue="email" className="mt-14 w-full">
 					<Tabs.List className="w-full overflow-x-auto">
 						<Tabs.Trigger value="email">Email</Tabs.Trigger>
 						<Tabs.Trigger value="payments">Payments</Tabs.Trigger>
