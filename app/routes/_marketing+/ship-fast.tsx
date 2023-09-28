@@ -94,6 +94,10 @@ const ShipFast = () => {
 					The <strong>Remix</strong> boilerplate with all you need to build your SaaS, AI tool, or any other web app. From idea to production in <strong>1 minute</strong>.
 				</Text>
 
+				<Text size="xl" weight="bold" align="center" className="mx-auto mt-14 max-w-3xl text-muted-700">
+					Launching in 2 weeks. Presale available now.
+				</Text>
+
 				<div className="text-center">
 					<ul className="my-32 inline-block list-inside space-y-1 rounded-md bg-red-50 px-32 py-10 text-gray-500 dark:text-gray-400">
 						<li className="flex">
