@@ -87,10 +87,10 @@ const ShipFast = () => {
 	return (
 		<>
 			<Container>
-				<Heading as="h1" className="mt-8 max-w-3xl">
+				<Heading as="h1" align="center" className="mx-auto mt-14 max-w-3xl">
 					Ship your startup in days, not weeks.
 				</Heading>
-				<Text size="xl" className="mt-4 max-w-3xl">
+				<Text size="xl" align="center" className="mx-auto mt-4 max-w-3xl text-muted-700">
 					The <strong>Remix</strong> boilerplate with all you need to build your SaaS, AI tool, or any other web app. From idea to production in <strong>1 minute</strong>.
 				</Text>
 
