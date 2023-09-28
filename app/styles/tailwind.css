@@ -297,8 +297,8 @@
 }
 
 /* Components */
-/* Container */
-@layer base {
+@layer components {
+	/* Container */
 	:root {
 		/* 👇 Edit these values */
 		--container-min-padding: var(--scale-4);
@@ -311,31 +311,30 @@
 		--container-padding-size: calc(var(--container-gradient) * 100vw + var(--container-intercept) * 1rem);
 		--container-padding-x: clamp(calc(var(--container-min-padding) * 1rem), var(--container-padding-size), calc(var(--container-max-padding) * 1rem));
 	}
-}
 
-/* Kbd */
-.kbd {
-	margin: var(--space-0);
-	padding: var(--space-4);
-	border-color: hsl(var(--color-muted-200));
-	border-width: var(--space-1);
-	border-radius: var(--radius);
-	font-family: var(--font-code);
-	font-size: var(--text-size-xs);
-	line-height: var(--text-line-height-xs);
-	letter-spacing: var(--text-tracking-xs);
-	background-color: hsl(var(--color-muted-50));
-	color: hsl(var(--color-muted-900));
-	box-shadow: var(--space-0) var(--space-1) var(--space-2) var(--space-0) hsl(var(--color-foreground) / 0.05);
-	vertical-align: middle;
-}
+	/* Kbd */
+	.kbd {
+		@apply m-space-0 border-spacing-space-1 rounded-lg border border-muted-200 bg-muted-50 p-space-4 align-baseline font-code text-size-xs text-muted-900 shadow-sm;
+	}
 
-/* Tooltip */
-.tooltip {
-	border-radius: calc(var(--radius) - 2px);
-	background-color: hsl(var(--color-foreground));
-	padding-left: var(--space-5);
-	padding-right: var(--space-5);
-	font-size: var(--text-size-sm);
-	color: hsl(var(--color-background));
+	/* Tabs */
+	.tabsroot {
+		@apply inline-block;
+	}
+
+	.tabslist {
+		@apply flex gap-space-6 rounded-lg bg-muted-200 p-space-3;
+	}
+
+	.tabstrigger {
+		@apply cursor-pointer rounded-md border px-space-14 py-space-4 text-muted-600 data-[state=active]:border-muted-100 data-[state=active]:bg-background data-[state=active]:text-muted-900 data-[state=active]:shadow-sm;
+	}
+
+	.tabscontent {
+	}
+
+	/* Tooltip */
+	.tooltip {
+		@apply rounded-md bg-foreground px-space-5 text-size-sm text-background;
+	}
 }

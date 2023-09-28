@@ -16,6 +16,7 @@ const navigation = [
 	/* { name: 'Tips', href: '/tips' }, */
 	/* { name: 'Shorts', href: '/shorts' }, */
 	{ name: 'ui', href: '/ui' },
+	{ name: 'ShipFast', href: '/ship-fast' },
 	{ name: 'Articles', href: '/articles' },
 	/* { name: 'Talks', href: '/talks' }, */
 	{

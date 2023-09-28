@@ -74,7 +74,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{ name: 'Slide-in Dialog', href: '/ui/ui/slide-in-dialog', disabled: true },
 		{ name: 'Switch', href: '/ui/ui/switch', disabled: true },
 		{ name: 'Table', href: '/ui/ui/table', disabled: true },
-		{ name: 'Tabs', href: '/ui/ui/tabs', disabled: true },
+		{ name: 'Tabs', href: '/ui/ui/tabs', disabled: false },
 		{ name: 'Textarea', href: '/ui/ui/textarea', disabled: true },
 		{ name: 'Toast', href: '/ui/ui/toast', disabled: true },
 		{ name: 'Toggle', href: '/ui/ui/toggle', disabled: true },
