@@ -48,10 +48,10 @@ const flexVariants = cva('flex', {
 	},
 })
 
-type FlexProps = { inline?: boolean } & VariantProps<typeof flexVariants> & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+type FlexProps = { inline?: boolean; wrap?: boolean } & VariantProps<typeof flexVariants> & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const Flex = forwardRef<HTMLDivElement, FlexProps>(({ inline = false, direction = 'row', justify = 'start', align = 'start', gap = '0', className, ...props }, ref) => {
-	return <div ref={ref} className={cn(flexVariants({ direction, align, justify, gap }), inline ? `inline-flex` : ``, className)} {...props} />
+const Flex = forwardRef<HTMLDivElement, FlexProps>(({ inline = false, wrap = false, direction = 'row', justify = 'start', align = 'start', gap = '0', className, ...props }, ref) => {
+	return <div ref={ref} className={cn(flexVariants({ direction, align, justify, gap }), inline ? `inline-flex` : ``, wrap ? `flex-wrap` : ``, className)} {...props} />
 })
 Flex.displayName = 'Flex'
 
