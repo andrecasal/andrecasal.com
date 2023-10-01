@@ -110,6 +110,7 @@ export const subscribeUser = async ({ name, email }: { name: string; email: stri
 	const subscriber = {
 		email,
 		fields: { name },
+		groups: ['94964866788362231'],
 	}
 
 	const response = await fetch(`${process.env.MARKETING_EMAIL_SERVICE_API_ENDPOINT}`, {
