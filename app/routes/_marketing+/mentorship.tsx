@@ -129,9 +129,9 @@ const moreFeatures = [
 ]
 
 const stats = [
-	{ label: 'With an initial call', value: 'Startup' },
-	{ label: 'To learn and build', value: 'Sprints' },
-	{ label: 'Your goals', value: 'Reached' },
+	{ label: 'with an initial call', value: 'Start' },
+	{ label: 'with guided cycles', value: 'Sprint' },
+	{ label: 'higher goals', value: 'Reach' },
 ]
 
 const featuredTestimonial = {
@@ -238,9 +238,9 @@ const FullStackWebDevMentor = () => {
 			</BackgroundSquareLines>
 			<Container>
 				<div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 py-24 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
+					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
-							<div className="lg:max-w-lg">
+							<div className="lg:max-w-2xl">
 								<Heading as="h2" size="md" className="text-brand">
 									Full-stack web development
 								</Heading>
@@ -350,7 +350,7 @@ const FullStackWebDevMentor = () => {
 							<div className="flex justify-around">
 								<Button size="lg" variant="outline" asChild>
 									<CollapsibleTrigger className="mt-8 rounded-lg border px-6 py-2 text-lg leading-8 text-muted-600 sm:mt-10 lg:mt-12">
-										{open ? 'Show less...' : 'And many, many more...'}
+										{open ? 'Show less...' : 'And much, much more...'}
 									</CollapsibleTrigger>
 								</Button>
 							</div>
@@ -367,9 +367,8 @@ const FullStackWebDevMentor = () => {
 						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
 								<Text size="xl" className="text-muted-600">
-									We start by having a startup call for you to contextualize me on what you'd like to accomplish, where we bounce ideas back and forth, and where we make a
-									plan for the first sprint. I highly recommend you already bring a real-world application in mind that you'd like to build or improve so we can get our
-									hands dirty.
+									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. I
+									highly recommend you already bring a real-world application in mind that you'd like to build or improve so we can get our hands dirty.
 								</Text>
 								<Text size="md" className="mt-10 max-w-xl text-muted-700">
 									Then comes the bulk of the work, where you'll build your app with my guidance. I'll be there to make sure you're on the right track, helping you with any
@@ -381,23 +380,17 @@ const FullStackWebDevMentor = () => {
 									higher-paying job, shipped your app, or any combination of those.
 								</Text>
 							</div>
-							<div className="lg:flex lg:flex-auto lg:justify-center">
-								<dl className="w-64 space-y-8 xl:w-80">
-									{stats.map(stat => (
-										<div key={stat.label} className="flex flex-col-reverse gap-y-4">
-											<dt>
-												<Text size="md" className="text-muted-600">
-													{stat.label}
-												</Text>
-											</dt>
-											<dd>
-												<Text as="span" size="4xl" weight="semibold" className="mt-2 text-muted-900">
-													{stat.value}
-												</Text>
-											</dd>
-										</div>
-									))}
-								</dl>
+							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">
+								{stats.map(stat => (
+									<div key={stat.value} className="flex flex-col gap-y-2">
+										<Text as="span" size="4xl" weight="semibold" className="text-muted-900">
+											{stat.value}
+										</Text>
+										<Text size="md" className="text-muted-600">
+											{stat.label}
+										</Text>
+									</div>
+								))}
 							</div>
 						</div>
 					</div>
