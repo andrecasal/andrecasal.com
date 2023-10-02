@@ -24,12 +24,12 @@ export default function Index() {
 			icon: 'play',
 			link: '/shorts',
 		}, */
-		/* {
-			name: 'In-depth articles',
-			description: "If you feel like digging a little deeper and exploring a rabbit hole, read an article. It's worth taking notes on these ones.",
+		{
+			name: 'Articles',
+			description: "Relatively short articles you can read in 5 to 10 minutes. You'll learn a lot, but you won't become an expert.",
 			icon: 'file-text',
 			link: '/articles',
-		}, */
+		},
 		/* {
 			name: 'Talks',
 			description: "Talks have the same depth as the articles, except in video format. It's also worth to take notes on these ones, but feel free to merely be entertained.",
@@ -38,7 +38,7 @@ export default function Index() {
 		}, */
 		{
 			name: 'Courses',
-			description: "If you'd like to become an expert in a particular topic, you can always buy a course.",
+			description: "If you're serious about becoming a full-stack web developer, you'll need to take courses. I'm building a few.",
 			icon: 'trophy',
 			link: '/courses',
 		},
@@ -60,11 +60,11 @@ export default function Index() {
 						<Heading as="h2" size="md" align="center" className="text-brand">
 							Everything you need to
 						</Heading>
-						<Text size="3xl" className="mt-4 font-bold">
+						<Text size="3xl" align="center" className="mt-4 font-bold">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer
 						</Text>
-						<Text size="lg" className="mt-6 leading-8 text-muted-600">
+						<Text size="lg" align="center" className="mt-6 leading-8 text-muted-600">
 							The website's content is organized in a rising progression of time and depth.
 						</Text>
 					</div>
