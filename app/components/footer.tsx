@@ -99,7 +99,7 @@ const Footer = () => {
 								André Casal
 							</Heading>
 							<Text size="md" className="text-muted-600">
-								Making the world a better place through constructing elegant software.
+								Making the world a better place by constructing elegant software.
 							</Text>
 							<div className="flex space-x-6">
 								{navigation.social.map(item => (
