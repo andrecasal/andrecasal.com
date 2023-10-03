@@ -7,11 +7,7 @@ export function init() {
 		dsn: ENV.SENTRY_DSN,
 		integrations: [
 			new Sentry.BrowserTracing({
-				routingInstrumentation: Sentry.remixRouterInstrumentation(
-					useEffect,
-					useLocation,
-					useMatches,
-				),
+				routingInstrumentation: Sentry.remixRouterInstrumentation(useEffect, useLocation, useMatches),
 			}),
 			// Replay is only available in the client
 			new Sentry.Replay(),
@@ -20,7 +16,7 @@ export function init() {
 		// Set tracesSampleRate to 1.0 to capture 100%
 		// of transactions for performance monitoring.
 		// We recommend adjusting this value in production
-		tracesSampleRate: 1.0,
+		tracesSampleRate: 0.1,
 
 		// Capture Replay for 10% of all sessions,
 		// plus for 100% of sessions with an error
