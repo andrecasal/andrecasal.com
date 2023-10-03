@@ -10,6 +10,7 @@ import { cn } from '~/utils/tailwind-merge.ts'
 import { Flex } from '../ui+/components/layout/flex.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import shipFastImage from './shipfast.png'
+import arrow from './arrow.png'
 
 const ShipFast = () => {
 	const tiers = [
@@ -95,13 +96,13 @@ const ShipFast = () => {
 						<Heading as="h1" align="center" className="mx-auto max-w-3xl">
 							<span className="whitespace-nowrap">Ship your startup</span>{' '}
 							<span className="whitespace-nowrap">
-								in hours,
+								in days,
 								<span className="inline-block -rotate-2 bg-brand/40 px-2">not weeks</span>
 							</span>
 						</Heading>
 						<div>
 							<Text size="md" className="mx-auto max-w-3xl text-muted-700">
-								The <strong>Remix stack</strong> with all you need to build your full-stack web app. From idea to production in <strong>1 minute</strong>.
+								The <strong>Remix stack</strong> with all you need to build your full-stack web app. From idea to production in <strong>5 minutes</strong>.
 							</Text>
 						</div>
 						<Flex justify="center" className="mt-10 w-full">
@@ -125,7 +126,7 @@ const ShipFast = () => {
 						className="flex cursor-pointer items-center gap-3 opacity-80 saturate-0 duration-100 hover:opacity-100 hover:saturate-100"
 					>
 						<svg className="fill-base-content w-10" viewBox="0 0 219 219" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g clip-path="url(#clip0_176_3)">
+							<g clipPath="url(#clip0_176_3)">
 								<path
 									d="M218.991 109.5C218.991 169.999 170.037 219 109.596 219C49.1552 219 0.200928 169.999 0.200928 109.5C0.200928 49.0012 49.1552 0 109.596 0C170.037 0 218.991 49.0012 218.991 109.5Z"
 									fill="#DA552F"
@@ -156,7 +157,7 @@ const ShipFast = () => {
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<g clip-path="url(#clip0_177_29)">
+							<g clipPath="url(#clip0_177_29)">
 								<path
 									d="M126 250.793C195.036 250.793 251 194.875 251 125.897C251 56.9181 195.036 1 126 1C56.9644 1 1 56.9181 1 125.897C1 194.875 56.9644 250.793 126 250.793Z"
 									fill="black"
@@ -188,7 +189,7 @@ const ShipFast = () => {
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<g clip-path="url(#clip0_180_2)">
+							<g clipPath="url(#clip0_180_2)">
 								<path
 									d="M627.075 157.051V97.6266H633.795C634.727 97.7109 635.666 97.5995 636.552 97.2996C637.439 96.9997 638.253 96.518 638.942 95.8851C639.631 95.2523 640.181 94.4824 640.556 93.6247C640.931 92.767 641.123 91.8405 641.119 90.9044V90.7028C641.231 89.7931 641.155 88.8701 640.897 87.9906C640.639 87.1111 640.204 86.2937 639.619 85.5886C639.034 84.8834 638.311 84.3055 637.494 83.8902C636.677 83.475 635.784 83.2312 634.87 83.1739H627.075V72.0822C627.084 70.0116 626.315 68.0133 624.922 66.4822C623.528 64.9512 621.611 63.999 619.55 63.8139C617.432 63.6844 615.349 64.395 613.752 65.7918C612.154 67.1885 611.172 69.1588 611.016 71.2755V83.3083H604.297C603.365 83.2241 602.426 83.3354 601.54 83.6353C600.653 83.9352 599.839 84.417 599.15 85.0498C598.46 85.6826 597.911 86.4525 597.536 87.3102C597.161 88.1679 596.969 89.0945 596.973 90.0305V90.5011C596.861 91.4108 596.937 92.3337 597.195 93.2132C597.452 94.0927 597.887 94.9101 598.473 95.6153C599.058 96.3204 599.781 96.8984 600.598 97.3136C601.415 97.7289 602.308 97.9727 603.222 98.03H610.815V157.253C610.815 159.374 611.657 161.409 613.157 162.909C614.656 164.409 616.69 165.252 618.811 165.252C620.921 165.362 622.989 164.632 624.563 163.221C626.137 161.811 627.088 159.834 627.21 157.723C627.235 157.491 627.188 157.256 627.075 157.051Z"
 									fill="#D7DADC"
@@ -234,97 +235,316 @@ const ShipFast = () => {
 						</svg>
 					</a> */}
 				</section>
+				<section>
+					<Heading align="center">A Tale of a Developer</Heading>
+					<div className="relative -z-20 mx-auto max-w-6xl rounded-2xl bg-muted-100 p-6">
+						<div className="absolute left-1/2 -z-10 h-[calc(100%-48px)] w-0.5 bg-muted-300" />
+						<Good>
+							You come up with what seems like a great idea for a startup. You sleep on it and it still sounds good, so you come up with a nice domain name and buy it. You’re
+							excited to start building!
+						</Good>
+						<Bad>
+							But before you do, you need to decide on a framework. You spend <span className="font-bold text-red-500">1 hour</span> looking at what most people are using and
+							decide on NextJS. It’s well supported, lots of people use it, has good docs.
+						</Bad>
+						<Good>You run npx create-next-app@latest, tell it to install TS, ESLint, Tailwind, App Router, a few other configs and get going.</Good>
+						<Good>You start by building the public and marketing pages you’ve mocked up, to present your new thing to the world.</Good>
+						<Bad>
+							But you quickly realize you’re gonna need email marketing. It’s not installed yet, and you know you’ll want to research the best Marketing Email Providers with a
+							generous free tier, so <span className="font-bold text-red-500">you leave it for after</span> you’re done with the public and marketing pages. It might cost you a
+							few subscribers, but no big deal.
+						</Bad>
+						<Good>Work, work, work. Ok, the public and marketing pages are done.</Good>
+						<Bad>
+							A bit of a frustrating and tiring experience because, even though these were mostly static UI components, the UI library you're using is a little too low-level
+							and mixes design and functionality, forcing you to mentally switch context between the two.
+						</Bad>
+						<Good>But it's done. You're tired but happy! Time to integrate with an Email Marketing Provider.</Good>
+						<Bad>
+							You spend <span className="font-bold text-red-500">4 hours</span> researching the best ones, decide on one with a generous free tier, and spend{' '}
+							<span className="font-bold text-red-500">1 hour</span> creating a beautiful newsletter component that sends the user’s email address to the backend.
+						</Bad>
+						<Good>
+							Now that you have the user’s email on the backend you ask yourself if you want single or double opt in. You know you’re less likely to receive spam complaints
+							from users receiving your emails with double opt in.
+						</Good>
+						<Bad>But it’s more complicated, and you’re tired - and this is just a startup anyway. Single opt in it is.</Bad>
+						<Good>You go to sleep feeling proud of having finished the public and marketing part of your app.</Good>
+						<Good>A new day dawns. You’re feeling motivated to continue building your new project. </Good>
+						<Bad>
+							But it’s time to think about the hardcore stuff: database, data model, authentication, permissions, user flows, business logic, deployment pipeline 😮‍💨 ufff this
+							is going to take some work... You take a deep breath and get going.
+						</Bad>
+						<Good>Work, work, work.</Good>
+						<Bad>
+							<span className="font-bold text-red-500">Two days have passed</span>. Your went for MongoDB and Mongoose.
+						</Bad>
+						<Good>
+							The schema is ready to go. Basic authentication with registration and login is working. Time for protected routes, profile page, email and password change flows.
+							Another deep breath... let's go!
+						</Good>
+						<Good>Work, work, work.</Good>
+						<Bad>
+							<span className="font-bold text-red-500">Two more days have passed</span>.
+						</Bad>
+						<Good>Authentication is done and you're proud. Registration, login, and email and password changes are working.</Good>
+						<Bad>There's no Two-Factor Authentication or Single-Sign On, but this is a startup anyway. We'll do that later if it succeeds.</Bad>
+						<Good>Ok, you're almost ready for the interesting stuff: building the actual app.</Good>
+						<Bad>
+							But before you do, you need to get this thing online. So you spend <span className="font-bold text-red-500">2 more hours</span> researching the best CI/CD
+							techniques and which features each cloud provider offers.
+						</Bad>
+						<Bad>
+							<span className="font-bold text-red-500">Two more days have passed</span>.
+						</Bad>
+						<Good>You now have a CI/CD pipeline you're feeling proud of, deploying on Vercel servers. It's quick and easy.</Good>
+						<Bad>
+							<span className="font-bold text-red-500">A week has passed since you've started</span> and you're now ready to start building your app.
+						</Bad>
+						<Good>Finally! With an incredible amount of sustained excitement, you're eager to get started.</Good>
+						<Good>
+							You build your app, show it to your users and, incredibly, it succeeds! People actually start using it, amazing! Dreams of profitability start to materialize and
+							it's time to install Analytics. This looks like a no-brainer decision, use what everyone else uses.
+						</Good>
+						<Bad>
+							So you install Google Analytics. And a <span className="font-bold text-red-500">cookie banner</span> to comply with GDPR.
+						</Bad>
+						<Good>You're on a roll, happily pushing new features until...</Good>
+						<Bad>
+							Uh oh, user activity starts to drop abruptly :/ What the hell's going on? Damn it, you probably have an error that's breaking the app. You spend{' '}
+							<span className="font-bold text-red-500">2 hours</span> frantically searching for the bug but you can't find it so you need to install a monitoring tool that
+							supports session replay urgently before enough users leave and you have no failed sessions to debug.
+						</Bad>
+						<Bad>
+							Work, work, work. <span className="font-bold text-red-500">2 hours later</span> you push a commit with the monitoring tool's code!
+						</Bad>
+						<Good>
+							There's still a few users left, so you can do a session replay and find the exact sequence of actions that lead to the bug and correct it! Ufff 😮‍💨 crisis averted
+							😅
+						</Good>
+						<Bad>You send an apology email to your users and they're happy to see you're responsive.</Bad>
+						<Good>Would have been better if this bug was caught early, but hey, could have been worse.</Good>
+						<Bad>
+							The same goes for uptime issues, performance issues, memory leaks, SEO, automated testing, linting, type checking, developer experience and so many other aspects
+							of development that are not directly related to actually building your stuff... And this process is almost the same every. single. time.
+						</Bad>
+						<img src={arrow} alt="Arrow" className="absolute -bottom-[130px] left-1/2 h-56 w-56 -translate-x-1/2 -rotate-[138deg]" />
+					</div>
+					<Heading as="h2" align="center" className="mt-24">
+						Or you could <span className="inline-block -rotate-2 bg-brand/40 px-2">get</span> <span className="whitespace-nowrap">✨ ShipFast ✨</span>
+					</Heading>
+					<div className="mx-auto max-w-2xl">
+						<Text size="lg" align="center" className="mt-8 text-muted-600">
+							It's a boilerplate that comes with all of this stuff already integrated, so you can focus on building your app.
+						</Text>
+					</div>
+				</section>
+				<Flex wrap justify="center" gap="14">
+					<div>
+						<Heading as="h2" size="2xl" align="center" className="mt-24">
+							<span className="inline-block -rotate-2 bg-brand/40 px-2">Without</span> ShipFast 👇
+						</Heading>
+						<div className="text-center">
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-gray-500 dark:text-gray-400">
+								<li className="flex">
+									<span className="font-bold text-red-500">1 hour</span>&nbsp;looking at frameworks
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">3 hours</span>&nbsp;dealing with state management
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">5 hours</span>&nbsp;to integrate email marketing
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">2 hours</span>&nbsp;to integrate transactional email
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">2 hours</span>&nbsp;setting up your db schema
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">4 hours</span>&nbsp;setting up authentication
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">1 hour</span>&nbsp;for protected routes
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">4 hours</span>&nbsp;integrating payments
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">3 hours</span>&nbsp;creating your CI/CD pipeline
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">2 hours</span>&nbsp;for DNS records
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">4 hours</span>&nbsp;on SEO tags
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating analytics
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating error monitoring
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating performance monitoring
+								</li>
+								<li className="flex">
+									<span className="font-bold text-red-500">+ &infin;</span>&nbsp;overthinking...
+								</li>
+								<li className="flex pt-4 text-lg">
+									<strong>
+										= <span className="text-red-500">34+ hours</span>&nbsp;of headaches
+									</strong>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<Heading as="h2" size="2xl" align="center" className="mt-24">
+							<span className="inline-block -rotate-2 bg-brand/40 px-2">With</span> ShipFast 👇
+						</Heading>
+						<div className="text-center">
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-gray-500 dark:text-gray-400">
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									No need for state management tools with Remix.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Transactional and marketing emails.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Send beautiful emails built with React.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Proper DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomains).
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									High-performance, easy to handle database, schema, and migrations.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Full authentication flow and private/protected routes.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Role-based permissions.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Payment integrations.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Custom built image hosting.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									SEO, OpenGraph, and Rich Snippets.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Complete, acessible, and responsive UI library with dark mode support.
+								</li>
 
-				<div className="text-center">
-					<ul className="my-32 inline-block list-inside space-y-1 rounded-md bg-red-50 px-32 py-10 text-gray-500 dark:text-gray-400">
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">4 hours</span>&nbsp;to set up emails
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">4 hours</span>&nbsp;integrating payments
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">8 hours</span>&nbsp;setting up authentication
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">2 hours</span>&nbsp;setting up your db schema
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">4 hours</span>&nbsp;on SEO tags
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating Tailwind
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">5 hours</span>&nbsp;creating your CI/CD pipeline
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating analytics
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating monitoring
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full  text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">2 hours</span>&nbsp;for DNS records
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full  text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">2 hours</span>&nbsp;for protected API routes
-						</li>
-						<li className="flex">
-							<span>
-								<Icon name="cross-1" size="md" className="mr-2 inline-block h-5 w-5 rounded-full  text-red-500" />
-							</span>
-							<span className="font-bold text-red-500">+ &infin;</span>&nbsp;overthinking...
-						</li>
-						<li className="flex pt-4 text-lg">
-							<strong>
-								= <span className="text-red-500">34+ hours</span>&nbsp;of headaches
-							</strong>
-						</li>
-					</ul>
-				</div>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Decoupled design and development. Focus on one at a time.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Complete CI/CD pipeline with liting, type checking, unit, and e2e testing.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Caching, both in-memory and SQLite-based
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Launch your app world-wide, instantly, and with automatic data replication.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Ethical analytics. No need for cookie banner.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Error and performance monitoring.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Built-in VS Code extensions for a great developer experience.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									Offline development with all external services mocked.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									A community you can engage with and ask questions to.
+								</li>
+								<li className="flex">
+									<span>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
+									</span>
+									...and a lot more!
+								</li>
+							</ul>
+						</div>
+					</div>
+				</Flex>
+				<Text size="lg" className="mx-auto mt-4 max-w-3xl text-center text-muted-600">
+					Spend your time building your app, not configuring tools and integrating APIs.
+				</Text>
 
-				<Heading as="h2" size="3xl" className="mt-8 text-center">
-					Supercharge your app instantly, launch faster, make $
+				<Heading as="h2" size="3xl" className="mt-14 text-center">
+					The tech stack
 				</Heading>
 				<Text size="xl" className="mx-auto mt-4 max-w-3xl text-center">
-					Login users, process payments and send emails at lightspeed.
-				</Text>
-				<Text size="lg" className="mx-auto mt-4 max-w-3xl text-center">
-					Spend your time building your startup, not integrating APIs. ShipFast provides you with the boilerplate code you need to launch, FAST.
+					Here's all the tech you get with ShipFast and why it's awesome.
 				</Text>
 				<Tabs.Root defaultValue="email" className="mt-14 w-full">
 					<Tabs.List className="w-full overflow-x-auto">
@@ -1083,3 +1303,19 @@ const ShipFast = () => {
 }
 
 export default ShipFast
+
+const Good = ({ children }: any) => {
+	return (
+		<Text size="lg" className="mt-8 max-w-2xl rounded-xl border border-green-200 bg-green-50 p-4 text-foreground dark:border-green-700 dark:bg-green-900">
+			{children}
+		</Text>
+	)
+}
+
+const Bad = ({ children }: any) => {
+	return (
+		<Text size="lg" className="ml-auto mt-8 max-w-2xl rounded-xl border border-red-200 bg-red-50 p-4 text-foreground dark:border-red-700 dark:bg-red-900">
+			{children}
+		</Text>
+	)
+}
