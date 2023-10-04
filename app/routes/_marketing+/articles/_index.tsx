@@ -17,8 +17,8 @@ import {
 import fluidTypographySizingWithModularScalesImage from './fluid-typography-sizing-with-modular-scales/fluid-typography.png'
 import { title as fluidSpaceSizingTitle, description as fluidSpaceSizingDescription } from './fluid-space-sizing/index.tsx'
 import fluidSpaceSizingImage from './fluid-space-sizing/fluid-space-sizing.png'
-import { title as theDarkSideOfTheGridTitle, description as theDarkSideOfTheGridDescription } from './the-dark-side-of-the-grid/index.tsx'
-import theDarkSideOfTheGridImage from './the-dark-side-of-the-grid/the-dark-side-of-the-grid.png'
+/* import { title as theDarkSideOfTheGridTitle, description as theDarkSideOfTheGridDescription } from './the-dark-side-of-the-grid/index.tsx'
+import theDarkSideOfTheGridImage from './the-dark-side-of-the-grid/the-dark-side-of-the-grid.png' */
 
 export type Post = {
 	title: string
