@@ -1,10 +1,11 @@
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import remixDataFlow from './remix-data-flow.png'
+import remixDataFlowDiagram from './remix-data-flow-diagram.png'
 import { type V2_MetaFunction } from '@remix-run/node'
 import { Heading } from '../../ui+/components/typography/heading.tsx'
 
-export const title = 'Remix Data Flow 🔥'
-export const description = 'Understand how data flows in a Remix route.'
+export const title = 'Remix Data Flow'
+export const description = 'Learn how data flows in a Remix route.'
 
 export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Data flow in a Remix route' }]
@@ -16,7 +17,8 @@ const RemixDataFlow = () => {
 			<Heading as="h1" size="4xl">
 				{title}
 			</Heading>
-			<div className="mt-10 max-w-2xl">
+			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
+				<img src={remixDataFlow} alt="Remix Data Flow" className="rounded-2xl object-cover" />
 				<Text size="lg" className="mt-6">
 					When React emerged, one of its standout features was the "one-way data flow". The primary idea is that data flows unidirectionally throughout your app. The UI is merelly
 					a reflection of your data and any changes your UI makes to the data, will trigger a re-render of the UI to reflect those changes. The cycle is data {'->'} UI {'->'} data
@@ -33,7 +35,7 @@ const RemixDataFlow = () => {
 					and back to the server (action+loader). The cycle is remote state {'->'} UI {'->'} remote state update {'->'} UI update.
 				</Text>
 				<figure className="mt-16">
-					<img className="rounded-xl bg-gray-50 object-cover" src={remixDataFlow} alt="Remix Data Flow" />
+					<img className="rounded-xl bg-gray-50 object-cover" src={remixDataFlowDiagram} alt="Remix Data Flow Diagram" />
 					<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">Data flow in a Remix route</figcaption>
 				</figure>
 				<Text size="md" className="mt-6">
