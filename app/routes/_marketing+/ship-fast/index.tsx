@@ -19,7 +19,7 @@ const ShipFast = () => {
 			name: 'Presale',
 			id: 'tier-presale',
 			href: 'https://buy.stripe.com/eVa9B31Mqa811C8eUV',
-			price: '249',
+			price: '149',
 			discounted: '49',
 			description: 'Get an awesome discount price before it launches 🚀',
 			features: [
@@ -37,9 +37,10 @@ const ShipFast = () => {
 				'Discord community',
 				'...and much more',
 			],
+			lacks: [],
 			mostPopular: true,
 		},
-		{
+		/* {
 			soon: true,
 			name: 'Starter',
 			id: 'tier-starter',
@@ -85,7 +86,7 @@ const ShipFast = () => {
 				'...and much more',
 			],
 			mostPopular: false,
-		},
+		}, */
 	]
 
 	return (
@@ -345,7 +346,7 @@ const ShipFast = () => {
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">Without</span> ShipFast 👇
 						</Heading>
 						<div className="text-center">
-							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-gray-500 dark:text-gray-400">
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-muted-500 dark:text-muted-400">
 								<li className="flex">
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;looking at frameworks
 								</li>
@@ -404,133 +405,101 @@ const ShipFast = () => {
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">With</span> ShipFast 👇
 						</Heading>
 						<div className="text-center">
-							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-gray-500 dark:text-gray-400">
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-muted-500 dark:text-muted-400">
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									No need for state management tools with Remix.
+									<span className="font-bold text-green-500">Save 1 hour</span>: Remix as the framework of choice
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Transactional and marketing emails.
+									<span className="font-bold text-green-500">Save 3 hours</span>: no need for state management tools with Remix
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Send beautiful emails built with React.
+									<span className="font-bold text-green-500">Save 5 hours</span>: Subscribe users with MailerLite
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Proper DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomains).
+									<span className="font-bold text-green-500">Save 2 hours</span>: Send beautiful emails with Resend, built with React Email
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									High-performance, easy to handle database, schema, and migrations.
+									<span className="font-bold text-green-500">Save 2 hours</span>: integrated Prisma, SQLite, and LiteFS
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Full authentication flow and private/protected routes.
+									<span className="font-bold text-green-500">Save 4 hours</span>: register, login, magic links, 2FA, SSO, and more
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Role-based permissions.
+									<span className="font-bold text-green-500">Save 1 hour</span>: built-in functions to protect routes
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Payment integrations.
+									<span className="font-bold text-green-500">Save 4 hours</span>: payment integration with Stripe
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Custom built image hosting.
+									<span className="font-bold text-green-500">Save 3 hours</span>: complete CI/CD pipeline with Fly.io
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									SEO, OpenGraph, and Rich Snippets.
+									<span className="font-bold text-green-500">Save 2 hours</span>: Guide on proper DNS setup
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Complete, acessible, and responsive UI library with dark mode support.
-								</li>
-
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									Decoupled design and development. Focus on one at a time.
+									<span className="font-bold text-green-500">Save 4 hours</span>: All built-in routes are fully SEO-optimized
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Complete CI/CD pipeline with liting, type checking, unit, and e2e testing.
+									<span className="font-bold text-green-500">Save 1 hour</span>: ethical analytics with Fathom
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Caching, both in-memory and SQLite-based
+									<span className="font-bold text-green-500">Save 1 hour</span>: error monitoring with Sentry.io
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Launch your app world-wide, instantly, and with automatic data replication.
+									<span className="font-bold text-green-500">Save 1 hour</span>: performance monitoring with Grafana
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Ethical analytics. No need for cookie banner.
+									<span className="font-bold text-green-500">Save ∞ hours</span>: solid opinions to hit the ground running
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									Error and performance monitoring.
-								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									Built-in VS Code extensions for a great developer experience.
-								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									Offline development with all external services mocked.
-								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									A community you can engage with and ask questions to.
-								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
-									...and a lot more!
+								<li className="flex pt-4 text-lg">
+									<strong>
+										= <span className="text-green-500">34+ hours</span> saved, <span className="text-green-500">zero</span> headaches
+									</strong>
 								</li>
 							</ul>
 						</div>
@@ -541,7 +510,7 @@ const ShipFast = () => {
 				</Text>
 
 				<Heading as="h2" size="3xl" className="mt-14 text-center">
-					The tech stack
+					The tech stack 🥞
 				</Heading>
 				<Text size="xl" className="mx-auto mt-4 max-w-3xl text-center">
 					Here's all the tech you get with ShipFast and why it's awesome.
@@ -559,13 +528,13 @@ const ShipFast = () => {
 						<Tabs.Trigger value="monitor">Monitor</Tabs.Trigger>
 						<Tabs.Trigger value="more">More</Tabs.Trigger>
 					</Tabs.List>
-					<div className="mt-2 rounded-lg border bg-green-50 px-6 pb-6 text-gray-500">
+					<div className="mt-2 rounded-lg border bg-green-50 px-6 pb-6 text-muted-500">
 						<Tabs.Content value="email">
 							<div className="inline-block text-left">
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Create Emails
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -576,7 +545,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Send Emails
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -599,7 +568,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Email Marketing
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -636,7 +605,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Payments
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -673,7 +642,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Authentication
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1156,20 +1125,13 @@ const ShipFast = () => {
 			</Container>
 			<BackgroundBlur>
 				<Container>
-					<Grid cols="2" className="my-60">
+					<Grid cols="2" gapX="10" className="my-60">
 						<div>
 							<Text size="4xl" weight="bold" className="max-w-3xl">
 								Hey, it's André 👋
 							</Text>
-							<Text size="xl" className="mt-8">
-								I love building apps!
-							</Text>
-							<Text size="xl">Web design and development is a hell of a ride.</Text>
-							<Text size="lg" className="mt-8 max-w-3xl">
-								But I've realized I'm always doing the same thing: setting up DNS records, integrating external services, setting up authentication and tests...
-							</Text>
 							<Text size="md" className="mt-8">
-								So I've built ShipFast:
+								I've built ShipFast to:
 							</Text>
 							<ul className="mt-space-6 max-w-2xl list-inside space-y-1  dark:text-gray-400">
 								<li className="flex">
@@ -1182,19 +1144,19 @@ const ShipFast = () => {
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Avoid headaches like emails ending in spam or waiting 3 days for Google to approve
+									Spend zero time overthinking
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Get profitable fast—the more you ship, the more you learn, the more you earn
+									Avoid headaches (like authentication bugs)
 								</li>
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									</span>
-									Save time and focus on what matters: building a business
+									Get profitable fast — the more you ship, the more you learn, the more you earn
 								</li>
 							</ul>
 						</div>
@@ -1205,39 +1167,39 @@ const ShipFast = () => {
 				</Container>
 			</BackgroundBlur>
 			<Container>
-				<div className="bg-white py-24 sm:py-32">
+				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-7xl px-6 lg:px-8">
 						<div className="mx-auto max-w-4xl text-center">
 							<h2 className="text-base font-semibold leading-7 text-brand" id="pricing">
 								Pricing
 							</h2>
-							<p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Save hours of repetitive code, ship fast, get profitable!</p>
+							<p className="mt-2 text-4xl font-bold tracking-tight text-muted-900 sm:text-5xl">Save hours of repetitive code, ship fast, get profitable!</p>
 						</div>
-						<p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">The killer Remix starter that you've always wanted!</p>
-						<div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+						<p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-muted-600">The killer Remix starter that you've always wanted!</p>
+						<div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8">
 							{tiers.map(tier => (
-								<div key={tier.id} className={cn(tier.mostPopular ? 'ring-2 ring-brand' : 'ring-1 ring-gray-200', 'rounded-3xl p-8 xl:p-10')}>
+								<div key={tier.id} className={cn(tier.mostPopular ? 'ring-2 ring-brand' : 'ring-1 ring-muted-200', 'rounded-3xl p-8 xl:p-10')}>
 									<div className="flex items-center justify-between gap-x-4">
-										<h3 id={tier.id} className={cn(tier.mostPopular ? 'text-brand' : 'text-gray-900', 'text-lg font-semibold leading-8')}>
+										<h3 id={tier.id} className={cn(tier.mostPopular ? 'text-brand' : 'text-muted-900', 'text-lg font-semibold leading-8')}>
 											{tier.name}
 										</h3>
 										{tier.mostPopular ? <p className="rounded-full bg-brand/10 px-2.5 py-1 text-xs font-semibold leading-5 text-brand">Most popular</p> : null}
 										{tier.soon ? <p className="rounded-full bg-muted-100 px-2.5 py-1 text-xs font-semibold leading-5 text-muted-500">Soon</p> : null}
 									</div>
-									<p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
+									<p className="mt-4 text-sm leading-6 text-muted-600">{tier.description}</p>
 									{tier.discounted ? (
 										<p className="mt-6 flex items-baseline gap-x-1">
-											<span className="text-md font-bold tracking-tight text-gray-900 line-through">
+											<span className="text-md font-bold tracking-tight text-muted-900 line-through">
 												{tier.price}
-												<span className="font-semibold leading-6 text-gray-600">€</span>
+												<span className="font-semibold leading-6 text-muted-600">€</span>
 											</span>
-											<span className="text-3xl font-bold tracking-tight text-gray-900">{tier.discounted}</span>
-											<span className="text-sm font-semibold leading-6 text-gray-600">€</span>
+											<span className="text-3xl font-bold tracking-tight text-muted-900">{tier.discounted}</span>
+											<span className="text-sm font-semibold leading-6 text-muted-600">€</span>
 										</p>
 									) : (
 										<p className="mt-6 flex items-baseline gap-x-1">
-											<span className="text-4xl font-bold tracking-tight text-gray-900">{tier.price}</span>
-											<span className="text-sm font-semibold leading-6 text-gray-600">€</span>
+											<span className="text-4xl font-bold tracking-tight text-muted-900">{tier.price}</span>
+											<span className="text-sm font-semibold leading-6 text-muted-600">€</span>
 										</p>
 									)}
 
@@ -1255,7 +1217,7 @@ const ShipFast = () => {
 									<Text size="xs" align="center">
 										Pay once. Build unlimited projects.
 									</Text>
-									<ul className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+									<ul className="mt-8 space-y-3 text-sm leading-6 text-muted-600 xl:mt-10">
 										{tier.features.map(feature => (
 											<li key={feature} className="flex gap-x-2">
 												<span>
@@ -1280,16 +1242,16 @@ const ShipFast = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="bg-white">
+				<div className="rounded-2xl bg-muted-200">
 					<div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
 						<div className="mx-auto max-w-2xl text-center">
-							<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Boost your app, launch, earn</h2>
-							<p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Don't waste time with boilerplate.</p>
-							<p className="mx-auto max-w-xl text-lg leading-8 text-gray-600">Hit the ground running with best-in-class tools.</p>
+							<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Boost your app, launch, earn</h2>
+							<p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-muted-600">Don't waste time with boilerplate.</p>
+							<p className="mx-auto max-w-xl text-lg leading-8 text-muted-600">Hit the ground running with best-in-class tools.</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<a
 									href="https://buy.stripe.com/eVa9B31Mqa811C8eUV"
-									className="rounded-md bg-brand px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+									className="rounded-md bg-brand px-14 py-4 text-lg font-semibold text-white shadow-sm hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
 								>
 									Get ShipFast
 								</a>
