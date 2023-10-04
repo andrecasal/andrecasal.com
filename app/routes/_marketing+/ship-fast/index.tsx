@@ -11,6 +11,7 @@ import { Flex } from '../ui+/components/layout/flex.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import shipFastImage from './shipfast.png'
 import arrow from './arrow.png'
+import { Newsletter } from '~/components/newsletter.tsx'
 
 const ShipFast = () => {
 	const tiers = [
@@ -121,6 +122,10 @@ const ShipFast = () => {
 		{
 			question: 'How do I keep up with updates?',
 			answer: 'When you create a new project with ShipFast, a bunch of code is generated for you. This code is completely yours and there is no way to update it other than making manual changes. This is both a good thing and a bad thing. It is good in the sense that you can tweak it to fit your specific use cases. But it is a challenge because as ShipFast gets improvements there is no way to get those automatically. You would have to keep up with the commits and update your code manually. This being said, you should not feel compelled to keep up-to-date with the latest ShipFast. If what you are using is working fine for you, then just keep going with it - you will get the latest features every time you launch a new project.',
+		},
+		{
+			question: 'When will ShipFast be ready?',
+			answer: 'I want to integrate andrecasal/ui into ShipFast because this provides an incredible productivity boost due to design and development decoupling. So I will build most of andrecasal/ui first and then start work on ShipFast. I expect this to be ready within a few weeks.',
 		},
 	]
 
@@ -1309,7 +1314,15 @@ const ShipFast = () => {
 				</div>
 			</Container>
 			<Container>
-				<div className="rounded-2xl bg-muted-200">
+				<Newsletter
+					className="mt-24 sm:mt-44"
+					title="Want to receive updates to ShipFast?"
+					description="Subscribe to my newsletter and I'll send you updates. You'll also get a free, toned down version of ShipFast."
+					buttonText="I want to be updated"
+				/>
+			</Container>
+			<Container>
+				<div className="mt-14 rounded-2xl bg-muted-200">
 					<div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
 						<div className="mx-auto max-w-2xl text-center">
 							<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Boost your app, launch, earn</h2>
