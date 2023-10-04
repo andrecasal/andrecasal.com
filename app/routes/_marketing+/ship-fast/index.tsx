@@ -159,8 +159,8 @@ const ShipFast = () => {
 
 				<section className="flex flex-wrap items-center justify-center gap-4 p-8 md:gap-8 md:p-12">
 					<span className="text-xs opacity-50">Featured on</span>
-					{/* <a
-						href=""
+					<a
+						href="https://www.producthunt.com/posts/shipfast-3"
 						target="_blank"
 						rel="noreferrer"
 						title="Featured on Product Hunt"
@@ -184,7 +184,7 @@ const ShipFast = () => {
 							</defs>
 						</svg>
 						<span>Product Hunt</span>
-					</a> */}
+					</a>
 					<a
 						href="https://x.com/theandrecasal/status/1707415504292315397?s=20"
 						target="_blank"
