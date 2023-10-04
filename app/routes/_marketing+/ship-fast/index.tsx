@@ -89,6 +89,41 @@ const ShipFast = () => {
 		}, */
 	]
 
+	const faqs = [
+		{
+			question: 'What do I get exactly?',
+			answer: 'A Remix Stack with all the tools you need to build your startup. From idea to production in 5 minutes.',
+		},
+		{
+			question: 'Can I get a refund?',
+			answer: 'Yes! If you bought the presale, you can get a refund within 30 days after the launch. If you bought the Starter or Pro tiers, you can get a refund within 30 days after your purchase.',
+		},
+		{
+			question: 'JavaScript or TypeScript',
+			answer: 'All code is 100% TypeScript.',
+		},
+		{
+			question: 'My tech stack is different, can I still use this?',
+			answer: 'One of the main points of this stack is that it is opinionated with great defaults, so you do not have to spend time overthinking what tech you need. This means you have to learn the tools you are not yet familiar with. External services are modular though, so you can easily swap out MailerLite for ConvertKit, for example.',
+		},
+		{
+			question: 'Is it a website template?',
+			answer: 'It comes with all the pages you need to get started, but it is not a template. It comes integrated with andrecasal/ui: an accessible UI library with all the lego pieces you need to build your app.',
+		},
+		{
+			question: 'I can build this myself, why should I buy it?',
+			answer: 'True. While you are spending time configuring tools and services for your app, others are launching theirs.',
+		},
+		{
+			question: 'How often is the stack updated?',
+			answer: 'I update the stack regularly with new features and improvements. You will get lifetime updates.',
+		},
+		{
+			question: 'How do I keep up with updates?',
+			answer: 'When you create a new project with ShipFast, a bunch of code is generated for you. This code is completely yours and there is no way to update it other than making manual changes. This is both a good thing and a bad thing. It is good in the sense that you can tweak it to fit your specific use cases. But it is a challenge because as ShipFast gets improvements there is no way to get those automatically. You would have to keep up with the commits and update your code manually. This being said, you should not feel compelled to keep up-to-date with the latest ShipFast. If what you are using is working fine for you, then just keep going with it - you will get the latest features every time you launch a new project.',
+		},
+	]
+
 	return (
 		<>
 			<Container>
@@ -688,7 +723,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Database
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -738,7 +773,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Search Engine Optimization
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -784,7 +819,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Styling
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -818,7 +853,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Continuous Integration/Continuous Deployment
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -874,7 +909,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Analytics
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -920,7 +955,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Monitoring
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -965,7 +1000,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Fast apps
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -998,7 +1033,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Developer Experience
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1043,7 +1078,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Accessibility
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1085,7 +1120,7 @@ const ShipFast = () => {
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									...and more
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-gray-400">
+								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li className="flex">
 										<span>
 											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1133,7 +1168,7 @@ const ShipFast = () => {
 							<Text size="md" className="mt-8">
 								I've built ShipFast to:
 							</Text>
-							<ul className="mt-space-6 max-w-2xl list-inside space-y-1  dark:text-gray-400">
+							<ul className="mt-space-6 max-w-2xl list-inside space-y-1  dark:text-muted-400">
 								<li className="flex">
 									<span>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1237,6 +1272,38 @@ const ShipFast = () => {
 									</ul>
 								</div>
 							))}
+						</div>
+					</div>
+				</div>
+			</Container>
+			<Container>
+				<div className="">
+					<div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+						<div className="lg:grid lg:grid-cols-12 lg:gap-8">
+							<div className="lg:col-span-5">
+								<h2 className="text-2xl font-bold leading-10 tracking-tight text-muted-900">Frequently asked questions</h2>
+								<p className="mt-4 text-base leading-7 text-muted-600">
+									Have other questions? Contact me on{' '}
+									<a href="https://twitter.com/theandrecasal" target="_blank" rel="noreferrer" className="underline">
+										X
+									</a>{' '}
+									or by {/* eslint-disable */}
+									<a href="mailto:andre@andrecasal.com" target="_blank" rel="noreferrer" className="underline">
+										email
+									</a>
+									.
+								</p>
+							</div>
+							<div className="mt-10 lg:col-span-7 lg:mt-0">
+								<dl className="space-y-10">
+									{faqs.map(faq => (
+										<div key={faq.question}>
+											<dt className="text-base font-semibold leading-7 text-muted-900">{faq.question}</dt>
+											<dd className="mt-2 text-base leading-7 text-muted-600">{faq.answer}</dd>
+										</div>
+									))}
+								</dl>
+							</div>
 						</div>
 					</div>
 				</div>
