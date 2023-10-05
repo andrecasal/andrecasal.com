@@ -312,6 +312,11 @@
 		--container-padding-x: clamp(calc(var(--container-min-padding) * 1rem), var(--container-padding-size), calc(var(--container-max-padding) * 1rem));
 	}
 
+	/* Code */
+	.code {
+		@apply rounded-md bg-muted-200 px-space-5 py-space-2 text-muted-900;
+	}
+
 	/* Kbd */
 	.kbd {
 		@apply m-space-0 border-spacing-space-1 rounded-lg border border-muted-200 bg-muted-50 p-space-4 align-baseline font-code text-size-xs text-muted-900 shadow-sm;

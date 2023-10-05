@@ -1,35 +1,21 @@
 import { useState, type HTMLAttributes, useRef, useEffect } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from '~/components/ui/accessible-icon.tsx'
-import { Tooltip } from '~/routes/_marketing+/ui+/components/ui/tooltip.tsx'
-
-const commandLineVariants = cva('notranslate rounded-lg overflow-hidden text-white bg-[rgb(24,46,63)]', {
-	variants: {
-		variant: {
-			inline: 'inline px-1 py-0.5',
-			block: '',
-		},
-	},
-})
 
 export type CommandAndLogArray = { type: 'command' | 'log'; text: string }[]
 
-type CommandLineProps = { command: string | CommandAndLogArray } & VariantProps<typeof commandLineVariants> &
-	HTMLAttributes<HTMLPreElement> & {
+type CommandLineProps = { commands: CommandAndLogArray } & HTMLAttributes<HTMLPreElement> & {
 		children?: never // Prevent receiving children
 	}
 
-export const CommandLine = ({ command = '', variant = 'inline', className, ...props }: CommandLineProps) => {
-	// Copy to clipboard
+export const CommandLine = ({ commands, className, ...props }: CommandLineProps) => {
 	const [showCopyIcon, setShowCopyIcon] = useState(true)
 	const [, copy] = useCopyToClipboard()
-	// Extract commands
-	const lines = Array.isArray(command) ? command : [{ type: 'command', text: command }]
-	const linesWithoutLogs = lines.filter(line => line.type === 'command')
-	const allCommandsString = linesWithoutLogs.map(line => line.text).join('\n')
-	// Code overflows
+	const onlyCommands = commands
+		.filter(command => command.type === 'command')
+		.map(command => command.text)
+		.join('\n')
 	const ref = useRef<HTMLDivElement>(null)
 	const [codeOverflows, setCodeOverflows] = useState(false)
 
@@ -47,11 +33,11 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 		}
 	}, [ref])
 
-	return variant === 'block' ? (
-		<pre className={cn(commandLineVariants({ variant }), className)} {...props}>
+	return (
+		<pre className={cn('notranslate overflow-hidden rounded-lg bg-[rgb(24,46,63)] text-white', className)} {...props}>
 			<div className="flex overflow-hidden">
 				<div ref={ref} className="flex-grow overflow-x-scroll">
-					{lines.map(({ type, text }, i) => (
+					{commands.map(({ type, text }, i) => (
 						<div key={i} className="flex gap-4">
 							{type === 'command' ? (
 								<div className="flex select-none items-stretch justify-stretch">
@@ -68,24 +54,13 @@ export const CommandLine = ({ command = '', variant = 'inline', className, ...pr
 					))}
 				</div>
 				<div className={codeOverflows ? `shadow-[rgba(0,0,15,0.5)_-10px_0_5px_0]` : ``}>
-					{linesWithoutLogs.length > 0 ? (
-						<button className={`min-h-tap min-w-tap rounded-lg px-4 hover:bg-muted-100/10 ${lines.length > 1 ? 'py-2' : ''}`} onClick={() => handleCopy(allCommandsString)}>
+					{onlyCommands.length > 0 ? (
+						<button className="min-h-tap min-w-tap rounded-lg px-4 py-2 hover:bg-muted-100/10" onClick={() => handleCopy(onlyCommands)}>
 							{showCopyIcon ? <AccessibleIcon name="copy" label="Copy to clipboard" /> : <AccessibleIcon name="check" label="Saved to clipboard" />}
 						</button>
 					) : null}
 				</div>
 			</div>
 		</pre>
-	) : (
-		linesWithoutLogs.map(({ text }, i) => (
-			<Tooltip key={text} content={showCopyIcon ? 'Click to copy to clipboard' : 'Saved to clipboard!'}>
-				<span onClick={() => handleCopy(text)} className="cursor-pointer">
-					<pre className={cn(commandLineVariants({ variant }), className)} {...props}>
-						<code>{text}</code>
-					</pre>
-					{linesWithoutLogs.length > 1 && i < linesWithoutLogs.length - 1 ? ' ' : ''}
-				</span>
-			</Tooltip>
-		))
 	)
 }
