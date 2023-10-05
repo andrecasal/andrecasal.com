@@ -1,6 +1,5 @@
 import { Link } from '@remix-run/react'
 import BackgroundDiagonal from './bg-diagonal.tsx'
-import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
@@ -13,15 +12,14 @@ const HeroAndre = () => {
 			<Container className="py-32 sm:py-40">
 				<div className="lg:grid lg:grid-cols-2 lg:gap-x-10">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<a href="https://github.com/epicweb-dev/epic-stack" target="_blank" className="inline-flex flex-wrap gap-6" rel="noreferrer">
+						<Link to="/ship-fast" className="inline-flex flex-wrap gap-6">
 							<Badge variant="info" size="md" className="whitespace-nowrap">
 								What's new
 							</Badge>
 							<Text as="span" size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
-								<Text as="span">Epic Stack collab with Kent C. Dodds</Text>
-								<Icon name="rocket" className="h-5 w-5 text-muted-400" aria-hidden="true" />
+								<Text as="span">Launched ShipFast ⚡️</Text>
 							</Text>
-						</a>
+						</Link>
 						<Heading as="h1" size="4xl" className="mt-10">
 							Hi! I'm André Casal.
 						</Heading>
