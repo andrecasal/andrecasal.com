@@ -157,7 +157,7 @@ const ShipFast = () => {
 					</div>
 				</section>
 
-				<section className="flex flex-wrap items-center justify-center gap-4 p-8 md:gap-8 md:p-12">
+				<section className="mb-14 flex flex-col flex-wrap items-center justify-center gap-4 p-8 sm:flex-row md:gap-8 md:p-12">
 					<span className="text-xs opacity-50">Featured on</span>
 					<a
 						href="https://www.producthunt.com/posts/shipfast-3"
@@ -203,7 +203,7 @@ const ShipFast = () => {
 									d="M126 250.793C195.036 250.793 251 194.875 251 125.897C251 56.9181 195.036 1 126 1C56.9644 1 1 56.9181 1 125.897C1 194.875 56.9644 250.793 126 250.793Z"
 									fill="black"
 									stroke="white"
-									stroke-miterlimit="10"
+									strokeMiterlimit="10"
 								></path>
 								<path
 									d="M48.9999 53.5352L108.748 133.357L48.6233 198.256H62.1561L114.797 141.435L157.327 198.256H203.377L140.265 113.945L196.23 53.5352H182.697L134.219 105.865L95.0494 53.5352H48.9999ZM68.9004 63.4941H90.0554L183.474 188.297H162.319L68.9004 63.4941Z"
@@ -386,53 +386,53 @@ const ShipFast = () => {
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">Without</span> ShipFast 👇
 						</Heading>
 						<div className="text-center">
-							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-muted-500 dark:text-muted-400">
-								<li className="flex">
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-left text-muted-500 dark:text-muted-400">
+								<li>
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;looking at frameworks
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">3 hours</span>&nbsp;dealing with state management
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">5 hours</span>&nbsp;to integrate email marketing
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">2 hours</span>&nbsp;to integrate transactional email
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">2 hours</span>&nbsp;setting up your db schema
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">4 hours</span>&nbsp;setting up authentication
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;for protected routes
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">4 hours</span>&nbsp;integrating payments
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">3 hours</span>&nbsp;creating your CI/CD pipeline
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">2 hours</span>&nbsp;for DNS records
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">4 hours</span>&nbsp;on SEO tags
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating analytics
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating error monitoring
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">1 hour</span>&nbsp;integrating performance monitoring
 								</li>
-								<li className="flex">
+								<li>
 									<span className="font-bold text-red-500">+ &infin;</span>&nbsp;overthinking...
 								</li>
-								<li className="flex pt-4 text-lg">
+								<li className="pt-4 text-lg">
 									<strong>
 										= <span className="text-red-500">34+ hours</span>&nbsp;of headaches
 									</strong>
@@ -445,98 +445,68 @@ const ShipFast = () => {
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">With</span> ShipFast 👇
 						</Heading>
 						<div className="text-center">
-							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-muted-500 dark:text-muted-400">
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-left text-muted-500 dark:text-muted-400">
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 1 hour</span>: Remix as the framework of choice
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 3 hours</span>: no need for state management tools with Remix
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 5 hours</span>: Subscribe users with MailerLite
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 2 hours</span>: Send beautiful emails with Resend, built with React Email
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 2 hours</span>: integrated Prisma, SQLite, and LiteFS
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 4 hours</span>: register, login, magic links, 2FA, SSO, and more
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 1 hour</span>: built-in functions to protect routes
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 4 hours</span>: payment integration with Stripe
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 3 hours</span>: complete CI/CD pipeline with Fly.io
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 2 hours</span>: Guide on proper DNS setup
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 4 hours</span>: All built-in routes are fully SEO-optimized
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 1 hour</span>: ethical analytics with Fathom
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 1 hour</span>: error monitoring with Sentry.io
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save 1 hour</span>: performance monitoring with Grafana
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									<span className="font-bold text-green-500">Save ∞ hours</span>: solid opinions to hit the ground running
 								</li>
-								<li className="flex pt-4 text-lg">
+								<li className="pt-4 text-lg">
 									<strong>
 										= <span className="text-green-500">34+ hours</span> saved, <span className="text-green-500">zero</span> headaches
 									</strong>
@@ -575,33 +545,25 @@ const ShipFast = () => {
 									Create Emails
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Craft beautiful emails with&nbsp;<strong>React Email</strong> ✨
 									</li>
 								</ul>
 								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
 									Send Emails
 								</Heading>
-								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+								<ul className="mt-space-6 list-inside space-y-1 text-left dark:text-muted-400">
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Send transactional emails with&nbsp;<strong>Resend</strong>
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomain)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Webhook to receive & forward emails
 									</li>
 								</ul>
@@ -609,22 +571,16 @@ const ShipFast = () => {
 									Email Marketing
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Collect marketing emails with&nbsp;<strong>MailerLite</strong>&nbsp;(GDPR compliant)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomain)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Send marketing emails to your subscribers
 									</li>
 								</ul>
@@ -646,22 +602,16 @@ const ShipFast = () => {
 									Payments
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Create checkout sessions
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Webhooks to update user's account after payment
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Tips to setup your account & reduce chargebacks
 									</li>
 								</ul>
@@ -683,34 +633,24 @@ const ShipFast = () => {
 									Authentication
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Registration & Login with cookie-based sessions
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Role-based permissions
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Private/protected routes
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Forgot and reset password with Time-Based One-Time Passwords (TOTP)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Two-Factor Authentication (2FA) with support for authenticator apps
 									</li>
 								</ul>
@@ -729,32 +669,24 @@ const ShipFast = () => {
 									Database
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Prisma schema to make your life easier
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										SQLite database with LiteFS
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Custom built image hosting (
 										<a href="https://x.com/theandrecasal/status/1673628830617960449?s=20" target="_blank" rel="noreferrer" className="underline">
 											35% faster than the file system
 										</a>
 										)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Compatible with&nbsp;
 										<a href="https://www.prisma.io/docs/concepts/database-connectors" target="_blank" rel="noreferrer" className="underline">
 											other databases
@@ -779,34 +711,24 @@ const ShipFast = () => {
 									Search Engine Optimization
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										All meta tags to rank on Google
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										OpenGraph tags to share on social media
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Automated sitemap generation to fasten Google indexing
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Structured data markup for Rich Snippets
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										SEO-optimized UI components
 									</li>
 								</ul>
@@ -825,16 +747,12 @@ const ShipFast = () => {
 									Styling
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Light, Dark, and System mode (without a flash of incorrect theme)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Decoupled design and development: design in parallel or later.
 									</li>
 								</ul>
@@ -859,34 +777,24 @@ const ShipFast = () => {
 									Continuous Integration/Continuous Deployment
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Automatic Linting, Type checking, and testing on every push
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Unit testing with Vitest
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										End-to-end testing with Playwright
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										GitHub Actions integration
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Deployment to Fly.io
 									</li>
 								</ul>
@@ -915,28 +823,20 @@ const ShipFast = () => {
 									Analytics
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Fully GDPR compliant analytics with Fathom Analytics
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										No need for annoying cookie banners
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Protection against other people using your script (by accident or otherwise)
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Exclude your own visits on your domain
 									</li>
 								</ul>
@@ -961,22 +861,16 @@ const ShipFast = () => {
 									Monitoring
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										99% uptime with healthcheck endpoint
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Error monitoring with Sentry
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Running app monitoring with Grafana
 									</li>
 								</ul>
@@ -1006,16 +900,12 @@ const ShipFast = () => {
 									Fast apps
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Forget state management libraries
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Forget the slow request waterfalls from NextJS
 									</li>
 								</ul>
@@ -1039,28 +929,20 @@ const ShipFast = () => {
 									Developer Experience
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Built-in VS Code extensions to hit the ground running
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										All external services are mocked in localhost
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										No need to have an internet connection
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Develop at full speed. Push when ready.
 									</li>
 								</ul>
@@ -1084,25 +966,19 @@ const ShipFast = () => {
 									Accessibility
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Components adhere to the&nbsp;
 										<a href="https://www.w3.org/TR/wai-aria-practices-1.2/" target="_blank" rel="noreferrer" className="underline">
 											WAI-ARIA design patterns
 										</a>
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Components have keyboard navigation when it makes sense
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Component API makes it impossible to break accessibility patterns
 									</li>
 								</ul>
@@ -1126,28 +1002,20 @@ const ShipFast = () => {
 									...and more
 								</Heading>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Caching, both in-memory and SQLite-based
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Progressively Enhanced and fully type-safe forms with Conform
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Runtime schema validation with Zod
 									</li>
-									<li className="flex">
-										<span>
-											<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-										</span>
+									<li>
+										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Discord community
 									</li>
 								</ul>
@@ -1173,29 +1041,21 @@ const ShipFast = () => {
 							<Text size="md" className="mt-8">
 								I've built ShipFast to:
 							</Text>
-							<ul className="mt-space-6 max-w-2xl list-inside space-y-1  dark:text-muted-400">
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+							<ul className="mt-space-6 max-w-2xl list-inside space-y-1 text-left dark:text-muted-700">
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									Save time and focus on what matters: building a business
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									Spend zero time overthinking
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									Avoid headaches (like authentication bugs)
 								</li>
-								<li className="flex">
-									<span>
-										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-									</span>
+								<li>
+									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 									Get profitable fast — the more you ship, the more you learn, the more you earn
 								</li>
 							</ul>
