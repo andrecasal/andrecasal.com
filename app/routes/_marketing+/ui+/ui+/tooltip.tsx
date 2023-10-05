@@ -90,10 +90,7 @@ function App() {
 				</li>
 				<li className="flex items-center">
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
-					<Link to="#provider" className="underline">
-						Provider
-					</Link>
-					&nbsp;to control display delay globally.
+					Provider to control display delay globally.
 				</li>
 			</ul>
 
@@ -101,45 +98,41 @@ function App() {
 				Keyboard interactions
 			</Heading>
 			<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-				<table className="min-w-full divide-y divide-gray-300">
-					<thead className="bg-gray-50">
+				<table className="min-w-full divide-y divide-muted-300">
+					<thead className="bg-muted-300">
 						<tr>
-							<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+							<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-muted-900 sm:pl-6">
 								Key
 							</th>
-							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-muted-900">
 								Description
 							</th>
 						</tr>
 					</thead>
-					<tbody className="divide-y divide-gray-200 bg-white">
+					<tbody className="divide-y divide-muted-200 bg-muted-200">
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">
 								<kbd>Tab</kbd>
 							</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Opens/closes the tooltip without delay.</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">Opens/closes the tooltip without delay.</td>
 						</tr>
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">
 								<kbd>Space</kbd>
 							</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">If open, closes the tooltip without delay.</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">If open, closes the tooltip without delay.</td>
 						</tr>
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">
 								<kbd>Enter</kbd>
 							</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">If open, closes the tooltip without delay.</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">If open, closes the tooltip without delay.</td>
 						</tr>
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">
 								<kbd>Escape</kbd>
 							</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">If open, closes the tooltip without delay.</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">If open, closes the tooltip without delay.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -203,7 +196,7 @@ function App() {
 			</Text>
 			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
 
-			<Heading as="h3" size="2xl" className="mt-8" id="provider">
+			<Heading as="h3" size="2xl" className="mt-8">
 				Provider
 			</Heading>
 			<Text className="mt-4">

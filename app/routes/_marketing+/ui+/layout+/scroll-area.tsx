@@ -20,7 +20,7 @@ export const loader = async () => {
 
 const HeadingRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const usageExample = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100">
+	const usageExample = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
 	<ScrollArea>
 		<div className="p-5">
 			<Text size="lg">
@@ -34,7 +34,7 @@ const HeadingRoute = () => {
 		</div>
 	</ScrollArea>
 </div>`
-	const badExampleOne = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100 p-5">
+	const badExampleOne = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100 p-5">
 	<ScrollArea>
 		<Text size="lg">
 			Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
@@ -46,7 +46,7 @@ const HeadingRoute = () => {
 		</Text>
 	</ScrollArea>
 </div>`
-	const badExampleTwo = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100">
+	const badExampleTwo = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
 	<ScrollArea className="p-5">
 		<Text size="lg">
 			Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
@@ -69,7 +69,7 @@ const HeadingRoute = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Features
 			</Heading>
-			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
+			<ul className="list-inside space-y-1 text-muted-600">
 				<li className="flex">
 					<span>
 						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -101,7 +101,7 @@ const HeadingRoute = () => {
 			</Heading>
 			<CodeBlock code={usageExample} filename="GridExample" extension="tsx" className="mt-4" />
 			<Text>Here's the {'<ScrollArea />'} component in action.</Text>
-			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100">
+			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-200 dark:bg-muted-300">
 				<ScrollArea>
 					<div className="p-5">
 						<Text size="lg">
@@ -120,30 +120,30 @@ const HeadingRoute = () => {
 				Props
 			</Heading>
 			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-				<table className="min-w-full divide-y divide-gray-300">
-					<thead className="bg-gray-50">
+				<table className="min-w-full divide-y divide-muted-300">
+					<thead className="bg-muted-300">
 						<tr>
-							<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+							<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-muted-900 sm:pl-6">
 								Prop
 							</th>
-							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-muted-900">
 								Type
 							</th>
-							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-muted-900">
 								Default
 							</th>
 						</tr>
 					</thead>
-					<tbody className="divide-y divide-gray-200 bg-white">
+					<tbody className="divide-y divide-muted-200 bg-muted-200">
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">scrollbars</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'vertical' | 'horizontal' | 'both'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'vertical'</td>
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">scrollbars</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'vertical' | 'horizontal' | 'both'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'vertical'</td>
 						</tr>
 						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">type</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'auto' | 'always' | 'scroll' | 'hover'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">'hover'</td>
+							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">type</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'auto' | 'always' | 'scroll' | 'hover'</td>
+							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'hover'</td>
 						</tr>
 					</tbody>
 				</table>
@@ -174,7 +174,7 @@ const HeadingRoute = () => {
 			</Text>
 			<Text className="mt-4">See how both the content and the scroll bar don't touch the sides of the containing div:</Text>
 			<CodeBlock code={badExampleOne} filename="BadScrollAreaExampleOne" extension="tsx" className="mt-4" />
-			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100 p-5">
+			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100 p-5">
 				<ScrollArea>
 					<Text size="lg">
 						Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
@@ -188,7 +188,7 @@ const HeadingRoute = () => {
 			</div>
 			<Text className="mt-4">And here notice how the scroll bar does extend to the edges, but the content does not:</Text>
 			<CodeBlock code={badExampleTwo} filename="BadScrollAreaExampleTwo" extension="tsx" className="mt-4" />
-			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-slate-100">
+			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
 				<ScrollArea className="p-5">
 					<Text size="lg">
 						Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
