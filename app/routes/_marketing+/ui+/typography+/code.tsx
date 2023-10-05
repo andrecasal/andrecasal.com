@@ -8,6 +8,7 @@ import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Code } from '../components/typography/code.tsx'
+import { Kbd } from '../components/typography/kbd.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -56,11 +57,15 @@ const CodeRoute = () => {
 			</Heading>
 			<CodeBlock code={codeUsage} filename="CodeExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">
-				Here's the code component in action: <Code className="mt-4">npm i -D tailwindcss</Code>. And here's the same component with copy functionality enabled:{' '}
+				Here's the code component, without copy functionality, in action: <Code className="mt-4">npm i -D tailwindcss</Code>. And here's with copy functionality enabled:{' '}
 				<Code copy className="mt-4">
 					npm i -D tailwindcss
 				</Code>
 				.
+			</Text>
+			<Text className="mt-4">
+				Notice that when copy is not enabled, the component is just text, but it becomes focusable (try <Kbd>Tab</Kbd>'ing) when copy is enabled so you can press <Kbd>Enter</Kbd> to
+				copy to clipboard.
 			</Text>
 
 			<Heading as="h2" size="xl" className="mt-8">
