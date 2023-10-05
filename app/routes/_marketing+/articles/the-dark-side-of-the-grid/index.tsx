@@ -105,8 +105,8 @@ const TheDarkSideOfTheGrid = () => {
 			<label className="my-auto">Username</label>
 		</div>
 		<div className="flex flex-col justify-center gap-4">
-			<input type="text" className="rounded-md p-2" value="André Casal" />
-			<input type="text" className="rounded-md p-2" value="@andrecasal" />
+			<input type="text" className="rounded-md p-2" defaultValue="André Casal" />
+			<input type="text" className="rounded-md p-2" defaultValue="@andrecasal" />
 		</div>
 	</div>
 	<button className="mt-8 self-end rounded-md bg-muted-50 px-8 py-4">Save changes</button>
@@ -122,8 +122,8 @@ const TheDarkSideOfTheGrid = () => {
 			<label className="my-auto">Username</label>
 		</div>
 		<div className="flex flex-col justify-center gap-4">
-			<input type="text" className="rounded-md p-2" value="André Casal" />
-			<input type="text" className="rounded-md p-2" value="@andrecasal" />
+			<input type="text" className="rounded-md p-2" defaultValue="André Casal" />
+			<input type="text" className="rounded-md p-2" defaultValue="@andrecasal" />
 		</div>
 	</div>
 	<button className="mt-8 self-end rounded-md bg-muted-50 px-8 py-4">Save changes</button>
@@ -409,8 +409,8 @@ const TheDarkSideOfTheGrid = () => {
 							<label className="my-auto">Username</label>
 						</div>
 						<div className="flex flex-col justify-center gap-4">
-							<input type="text" className="rounded-md p-2" value="André Casal" />
-							<input type="text" className="rounded-md p-2" value="@andrecasal" />
+							<input type="text" className="rounded-md p-2" defaultValue="André Casal" />
+							<input type="text" className="rounded-md p-2" defaultValue="@andrecasal" />
 						</div>
 					</div>
 					<button className="mt-8 self-end rounded-md bg-muted-50 px-8 py-4">Save changes</button>
@@ -434,8 +434,8 @@ const TheDarkSideOfTheGrid = () => {
 							<label className="my-auto">Username</label>
 						</div>
 						<div className="flex flex-col justify-center gap-4">
-							<input type="text" className="rounded-md p-2" value="André Casal" />
-							<input type="text" className="rounded-md p-2" value="@andrecasal" />
+							<input type="text" className="rounded-md p-2" defaultValue="André Casal" />
+							<input type="text" className="rounded-md p-2" defaultValue="@andrecasal" />
 						</div>
 					</div>
 					<button className="mt-8 self-end rounded-md bg-muted-50 px-8 py-4">Save changes</button>
