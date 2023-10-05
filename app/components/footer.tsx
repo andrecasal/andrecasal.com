@@ -70,7 +70,9 @@ const navigation = {
 		{ name: 'Homepage', href: '/' },
 		/* { name: 'Tips', href: '/tips' }, */
 		/* { name: 'Shorts', href: '/shorts' }, */
-		/* { name: 'Articles', href: '/articles' }, */
+		{ name: 'ui', href: '/ui' },
+		{ name: 'ShipFast', href: '/ship-fast' },
+		{ name: 'Articles', href: '/articles' },
 		/* { name: 'Talks', href: '/talks' }, */
 		{ name: 'Courses', href: '/courses' },
 		{ name: 'Mentoring', href: '/mentorship' },

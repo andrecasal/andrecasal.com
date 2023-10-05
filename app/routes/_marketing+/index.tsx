@@ -80,7 +80,7 @@ export default function Index() {
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
-								<Link key={feature.name} to={feature.link} className="rounded-xl p-4 hover:bg-muted-100">
+								<Link key={feature.name} to={feature.link} className="rounded-xl p-4 hover:bg-muted-100 dark:hover:bg-muted-200">
 									<dt>
 										<Text as="span" size="md" className="flex gap-2 font-bold text-muted-900">
 											<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
