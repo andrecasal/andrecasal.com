@@ -208,7 +208,7 @@ function App() {
 			<Heading as="h3" size="2xl" className="mt-8">
 				Dependencies
 			</Heading>
-			<CommandLine command="npm i @radix-ui/react-tooltip" variant="block" className="mt-4" />
+			<CommandLine commands={[{ type: 'command', text: 'npm i @radix-ui/react-tooltip' }]} className="mt-4" />
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				Source

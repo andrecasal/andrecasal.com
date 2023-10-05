@@ -55,7 +55,7 @@ export const CommandLine = ({ commands, className, ...props }: CommandLineProps)
 				</div>
 				<div className={codeOverflows ? `shadow-[rgba(0,0,15,0.5)_-10px_0_5px_0]` : ``}>
 					{onlyCommands.length > 0 ? (
-						<button className="min-h-tap min-w-tap rounded-lg px-4 py-2 hover:bg-muted-100/10" onClick={() => handleCopy(onlyCommands)}>
+						<button className={`min-h-tap min-w-tap rounded-lg px-4 hover:bg-muted-100/10 ${commands.length > 1 ? 'py-2' : ''}`} onClick={() => handleCopy(onlyCommands)}>
 							{showCopyIcon ? <AccessibleIcon name="copy" label="Copy to clipboard" /> : <AccessibleIcon name="check" label="Saved to clipboard" />}
 						</button>
 					) : null}

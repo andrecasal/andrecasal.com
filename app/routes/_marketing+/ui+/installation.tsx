@@ -7,6 +7,7 @@ import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { CommandLine } from './components/typography/command-line.tsx'
+import { Code } from './components/typography/code.tsx'
 
 export const loader = async () => {
 	const basePath = '../'
@@ -44,7 +45,7 @@ function App() {
 		</html>
 	)
 }`
-	const radixDependencies = `@radix-ui/react-tooltip`
+	const radixDependencies = [`@radix-ui/react-tooltip`]
 
 	return (
 		<>
@@ -55,22 +56,23 @@ function App() {
 				Dependencies
 			</Heading>
 			<Text className="mt-4">
-				This library has a development dependency. <CommandLine command={`npm i -D tailwindcss`} variant="block" />
+				This library has a development dependency:
+				<CommandLine commands={[{ type: 'command', text: 'npm i -D tailwindcss' }]} />
 			</Text>
 			<Text className="mt-8">
 				And the following regular dependencies.{' '}
-				<CommandLine command={`npm i clsx tailwind-merge class-variance-authority usehooks-ts tailwindcss-animate tailwindcss-radix`} variant="block" />
+				<CommandLine commands={[{ type: 'command', text: 'npm i clsx tailwind-merge class-variance-authority usehooks-ts tailwindcss-animate tailwindcss-radix' }]} />
 			</Text>
 			<Text className="mt-8">
 				Eventually, you'll need all of the Radix UI dependencies. For now, while the library is being developed, this is the list of dependencies you'll need.
-				<CommandLine command={radixDependencies} variant="block" />
+				<CommandLine commands={radixDependencies.map(text => ({ type: 'command', text }))} />
 			</Text>
 
 			<Heading as="h2" size="3xl" className="mt-8">
 				tailwind.css
 			</Heading>
 			<Text className="mt-2">
-				You can control the entire theme through the <code>tailwind.css</code> file.
+				You can control the entire theme through the <Code>tailwind.css</Code> file.
 			</Text>
 			<CodeBlock code={tailwindCSSCode} filename="tailwind" extension="css" className="mt-2" />
 
@@ -94,7 +96,7 @@ function App() {
 			<Text className="mt-2">
 				In order to use the{' '}
 				<Link to="/ui/ui/tooltip" className="underline">
-					<code>{'<Tooltip />'}</code>
+					<Code>{'<Tooltip />'}</Code>
 				</Link>{' '}
 				component, you need to wrap your app with the tooltip's provider.
 			</Text>

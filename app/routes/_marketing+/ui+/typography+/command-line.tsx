@@ -6,7 +6,7 @@ import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { CommandLine } from '~/routes/_marketing+/ui+/components/typography/command-line.tsx'
+import { type CommandAndLogArray, CommandLine } from '~/routes/_marketing+/ui+/components/typography/command-line.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 
 export const loader = async () => {
@@ -20,6 +20,33 @@ export const loader = async () => {
 
 const CommandLineRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
+	const singleCommandLineUsageExample: CommandAndLogArray = [{ type: 'command', text: `npm i -D tailwindcss` }]
+	const multipleCommandLineUsageExample = `<Text className="mt-4">
+Here's the inline component with an array in action:{' '}
+<CommandLine
+	commands={[
+		{ type: 'command', text: 'npx cowsay Hello world!' },
+		{
+			type: 'log',
+			text: \` ______________
+< Hello world! >
+ --------------
+	  \\    ^__^
+		\\  (oo)\\_______
+		   (__)\\       )\\/\\
+				||----w |
+				||     ||\`,
+		},
+		{ type: 'command', text: 'npx prisma db seed' },
+		{
+			type: 'log',
+			text: \`Need to install the following packages:
+  prisma@5.3.0
+Ok to proceed? (y) y\`,
+		},
+		{ type: 'command', text: 'npm run dev' },
+	]}
+/>`
 
 	return (
 		<>
@@ -49,39 +76,11 @@ const CommandLineRoute = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
 			</Heading>
-			<CodeBlock
-				code={`<Text className="mt-4">
-Here's the inline component with an array in action:{' '}
-<CommandLine
-	commands={[
-		{ type: 'command', text: 'npx cowsay Hello world!' },
-		{
-			type: 'log',
-			text: \` ______________
-< Hello world! >
- --------------
-	  \\    ^__^
-		\\  (oo)\\_______
-		   (__)\\       )\\/\\
-				||----w |
-				||     ||\`,
-		},
-		{ type: 'command', text: 'npx prisma db seed' },
-		{
-			type: 'log',
-			text: \`Need to install the following packages:
-  prisma@5.3.0
-Ok to proceed? (y) y\`,
-		},
-		{ type: 'command', text: 'npm run dev' },
-	]}
-/>`}
-				filename="InlineCommandLineExample"
-				extension="tsx"
-				className="mt-4"
-			/>
+			<CodeBlock code={multipleCommandLineUsageExample} filename="InlineCommandLineExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the {'<CommandLine />'} component in action:</Text>
+			<CommandLine commands={singleCommandLineUsageExample} />
 			<CommandLine
+				className="mt-8"
 				commands={[
 					{ type: 'command', text: 'npx cowsay Hello world!' },
 					{
