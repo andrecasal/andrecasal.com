@@ -25,6 +25,18 @@ export default function Index() {
 			link: '/shorts',
 		}, */
 		{
+			name: 'UI library',
+			description: 'All the lego pieces to build your UI. An accessible, SEO-optimized, UI library for fast UI development.',
+			icon: 'pencil-2',
+			link: '/ui',
+		},
+		{
+			name: 'ShipFast',
+			description: 'The Remix stack with all you need to build your full-stack web app. From idea to production in 5 minutes.',
+			icon: 'bolt',
+			link: '/ship-fast',
+		},
+		{
 			name: 'Articles',
 			description: "Relatively short articles you can read in 5 to 10 minutes. You'll learn a lot, but you won't become an expert.",
 			icon: 'file-text',
@@ -39,13 +51,13 @@ export default function Index() {
 		{
 			name: 'Courses',
 			description: "If you're serious about becoming a full-stack web developer, you'll need to take courses. I'm building a few.",
-			icon: 'trophy',
+			icon: 'rocket',
 			link: '/courses',
 		},
 		{
 			name: 'Mentorship',
 			description: "If you're building something part- or full-time and you'd like to become better, you can hire me as your full-stack web dev mentor.",
-			icon: 'rocket',
+			icon: 'trophy',
 			link: '/mentorship',
 		},
 	]
@@ -63,9 +75,6 @@ export default function Index() {
 						<Text size="3xl" align="center" className="mt-4 font-bold">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer
-						</Text>
-						<Text size="lg" align="center" className="mt-6 leading-8 text-muted-600">
-							The website's content is organized in a rising progression of time and depth.
 						</Text>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
