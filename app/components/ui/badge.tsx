@@ -15,6 +15,7 @@ const badgeVariants = cva('rounded-full ring-1 ring-inset inline-block', {
 		size: {
 			md: 'text-size-sm px-4 py-2 font-semibold ',
 			sm: 'text-size-xs px-3 py-1.5 font-medium',
+			xs: 'text-size-xs px-2 font-medium',
 		},
 	},
 	defaultVariants: {

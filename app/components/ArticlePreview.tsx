@@ -17,7 +17,7 @@ export const ArticlePreview = ({ post }: { post: Post }) => {
 			</Heading>
 			<div className="mt-4 flex flex-wrap items-center gap-1 overflow-hidden text-size-sm text-muted-300">
 				{post.topics.map(topic => (
-					<Badge key={topic} variant="muted" size="sm" className="whitespace-nowrap">
+					<Badge key={topic} variant="muted" size="xs" className="whitespace-nowrap">
 						{topic}
 					</Badge>
 				))}
