@@ -74,7 +74,7 @@ const Articles = () => {
 		// Get all selected tags
 		const selectedTags = newTagsArray.filter(({ selected }) => selected)
 		// Filter posts by selected tags
-		const newPostsArray = loaderData.posts.filter(({ topics }) => selectedTags.length === 0 || topics.some(topic => selectedTags.every(({ tag }) => tag === topic)))
+		const newPostsArray = loaderData.posts.filter(({ topics }) => selectedTags.length === 0 || selectedTags.every(({ tag }) => topics.some(topic => tag === topic)))
 		setTagsArray(newTagsArray)
 		setPostsArray(newPostsArray)
 	}
