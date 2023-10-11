@@ -16,9 +16,9 @@ import { Newsletter } from '~/components/newsletter.tsx'
 const ShipFast = () => {
 	const features = [
 		{
-			name: 'Complete production ready stack',
+			name: 'Complete production-ready stack',
 			description:
-				'ShipFast is a Remix Stack: a pre-built fully featured production-ready full-stack web app template. It comes with all the tools and configurations you need to build your startup and it collapses 40+ hours of tool and external API integration down to 5 minutes, so you can hit the ground running building your next big thing.',
+				'ShipFast is a Remix Stack: a pre-built, fully featured, production-ready full-stack web app template. It comes with all the tools and configurations you need to build your startup and it collapses 40+ hours of tool and external API integration down to 5 minutes, so you can hit the ground running building your next big thing.',
 		},
 		{
 			name: 'Practical full-stack web dev course',
@@ -26,9 +26,9 @@ const ShipFast = () => {
 				'ShipFast is also a pratical course in full-stack web development. Instead of trying to teach you every aspect of full-stack web dev in isolation, ShipFast shows you how everything works, how it ties together, and gives you real-world experience with clear documentation, explanations and videos of the concepts behind the code.',
 		},
 		{
-			name: 'Accessible',
+			name: 'Not overwhelming',
 			description:
-				"You don't have to know everything to start building. ShipFast comes with everything you need, but it also gets out of your way. Don't know (or care) how authentication works? No problem, it's already integrated. If and when you decide to learn about it (or need to change it somehow), just read the docs and you'll be good to go. Same goes for everything else. Also, ShipFast comes with external services with very considerate free tiers, so you'll only pay once you become profitable.",
+				"You don't have to know everything to start building. ShipFast gets out of your way. Don't know how something works? No problem, it's fully operational. If and when you decide to learn about it, just read the docs and you'll be good to go. Also, all external services come with generous free tiers, so you don't have to worry about subscription fees until you're profitable.",
 		},
 	]
 
@@ -153,11 +153,13 @@ const ShipFast = () => {
 				<section className="mx-auto flex flex-col items-center justify-center gap-16 px-8 py-8 lg:flex-row lg:items-start lg:gap-20 lg:py-20">
 					<div className="flex flex-col items-center justify-center gap-10 text-center lg:items-start lg:text-left">
 						<Heading as="h1" align="center" className="mx-auto max-w-3xl">
-							Not just a <span className="inline-block -rotate-2 bg-brand/40 px-2">boilerplate</span>
+							ShipFast: Your Fast Track to Full-Stack Web Mastery!
 						</Heading>
 						<div>
 							<Text size="md" className="mx-auto max-w-3xl text-muted-700">
-								Become a <span className="font-bold">full-stack web developer</span>.
+								Become a full-stack web developer with a <span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">fully featured production-ready stack</span>{' '}
+								that's also a <span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">practical course in full-stack web dev</span> and is{' '}
+								<span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">not overwhelming</span>.
 							</Text>
 						</div>
 						<Flex justify="center" className="mt-10 w-full">
@@ -178,8 +180,8 @@ const ShipFast = () => {
 								<h2 className="text-base font-semibold leading-7 text-brand">Deploy faster</h2>
 								<p className="mt-2 text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Everything you need to deploy your app</p>
 								<p className="mt-6 text-lg leading-8 text-muted-600">
-									ShipFast is not just a boilerplate. It helps you become a full-stack web dev by giving you with all the tools you need. It also gives you external
-									services with generous free tiers so you'll only pay once you become profitable.
+									ShipFast helps you become a full-stack web dev by giving you with all the <span className="font-bold">tools and knowledge</span> you need. It also gives
+									you external services with generous free tiers so you don't have to worry about payments until you're profitable.
 								</p>
 							</div>
 							<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
