@@ -13,7 +13,6 @@ const requiredServerEnvs = [
 	'MARKETING_EMAIL_SERVICE_API_ENDPOINT',
 	'SENTRY_DSN',
 	'FATHOM_ANALYTICS_SITE_ID',
-	'DISABLE_ERD', // Entity-Relationship Diagram (ERD) generation (Prisma plugin)
 ] as const
 
 declare global {

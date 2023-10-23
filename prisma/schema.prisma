@@ -9,6 +9,7 @@ generator client {
 
 generator erd {
    provider = "prisma-erd-generator"
+   disabled = true
 }
 
 model File {
