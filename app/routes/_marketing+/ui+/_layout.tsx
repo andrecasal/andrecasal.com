@@ -1,11 +1,12 @@
 import { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent } from './components/ui/slide-in-dialog.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { ScrollArea } from './components/layout/scroll-area.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
 import { Heading } from './components/typography/heading.tsx'
 import { useState } from 'react'
+import { Flex } from './components/layout/flex.tsx'
+import { ScrollArea } from './components/layout/scroll-area.tsx'
 
 const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 	const navigation = [
@@ -224,14 +225,14 @@ const UI = () => {
 				</SlideInDialog>
 			</div>
 			<Container>
-				<div className="grid w-full grid-cols-1 lg:grid-cols-[18rem_minmax(0,_1fr)]">
-					<div className="hidden h-[calc(100vh-var(--header-height))] rounded-lg border lg:block">
+				<Flex justify="between" gap="6">
+					<div className="sticky top-0 max-h-[100vh] w-1/4 overflow-y-auto">
 						<SideMenu />
 					</div>
-					<div className="px-4 sm:px-6 lg:px-8">
+					<div className="w-3/4">
 						<Outlet />
 					</div>
-				</div>
+				</Flex>
 			</Container>
 		</>
 	)
