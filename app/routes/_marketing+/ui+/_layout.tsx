@@ -8,138 +8,179 @@ import { Heading } from './components/typography/heading.tsx'
 import { useState } from 'react'
 
 const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
-	const gettingStarted = [
-		{ name: 'Installation', href: '/ui/installation', disabled: false },
-		{ name: 'Architecture', href: '/ui/architecture', disabled: false },
-		{ name: 'Design Principles', href: '/ui/design-principles', disabled: false },
-		{ name: 'Development Principles', href: '/ui/development-principles', disabled: false },
-	]
-
-	const theme = [
-		{ name: 'Overview', href: '/ui/theme/overview', disabled: true },
-		{ name: 'Dark Mode', href: '/ui/theme/dark-mode', disabled: true },
-	]
-
-	const layout = [
-		{ name: 'Container', href: '/ui/layout/container', disabled: false },
-		{ name: 'Flex', href: '/ui/layout/flex', disabled: false },
-		{ name: 'Grid', href: '/ui/layout/grid', disabled: false },
-		{ name: 'Scroll Area', href: '/ui/layout/scroll-area', disabled: false },
-	]
-
-	const typography = [
-		{ name: 'Heading', href: '/ui/typography/heading', disabled: false },
-		{ name: 'Text', href: '/ui/typography/text', disabled: false },
-		{ name: 'Blockquote', href: '/ui/typography/blockquote', disabled: true },
-		{ name: 'Code', href: '/ui/typography/code', disabled: false },
-		{ name: 'Command Line', href: '/ui/typography/command-line', disabled: false },
-		{ name: 'Em', href: '/ui/typography/em', disabled: true },
-		{ name: 'Kbd', href: '/ui/typography/kbd', disabled: false },
-		{ name: 'Link', href: '/ui/typography/link', disabled: true },
-		{ name: 'Quote', href: '/ui/typography/quote', disabled: true },
-		{ name: 'Strong', href: '/ui/typography/strong', disabled: true },
-	]
-
-	const components = [
-		{ name: 'Accordion', href: '/ui/ui/accordion', disabled: true },
-		{ name: 'Alert', href: '/ui/ui/alert', disabled: true },
-		{ name: 'Alert Dialog', href: '/ui/ui/alert-dialog', disabled: true },
-		{ name: 'Aspect Ratio', href: '/ui/ui/aspect-ratio', disabled: true },
-		{ name: 'Avatar', href: '/ui/ui/avatar', disabled: true },
-		{ name: 'Badge', href: '/ui/ui/badge', disabled: true },
-		{ name: 'Button', href: '/ui/ui/button', disabled: true },
-		{ name: 'Calendar', href: '/ui/ui/calendar', disabled: true },
-		{ name: 'Card', href: '/ui/ui/card', disabled: true },
-		{ name: 'Checkbox', href: '/ui/ui/checkbox', disabled: true },
-		{ name: 'Collapsible', href: '/ui/ui/collapsible', disabled: true },
-		{ name: 'Combobox', href: '/ui/ui/combobox', disabled: true },
-		{ name: 'Command', href: '/ui/ui/command', disabled: true },
-		{ name: 'Context Menu', href: '/ui/ui/context-menu', disabled: true },
-		{ name: 'Data Table', href: '/ui/ui/data-table', disabled: true },
-		{ name: 'Date Picker', href: '/ui/ui/date-picker', disabled: true },
-		{ name: 'Dialog', href: '/ui/ui/dialog', disabled: true },
-		{ name: 'Dropdown Menu', href: '/ui/ui/dropdown-menu', disabled: true },
-		{ name: 'Form', href: '/ui/ui/form', disabled: true },
-		{ name: 'Hover Card', href: '/ui/ui/hover-card', disabled: true },
-		{ name: 'Input', href: '/ui/ui/input', disabled: true },
-		{ name: 'Label', href: '/ui/ui/label', disabled: true },
-		{ name: 'Menubar', href: '/ui/ui/menubar', disabled: true },
-		{ name: 'Navigation Menu', href: '/ui/ui/navigation-menu', disabled: true },
-		{ name: 'Popover', href: '/ui/ui/popover', disabled: true },
-		{ name: 'Progress', href: '/ui/ui/progress', disabled: true },
-		{ name: 'Radio Group', href: '/ui/ui/radio-group', disabled: true },
-		{ name: 'Select', href: '/ui/ui/select', disabled: true },
-		{ name: 'Separator', href: '/ui/ui/separator', disabled: true },
-		{ name: 'Skeleton', href: '/ui/ui/skeleton', disabled: true },
-		{ name: 'Slider', href: '/ui/ui/slider', disabled: true },
-		{ name: 'Slide-in Dialog', href: '/ui/ui/slide-in-dialog', disabled: true },
-		{ name: 'Switch', href: '/ui/ui/switch', disabled: true },
-		{ name: 'Table', href: '/ui/ui/table', disabled: true },
-		{ name: 'Tabs', href: '/ui/ui/tabs', disabled: false },
-		{ name: 'Textarea', href: '/ui/ui/textarea', disabled: true },
-		{ name: 'Toast', href: '/ui/ui/toast', disabled: true },
-		{ name: 'Toggle', href: '/ui/ui/toggle', disabled: true },
-		{ name: 'Tooltip', href: '/ui/ui/tooltip', disabled: false },
-	]
-
-	const utilities = [
-		{ name: 'Accessible Icon', href: '/ui/utilities/accessible-icon', disabled: true },
-		{ name: 'Portal', href: '/ui/utilities/portal', disabled: true },
-		{ name: 'Slot', href: '/ui/utilities/slot', disabled: true },
-		{ name: 'Visually Hidden', href: '/ui/utilities/visually-hidden', disabled: true },
+	const navigation = [
+		{
+			name: 'Getting Started',
+			items: [
+				{ name: 'Why', href: '/ui/why', done: true },
+				{ name: 'Architecture', href: '/ui/architecture', done: true },
+				{ name: 'Design Principles', href: '/ui/design-principles', done: true },
+				{ name: 'Development Principles', href: '/ui/development-principles', done: true },
+				{ name: 'Taxonomy', href: '/ui/taxonomy', done: false },
+			],
+		},
+		{
+			name: 'Theme',
+			items: [
+				{ name: 'Overview', href: '/ui/theme/overview', done: false },
+				{ name: 'Dark Mode', href: '/ui/theme/dark-mode', done: false },
+			],
+		},
+		{
+			name: 'Layout',
+			items: [
+				{ name: 'Container', href: '/ui/layout/container', done: true },
+				{ name: 'Flex', href: '/ui/layout/flex', done: true },
+				{ name: 'Grid', href: '/ui/layout/grid', done: true },
+				{ name: 'Box', href: '/ui/layout/box', done: false },
+				{ name: 'Sticky', href: '/ui/layout/sticky', done: false },
+				{ name: 'Scroll Area', href: '/ui/layout/scroll-area', done: true },
+				{ name: 'Separator', href: '/ui/layout/separator', done: false },
+				{ name: 'Aspect Ratio', href: '/ui/layout/aspect-ratio', done: false },
+				{ name: 'Visually Hidden', href: '/ui/layout/visually-hidden', done: false },
+			],
+		},
+		{
+			name: 'Modals',
+			items: [
+				{ name: 'Modal', href: '/ui/modals/modal', done: false },
+				{ name: 'Dialog', href: '/ui/modals/dialog', done: false },
+				{ name: 'Alert Dialog', href: '/ui/modals/alert-dialog', done: false },
+				{ name: 'Drawer', href: '/ui/modals/drawer', done: false },
+				{ name: 'Dropdown Menu', href: '/ui/modals/dropdown-menu', done: false },
+			],
+		},
+		{
+			name: 'Overlays',
+			items: [
+				{ name: 'Tooltip', href: '/ui/overlays/tooltip', done: false },
+				{ name: 'Hover Card', href: '/ui/overlays/hover-card', done: false },
+				{ name: 'Context Menu', href: '/ui/overlays/context-menu', done: false },
+				{ name: 'Popover', href: '/ui/overlays/popover', done: false },
+			],
+		},
+		{
+			name: 'Navigation',
+			items: [
+				{ name: 'Link', href: '/ui/navigation/link', done: false },
+				{ name: 'NavLink', href: '/ui/navigation/navlink', done: false },
+				{ name: 'Navigation Menu', href: '/ui/navigation/navigation-menu', done: false },
+				{ name: 'Breadcrumbs', href: '/ui/navigation/breadcrumbs', done: false },
+				{ name: 'Pagination', href: '/ui/navigation/pagination', done: false },
+				{ name: 'Stepper', href: '/ui/navigation/stepper', done: false },
+			],
+		},
+		{
+			name: 'Disclosure',
+			items: [
+				{ name: 'Collapsible', href: '/ui/disclosure/collapsible', done: false },
+				{ name: 'Accordion', href: '/ui/disclosure/accordion', done: false },
+				{ name: 'Tabs', href: '/ui/disclosure/tabs', done: true },
+			],
+		},
+		{
+			name: 'Typography',
+			items: [
+				{ name: 'Heading', href: '/ui/typography/heading', done: true },
+				{ name: 'Text', href: '/ui/typography/text', done: true },
+				{ name: 'Em', href: '/ui/typography/em', done: false },
+				{ name: 'Strong', href: '/ui/typography/strong', done: false },
+				{ name: 'Quote', href: '/ui/typography/quote', done: false },
+				{ name: 'Blockquote', href: '/ui/typography/blockquote', done: false },
+				{ name: 'List', href: '/ui/typography/list', done: false },
+				{ name: 'Table of Contents', href: '/ui/typography/table-of-contents', done: false },
+				{ name: 'Kbd', href: '/ui/typography/kbd', done: true },
+				{ name: 'Code', href: '/ui/typography/Code', done: true },
+			],
+		},
+		{
+			name: 'Media',
+			items: [
+				{ name: 'Avatar', href: '/ui/media/avatar', done: false },
+				{ name: 'Avatar Group', href: '/ui/media/avatar-group', done: false },
+				{ name: 'Icon', href: '/ui/media/icon', done: false },
+				{ name: 'Image', href: '/ui/media/image', done: false },
+				{ name: 'Video', href: '/ui/media/video', done: false },
+			],
+		},
+		{
+			name: 'Notifications',
+			items: [
+				{ name: 'Notification', href: '/ui/notifications/notification', done: false },
+				{ name: 'Notification Panel', href: '/ui/notifications/notification-panel', done: false },
+				{ name: 'Toast', href: '/ui/notifications/toast', done: false },
+				{ name: 'Alert', href: '/ui/notifications/alert', done: false },
+			],
+		},
+		{
+			name: 'Status',
+			items: [
+				{ name: 'Spinner', href: '/ui/status/spinner', done: false },
+				{ name: 'ProgressBar', href: '/ui/status/progress-bar', done: false },
+			],
+		},
+		{
+			name: 'Data Display',
+			items: [
+				{ name: 'Badge', href: '/ui/data-display/badge', done: false },
+				{ name: 'Calendar', href: '/ui/data-display/calendar', done: false },
+				{ name: 'Card', href: '/ui/data-display/card', done: false },
+				{ name: 'Tag', href: '/ui/data-display/tag', done: false },
+				{ name: 'Tag Group', href: '/ui/data-display/tag group', done: false },
+				{ name: 'Table', href: '/ui/data-display/table', done: false },
+				{ name: 'Skeleton', href: '/ui/data-display/skeleton', done: false },
+				{ name: 'Rail', href: '/ui/data-display/rail', done: false },
+				{ name: 'Command Line', href: '/ui/data-display/command-line', done: true },
+			],
+		},
+		{
+			name: 'Data Entry',
+			items: [
+				{ name: 'Button', href: '/ui/data-entry/button', done: false },
+				{ name: 'Burger Button', href: '/ui/data-entry/burger-button', done: false },
+				{ name: 'Button Group', href: '/ui/data-entry/button-group', done: false },
+				{ name: 'Checkbox', href: '/ui/data-entry/checkbox', done: false },
+				{ name: 'Switch', href: '/ui/data-entry/switch', done: false },
+				{ name: 'Toggle', href: '/ui/data-entry/toggle', done: false },
+				{ name: 'Toggle Group', href: '/ui/data-entry/toggle-group', done: false },
+				{ name: 'Segmented Control', href: '/ui/data-entry/segmented-control', done: false },
+				{ name: 'Radio Button', href: '/ui/data-entry/radio-button', done: false },
+				{ name: 'Radio Group', href: '/ui/data-entry/radio-group', done: false },
+				{ name: 'Select', href: '/ui/data-entry/select', done: false },
+				{ name: 'Slider', href: '/ui/data-entry/slider', done: false },
+				{ name: 'Range Slider', href: '/ui/data-entry/range-slider', done: false },
+				{ name: 'Label', href: '/ui/data-entry/label', done: false },
+				{ name: 'Input', href: '/ui/data-entry/input', done: false },
+				{ name: 'Color Picker', href: '/ui/data-entry/color-picker', done: false },
+				{ name: 'Date Input', href: '/ui/data-entry/date-input', done: false },
+				{ name: 'Calendar Input', href: '/ui/data-entry/calendar-input', done: false },
+				{ name: 'Date Picker', href: '/ui/data-entry/date-picker', done: false },
+				{ name: 'Calendar Range Input', href: '/ui/data-entry/calendar-range-input', done: false },
+				{ name: 'Date Range Picker', href: '/ui/data-entry/date-range-picker', done: false },
+				{ name: 'Pin Input', href: '/ui/data-entry/pin-input', done: false },
+				{ name: 'Uploader', href: '/ui/data-entry/uploader', done: false },
+				{ name: 'Textarea', href: '/ui/data-entry/textarea', done: false },
+				{ name: 'Fieldset', href: '/ui/data-entry/fieldset', done: false },
+				{ name: 'Rating', href: '/ui/data-entry/rating', done: false },
+			],
+		},
 	]
 
 	return (
 		<ScrollArea>
 			<div className="px-6 pb-10">
-				<Heading as="h2" size="xs" className="mt-10 text-muted-400">
-					Getting started
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{gettingStarted.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
-				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
-					Theme
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{theme.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
-				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
-					Layout
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{layout.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
-				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
-					Typography
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{typography.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
-				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
-					Components
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{components.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
-				<Heading as="h2" size="xs" className="mt-7 text-muted-400">
-					Utilities
-				</Heading>
-				<div className="mt-2 flex flex-col text-sm">
-					{utilities.map(link => (
-						<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
-					))}
-				</div>
+				{navigation.map(({ name, items }) => (
+					<div key={name}>
+						<Heading as="h2" size="xs" className="mt-10 text-muted-400">
+							{name}
+						</Heading>
+						<div className="mt-2 flex flex-col text-sm">
+							{items.map(link => (
+								<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />
+							))}
+						</div>
+					</div>
+				))}
 			</div>
 		</ScrollArea>
 	)
@@ -148,19 +189,19 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 type BoldNavLinkProps = {
 	name: string
 	href: string
-	disabled: boolean
+	done: boolean
 	onClick: () => void
 }
 
-const BoldNavLink = ({ name, href, disabled, onClick, ...props }: BoldNavLinkProps) => {
-	return disabled ? (
-		<Text size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400" {...props}>
-			{name} (soon)
-		</Text>
-	) : (
+const BoldNavLink = ({ name, href, done, onClick, ...props }: BoldNavLinkProps) => {
+	return done ? (
 		<NavLink to={href} className="-mx-2 rounded p-2 aria-[current]:font-bold" onClick={() => onClick()} {...props}>
 			{name}
 		</NavLink>
+	) : (
+		<Text size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400" {...props}>
+			{name} (soon)
+		</Text>
 	)
 }
 

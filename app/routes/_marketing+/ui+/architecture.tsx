@@ -1,6 +1,7 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import architecture from './images/architecture.jpg'
+import designSystem from './images/design-system.webp'
 import { Heading } from './components/typography/heading.tsx'
 
 const Architecture = () => {
@@ -10,7 +11,22 @@ const Architecture = () => {
 				Architecture
 			</Heading>
 			<Text size="md" className="mt-2">
-				Here's a drawing you can use to understand how andrecasal/ui works. Right click and choose "Open image in new tab" to see it in full size.
+				Here's an image to help you understand how andrecasal/ui works.
+			</Text>
+			<Text size="md" className="mt-2">
+				The library only encompasses design tokens and components for now, but I will add patterns later.
+			</Text>
+			<figure className="mt-8">
+				<img src={designSystem} alt="andrecasal/ui design system" className="rounded-xl" />
+				<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+					Image taken from https://uxdesign.cc/atomic-design-2022-what-we-can-learn-from-eames-and-other-design-giants-4d8e2f579daa
+				</figcaption>
+			</figure>
+			<Text size="md" className="mt-2">
+				And here's a drawing to help you understand how to set design tokens and how they propagate through the system.
+			</Text>
+			<Text size="md" className="mt-2">
+				Right click and choose "Open image in new tab" to see it in full size.
 			</Text>
 			<figure className="mt-8">
 				<img src={architecture} alt="andrecasal/ui architecture" className="rounded-xl" />

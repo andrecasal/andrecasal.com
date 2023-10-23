@@ -1,5 +1,5 @@
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Heading } from './components/typography/heading.tsx'
+import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 
 const DevelopmentPrinciples = () => {
 	return (
