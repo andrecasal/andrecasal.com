@@ -30,13 +30,13 @@ export type Post = {
 
 export const loader = () => {
 	const posts: Post[] = [
-		{
+		/* {
 			title: theDarkSideOfTheGridTitle,
 			description: theDarkSideOfTheGridDescription,
 			imageUrl: theDarkSideOfTheGridImage,
 			href: '/articles/quotes',
 			topics: ['Typography', 'CSS'],
-		},
+		}, */
 		{
 			title: theDarkSideOfTheGridTitle,
 			description: theDarkSideOfTheGridDescription,
