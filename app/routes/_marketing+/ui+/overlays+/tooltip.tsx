@@ -183,7 +183,7 @@ function App() {
 			</Heading>
 			<Text className="mt-4">
 				You can follow the{' '}
-				<Link to="/ui/installation" className="underline">
+				<Link to="/ui" className="underline">
 					global installation guide
 				</Link>{' '}
 				that will install everything you need to use all the components or you can install the tooltip component by itself by installing its dependencies and wrap your app with the

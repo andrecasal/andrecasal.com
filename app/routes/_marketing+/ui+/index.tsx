@@ -95,7 +95,7 @@ function App() {
 			</Heading>
 			<Text className="mt-2">
 				In order to use the{' '}
-				<Link to="/ui/ui/tooltip" className="underline">
+				<Link to="/ui/overlays/tooltip" className="underline">
 					<Code>{'<Tooltip />'}</Code>
 				</Link>{' '}
 				component, you need to wrap your app with the tooltip's provider.
