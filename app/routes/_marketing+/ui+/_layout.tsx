@@ -17,7 +17,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 				{ name: 'Architecture', href: '/ui/architecture', done: true },
 				{ name: 'Design Principles', href: '/ui/design-principles', done: true },
 				{ name: 'Development Principles', href: '/ui/development-principles', done: true },
-				{ name: 'Taxonomy', href: '/ui/taxonomy', done: false },
+				{ name: 'Taxonomy', href: '/ui/taxonomy', done: true },
 			],
 		},
 		{
