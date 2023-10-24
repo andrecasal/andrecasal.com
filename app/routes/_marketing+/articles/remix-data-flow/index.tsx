@@ -9,6 +9,7 @@ export const post: Post = {
 	title: 'Remix Data Flow',
 	description: 'Learn how data flows in a Remix route.',
 	imageUrl: remixDataFlow,
+	date: '2023-09-01',
 	href: '/articles/remix-data-flow',
 	topics: ['Remix', 'Full-stack'],
 }

@@ -9,6 +9,7 @@ export const post: Post = {
 	title: 'Fluid Space Sizing',
 	description: 'Learn about the cement that holds the bricks of components together: space.',
 	imageUrl: fluidSpaceSizingImage,
+	date: '2023-09-25',
 	href: '/articles/fluid-space-sizing',
 	topics: ['Spacing', 'CSS', 'Design Systems'],
 }

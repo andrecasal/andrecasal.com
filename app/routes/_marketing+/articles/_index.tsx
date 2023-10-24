@@ -16,9 +16,10 @@ import { post as remixDataFlowPost } from './remix-data-flow/index.tsx'
 
 export type Post = {
 	title: string
-	href: string
 	description: string
 	imageUrl: string
+	date: string
+	href: string
 	topics: string[]
 }
 

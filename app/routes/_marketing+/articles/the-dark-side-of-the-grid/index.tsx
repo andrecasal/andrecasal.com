@@ -10,6 +10,7 @@ export const post: Post = {
 	title: 'The Dark Side Of The Grid (and Flexbox)',
 	description: 'Learn about the Grid and Flexbox features you should avoid',
 	imageUrl: theDarkSideOfTheGrid,
+	date: '2023-10-04',
 	href: '/articles/the-dark-side-of-the-grid',
 	topics: ['Accessibility', 'CSS'],
 }

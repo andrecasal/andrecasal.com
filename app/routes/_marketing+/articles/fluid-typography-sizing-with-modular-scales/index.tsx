@@ -9,6 +9,7 @@ export const post: Post = {
 	title: 'Fluid Typography Sizing and Scales',
 	description: 'Learn how you can size typography fluidly and why hand-picked scales are better than modular scales.',
 	imageUrl: fluidTypographySizingWithModularScales,
+	date: '2023-09-11',
 	href: '/articles/fluid-typography-sizing-with-modular-scales',
 	topics: ['Typography', 'CSS', 'Design Systems'],
 }
