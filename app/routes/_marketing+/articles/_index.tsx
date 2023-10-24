@@ -8,17 +8,11 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
 import { Heading } from '../ui+/components/typography/heading.tsx'
-import { title as RemixDataFlowTitle, description as RemixDataFlowDescription } from './remix-data-flow/index.tsx'
-import remixDataFlowImage from './remix-data-flow/remix-data-flow.png'
-import {
-	title as FluidTypographySizingWithModularScalesTitle,
-	description as FluidTypographySizingWithModularScalesDescription,
-} from './fluid-typography-sizing-with-modular-scales/index.tsx'
-import fluidTypographySizingWithModularScalesImage from './fluid-typography-sizing-with-modular-scales/fluid-typography.png'
-import { title as fluidSpaceSizingTitle, description as fluidSpaceSizingDescription } from './fluid-space-sizing/index.tsx'
-import fluidSpaceSizingImage from './fluid-space-sizing/fluid-space-sizing.png'
-import { title as theDarkSideOfTheGridTitle, description as theDarkSideOfTheGridDescription } from './the-dark-side-of-the-grid/index.tsx'
-import theDarkSideOfTheGridImage from './the-dark-side-of-the-grid/the-dark-side-of-the-grid.png'
+
+import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
+import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
+import { post as fluidTypographyPost } from './fluid-typography-sizing-with-modular-scales/index.tsx'
+import { post as remixDataFlowPost } from './remix-data-flow/index.tsx'
 
 export type Post = {
 	title: string
@@ -29,43 +23,7 @@ export type Post = {
 }
 
 export const loader = () => {
-	const posts: Post[] = [
-		/* {
-			title: theDarkSideOfTheGridTitle,
-			description: theDarkSideOfTheGridDescription,
-			imageUrl: theDarkSideOfTheGridImage,
-			href: '/articles/quotes',
-			topics: ['Typography', 'CSS'],
-		}, */
-		{
-			title: theDarkSideOfTheGridTitle,
-			description: theDarkSideOfTheGridDescription,
-			imageUrl: theDarkSideOfTheGridImage,
-			href: '/articles/the-dark-side-of-the-grid',
-			topics: ['Accessibility', 'CSS'],
-		},
-		{
-			title: fluidSpaceSizingTitle,
-			description: fluidSpaceSizingDescription,
-			imageUrl: fluidSpaceSizingImage,
-			href: '/articles/fluid-space-sizing',
-			topics: ['Spacing', 'CSS', 'Design Systems'],
-		},
-		{
-			title: FluidTypographySizingWithModularScalesTitle,
-			description: FluidTypographySizingWithModularScalesDescription,
-			imageUrl: fluidTypographySizingWithModularScalesImage,
-			href: '/articles/fluid-typography-sizing-with-modular-scales',
-			topics: ['Typography', 'CSS', 'Design Systems'],
-		},
-		{
-			title: RemixDataFlowTitle,
-			description: RemixDataFlowDescription,
-			imageUrl: remixDataFlowImage,
-			href: '/articles/remix-data-flow',
-			topics: ['Remix', 'Full-stack'],
-		},
-	]
+	const posts: Post[] = [theDarkSideOfTheGridPost, fluidSpacePost, fluidTypographyPost, remixDataFlowPost]
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
 	return json({ posts, tags })
 }

@@ -4,9 +4,15 @@ import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
 import { Link } from '@remix-run/react'
 import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
+import { type Post } from '../_index.tsx'
 
-export const title = 'The Dark Side Of The Grid (and Flexbox)'
-export const description = 'Learn about the Grid and Flexbox features you should avoid'
+export const post: Post = {
+	title: 'The Dark Side Of The Grid (and Flexbox)',
+	description: 'Learn about the Grid and Flexbox features you should avoid',
+	imageUrl: theDarkSideOfTheGrid,
+	href: '/articles/the-dark-side-of-the-grid',
+	topics: ['Accessibility', 'CSS'],
+}
 
 const TheDarkSideOfTheGrid = () => {
 	const gridWithoutDense = `<div className="mt-8 grid grid-cols-3 grid-rows-3 gap-4">
@@ -132,16 +138,17 @@ const TheDarkSideOfTheGrid = () => {
 	return (
 		<>
 			<Heading as="h1" size="4xl" className="mt-10">
-				{title}
+				{post.title}
 			</Heading>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={theDarkSideOfTheGrid} alt="The Dark Side Of The Grid" className="rounded-2xl object-cover" />
+
 				<Heading as="h2" size="4xl" className="mt-10">
 					Introduction
 				</Heading>
 				<Text size="xl" className="mt-8">
 					Putting constraints in place is one of the most powerful principles of Software Engineering. When constraints are selected correctly, they allow you to develop
-					considerable faster while also avoiding a wide range of mistakes.
+					considerably faster while also avoiding a wide range of mistakes.
 				</Text>
 				<Text size="xl" className="mt-8">
 					In the case of the CSS Grid and Flexbox, there are a few features that dangerously disconnect visual order from DOM order. This creates an accessibility problem and

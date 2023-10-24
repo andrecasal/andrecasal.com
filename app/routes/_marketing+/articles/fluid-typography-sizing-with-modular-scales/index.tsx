@@ -3,9 +3,15 @@ import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
+import { type Post } from '../_index.tsx'
 
-export const title = 'Fluid Typography Sizing and Scales'
-export const description = 'Learn how you can size typography fluidly and why hand-picked scales are better than modular scales.'
+export const post: Post = {
+	title: 'Fluid Typography Sizing and Scales',
+	description: 'Learn how you can size typography fluidly and why hand-picked scales are better than modular scales.',
+	imageUrl: fluidTypographySizingWithModularScales,
+	href: '/articles/fluid-typography-sizing-with-modular-scales',
+	topics: ['Typography', 'CSS', 'Design Systems'],
+}
 
 const FluidTypographySizingWithModularScales = () => {
 	const modularScale = `:root {
@@ -263,7 +269,7 @@ const FluidTypographySizingWithModularScales = () => {
 	return (
 		<>
 			<Heading as="h1" size="4xl" className="mt-10">
-				{title}
+				{post.title}
 			</Heading>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidTypographySizingWithModularScales} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />

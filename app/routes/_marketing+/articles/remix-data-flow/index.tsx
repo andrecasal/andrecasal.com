@@ -3,19 +3,25 @@ import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
 import { type V2_MetaFunction } from '@remix-run/node'
 import { Heading } from '../../ui+/components/typography/heading.tsx'
+import { type Post } from '../_index.tsx'
 
-export const title = 'Remix Data Flow'
-export const description = 'Learn how data flows in a Remix route.'
+export const post: Post = {
+	title: 'Remix Data Flow',
+	description: 'Learn how data flows in a Remix route.',
+	imageUrl: remixDataFlow,
+	href: '/articles/remix-data-flow',
+	topics: ['Remix', 'Full-stack'],
+}
 
 export const meta: V2_MetaFunction = () => {
-	return [{ title: 'Data flow in a Remix route' }]
+	return [{ title: post.title, description: post.description }]
 }
 
 const RemixDataFlow = () => {
 	return (
 		<>
 			<Heading as="h1" size="4xl">
-				{title}
+				{post.title}
 			</Heading>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={remixDataFlow} alt="Remix Data Flow" className="rounded-2xl object-cover" />

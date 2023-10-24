@@ -3,15 +3,21 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
 import { Kbd } from '../../ui+/components/typography/kbd.tsx'
+import { type Post } from '../_index.tsx'
 
-export const title = 'Fluid Space Sizing'
-export const description = 'Learn about the cement that holds the bricks of components together: space.'
+export const post: Post = {
+	title: 'Fluid Space Sizing',
+	description: 'Learn about the cement that holds the bricks of components together: space.',
+	imageUrl: fluidSpaceSizingImage,
+	href: '/articles/fluid-space-sizing',
+	topics: ['Spacing', 'CSS', 'Design Systems'],
+}
 
 const FluidSpaceSizing = () => {
 	return (
 		<>
 			<Heading as="h1" size="4xl" className="mt-10">
-				{title}
+				{post.title}
 			</Heading>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidSpaceSizingImage} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />
