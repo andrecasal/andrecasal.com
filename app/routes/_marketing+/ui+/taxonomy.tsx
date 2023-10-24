@@ -62,7 +62,7 @@ const Taxonomy = () => {
 				Label and Fieldset
 			</Heading>
 			<Text size="md" className="mt-2">
-				{'<Label />'} and {'<Fieldset />'} aren't "Data Entry" at all 😅. A possible alternative for "Data Entry" could be "Form elements".
+				{'<Label />'} and {'<Fieldset />'} aren't "Data Entry" at all 😅. A possible alternative for "Data Entry" could be "Form elements", as things that go inside a {'<form />'}.
 			</Text>
 		</>
 	)
