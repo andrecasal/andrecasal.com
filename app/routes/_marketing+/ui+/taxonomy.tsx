@@ -93,16 +93,16 @@ const Taxonomy = () => {
 					<strong>Modals</strong> - components that block interaction with the rest of the app.
 				</li>
 				<li>
-					<strong>Overlays</strong> - components that float on top and cover the app.
+					<strong>Overlays</strong> - components that float on top of the app.
 				</li>
 				<li>
-					<strong>Navigations</strong> - components means to navigate between app routes.
+					<strong>Navigations</strong> - components to switch between app routes.
 				</li>
 				<li>
 					<strong>Disclosure</strong> - components that conditionally show or hide information.
 				</li>
 				<li>
-					<strong>Typography</strong> - components that pertain to typography.
+					<strong>Typography</strong> - components that pertain to text features.
 				</li>
 				<li>
 					<strong>Media</strong> - components that pertain to image, video, and audio.
