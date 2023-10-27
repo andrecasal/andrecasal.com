@@ -226,7 +226,7 @@ const UI = () => {
 			</div>
 			<Container>
 				<Flex justify="between" gap="6">
-					<div className="sticky top-0 max-h-[100vh] w-1/4 overflow-y-auto">
+					<div className="sticky top-0 hidden max-h-[100vh] w-1/4 overflow-y-auto lg:block">
 						<SideMenu />
 					</div>
 					<div className="w-3/4">
