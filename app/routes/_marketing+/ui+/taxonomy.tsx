@@ -127,6 +127,13 @@ const Taxonomy = () => {
 			<Heading as="h2" size="xl" className="mt-14">
 				Current violations to clear taxonomy I'd love help fixing 🙏
 			</Heading>
+			<Text size="md" className="mt-2">
+				You can join the discussion on{' '}
+				<a href="https://github.com/andrecasal/andrecasal.com/discussions/11" target="_blank" rel="noreferrer" className="underline">
+					GitHub
+				</a>
+				.
+			</Text>
 
 			<Heading as="h3" size="lg" className="mt-2">
 				Button
