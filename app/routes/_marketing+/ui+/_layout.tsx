@@ -35,7 +35,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 				{ name: 'Container', href: '/ui/layout/container', done: true },
 				{ name: 'Sticky', href: '/ui/layout/sticky', done: true },
 				{ name: 'Scroll Area', href: '/ui/layout/scroll-area', done: true },
-				{ name: 'Separator', href: '/ui/layout/separator', done: false },
+				{ name: 'Separator', href: '/ui/layout/separator', done: true },
 				{ name: 'Aspect Ratio', href: '/ui/layout/aspect-ratio', done: false },
 				{ name: 'Visually Hidden', href: '/ui/layout/visually-hidden', done: false },
 			],

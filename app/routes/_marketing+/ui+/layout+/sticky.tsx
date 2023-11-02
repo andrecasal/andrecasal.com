@@ -18,7 +18,7 @@ export const loader = async () => {
 	return json({ source })
 }
 
-const HeadingRoute = () => {
+const StickyRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
 	const usage = `<div className="mt-14 h-80 overflow-y-auto rounded-lg border">
 	<div className="h-10" />
@@ -43,7 +43,7 @@ const HeadingRoute = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
 			</Heading>
-			<CodeBlock code={usage} filename="HeadingExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={usage} filename="StickyExample" extension="tsx" className="mt-4" />
 			<div className="mt-14 h-80 overflow-y-auto rounded-lg border">
 				<div className="h-10" />
 				<Sticky className="top-0 bg-green-500">This sticks</Sticky>
@@ -63,8 +63,8 @@ const HeadingRoute = () => {
 				This is literally just a <Code>div</Code> with the <Code>sticky</Code> class on it, but it's easier to read <Code>{'<Sticky>'}</Code> than{' '}
 				<Code>{'<div className="sticky">'}</Code>.
 			</Text>
-			<CodeBlock code={source} filename="heading" extension="tsx" className="mt-4" />
+			<CodeBlock code={source} filename="sticky" extension="tsx" className="mt-4" />
 		</>
 	)
 }
-export default HeadingRoute
+export default StickyRoute
