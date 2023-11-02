@@ -30,11 +30,10 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{
 			name: 'Layout',
 			items: [
-				{ name: 'Container', href: '/ui/layout/container', done: true },
 				{ name: 'Flex', href: '/ui/layout/flex', done: true },
 				{ name: 'Grid', href: '/ui/layout/grid', done: true },
-				{ name: 'Box', href: '/ui/layout/box', done: false },
-				{ name: 'Sticky', href: '/ui/layout/sticky', done: false },
+				{ name: 'Container', href: '/ui/layout/container', done: true },
+				{ name: 'Sticky', href: '/ui/layout/sticky', done: true },
 				{ name: 'Scroll Area', href: '/ui/layout/scroll-area', done: true },
 				{ name: 'Separator', href: '/ui/layout/separator', done: false },
 				{ name: 'Aspect Ratio', href: '/ui/layout/aspect-ratio', done: false },
