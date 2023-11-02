@@ -65,8 +65,8 @@ const Architecture = () => {
 				Components use the custom classes
 			</Heading>
 			<Text size="md" className="mt-2">
-				Because the components use these custom classes, they become theme controlled. Additionally, you still have the full power of (non-CSS-variable controlled) TailwindCSS
-				classes at your disposal for inside the components or other parts of your app.
+				Because the components use these custom classes, they become theme controlled. Additionally, you still have the full power of the usual TailwindCSS classes at your disposal
+				to use inside the components and other parts of your app.
 			</Text>
 		</Container>
 	)

@@ -11,12 +11,12 @@ const DesignPrinciples = () => {
 			<Text size="md" className="mt-2">
 				I've written a few articles about design principles that I've used to build this library.
 			</Text>
-			<Heading as="h2" size="xl">
+			<Heading as="h2" size="lg" className="mt-4">
 				<Link to="/articles/fluid-typography-sizing-with-modular-scales" className="underline">
 					Fluid Typography Sizing and Scales
 				</Link>
 			</Heading>
-			<Heading as="h2" size="xl" className="mt-14">
+			<Heading as="h2" size="lg">
 				<Link to="/articles/fluid-space-sizing" className="underline">
 					Fluid Space Sizing
 				</Link>

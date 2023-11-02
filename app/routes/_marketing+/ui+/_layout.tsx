@@ -23,8 +23,8 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{
 			name: 'Theme',
 			items: [
-				{ name: 'Overview', href: '/ui/theme/overview', done: false },
-				{ name: 'Dark Mode', href: '/ui/theme/dark-mode', done: false },
+				{ name: 'Overview', href: '/ui/theme/overview', done: true },
+				{ name: 'Dark Mode', href: '/ui/theme/dark-mode', done: true },
 			],
 		},
 		{
