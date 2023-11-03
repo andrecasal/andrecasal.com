@@ -15,13 +15,13 @@ const ScrollArea = forwardRef<ElementRef<typeof ScrollAreaPrimitive.Viewport>, S
 
 		{scrollbars !== 'horizontal' ? (
 			<ScrollAreaPrimitive.Scrollbar orientation="vertical" className={cn('flex w-2.5 touch-none select-none flex-col border-l border-l-transparent p-px transition-colors')}>
-				<ScrollAreaPrimitive.Thumb className="relative rounded-full bg-brand" />
+				<ScrollAreaPrimitive.Thumb className="scrollbar relative" />
 			</ScrollAreaPrimitive.Scrollbar>
 		) : null}
 
 		{scrollbars !== 'vertical' ? (
 			<ScrollAreaPrimitive.Scrollbar orientation="horizontal" className={cn('flex h-2.5 touch-none select-none flex-row border-t border-t-transparent p-px transition-colors')}>
-				<ScrollAreaPrimitive.Thumb className="relative rounded-full bg-brand" />
+				<ScrollAreaPrimitive.Thumb className="scrollbar relative" />
 			</ScrollAreaPrimitive.Scrollbar>
 		) : null}
 

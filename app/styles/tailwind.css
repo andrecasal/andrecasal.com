@@ -25,6 +25,7 @@
 	}
 }
 
+/* ### Design Tokens ### */
 /* Spacing: https://andrecasal.com/articles/fluid-space-sizing */
 @layer base {
 	:root {
@@ -296,7 +297,7 @@
 	}
 }
 
-/* Components */
+/* ### Layout ### */
 @layer components {
 	/* Container */
 	:root {
@@ -312,16 +313,49 @@
 		--container-padding-x: clamp(calc(var(--container-min-padding) * 1rem), var(--container-padding-size), calc(var(--container-max-padding) * 1rem));
 	}
 
-	/* Code */
-	.code {
-		@apply rounded-md bg-muted-200 px-space-5 py-space-2 text-muted-900;
+	/* Scroll Area */
+	.scrollbar {
+		@apply rounded-full bg-brand;
 	}
 
-	/* Kbd */
-	.kbd {
-		@apply m-space-0 border-spacing-space-1 rounded-lg border border-muted-200 bg-muted-50 p-space-4 align-baseline font-code text-size-xs text-muted-900 shadow-sm;
+	/* Divider */
+	.divider {
+		@apply bg-muted-200;
 	}
 
+	/* Modal Overlay */
+	.overlay {
+		@apply bg-background/80 backdrop-blur-sm;
+	}
+
+	/* Dialog */
+	.dialog {
+		@apply grid w-full max-w-lg gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg md:w-full;
+	}
+
+	.dialog-close-button {
+		@apply absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-foreground data-[state=open]:text-muted-500;
+	}
+}
+
+/* ### Modals ### */
+@layer components {
+}
+
+/* ### Overlays ### */
+@layer components {
+	/* Tooltip */
+	.tooltip {
+		@apply rounded-md bg-foreground px-space-5 text-size-sm text-background;
+	}
+}
+
+/* ### Navigation ### */
+@layer components {
+}
+
+/* ### Disclosure ### */
+@layer components {
 	/* Tabs */
 	.tabsroot {
 		@apply inline-block;
@@ -337,9 +371,41 @@
 
 	.tabscontent {
 	}
+}
 
-	/* Tooltip */
-	.tooltip {
-		@apply rounded-md bg-foreground px-space-5 text-size-sm text-background;
+/* ### Typography ### */
+@layer components {
+	/* Kbd */
+	.kbd {
+		@apply m-space-0 border-spacing-space-1 rounded-lg border border-muted-200 bg-muted-50 p-space-4 align-baseline font-code text-size-xs text-muted-900 shadow-sm;
 	}
+
+	/* Code */
+	.code {
+		@apply rounded-md bg-muted-200 px-space-5 py-space-2 text-muted-900;
+	}
+}
+
+/* ### Media ### */
+@layer components {
+}
+
+/* ### Notifications ### */
+@layer components {
+}
+
+/* ### Status ### */
+@layer components {
+}
+
+/* ### Actions ### */
+@layer components {
+}
+
+/* ### Data Display ### */
+@layer components {
+}
+
+/* ### Form Elements ### */
+@layer components {
 }

@@ -31,15 +31,15 @@ const Taxonomy = () => {
 				Taxonomy is the science of categorization. Let's unpack that.
 			</Text>
 			<Text size="md" className="mt-2">
-				Being a science means we gain knowledge by coming up with and testing hypotheses. Of categorization means that the hypotheses are of the criteria that distinguishes one
-				classification from another.
+				Being a science means we gain knowledge by coming up with and testing hypotheses. <em>Of categorization</em> means that the hypotheses are of the criteria that distinguishes
+				one classification from another.
 			</Text>
 
 			<Heading as="h2" size="xl" className="mt-14">
-				Why bother with taxonomy?
+				Why bother?
 			</Heading>
 			<Text size="md" className="mt-2">
-				Why have categories that clearly distinguish between components?
+				Why bother with taxonomy, i.e. why have categories that clearly distinguish between components?
 			</Text>
 			<Text size="md" className="mt-2">
 				Here's why:

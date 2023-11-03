@@ -7,7 +7,7 @@ import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Separator } from '../components/layout/separator.tsx'
+import { Divider } from '../components/layout/divider.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Code } from '../components/typography/code.tsx'
 
@@ -15,32 +15,42 @@ export const loader = async () => {
 	const basePath = '../app/routes/'
 	const __filename = fileURLToPath(import.meta.url)
 	const __dirname = dirname(__filename)
-	const filePath = path.join(__dirname, basePath, '/_marketing+/ui+/components/layout/separator.tsx')
+	const filePath = path.join(__dirname, basePath, '/_marketing+/ui+/components/layout/divider.tsx')
 	const source = await fs.readFile(filePath, 'utf-8')
 	return json({ source })
 }
 
-const SeparatorRoute = () => {
+const DividerRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const usage = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
-	<ScrollArea>
-		<div className="p-5">
-			<Text size="lg">
-				Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
-				synonymously, typographically they are separate but related concepts.
-			</Text>
-			<Text size="lg" className="mt-8">
-				Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable
-				and recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-			</Text>
-		</div>
-	</ScrollArea>
+	const usage = `<div>
+	<div className="space-y-1">
+		<Text as="p" size="md" weight="bold">
+			andrecasal/ui
+		</Text>
+		<Text as="p" size="sm">
+			An open-source UI component library.
+		</Text>
+	</div>
+	<Divider className="my-4" />
+	<Flex gap="10" align="center" className="h-5">
+		<Text as="p" size="sm">
+			Blog
+		</Text>
+		<Divider orientation="vertical" />
+		<Text as="p" size="sm">
+			Docs
+		</Text>
+		<Divider orientation="vertical" />
+		<Text as="p" size="sm">
+			Source
+		</Text>
+	</Flex>
 </div>`
 
 	return (
 		<>
 			<Heading as="h1" className="mt-8">
-				Separator
+				Divider
 			</Heading>
 			<Text className="mt-4">Visually or semantically separates content.</Text>
 
@@ -65,9 +75,9 @@ const SeparatorRoute = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Usage
 			</Heading>
-			<CodeBlock code={usage} filename="StickyExample" extension="tsx" className="mt-4" />
+			<CodeBlock code={usage} filename="DividerExample" extension="tsx" className="mt-4" />
 			<Text>
-				Here's the <Code>{'<Separator />'}</Code> component in action:
+				Here's the <Code>{'<Divider />'}</Code> component in action:
 			</Text>
 			<div>
 				<div className="space-y-1">
@@ -78,16 +88,16 @@ const SeparatorRoute = () => {
 						An open-source UI component library.
 					</Text>
 				</div>
-				<Separator className="my-4" />
+				<Divider className="my-4" />
 				<Flex gap="10" align="center" className="h-5">
 					<Text as="p" size="sm">
 						Blog
 					</Text>
-					<Separator orientation="vertical" />
+					<Divider orientation="vertical" />
 					<Text as="p" size="sm">
 						Docs
 					</Text>
-					<Separator orientation="vertical" />
+					<Divider orientation="vertical" />
 					<Text as="p" size="sm">
 						Source
 					</Text>
@@ -130,8 +140,8 @@ const SeparatorRoute = () => {
 			<Heading as="h2" size="3xl" className="mt-8">
 				Source
 			</Heading>
-			<CodeBlock code={source} filename="scroll-area" extension="tsx" className="mt-4" />
+			<CodeBlock code={source} filename="divider" extension="tsx" className="mt-4" />
 		</>
 	)
 }
-export default SeparatorRoute
+export default DividerRoute
