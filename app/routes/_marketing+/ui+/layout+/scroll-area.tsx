@@ -1,26 +1,35 @@
 import { json } from '@remix-run/node'
 import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
-import { fileURLToPath } from 'url'
-import path, { dirname } from 'path'
-import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Icon } from '~/components/ui/icon.tsx'
 import { ScrollArea } from '../components/layout/scroll-area.tsx'
+import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
+import { Code } from '../components/typography/code.tsx'
 
-export const loader = async () => {
-	const basePath = '../app/routes/'
-	const __filename = fileURLToPath(import.meta.url)
-	const __dirname = dirname(__filename)
-	const filePath = path.join(__dirname, basePath, '/_marketing+/ui+/components/layout/scroll-area.tsx')
-	const source = await fs.readFile(filePath, 'utf-8')
-	return json({ source })
-}
-
-const HeadingRoute = () => {
-	const { source } = useLoaderData<typeof loader>()
-	const usageExample = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
+const component: componentProps = {
+	name: 'Scroll Area',
+	shortName: 'ScrollArea',
+	fileName: 'scroll-area',
+	category: 'layout',
+	description: ['Augments native scroll functionality for custom, cross-browser styling.'],
+	features: [
+		'Scrollbar sits on top of the scrollable content, taking up no space.',
+		'Scrolling is native; no underlying position movements via CSS transformations.',
+		'Shims pointer behaviors only when interacting with the controls, so keyboard controls are unaffected.',
+		'Supports Right to Left direction.',
+	],
+	parts: [
+		{
+			name: 'ScrollArea',
+			description: 'Augments native scroll functionality for custom, cross-browser styling.',
+			props: [
+				{ name: 'scrollbars', type: "'vertical' | 'horizontal' | 'both'", default: "'vertical'" },
+				{ name: 'type', type: "'auto' | 'always' | 'scroll' | 'hover'", default: "'hover'" },
+			],
+		},
+	],
+	usage: `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-200 dark:bg-muted-300">
 	<ScrollArea>
 		<div className="p-5">
 			<Text size="lg">
@@ -33,7 +42,14 @@ const HeadingRoute = () => {
 			</Text>
 		</div>
 	</ScrollArea>
-</div>`
+</div>`,
+}
+
+export const loader = async () => json({ source: await readSource({ category: component.category, fileName: component.fileName }) })
+
+const HeadingRoute = () => {
+	const { source } = useLoaderData<typeof loader>()
+	const { name, description, shortName, fileName, features, usage, parts } = component
 	const badExampleOne = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100 p-5">
 	<ScrollArea>
 		<Text size="lg">
@@ -61,46 +77,30 @@ const HeadingRoute = () => {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Scroll Area
-			</Heading>
-			<Text className="mt-4">Augments native scroll functionality for custom, cross-browser styling.</Text>
-
+			<Description name={name} description={description} />
+			<Features features={features} />
+			<Parts parts={parts} />
 			<Heading as="h2" size="3xl" className="mt-8">
-				Features
+				Notes
 			</Heading>
-			<ul className="list-inside space-y-1 text-muted-600">
-				<li className="flex">
-					<span>
-						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-					</span>
-					Scrollbar sits on top of the scrollable content, taking up no space.
+			<Text className="mt-4">
+				<Code>type</Code> describes the nature of scrollbar visibility, similar to how the scrollbar preferences in macOS control visibility of native scrollbars:
+			</Text>
+			<ul className="ml-4 mt-2 list-disc">
+				<li>
+					<Code>auto</Code> means that scrollbars are visible when content is overflowing on the corresponding orientation.
 				</li>
-				<li className="flex">
-					<span>
-						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-					</span>
-					Scrolling is native; no underlying position movements via CSS transformations.
+				<li>
+					<Code>always</Code> means that scrollbars are always visible regardless of whether the content is overflowing.
 				</li>
-				<li className="flex">
-					<span>
-						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-					</span>
-					Shims pointer behaviors only when interacting with the controls, so keyboard controls are unaffected.
+				<li>
+					<Code>scroll</Code> means that scrollbars are visible when the user is scrolling along its corresponding orientation.
 				</li>
-				<li className="flex">
-					<span>
-						<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
-					</span>
-					Supports Right to Left direction.
+				<li>
+					<Code>hover</Code> when the user is scrolling along its corresponding orientation and when the user is hovering over the scroll area.
 				</li>
 			</ul>
-
-			<Heading as="h2" size="3xl" className="mt-8">
-				Usage
-			</Heading>
-			<CodeBlock code={usageExample} filename="GridExample" extension="tsx" className="mt-4" />
-			<Text>Here's the {'<ScrollArea />'} component in action.</Text>
+			<Usage usage={usage} shortName={shortName} />
 			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-200 dark:bg-muted-300">
 				<ScrollArea>
 					<div className="p-5">
@@ -116,61 +116,11 @@ const HeadingRoute = () => {
 				</ScrollArea>
 			</div>
 
-			<Heading as="h2" size="xl" className="mt-8">
-				Props
-			</Heading>
-			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-				<table className="min-w-full divide-y divide-muted-300">
-					<thead className="bg-muted-300">
-						<tr>
-							<th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-muted-900 sm:pl-6">
-								Prop
-							</th>
-							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-muted-900">
-								Type
-							</th>
-							<th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-muted-900">
-								Default
-							</th>
-						</tr>
-					</thead>
-					<tbody className="divide-y divide-muted-200 bg-muted-200">
-						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">scrollbars</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'vertical' | 'horizontal' | 'both'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'vertical'</td>
-						</tr>
-						<tr>
-							<td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-muted-900 sm:pl-6">type</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'auto' | 'always' | 'scroll' | 'hover'</td>
-							<td className="whitespace-nowrap px-3 py-4 text-sm text-muted-500">'hover'</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
 			<Heading as="h2" size="3xl" className="mt-8">
-				Notes
+				Common Pitfalls
 			</Heading>
 			<Text className="mt-4">
-				<code>type</code> describes the nature of scrollbar visibility, similar to how the scrollbar preferences in macOS control visibility of native scrollbars:
-			</Text>
-			<ul className="ml-4 mt-2 list-disc">
-				<li>
-					<code>auto</code> means that scrollbars are visible when content is overflowing on the corresponding orientation.
-				</li>
-				<li>
-					<code>always</code> means that scrollbars are always visible regardless of whether the content is overflowing.
-				</li>
-				<li>
-					<code>scroll</code> means that scrollbars are visible when the user is scrolling along its corresponding orientation.
-				</li>
-				<li>
-					<code>hover</code> when the user is scrolling along its corresponding orientation and when the user is hovering over the scroll area.
-				</li>
-			</ul>
-			<Text className="mt-4">
-				Note the <code>{'<div className="p-5">'}</code> on the example. It's good practice to set padding <em>inside</em> the scroll area, rather than outside or on the scroll area.
+				Note the <Code>{'<div className="p-5">'}</Code> on the example. It's good practice to set padding <em>inside</em> the scroll area, rather than outside or on the scroll area.
 			</Text>
 			<Text className="mt-4">See how both the content and the scroll bar don't touch the sides of the containing div:</Text>
 			<CodeBlock code={badExampleOne} filename="BadScrollAreaExampleOne" extension="tsx" className="mt-4" />
@@ -204,10 +154,7 @@ const HeadingRoute = () => {
 				So make sure to add padding <em>inside</em> the scroll area.
 			</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
-				Source
-			</Heading>
-			<CodeBlock code={source} filename="scroll-area" extension="tsx" className="mt-4" />
+			<Source source={source} fileName={fileName} />
 		</>
 	)
 }

@@ -8,8 +8,6 @@ const Dialog = DialogPrimitive.Root
 
 const DialogTrigger = DialogPrimitive.Trigger
 
-const DialogClose = DialogPrimitive.Close
-
 const DialogOverlay = forwardRef<ElementRef<typeof DialogPrimitive.Overlay>, ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(({ className, ...props }, ref) => (
 	<DialogPrimitive.Overlay ref={ref} className={cn('overlay fixed inset-0 z-50', className)} {...props} />
 ))
@@ -20,7 +18,7 @@ const DialogContent = forwardRef<ElementRef<typeof DialogPrimitive.Content>, Com
 		<DialogOverlay />
 		<DialogPrimitive.Content ref={ref} className={cn('dialog fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%]', className)} {...props}>
 			{children}
-			<DialogPrimitive.Close className="dialog-close-button">
+			<DialogPrimitive.Close className="dialog-x-button">
 				<Icon name="x-mark" />
 				<VisuallyHidden>Close</VisuallyHidden>
 			</DialogPrimitive.Close>
@@ -38,5 +36,7 @@ const DialogDescription = forwardRef<ElementRef<typeof DialogPrimitive.Descripti
 	<DialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+const DialogClose = DialogPrimitive.Close
 
 export { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose }

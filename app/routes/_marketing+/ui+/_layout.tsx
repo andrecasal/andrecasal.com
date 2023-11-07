@@ -45,7 +45,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 			name: 'Modals',
 			items: [
 				{ name: 'Dialog', href: '/ui/modals/dialog', done: true },
-				{ name: 'Alert Dialog', href: '/ui/modals/alert-dialog', done: false },
+				{ name: 'Alert Dialog', href: '/ui/modals/alert-dialog', done: true },
 				{ name: 'Drawer', href: '/ui/modals/drawer', done: false },
 				{ name: 'Dropdown Menu', href: '/ui/modals/dropdown-menu', done: false },
 				{ name: 'Upload Dialog', href: '/ui/modals/upload-dialog', done: false },
@@ -251,7 +251,7 @@ const UI = () => {
 			</div>
 			<Container>
 				<Flex justify="between" gap="6">
-					<div className="sticky top-0 hidden max-h-[100vh] w-1/4 overflow-y-auto lg:block">
+					<div className="sticky top-0 hidden max-h-[calc(100vh-var(--header-height))] w-1/4 overflow-y-auto rounded-xl border lg:block">
 						<SideMenu />
 					</div>
 					<div className="w-3/4">
