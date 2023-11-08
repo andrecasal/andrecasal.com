@@ -192,12 +192,17 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		},
 	]
 
+	const completed = navigation.reduce((acc, { items }) => acc + items.filter(({ done }) => done).length, 0)
+	const total = navigation.reduce((acc, { items }) => acc + items.length, 0)
+	const percentage = Math.round((completed / total) * 100)
+
 	return (
 		<ScrollArea>
 			<div className="px-6 pb-10">
+				<p className="mt-5 text-muted-400">{`${percentage}% complete`}</p>
 				{navigation.map(({ name, items }) => (
 					<div key={name}>
-						<Heading as="h2" size="xs" className="mt-10 text-muted-400">
+						<Heading as="h2" size="xs" className="mt-5 text-muted-400">
 							{name}
 						</Heading>
 						<div className="mt-2 flex flex-col text-sm">
