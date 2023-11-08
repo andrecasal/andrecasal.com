@@ -2,7 +2,7 @@ import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
-import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogCancel, AlertDialogAction } from '../components/modals/alert-dialog.tsx'
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogCancel, AlertDialogAction, AlertDialogDescription } from '../components/modals/alert-dialog.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Description, Features, Source, readSource, type componentProps, Usage, Keyboard, Styling, PartsTitle, Part } from '../sections/sections.tsx'
@@ -84,8 +84,8 @@ const component: componentProps = {
 	</AlertDialogTrigger>
 	<AlertDialogContent>
 		<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-		<Text className="mt-4">This action cannot be undone. This will permanently delete your account and all your data.</Text>
-		<form>
+		<AlertDialogDescription>Deleting your account cannot be undone. This will permanently delete your account and all your data.</AlertDialogDescription>
+		<form className="mt-10">
 			<Flex justify="end" gap="6">
 				<AlertDialogCancel asChild>
 					<Button variant="secondary">Cancel</Button>
@@ -99,22 +99,17 @@ const component: componentProps = {
 		</form>
 	</AlertDialogContent>
 </AlertDialog>`,
-	styling: `/* ### Layout ### */
+	styling: `/* ### Modals ### */
 @layer components {
-	...
-
-	/* Modal Overlay */
-	.overlay {
+	/* Alert Dialog */
+	.alert-dialog-overlay {
 		@apply bg-background/80 backdrop-blur-sm;
 	}
-
-	/* Dialog */
-	.dialog {
+	.alert-dialog {
 		@apply grid w-full max-w-lg gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg md:w-full;
 	}
-
-	.dialog-x-button {
-		@apply absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-foreground data-[state=open]:text-muted-500;
+	.alert-dialog-x-button {
+		@apply absolute right-4 top-4 min-h-tap min-w-tap rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-foreground data-[state=open]:text-muted-500;
 	}
 }`,
 }
@@ -157,8 +152,8 @@ const AlertDialogRoute = () => {
 				</AlertDialogTrigger>
 				<AlertDialogContent>
 					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-					<Text className="mt-4">This action cannot be undone. This will permanently delete your account and all your data.</Text>
-					<form>
+					<AlertDialogDescription>Deleting your account cannot be undone. This will permanently delete your account and all your data.</AlertDialogDescription>
+					<form className="mt-10">
 						<Flex justify="end" gap="6">
 							<AlertDialogCancel asChild>
 								<Button variant="secondary">Cancel</Button>

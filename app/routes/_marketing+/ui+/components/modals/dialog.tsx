@@ -9,7 +9,7 @@ const Dialog = DialogPrimitive.Root
 const DialogTrigger = DialogPrimitive.Trigger
 
 const DialogOverlay = forwardRef<ElementRef<typeof DialogPrimitive.Overlay>, ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(({ className, ...props }, ref) => (
-	<DialogPrimitive.Overlay ref={ref} className={cn('overlay fixed inset-0 z-50', className)} {...props} />
+	<DialogPrimitive.Overlay ref={ref} className={cn('dialog-overlay fixed inset-0 z-50', className)} {...props} />
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
@@ -28,12 +28,12 @@ const DialogContent = forwardRef<ElementRef<typeof DialogPrimitive.Content>, Com
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 const DialogTitle = forwardRef<ElementRef<typeof DialogPrimitive.Title>, ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(({ className, ...props }, ref) => (
-	<DialogPrimitive.Title ref={ref} className={cn('text-lg font-semibold leading-none tracking-tight', className)} {...props} />
+	<DialogPrimitive.Title ref={ref} className={cn('text-size-lg font-semibold', className)} {...props} />
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
 const DialogDescription = forwardRef<ElementRef<typeof DialogPrimitive.Description>, ComponentPropsWithoutRef<typeof DialogPrimitive.Description>>(({ className, ...props }, ref) => (
-	<DialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
+	<DialogPrimitive.Description ref={ref} className={cn('text-size-sm text-muted-500', className)} {...props} />
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 

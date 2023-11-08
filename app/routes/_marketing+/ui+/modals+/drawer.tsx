@@ -2,20 +2,21 @@ import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../components/modals/dialog.tsx'
+
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Flex } from '../components/layout/flex.tsx'
-import { Description, Features, Source, readSource, type componentProps, Usage, Keyboard, Styling, PartsTitle, Part } from '../sections/sections.tsx'
+import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Keyboard, Styling } from '../sections/sections.tsx'
+import { Drawer, DrawerClose, DrawerContent, DrawerTitle, DrawerTrigger } from '../components/modals/drawer.tsx'
 
 const component: componentProps = {
-	name: 'Dialog',
-	shortName: 'Dialog',
-	fileName: 'dialog',
+	name: 'Drawer',
+	shortName: 'Drawer',
+	fileName: 'drawer',
 	category: 'modals',
 	description: [
-		'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.',
-		'The term “modal” is sometimes used to mean “dialog”, but this is a misnomer. A modal window describes parts of a UI. An element is considered modal if it blocks interaction with the rest of the application.',
+		'A contextual dialog that slides in from the edge of the screen.',
+		"Use it when you need users to complete a task or view details without leaving the current context. Because it's contextual, the overlay should not visually obscure the underlying content.",
 	],
 	features: [
 		'Supports modal and non-modal modes.',
@@ -33,8 +34,8 @@ const component: componentProps = {
 	],
 	parts: [
 		{
-			name: 'Dialog',
-			description: 'Contains all the parts of a dialog.',
+			name: 'Drawer',
+			description: 'Contains all the parts of a drawer.',
 			props: [
 				{ name: 'defaultOpen', type: 'boolean', default: 'undefined' },
 				{ name: 'open', type: 'boolean', default: 'undefined' },
@@ -43,47 +44,48 @@ const component: componentProps = {
 			],
 		},
 		{
-			name: 'DialogTrigger',
-			description: 'The button that opens the dialog.',
+			name: 'DrawerTrigger',
+			description: 'The button that opens the drawer.',
 			props: [{ name: 'asChild', type: 'boolean', default: 'false' }],
 			data: [{ name: 'state', values: ['open', 'closed'] }],
 		},
 		{
-			name: 'DialogContent',
-			description: 'Contains content to be rendered in the open dialog.',
+			name: 'DrawerContent',
+			description: 'Contains content to be rendered when the drawer is open.',
 			props: [
+				{ name: 'side', type: 'string', default: 'right' },
 				{ name: 'asChild', type: 'boolean', default: 'false' },
 				{ name: 'forceMount', type: 'boolean', default: 'undefined' },
 				{ name: 'onOpenAutoFocus', type: 'function', default: 'undefined' },
 				{ name: 'onCloseAutoFocus', type: 'function', default: 'undefined' },
 				{ name: 'onEscapeKeyDown', type: 'function', default: 'undefined' },
-				{ name: 'onPointerDownOutside', type: 'function', default: 'undefined' },
+				{ name: 'onOutsideClick', type: 'function', default: 'undefined' },
 				{ name: 'onInteractOutside', type: 'function', default: 'undefined' },
 			],
 			data: [{ name: 'state', values: ['open', 'closed'] }],
 		},
 		{
-			name: 'DialogTitle',
-			description: 'Contains the title of the dialog.',
+			name: 'DrawerTitle',
+			description: 'An accessible name to be announced when the drawer is opened.',
 			props: [{ name: 'asChild', type: 'boolean', default: 'false' }],
 		},
 		{
-			name: 'DialogDescription',
-			description: 'An optional accessible description to be announced when the dialog is opened.',
+			name: 'DrawerDescription',
+			description: 'An optional accessible description to be announced when the drawer is opened.',
 			props: [{ name: 'asChild', type: 'boolean', default: 'false' }],
 		},
 		{
-			name: 'DialogClose',
-			description: 'The button that closes the dialog.',
+			name: 'DrawerClose',
+			description: 'A single button that closes the drawer.',
 			props: [{ name: 'asChild', type: 'boolean', default: 'false' }],
 		},
 	],
-	usage: `<Dialog>
-	<DialogTrigger asChild>
-		<Button variant="secondary">Open dialog</Button>
-	</DialogTrigger>
-	<DialogContent>
-		<DialogTitle>Edit profile</DialogTitle>
+	usage: `<Drawer>
+	<DrawerTrigger asChild>
+		<Button variant="secondary">Open Drawer</Button>
+	</DrawerTrigger>
+	<DrawerContent>
+		<DrawerTitle>Edit profile</DrawerTitle>
 		<Text className="mt-4">Make changes to your profile here. Click save when you're done.</Text>
 		<form>
 			<fieldset className="mb-5 flex items-center gap-5">
@@ -99,26 +101,27 @@ const component: componentProps = {
 				<Input id="twitter-handle" type="text" defaultValue="@theandrecasal" />
 			</fieldset>
 			<Flex justify="end" gap="6">
-				<DialogClose asChild>
+				<DrawerClose asChild>
 					<Button variant="secondary">Cancel</Button>
-				</DialogClose>
+				</DrawerClose>
 				<Button variant="primary" type="submit">
 					Save
 				</Button>
 			</Flex>
 		</form>
-	</DialogContent>
-</Dialog>`,
+	</DrawerContent>
+</Drawer>`,
 	styling: `/* ### Modals ### */
 @layer components {
-	/* Dialog */
-	.dialog-overlay {
-		@apply bg-background/80 backdrop-blur-sm;
+	/* Drawer */
+	.drawer-overlay {
+		/* Don't obscure the content underneath */
+		@apply bg-background/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0;
 	}
-	.dialog {
-		@apply grid w-full max-w-lg gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg md:w-full;
+	.drawer {
+		@apply gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500;
 	}
-	.dialog-x-button {
+	.drawer-x-button {
 		@apply absolute right-4 top-4 min-h-tap min-w-tap rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-foreground data-[state=open]:text-muted-500;
 	}
 }`,
@@ -135,28 +138,15 @@ const DialogRoute = () => {
 			<Description name={name} description={description} />
 			<Features features={features} />
 			<Keyboard keyboard={keyboard} />
-			{/* <Parts parts={parts} /> */}
-			<PartsTitle />
-			<Part {...parts.find(({ name }) => name === 'Dialog')!} />
-			<Part {...parts.find(({ name }) => name === 'DialogTrigger')!} />
-			<Part {...parts.find(({ name }) => name === 'DialogContent')!} />
-			<Part {...parts.find(({ name }) => name === 'DialogTitle')!} />
-			<Text className="mt-4">
-				If you want to hide the title, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
-			<Part {...parts.find(({ name }) => name === 'DialogDescription')!} />
-			<Text className="mt-4">
-				If you want to hide the description, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
-			<Part {...parts.find(({ name }) => name === 'DialogClose')!} />
+			<Parts parts={parts} />
 			<Usage usage={usage} shortName={shortName} />
-			<Dialog>
-				<DialogTrigger asChild>
-					<Button variant="secondary">Open dialog</Button>
-				</DialogTrigger>
-				<DialogContent>
-					<DialogTitle>Edit profile</DialogTitle>
-					<DialogDescription className="mt-4">Make changes to your profile here. Click save when you're done.</DialogDescription>
+			<Drawer>
+				<DrawerTrigger asChild>
+					<Button variant="secondary">Open Drawer</Button>
+				</DrawerTrigger>
+				<DrawerContent>
+					<DrawerTitle>Edit profile</DrawerTitle>
+					<Text className="mt-4">Make changes to your profile here. Click save when you're done.</Text>
 					<form className="mt-10">
 						<fieldset className="mb-5 flex items-center gap-5">
 							<label htmlFor="name" className="w-48 text-right">
@@ -171,16 +161,16 @@ const DialogRoute = () => {
 							<Input id="twitter-handle" type="text" defaultValue="@theandrecasal" />
 						</fieldset>
 						<Flex justify="end" gap="6">
-							<DialogClose asChild>
+							<DrawerClose asChild>
 								<Button variant="secondary">Cancel</Button>
-							</DialogClose>
+							</DrawerClose>
 							<Button variant="primary" type="submit">
 								Save
 							</Button>
 						</Flex>
 					</form>
-				</DialogContent>
-			</Dialog>
+				</DrawerContent>
+			</Drawer>
 			<Text className="mt-4">
 				Note: Because I wanted to show you an accurate example, the save button will actually submit the form, but because this page doesn't handle any <Code>POST</Code> requests, it
 				will just reload.
