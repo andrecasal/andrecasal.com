@@ -6,8 +6,8 @@ import { Code } from '../components/typography/code.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Flex } from '../components/layout/flex.tsx'
-import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Keyboard, Styling } from '../sections/sections.tsx'
 import { Drawer, DrawerClose, DrawerContent, DrawerTitle, DrawerTrigger } from '../components/modals/drawer.tsx'
+import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Keyboard, Styling } from '../sections/sections.tsx'
 
 const component: componentProps = {
 	name: 'Drawer',

@@ -371,6 +371,22 @@
 
 /* ### Navigation ### */
 @layer components {
+	/* Navigation Menu */
+	.navigation-menu {
+		@apply flex items-stretch gap-space-6;
+	}
+	.navigation-menu-item {
+		@apply flex items-stretch;
+	}
+	.navigation-menu-link {
+		@apply px-space-6 py-space-4;
+	}
+	.navigation-menu-trigger {
+		@apply flex items-baseline gap-space-5 px-space-6 py-space-4;
+	}
+	.navigation-menu-content {
+		@apply top-[calc(100%+9px)] w-full rounded-lg border bg-background p-space-6 shadow-lg data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-left-52 data-[motion=from-start]:slide-in-from-right-52 data-[motion=to-end]:slide-out-to-left-52 data-[motion=to-start]:slide-out-to-right-52 md:absolute md:w-auto;
+	}
 }
 
 /* ### Disclosure ### */

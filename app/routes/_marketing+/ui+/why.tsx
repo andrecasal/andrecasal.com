@@ -1,16 +1,15 @@
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from './components/typography/heading.tsx'
 import { Link } from '@remix-run/react'
+import { H1 } from './components/typography/h1.tsx'
+import { H2 } from './components/typography/h2.tsx'
 
 const UI = () => {
 	return (
 		<>
-			<Heading as="h1" size="4xl">
-				andrecasal/ui
-			</Heading>
-			<Heading as="h2" size="3xl" className="mt-14">
+			<H1 size="4xl">andrecasal/ui</H1>
+			<H2 size="3xl" className="mt-14">
 				Why
-			</Heading>
+			</H2>
 			<Text size="lg" className="mt-4">
 				<strong>Quality</strong>, <strong>speed</strong> and <strong>decoupling design from development</strong>. As a full-stack web dev{' '}
 				<Link to="/mentorship" className="underline">
@@ -19,9 +18,9 @@ const UI = () => {
 				and entrepreneur, I wanted to build high-quality UIs as fast as possible. This requires a well-thought-out library that has a simple but powerful API that promotes best
 				practices, has accessibility and usability built-in, and most importantly, decouples design from development, something I haven't seen any library do correctly yet.
 			</Text>
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Why not use an existing library?
-			</Heading>
+			</H2>
 			<Text size="lg" className="mt-4">
 				Current libraries are awesome, but I can do better. I don't want to be arrogant here, I'm mostly standing on the shoulders of giants, specially{' '}
 				<a href="https://www.radix-ui.com/primitives" target="_blank" rel="noreferrer" className="underline">
@@ -69,9 +68,9 @@ const UI = () => {
 				</a>
 				.
 			</Text>
-			<Heading as="h2" size="3xl" className="mt-14">
+			<H2 size="3xl" className="mt-14">
 				Goal
-			</Heading>
+			</H2>
 			<Text size="lg" className="mt-4">
 				The andrecasal/ui library aims to be a high-quality library that allows you to create complex UIs very fast. This means it needs to be easy to understand, easy to use, and
 				needs a clear separation of concerns between design and functionality.
@@ -92,9 +91,9 @@ const UI = () => {
 				</Link>{' '}
 				section.
 			</Text>
-			<Heading as="h2" size="3xl" className="mt-14">
+			<H2 size="3xl" className="mt-14">
 				NPM package
-			</Heading>
+			</H2>
 			<Text size="lg" className="mt-4">
 				The goal is to make the components so good that you seldom need to change them. When we reach that stage, I'll make this a proper NPM package for the sake of installation
 				speed as well.

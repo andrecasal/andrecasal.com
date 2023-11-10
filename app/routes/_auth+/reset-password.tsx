@@ -10,8 +10,8 @@ import { authenticator, requireAnonymous, resetUserPassword } from '~/utils/auth
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import { passwordSchema } from '~/utils/user-validation.ts'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
+import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
 
 export const resetPasswordUsernameSessionKey = 'resetPasswordUsername'
 
@@ -100,7 +100,7 @@ export default function ResetPasswordPage() {
 		<Container>
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="text-center">
-					<Heading size="xl">Password Reset</Heading>
+					<H1 size="xl">Password Reset</H1>
 					<Text size="lg" className="mt-3 text-muted-500">
 						Hi, {data.resetPasswordUsername}. No worries. It happens all the time.
 					</Text>

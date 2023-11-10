@@ -1,6 +1,7 @@
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
+import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
 
 const navigation = {
 	social: [
@@ -97,9 +98,9 @@ const Footer = () => {
 				<div className="mt-8 border-t border-muted-900/10 pb-8 pt-8 sm:mt-12 sm:pt-12 lg:mt-16 lg:pt-16">
 					<div className="md:grid md:grid-cols-2 md:gap-8">
 						<div className="space-y-8">
-							<Heading as="h2" size="2xl" className="font-semibold tracking-normal">
+							<H2 size="2xl" className="font-semibold tracking-normal">
 								André Casal
-							</Heading>
+							</H2>
 							<Text size="md" className="text-muted-600">
 								Making the world a better place by constructing elegant software.
 							</Text>
@@ -114,9 +115,9 @@ const Footer = () => {
 						</div>
 						<div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
 							<div>
-								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+								<H3 size="sm" className="font-semibold tracking-normal text-muted-900">
 									Sitemap
-								</Heading>
+								</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.sitemap.map(item => (
 										<li key={item.name}>
@@ -130,9 +131,9 @@ const Footer = () => {
 								</ul>
 							</div>
 							<div className="md:mt-0 xl:mt-10">
-								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+								<H3 size="sm" className="font-semibold tracking-normal text-muted-900">
 									Courses
-								</Heading>
+								</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.courses.map(item => (
 										<li key={item.name}>
@@ -146,9 +147,9 @@ const Footer = () => {
 								</ul>
 							</div>
 							{/* <div className="mt-10 md:mt-0">
-								<Heading as="h3" size="sm" className="font-semibold tracking-normal text-muted-900">
+								<H3 size="sm" className="font-semibold tracking-normal text-muted-900">
 									Legal
-								</Heading>
+								</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.legal.map(item => (
 										<Text key={item.name} size="sm" asChild>

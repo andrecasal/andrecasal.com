@@ -1,7 +1,7 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import HeroAndre from './components/hero-andre.tsx'
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { H2 } from './ui+/components/typography/h2.tsx'
 
 export default function AboutRoute() {
 	const stats = [
@@ -64,14 +64,14 @@ export default function AboutRoute() {
 		<>
 			<HeroAndre />
 			<Container>
-				<Heading as="h2" size="4xl">
+				<H2 size="4xl">
 					My story
 					<Text size="xl" className="mt-4 text-muted-600">
 						I was born in Aveiro, grew up in Madeira Island, went back to Aveiro for high-school and college, and I've been living in Lisbon for{' '}
 						{new Date(Date.now()).getUTCFullYear() - 2016} years. I was always passionate about computers and technology. Once, when I was 13, I spent 40 "contos" (the equivalent
 						of 328€ today, adjusted for inflation) on a dial-up internet connection trying to download songs to my computer. My Dad was pissed 😅😆, but I was hooked.
 					</Text>
-				</Heading>
+				</H2>
 				<div className="mx-auto mt-14 max-w-2xl lg:mx-0 lg:max-w-none">
 					<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">My mission</h2>
 					<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
@@ -126,9 +126,7 @@ export default function AboutRoute() {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<Heading as="h2" size="3xl">
-							Conclusion
-						</Heading>
+						<H2 size="3xl">Conclusion</H2>
 						<Text size="lg" className="mt-6 text-muted-600">
 							This is my conclusion.
 						</Text>

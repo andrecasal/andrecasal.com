@@ -1,6 +1,5 @@
 import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '../ui+/components/layout/container.tsx'
-import { Heading } from '../ui+/components/typography/heading.tsx'
 import { Text } from '../ui+/components/typography/text.tsx'
 import { Tabs } from '../ui+/components/ui/tabs.tsx'
 import { Link } from '@remix-run/react'
@@ -12,6 +11,8 @@ import { Button } from '~/components/ui/button.tsx'
 import shipFastImage from './shipfast.png'
 import arrow from './arrow.png'
 import { Newsletter } from '~/components/newsletter.tsx'
+import { H1 } from '../ui+/components/typography/h1.tsx'
+import { H2 } from '../ui+/components/typography/h2.tsx'
 
 const ShipFast = () => {
 	const features = [
@@ -152,9 +153,9 @@ const ShipFast = () => {
 			<Container>
 				<section className="mx-auto flex flex-col items-center justify-center gap-16 px-8 py-8 lg:flex-row lg:items-start lg:gap-20 lg:py-20">
 					<div className="flex flex-col items-center justify-center gap-10 text-center lg:items-start lg:text-left">
-						<Heading as="h1" align="center" className="mx-auto max-w-3xl">
+						<H1 align="center" className="mx-auto max-w-3xl">
 							ShipFast: Your Fast Track to Full-Stack Web Mastery!
-						</Heading>
+						</H1>
 						<div>
 							<Text size="md" className="mx-auto max-w-3xl text-muted-700">
 								Become a full-stack web developer with a <span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">fully featured production-ready stack</span>{' '}
@@ -320,7 +321,7 @@ const ShipFast = () => {
 					</a> */}
 				</section>
 				<section>
-					<Heading align="center">A Tale of a Developer</Heading>
+					<H2 align="center">A Tale of a Developer</H2>
 					<div className="relative -z-20 mx-auto max-w-6xl rounded-2xl bg-muted-100 p-6">
 						<div className="absolute left-1/2 -z-10 h-[calc(100%-48px)] w-0.5 bg-muted-300" />
 						<Good>
@@ -414,9 +415,9 @@ const ShipFast = () => {
 						</Bad>
 						<img src={arrow} alt="Arrow" className="absolute -bottom-[130px] left-1/2 h-56 w-56 -translate-x-1/2 -rotate-[138deg]" />
 					</div>
-					<Heading as="h2" align="center" className="mt-24">
+					<H2 align="center" className="mt-24">
 						Or you could <span className="inline-block -rotate-2 bg-brand/40 px-2">get</span> <span className="whitespace-nowrap">✨ ShipFast ✨</span>
-					</Heading>
+					</H2>
 					<div className="mx-auto max-w-2xl">
 						<Text size="lg" align="center" className="mt-8 text-muted-600">
 							It's a boilerplate that comes with all of this stuff already integrated, so you can focus on building your app.
@@ -425,9 +426,9 @@ const ShipFast = () => {
 				</section>
 				<Flex wrap justify="center" gap="14">
 					<div>
-						<Heading as="h2" size="2xl" align="center" className="mt-24">
+						<H2 size="2xl" align="center" className="mt-24">
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">Without</span> ShipFast 👇
-						</Heading>
+						</H2>
 						<div className="text-center">
 							<ul className="inline-block list-inside space-y-1 rounded-xl bg-red-50 p-10 text-left text-muted-500 dark:text-muted-400">
 								<li>
@@ -484,9 +485,9 @@ const ShipFast = () => {
 						</div>
 					</div>
 					<div>
-						<Heading as="h2" size="2xl" align="center" className="mt-24">
+						<H2 size="2xl" align="center" className="mt-24">
 							<span className="inline-block -rotate-2 bg-brand/40 px-2">With</span> ShipFast 👇
-						</Heading>
+						</H2>
 						<div className="text-center">
 							<ul className="inline-block list-inside space-y-1 rounded-xl bg-green-50 p-10 text-left text-muted-500 dark:text-muted-400">
 								<li>
@@ -562,9 +563,9 @@ const ShipFast = () => {
 					Spend your time building your app, not configuring tools and integrating APIs.
 				</Text>
 
-				<Heading as="h2" size="3xl" className="mt-14 text-center">
+				<H2 size="3xl" className="mt-14 text-center">
 					The tech stack 🥞
-				</Heading>
+				</H2>
 				<Text size="xl" className="mx-auto mt-4 max-w-3xl text-center">
 					Here's all the tech you get with ShipFast and why it's awesome.
 				</Text>
@@ -584,18 +585,18 @@ const ShipFast = () => {
 					<div className="mt-2 rounded-lg border bg-green-50 px-6 pb-6 text-muted-500">
 						<Tabs.Content value="email">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Create Emails
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
 										Craft beautiful emails with&nbsp;<strong>React Email</strong> ✨
 									</li>
 								</ul>
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Send Emails
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 text-left dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -610,9 +611,9 @@ const ShipFast = () => {
 										Webhook to receive & forward emails
 									</li>
 								</ul>
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Email Marketing
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -641,9 +642,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="payments">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Payments
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -672,9 +673,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="auth">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Authentication
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -708,9 +709,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="db">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Database
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -750,9 +751,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="seo">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Search Engine Optimization
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -786,9 +787,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="style">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Styling
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -816,9 +817,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="cicd">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Continuous Integration/Continuous Deployment
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -862,9 +863,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="analytics">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Analytics
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -900,9 +901,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="monitor">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Monitoring
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -939,9 +940,9 @@ const ShipFast = () => {
 						</Tabs.Content>
 						<Tabs.Content value="more" className="flex flex-col">
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Fast apps
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -968,9 +969,9 @@ const ShipFast = () => {
 								</Text>
 							</div>
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Developer Experience
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1005,9 +1006,9 @@ const ShipFast = () => {
 								</Text>
 							</div>
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									Accessibility
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1041,9 +1042,9 @@ const ShipFast = () => {
 							</div>
 
 							<div className="inline-block text-left">
-								<Heading as="h2" size="2xl" align="left" className="mt-space-14 text-green-500">
+								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
 									...and more
-								</Heading>
+								</H2>
 								<ul className="mt-space-6 list-inside space-y-1 dark:text-muted-400">
 									<li>
 										<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />

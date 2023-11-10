@@ -1,9 +1,10 @@
-import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
 import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 import { type Post } from '../_index.tsx'
+import { H1 } from '../../ui+/components/typography/h1.tsx'
+import { H2 } from '../../ui+/components/typography/h2.tsx'
 
 export const post: Post = {
 	title: 'Fluid Space Sizing',
@@ -17,14 +18,14 @@ export const post: Post = {
 const FluidSpaceSizing = () => {
 	return (
 		<>
-			<Heading as="h1" size="4xl" className="mt-10">
+			<H1 size="4xl" className="mt-10">
 				{post.title}
-			</Heading>
+			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidSpaceSizingImage} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Introduction
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					This article assumes you've read the{' '}
 					<Link to="/articles/fluid-typography-sizing-with-modular-scales" className="underline">
@@ -57,16 +58,16 @@ const FluidSpaceSizing = () => {
 					Let's give spacing the same well-thought-out treatment that we gave typography with a hand-picked scale and fluid space sizing. This enables clear communication between
 					designer and developer, preserves the designer's complete control over spacing, even after the implementation is complete, and greatly speeds up development.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Modular scale
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					For the same reason we're not going to use a modular scale for typography, we're not going to use a modular scale for spacing. The reason is that modular scales are too
 					limited and you could try different ratios and equations, but at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Hand-picked scale
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					It's more pragmatic to hand-pick the values because this approach grants the designer complete control over the number and variety of space sizes.
 				</Text>
@@ -707,16 +708,16 @@ const FluidSpaceSizing = () => {
 					possible mistakes or changes that require coordination between the two are those that involve a different relative step. But this is a much smaller set of changes and it
 					would most likely involve changing a single class on a single component, for example.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Breakpoint-based space sizing
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					As is the case with typography, we're not going to use breakpoint-based sizing because it creates a jarring user experience and an unsustainable burden on designers and
 					developers.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Fluid space sizing
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					As is the case with typography, if we're going to change the sizing at different viewport widths, we don't need as many steps, because a space of 384px would always be
 					too overwhelming (it would overflow, in fact), on a 320px wide viewport.
@@ -922,16 +923,16 @@ const FluidSpaceSizing = () => {
 				<Text size="xl" className="mt-8">
 					Resize your browser window to see how the bars change size starting from step 15 onwards.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Note on inversion of control
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					The technique we're using here is generally referred to, in software engineering, as "inversion of control". We create an abstraction (the scale) and implement our UI
 					using it. This allows the designer to retain complete control over the specific values each step in the scale maps to.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Conclusion
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					In conclusion, as is the case with typography, between modular or hand-picked scales, hand-picked scales offer the right amount of control, while between breakpoint-based
 					and fluid space sizing, fluid space sizing offers a significantly more efficient design and development process. This allows the developer to start working right after

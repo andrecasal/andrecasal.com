@@ -1,5 +1,4 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
@@ -8,6 +7,8 @@ import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { type CommandAndLogArray, CommandLine } from '~/routes/_marketing+/ui+/components/typography/command-line.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -50,14 +51,12 @@ Ok to proceed? (y) y\`,
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Command Line
-			</Heading>
+			<H1 className="mt-8">Command Line</H1>
 			<Text className="mt-4 max-w-3xl">A semantic command line element that supports copy to clipboard.</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Features
-			</Heading>
+			</H2>
 			<ul className="list-inside space-y-1 text-muted-500 dark:text-muted-400">
 				<li className="flex">
 					<span>
@@ -73,9 +72,9 @@ Ok to proceed? (y) y\`,
 				</li>
 			</ul>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={multipleCommandLineUsageExample} filename="InlineCommandLineExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the {'<CommandLine />'} component in action:</Text>
 			<CommandLine commands={singleCommandLineUsageExample} />
@@ -105,9 +104,9 @@ Ok to proceed? (y) y`,
 				]}
 			/>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Props
-			</Heading>
+			</H2>
 			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-muted-300">
 					<thead className="bg-muted-50">
@@ -133,14 +132,14 @@ Ok to proceed? (y) y`,
 				</table>
 			</div>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="command-line" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Styling
-			</Heading>
+			</H2>
 			<Text className="mt-4 max-w-3xl">
 				This component is made for developers, so the styling is not based on CSS variables a designer can control, but it's built-in into the component and you can change it however
 				you like. I made it look like the{' '}

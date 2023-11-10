@@ -1,11 +1,11 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { ScrollArea } from '../components/layout/scroll-area.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
 import { Code } from '../components/typography/code.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 const component: componentProps = {
 	name: 'Scroll Area',
@@ -80,9 +80,9 @@ const HeadingRoute = () => {
 			<Description name={name} description={description} />
 			<Features features={features} />
 			<Parts parts={parts} />
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Notes
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				<Code>type</Code> describes the nature of scrollbar visibility, similar to how the scrollbar preferences in macOS control visibility of native scrollbars:
 			</Text>
@@ -116,9 +116,9 @@ const HeadingRoute = () => {
 				</ScrollArea>
 			</div>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Common Pitfalls
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				Note the <Code>{'<div className="p-5">'}</Code> on the example. It's good practice to set padding <em>inside</em> the scroll area, rather than outside or on the scroll area.
 			</Text>

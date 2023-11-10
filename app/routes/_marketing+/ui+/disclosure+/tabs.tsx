@@ -4,11 +4,12 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Tabs } from '../components/ui/tabs.tsx'
 import { Flex } from '../components/layout/flex.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -28,9 +29,9 @@ const HeadingRoute = () => {
 	</Tabs.List>
 	<div className="mt-space-4 rounded-lg border p-space-8">
 		<Tabs.Content value="login">
-			<Heading as="h2" size="2xl">
+			<H2 size="2xl">
 				Login
-			</Heading>
+			</H2>
 			<form>
 				<Flex direction="col" gap="8" className="my-space-8">
 					<div className="flex w-full flex-col gap-space-3">
@@ -48,9 +49,9 @@ const HeadingRoute = () => {
 			</form>
 		</Tabs.Content>
 		<Tabs.Content value="register">
-			<Heading as="h2" size="2xl">
+			<H2 size="2xl">
 				Register
-			</Heading>
+			</H2>
 			<form>
 				<Flex direction="col" gap="8" className="my-space-8">
 					<div className="flex w-full flex-col gap-space-3">
@@ -72,14 +73,12 @@ const HeadingRoute = () => {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Tabs
-			</Heading>
+			<H1 className="mt-8">Tabs</H1>
 			<Text className="mt-4">Set of content sections to be displayed one at a time.</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Features
-			</Heading>
+			</H2>
 			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
 				<li className="flex">
 					<span>
@@ -107,9 +106,9 @@ const HeadingRoute = () => {
 				</li>
 			</ul>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={usageExample} filename="TabsExample" extension="tsx" className="mt-4" />
 			<Text>Here are the tabs in action.</Text>
 			<Tabs.Root defaultValue="login" className="mt-4">
@@ -119,9 +118,7 @@ const HeadingRoute = () => {
 				</Tabs.List>
 				<div className="mt-space-4 rounded-lg border p-space-8">
 					<Tabs.Content value="login">
-						<Heading as="h2" size="2xl">
-							Login
-						</Heading>
+						<H2 size="2xl">Login</H2>
 						<form>
 							<Flex direction="col" gap="8" className="my-space-8">
 								<div className="flex w-full flex-col gap-space-3">
@@ -139,9 +136,7 @@ const HeadingRoute = () => {
 						</form>
 					</Tabs.Content>
 					<Tabs.Content value="register">
-						<Heading as="h2" size="2xl">
-							Register
-						</Heading>
+						<H2 size="2xl">Register</H2>
 						<form>
 							<Flex direction="col" gap="8" className="my-space-8">
 								<div className="flex w-full flex-col gap-space-3">
@@ -161,9 +156,9 @@ const HeadingRoute = () => {
 				</div>
 			</Tabs.Root>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="tabs" extension="tsx" className="mt-4" />
 		</>
 	)

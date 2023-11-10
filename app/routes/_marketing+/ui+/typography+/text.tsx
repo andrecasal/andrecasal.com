@@ -1,5 +1,4 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
@@ -7,6 +6,8 @@ import path, { dirname } from 'path'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -160,14 +161,12 @@ const TextRoute = () => {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Text
-			</Heading>
+			<H1 className="mt-8">Text</H1>
 			<Text className="mt-4">A semantic text element that allows control of typographic attributes.</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Features
-			</Heading>
+			</H2>
 			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
 				<li className="flex">
 					<span>
@@ -183,9 +182,9 @@ const TextRoute = () => {
 				</li>
 			</ul>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={paragraphSource} filename="TextExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the {'<Text />'} component in action.</Text>
 			<Text size="6xl">Text 6xl</Text>
@@ -199,9 +198,9 @@ const TextRoute = () => {
 			<Text size="sm">Text sm</Text>
 			<Text size="xs">Text xs</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Props
-			</Heading>
+			</H2>
 			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-gray-300">
 					<thead className="bg-gray-50">
@@ -251,14 +250,14 @@ const TextRoute = () => {
 			<Text className="mt-4">The tracking's default value depends on the size prop and is controlled through CSS variables.</Text>
 			<CodeBlock code={trackingSource} filename="tailwind" extension="css" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="text" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Styling
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				The typographic styling is actually pretty simple once you wrap your head around it. For an explanation check out the{' '}
 				<Link to="/articles/fluid-typography-sizing-with-modular-scales" className="underline">

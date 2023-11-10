@@ -7,7 +7,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { H1 } from '../ui+/components/typography/h1.tsx'
 
 import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
@@ -51,9 +51,7 @@ const Articles = () => {
 				<Container>
 					<div className="py-24 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0">
-							<Heading as="h1" size="4xl">
-								Great web dev articles
-							</Heading>
+							<H1 size="4xl">Great web dev articles</H1>
 							<Text size="lg" className="mt-6 text-muted-800">
 								Articles to make full-stack web dev a cakewalk.
 							</Text>

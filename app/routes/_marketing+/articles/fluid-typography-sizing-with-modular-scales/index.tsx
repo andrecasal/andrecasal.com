@@ -1,9 +1,10 @@
 import { CodeBlock } from '~/components/ui/code-block.tsx'
-import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
 import { type Post } from '../_index.tsx'
+import { H1 } from '../../ui+/components/typography/h1.tsx'
+import { H2 } from '../../ui+/components/typography/h2.tsx'
 
 export const post: Post = {
 	title: 'Fluid Typography Sizing and Scales',
@@ -269,14 +270,14 @@ const FluidTypographySizingWithModularScales = () => {
 
 	return (
 		<>
-			<Heading as="h1" size="4xl" className="mt-10">
+			<H1 size="4xl" className="mt-10">
 				{post.title}
-			</Heading>
+			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidTypographySizingWithModularScales} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Introduction
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					Typography is a fundamental aspect of web design, and choosing the right sizes for your fonts is important for creating visually appealing and readable content. However,
 					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen widths.
@@ -294,9 +295,9 @@ const FluidTypographySizingWithModularScales = () => {
 					In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Modular scale
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-4">
 					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5, 2:3, or the "golden ratio" of 1:1.618 are
 					commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen ratio to calculate the subsequent sizes
@@ -352,9 +353,9 @@ const FluidTypographySizingWithModularScales = () => {
 			</div>
 
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Hand-picked scale
-				</Heading>
+				</H2>
 
 				<Text size="xl" className="mt-4">
 					When it comes to interface design, it's more pragmatic to hand-pick the values. This approach grants you complete control over the number and variety of sizes.
@@ -389,9 +390,9 @@ const FluidTypographySizingWithModularScales = () => {
 					Most of the text on a website is body text. Notice how you have more choices for appropriate body text sizes between xs and xl with this hand-picked scale.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Breakpoint-based type sizing
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					The first thing you need to understand about breakpoint-based type sizing is that if we're going to change the font size at different screen sizes, we don't need as many
 					steps. A font size larger than 60px will never be used on a mobile screen - that would be too overwhelming. Instead, we'll cap the steps off at the 6xl step and have it
@@ -457,9 +458,9 @@ const FluidTypographySizingWithModularScales = () => {
 					virtual pixel or employ anti-alias on the surrounding pixels to make the text look crisp at any subpixel value. This is automatically handled by the browser and OS.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Fluid type sizing
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					The{' '}
 					<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" target="_blank" rel="noreferrer" className="underline">
@@ -497,9 +498,9 @@ const FluidTypographySizingWithModularScales = () => {
 					The design process to implement fluid typography is rather simple for both designers and developers. Designers only have to draw two mockups: one for small screens and
 					one for large screens. While the developer only needs to tell the browser to interpolate between the two scales, based on the current viewport width.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					A note on layout shift
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-4">
 					You might notice that, as you resize the browser window, the text moves up and down quite a bit here. There's two reasons for this. One is layout shift: users don't
 					resize their browser windows to see the same content bigger, but to see more content, so as you increase the window's width, things that used to take up a single column
@@ -516,16 +517,16 @@ const FluidTypographySizingWithModularScales = () => {
 					If you wish to see this effect without the text moving up and down too much, visit any other page on this website that contains large text and see how it resizes smoothly
 					as you resize the browser window.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Note on accessibility
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-4">
 					Whatever techniques you use for typographic scales and viewport width-based sizing, you should always make sure to use rem units for font sizes, so that users can change
 					the base font size in their browser settings.
 				</Text>
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					The map of the terrain
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-4">
 					Before we go, let's zoom out and look at the big picture. Typography on the web has the following concerns: font family, font size, paragraph length, line height, letter
 					spacing, and vertical alignment. Until I write articles on the other topics, here's a quick list of what you need to know (without explanations).
@@ -554,9 +555,9 @@ const FluidTypographySizingWithModularScales = () => {
 					Once you've learned about these topics, you've covered everything you need to know about typography to be an efficient web developer.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Conclusion
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-4">
 					In conclusion, between modular or hand-picked scales, hand-picked scales offer the right amount of control, while between breakpoint-based and fluid type sizing, fluid
 					type sizing offers a significantly more efficient design and development process, a smoother user experience, and solves the problem of fractional pixel values.

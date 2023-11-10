@@ -13,7 +13,10 @@ import zacharyCassette from '../images/zachary-cassette.jpg'
 import signatureBlack from '../images/signature-black.png'
 import signatureWhite from '../images/signature-white.png'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { H1 } from '../ui+/components/typography/h1.tsx'
+import { H2 } from '../ui+/components/typography/h2.tsx'
+import { H3 } from '../ui+/components/typography/h3.tsx'
+import { H4 } from '../ui+/components/typography/h4.tsx'
 
 const MasteryForVSCode = () => {
 	const features = [
@@ -245,10 +248,10 @@ const MasteryForVSCode = () => {
 								</Text>
 							</Link>
 						</div> */}
-							<Heading as="h1" size="4xl">
+							<H1 size="4xl">
 								Mastery
 								<br className="hidden lg:block" /> for VS Code
-							</Heading>
+							</H1>
 							<Text size="lg" className="mt-6 text-muted-600">
 								Upgrade your coding game with <strong>the</strong> course on VS Code.
 							</Text>
@@ -279,9 +282,9 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className=" py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<Heading as="h2" size="md" align="center" className="text-brand">
+						<H2 size="md" align="center" className="text-brand">
 							Course Overview
-						</Heading>
+						</H2>
 						<Text size="3xl" className="mt-2 font-bold">
 							Efficient full-stack web development
 						</Text>
@@ -313,9 +316,9 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<Heading as="h2" size="md" align="center" className="text-brand">
+						<H2 size="md" align="center" className="text-brand">
 							Everything you need
-						</Heading>
+						</H2>
 						<Text size="3xl" className="mt-2 font-bold">
 							Benefits of the course
 						</Text>
@@ -354,9 +357,9 @@ const MasteryForVSCode = () => {
 				<Container>
 					<div className="relative isolate mt-32 overflow-hidden py-24 sm:mt-56 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-							<Heading as="h2" size="md" className="text-brand">
+							<H2 size="md" className="text-brand">
 								Track record
-							</Heading>
+							</H2>
 							<Text size="3xl" className="mt-2 font-bold">
 								Trusted by thousands of devs worldwide
 							</Text>
@@ -386,9 +389,9 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className="py-32">
 					<div className="mx-auto max-w-2xl text-center">
-						<Heading as="h2" size="md" align="center" className="text-brand">
+						<H2 size="md" align="center" className="text-brand">
 							Testimonials
-						</Heading>
+						</H2>
 						<Text size="3xl" className="mt-2 font-bold">
 							I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
 						</Text>
@@ -445,9 +448,9 @@ const MasteryForVSCode = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0">
-							<Heading as="h1" size="3xl" className="mt-10">
+							<H1 size="3xl" className="mt-10">
 								Hi! I'm André Casal a seasoned full-stack web developer.
-							</Heading>
+							</H1>
 							<Text size="lg" className="mt-6 text-muted-700">
 								With over 16 years of experience, my passion for coding and optimizing workflows led me to master VS Code, and now I'm excited to share my knowledge with you.
 								As an enthusiastic educator, I'm dedicated to helping you succeed in your coding journey, and help you ship better products, delight your customers, and take
@@ -468,9 +471,9 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<Heading as="h2" size="md" align="center" className="text-brand">
+						<H2 size="md" align="center" className="text-brand">
 							Easy to follow modules
-						</Heading>
+						</H2>
 						<Text size="3xl" className="mt-2 font-bold">
 							Course structure
 						</Text>
@@ -499,25 +502,23 @@ const MasteryForVSCode = () => {
 			</Container>
 			<Container className="py-24 sm:py-32">
 				<div className="mx-auto max-w-2xl sm:text-center">
-					<Heading as="h2" size="3xl" align="center" className="mt-2 font-bold" id="pricing">
+					<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 						Enroll now
-					</Heading>
+					</H2>
 					<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 						Gain instant access to the <strong>Mastery for VS Code</strong> course.
 					</Text>
 				</div>
 				<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 					<div className="p-8 sm:p-10 lg:flex-auto">
-						<Heading as="h3" size="2xl">
-							Lifetime membership
-						</Heading>
+						<H3 size="2xl">Lifetime membership</H3>
 						<Text size="md" className="mt-6 text-muted-600">
 							Level up your coding skills and dominate the world of full-stack web development!
 						</Text>
 						<div className="mt-10 flex items-center gap-x-4">
-							<Heading as="h4" size="sm" className="flex-none font-semibold text-brand">
+							<H4 size="sm" className="flex-none font-semibold text-brand">
 								What’s included
-							</Heading>
+							</H4>
 							<div className="h-px flex-auto bg-muted-100" />
 						</div>
 						<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
@@ -558,9 +559,7 @@ const MasteryForVSCode = () => {
 			</Container>
 			<Container>
 				<div className="mx-auto max-w-4xl divide-y divide-muted-900/10 py-24 sm:py-32 lg:py-40">
-					<Heading as="h2" size="2xl">
-						Frequently asked questions
-					</Heading>
+					<H2 size="2xl">Frequently asked questions</H2>
 					<Accordion type="multiple" className="mt-10 space-y-6 divide-y divide-muted-900/10">
 						{faqs.map(({ question, answer }, i) => (
 							<AccordionItem key={i} value={i.toString()} className="pt-6">
@@ -580,12 +579,12 @@ const MasteryForVSCode = () => {
 			<Container>
 				<div className="py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:py-40">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-						<Heading as="h2" size="md" className="text-brand">
+						<H2 size="md" className="text-brand">
 							Closing Statement
-						</Heading>
-						<Heading as="h2" size="4xl" className="mt-2 text-muted-900">
+						</H2>
+						<H2 size="4xl" className="mt-2 text-muted-900">
 							A note on excellency
-						</Heading>
+						</H2>
 						<Text size="lg" className="mt-6 text-muted-600">
 							Have you ever spent a ton of time trying to do something simple with VS Code? Maybe you're missing something. Maybe there's a bug in one of your tools. Maybe
 							there's a bug in VS Code. Do you remember how frustrating it was to spend all that time just to end up quitting, or realize it's a bug in one of your tools or VS
@@ -617,9 +616,9 @@ const MasteryForVSCode = () => {
 				<div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8 ">
 					<div className="relative isolate overflow-hidden rounded-3xl bg-muted-100/80 px-6 py-24 text-center shadow-2xl sm:px-16">
 						<BackgroundRadial>
-							<Heading as="h2" size="3xl" className="mt-2">
+							<H2 size="3xl" className="mt-2">
 								Boost your VS Code productivity today.
-							</Heading>
+							</H2>
 							<Text size="lg" className="mx-auto mt-6 max-w-xl">
 								Upgrade your coding game with <strong>the</strong> course on VS Code.
 							</Text>

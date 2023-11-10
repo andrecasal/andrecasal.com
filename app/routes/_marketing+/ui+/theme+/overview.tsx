@@ -1,14 +1,12 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../components/typography/heading.tsx'
 import { Link } from '@remix-run/react'
+import { H1 } from '../components/typography/h1.tsx'
 
 const Overview = () => {
 	return (
 		<Container>
-			<Heading as="h1" size="3xl">
-				Theme Overview
-			</Heading>
+			<H1 size="3xl">Theme Overview</H1>
 			<Text size="md" className="mt-2">
 				Theming in andrecasal/ui is completely controled using CSS Variables in the tailwind.css file. These variables are used as input for custom utility-based TailwindCSS classes.
 				Utility classes are used because they scale easily while keeping a small CSS footprint.

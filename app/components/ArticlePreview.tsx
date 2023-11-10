@@ -1,7 +1,7 @@
 import { type Post } from '~/routes/_marketing+/articles/_index.tsx'
 import { Badge } from './ui/badge.tsx'
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
 
 export const ArticlePreview = ({ post }: { post: Post }) => {
 	return (
@@ -12,13 +12,13 @@ export const ArticlePreview = ({ post }: { post: Post }) => {
 			<Text size="xs" className="text-background">
 				{post.date}
 			</Text>
-			<Heading as="h3" size="lg" className="text-background">
+			<H3 size="lg" className="text-background">
 				<a href={post.href}>
 					{/* This span 👇 makes the link clickable on the entire area */}
 					<span className="absolute inset-0" />
 					{post.title}
 				</a>
-			</Heading>
+			</H3>
 			<div className="mt-4 flex flex-wrap items-center gap-1 overflow-hidden text-size-sm text-muted-300">
 				{post.topics.map(topic => (
 					<Badge key={topic} variant="muted" size="xs" className="whitespace-nowrap">

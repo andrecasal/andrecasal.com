@@ -1,10 +1,11 @@
-import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
 import { Link } from '@remix-run/react'
 import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { type Post } from '../_index.tsx'
+import { H1 } from '../../ui+/components/typography/h1.tsx'
+import { H2 } from '../../ui+/components/typography/h2.tsx'
 
 export const post: Post = {
 	title: 'The Dark Side Of The Grid (and Flexbox)',
@@ -138,15 +139,15 @@ const TheDarkSideOfTheGrid = () => {
 
 	return (
 		<>
-			<Heading as="h1" size="4xl" className="mt-10">
+			<H1 size="4xl" className="mt-10">
 				{post.title}
-			</Heading>
+			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={theDarkSideOfTheGrid} alt="The Dark Side Of The Grid" className="rounded-2xl object-cover" />
 
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Introduction
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					Putting constraints in place is one of the most powerful principles of Software Engineering. When constraints are selected correctly, they allow you to develop
 					considerably faster while also avoiding a wide range of mistakes.
@@ -156,9 +157,9 @@ const TheDarkSideOfTheGrid = () => {
 					here's why.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					When visual order and DOM order are disconnected
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					When visual order and DOM order are disconnected this creates a frustrating experience in 3 circumstances:
 				</Text>
@@ -180,9 +181,9 @@ const TheDarkSideOfTheGrid = () => {
 					So, long story short, if you want your website or app to remain accessible, add this constraint: do not disconnect visual order from DOM order.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Unaccessible CSS features
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					So what CSS features create this disconnect? Here's the list.
 				</Text>
@@ -212,9 +213,9 @@ const TheDarkSideOfTheGrid = () => {
 					Let's go through each, one by one.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					grid-auto-flow
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					When you set <code>grid-auto-flow: row dense</code> or <code>grid-auto-flow: col dense</code>, you're asking CSS to use an auto-placement algorithm that attempts to fill
 					in holes earlier in the grid if smaller items come up later.
@@ -281,9 +282,9 @@ const TheDarkSideOfTheGrid = () => {
 					Therefore, grid's auto-placement algorithm is a no-go.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					grid-template-areas
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					Using <code>grid-template-areas</code> isn't necessarily a no-go. In fact, most of the time it's totally ok to use. You just need to be mindful of the fact that
 					<code>grid-template-areas</code> describes your layout visually, so you need to keep it in sync with your DOM order.
@@ -337,9 +338,9 @@ const TheDarkSideOfTheGrid = () => {
 					</div>
 				</div>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					flex-direction
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					<code>flex-direction: column-reverse</code> and <code>flex-direction: row-reverse</code> can also create this disconnect.
 				</Text>
@@ -386,9 +387,9 @@ const TheDarkSideOfTheGrid = () => {
 					</div>
 				</div>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					position: absolute
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					Finally, there's <code>position: absolute</code>. This is one I've personally done thoughlessly for a long time. The thing to keep in mind with{' '}
 					<code>position: absolute</code> is that it may also change visual order, so you just need to change the order in the DOM to match the visual order.
@@ -409,7 +410,7 @@ const TheDarkSideOfTheGrid = () => {
 					Notice how the cancel button is the last one to have focus.
 				</Text>
 				<div className="relative inline-flex flex-col items-start rounded-lg border p-8">
-					<Heading size="xl">Edit profile</Heading>
+					<H2 size="xl">Edit profile</H2>
 					<Text size="md">Make changes to your profile. Click save when ready.</Text>
 					<div className="mt-8 flex gap-4">
 						<div className="flex flex-col items-end gap-4">
@@ -434,7 +435,7 @@ const TheDarkSideOfTheGrid = () => {
 				</Text>
 				<div className="relative inline-flex flex-col items-start rounded-lg border p-8">
 					<button className="absolute right-2 top-2 rounded-md bg-muted-50 p-4">Cancel</button>
-					<Heading size="xl">Edit profile</Heading>
+					<H2 size="xl">Edit profile</H2>
 					<Text size="md">Make changes to your profile. Click save when ready.</Text>
 					<div className="mt-8 flex gap-4">
 						<div className="flex flex-col items-end gap-4">
@@ -449,9 +450,9 @@ const TheDarkSideOfTheGrid = () => {
 					<button className="mt-8 self-end rounded-md bg-muted-50 px-8 py-4">Save changes</button>
 				</div>
 
-				<Heading as="h2" size="4xl" className="mt-16">
+				<H2 size="4xl" className="mt-16">
 					Conclusion
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					In conclusion, avoid disconnecting visual order from DOM order because this breaks accessibility and usability patterns. This pertains to <code>grid-auto-flow</code>,
 					incorrect use of <code>grid-template-areas</code>, <code>flex-direction</code>, and incorrect use of <code>position: absolute</code>.

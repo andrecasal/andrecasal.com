@@ -4,7 +4,7 @@ import { Container } from '~/routes/_marketing+/ui+/components/layout/container.
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { H1 } from '../ui+/components/typography/h1.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -20,9 +20,9 @@ const HeroAndre = () => {
 								<Text as="span">Launched ShipFast ⚡️</Text>
 							</Text>
 						</Link>
-						<Heading as="h1" size="4xl" className="mt-10">
+						<H1 size="4xl" className="mt-10">
 							Hi! I'm André Casal.
-						</Heading>
+						</H1>
 						<Text size="lg" className="mt-6 text-muted-700">
 							I help full-stack web devs create profitable one-person businesses.
 						</Text>

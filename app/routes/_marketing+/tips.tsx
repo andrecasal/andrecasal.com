@@ -2,7 +2,7 @@ import { Newsletter } from '~/components/newsletter.tsx'
 import { CodeBlock, type Language } from '~/components/ui/code-block.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from './ui+/components/typography/heading.tsx'
+import { H2 } from './ui+/components/typography/h2.tsx'
 
 const Tips = () => {
 	const tips: { title: string; description: string; filename: string; extension: Language; code: string }[] = [
@@ -48,9 +48,9 @@ console.log(sortedArray) // ['I', 'must', 'study']`,
 		<Container>
 			<div className="py-24 sm:py-32">
 				<div className="mx-auto max-w-2xl lg:text-center">
-					<Heading as="h2" size="md" className="text-brand">
+					<H2 size="md" className="text-brand">
 						Golden nuggets of knowledge
-					</Heading>
+					</H2>
 					<Text size="3xl" weight="bold" className="mt-2">
 						Hot tips to upgrade your skills
 					</Text>

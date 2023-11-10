@@ -1,16 +1,17 @@
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from './components/typography/heading.tsx'
+import { H1 } from './components/typography/h1.tsx'
+import { H2 } from './components/typography/h2.tsx'
 
 const Nomenclature = () => {
 	return (
 		<>
-			<Heading as="h1" size="3xl" className="mt-8 lg:mt-0">
+			<H1 size="3xl" className="mt-8 lg:mt-0">
 				Nomenclature
-			</Heading>
+			</H1>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				What is nomenclature?
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				Nomenclature is the science of choosing names for things. Let's unpack that.
 			</Text>
@@ -19,9 +20,9 @@ const Nomenclature = () => {
 				from another.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				Why bother with nomenclature?
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				Same benefits as taxonomy, but also because the lack of a common language for UI libraries makes things confusing for everyone. Some components call a modal a "dialog",
 				others call it an "overlay". Some call a drawer a "sidebar", others call it a "panel". Some call a badge a "pill", others call it a "tag". And so on. Having clear names that

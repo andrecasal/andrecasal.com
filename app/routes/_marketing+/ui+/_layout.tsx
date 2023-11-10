@@ -3,10 +3,10 @@ import { Container } from '~/routes/_marketing+/ui+/components/layout/container.
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
-import { Heading } from './components/typography/heading.tsx'
 import { useState } from 'react'
 import { Flex } from './components/layout/flex.tsx'
 import { ScrollArea } from './components/layout/scroll-area.tsx'
+import { H2 } from './components/typography/h2.tsx'
 
 const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 	const navigation = [
@@ -65,7 +65,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 			name: 'Navigation',
 			items: [
 				{ name: 'A', href: '/ui/navigation/a', done: false },
-				{ name: 'Navigation Menu', href: '/ui/navigation/navigation-menu', done: false },
+				{ name: 'Navigation Menu', href: '/ui/navigation/navigation-menu', done: true },
 				{ name: 'Breadcrumbs', href: '/ui/navigation/breadcrumbs', done: false },
 				{ name: 'Pagination', href: '/ui/navigation/pagination', done: false },
 				{ name: 'Stepper', href: '/ui/navigation/stepper', done: false },
@@ -82,12 +82,12 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 		{
 			name: 'Typography',
 			items: [
-				{ name: 'H1', href: '/ui/typography/h1', done: false },
-				{ name: 'H2', href: '/ui/typography/h2', done: false },
-				{ name: 'H3', href: '/ui/typography/h3', done: false },
-				{ name: 'H4', href: '/ui/typography/h4', done: false },
-				{ name: 'H5', href: '/ui/typography/h5', done: false },
-				{ name: 'H6', href: '/ui/typography/h6', done: false },
+				{ name: 'H1', href: '/ui/typography/h1', done: true },
+				{ name: 'H2', href: '/ui/typography/h2', done: true },
+				{ name: 'H3', href: '/ui/typography/h3', done: true },
+				{ name: 'H4', href: '/ui/typography/h4', done: true },
+				{ name: 'H5', href: '/ui/typography/h5', done: true },
+				{ name: 'H6', href: '/ui/typography/h6', done: true },
 				{ name: 'P', href: '/ui/typography/p', done: false },
 				{ name: 'Span', href: '/ui/typography/span', done: false },
 				{ name: 'Em', href: '/ui/typography/em', done: false },
@@ -98,7 +98,7 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 				{ name: 'Ol', href: '/ui/typography/ol', done: false },
 				{ name: 'Li', href: '/ui/typography/li', done: false },
 				{ name: 'Kbd', href: '/ui/typography/kbd', done: true },
-				{ name: 'Code', href: '/ui/typography/Code', done: true },
+				{ name: 'Code', href: '/ui/typography/code', done: true },
 				{ name: 'Table of Contents', href: '/ui/typography/table-of-contents', done: false },
 			],
 		},
@@ -202,9 +202,9 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 				<p className="mt-5 text-muted-400">{`${percentage}% complete`}</p>
 				{navigation.map(({ name, items }) => (
 					<div key={name}>
-						<Heading as="h2" size="xs" className="mt-5 text-muted-400">
+						<H2 size="xs" className="mt-5 text-muted-400">
 							{name}
-						</Heading>
+						</H2>
 						<div className="mt-2 flex flex-col text-sm">
 							{items.map(link => (
 								<BoldNavLink key={link.href} {...link} onClick={() => (setIsOpen ? setIsOpen(false) : undefined)} />

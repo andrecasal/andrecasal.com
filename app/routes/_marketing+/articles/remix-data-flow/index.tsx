@@ -2,8 +2,8 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
 import { type V2_MetaFunction } from '@remix-run/node'
-import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { type Post } from '../_index.tsx'
+import { H1 } from '../../ui+/components/typography/h1.tsx'
 
 export const post: Post = {
 	title: 'Remix Data Flow',
@@ -21,9 +21,7 @@ export const meta: V2_MetaFunction = () => {
 const RemixDataFlow = () => {
 	return (
 		<>
-			<Heading as="h1" size="4xl">
-				{post.title}
-			</Heading>
+			<H1 size="4xl">{post.title}</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={remixDataFlow} alt="Remix Data Flow" className="rounded-2xl object-cover" />
 				<Text size="lg" className="mt-6">

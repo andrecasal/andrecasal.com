@@ -11,8 +11,8 @@ import { verifyTOTP } from '~/utils/totp.server.ts'
 import { onboardingEmailSessionKey } from './onboarding.tsx'
 import { onboardingEmailQueryParam, onboardingOTPQueryParam, verificationType } from './signup/index.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
+import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
 
 const verifySchema = z.object({
 	[onboardingEmailQueryParam]: z.string().email(),
@@ -129,7 +129,7 @@ export default function SignupVerifyRoute() {
 		<Container>
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="text-center">
-					<Heading size="xl">Check your email</Heading>
+					<H1 size="xl">Check your email</H1>
 					<Text size="lg" className="mt-3 text-muted-500">
 						We've sent you a code to verify your email address.
 					</Text>

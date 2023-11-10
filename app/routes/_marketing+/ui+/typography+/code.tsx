@@ -1,5 +1,4 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
@@ -9,6 +8,8 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Kbd } from '../components/typography/kbd.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -35,14 +36,12 @@ const CodeRoute = () => {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Code
-			</Heading>
+			<H1 className="mt-8">Code</H1>
 			<Text className="mt-4">A semantic code element that supports copy to clipboard.</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Features
-			</Heading>
+			</H2>
 			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
 				<li className="flex">
 					<span>
@@ -52,9 +51,9 @@ const CodeRoute = () => {
 				</li>
 			</ul>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={codeUsage} filename="CodeExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">
 				Here's the code component, without copy functionality, in action: <Code className="mt-4">npm i -D tailwindcss</Code>. And here's with copy functionality enabled:{' '}
@@ -68,9 +67,9 @@ const CodeRoute = () => {
 				copy to clipboard.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-8">
+			<H2 size="xl" className="mt-8">
 				Props
-			</Heading>
+			</H2>
 			<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-gray-300">
 					<thead className="bg-gray-50">
@@ -96,14 +95,14 @@ const CodeRoute = () => {
 				</table>
 			</div>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="code" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Styling
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				The styling is controlled through the <Code>.code</Code> class.
 			</Text>

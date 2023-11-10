@@ -1,9 +1,9 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Styling } from '../sections/sections.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 const component: componentProps = {
 	name: 'Container',
@@ -48,9 +48,9 @@ const HeadingRoute = () => {
 			<Description name={name} description={description} />
 			<Features features={features} />
 			<Parts parts={parts} />
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={usage} filename={`${shortName}Example`} extension="tsx" className="mt-4" />
 			<Text className="mt-4">This page is wrapped in a {'<Container />'}. To see it in action, resize the window and see how the padding grows fluidly with viewport width.</Text>
 			<Source source={source} fileName={fileName} />

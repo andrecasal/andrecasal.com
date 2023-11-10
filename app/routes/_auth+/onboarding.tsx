@@ -13,8 +13,8 @@ import { nameSchema, passwordSchema, usernameSchema } from '~/utils/user-validat
 import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
+import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
 
 export const onboardingEmailSessionKey = 'onboardingEmail'
 
@@ -133,7 +133,7 @@ export default function OnboardingPage() {
 			<div className="flex min-h-full flex-col justify-center pb-32 pt-20">
 				<div className="mx-auto w-full max-w-lg">
 					<div className="flex flex-col gap-3 text-center">
-						<Heading size="xl">Welcome aboard!</Heading>
+						<H1 size="xl">Welcome aboard!</H1>
 						<Text size="lg" className="text-muted-500">
 							Please enter your details.
 						</Text>

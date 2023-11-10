@@ -1,5 +1,7 @@
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from './components/typography/heading.tsx'
+import { H1 } from './components/typography/h1.tsx'
+import { H2 } from './components/typography/h2.tsx'
+import { H3 } from './components/typography/h3.tsx'
 
 const UILibraries = [
 	{ name: 'Material UI', url: 'https://mui.com/components/' },
@@ -20,13 +22,13 @@ const UILibraries = [
 const Taxonomy = () => {
 	return (
 		<>
-			<Heading as="h1" size="3xl" className="mt-8 lg:mt-0">
+			<H1 size="3xl" className="mt-8 lg:mt-0">
 				Taxonomy
-			</Heading>
+			</H1>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				What is taxonomy?
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				Taxonomy is the science of categorization. Let's unpack that.
 			</Text>
@@ -35,9 +37,9 @@ const Taxonomy = () => {
 				one classification from another.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				Why bother?
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				Why bother with taxonomy, i.e. why have categories that clearly distinguish between components?
 			</Text>
@@ -51,17 +53,17 @@ const Taxonomy = () => {
 				<li>For a common language between designers and developers.</li>
 			</ul>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				Practical considerations
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				We can pepper in some practical considerations like avoiding categories that are too broad or too narrow. Categories that contain all (or too many) items or that contain one
 				(or very few) items defeat the purpose of categorizing in the first place: to make it easier to find things.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				The research
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				I went over the following UI libraries in search for components and their categories:
 			</Text>
@@ -124,9 +126,9 @@ const Taxonomy = () => {
 				Check the sidebar to your left to see all the components and their categories.
 			</Text>
 
-			<Heading as="h2" size="xl" className="mt-14">
+			<H2 size="xl" className="mt-14">
 				Current violations to clear taxonomy I'd love help fixing 🙏
-			</Heading>
+			</H2>
 			<Text size="md" className="mt-2">
 				You can join the discussion on{' '}
 				<a href="https://github.com/andrecasal/andrecasal.com/discussions/11" target="_blank" rel="noreferrer" className="underline">
@@ -135,9 +137,9 @@ const Taxonomy = () => {
 				.
 			</Text>
 
-			<Heading as="h3" size="lg" className="mt-2">
+			<H3 size="lg" className="mt-2">
 				Button
-			</Heading>
+			</H3>
 			<Text size="md" className="mt-2">
 				I'm not entirely happy with having the {'<Button />'} component inside "Data Entry", because a button fires an action: submit this form, open this modal, etc. Buttons
 				shouldn't be used for navigations though, that's what {'<Link />'} is for.
@@ -146,9 +148,9 @@ const Taxonomy = () => {
 				But I'm also not happy with having a category called "Actions" with only one item in it. So I'm going with "Data Entry" for now.
 			</Text>
 
-			<Heading as="h3" size="lg" className="mt-14">
+			<H3 size="lg" className="mt-14">
 				Label and Fieldset
-			</Heading>
+			</H3>
 			<Text size="md" className="mt-2">
 				{'<Label />'} and {'<Fieldset />'} aren't "Data Entry" at all 😅. A possible alternative for "Data Entry" could be "Form elements", as things that go inside a {'<form />'}.
 			</Text>

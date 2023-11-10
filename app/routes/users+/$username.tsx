@@ -8,8 +8,8 @@ import { prisma } from '~/utils/db.server.ts'
 import { getUserImgSrc } from '~/utils/misc.ts'
 import { useOptionalUser } from '~/utils/user.ts'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
+import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')
@@ -54,9 +54,9 @@ export default function UsernameIndex() {
 
 					<div className="flex flex-col items-center">
 						<div className="flex flex-wrap items-center justify-center gap-4">
-							<Heading size="lg" align="center">
+							<H1 size="lg" align="center">
 								{userDisplayName}
-							</Heading>
+							</H1>
 						</div>
 						<Text align="center" className="mt-2 text-muted-500">
 							Joined {data.userJoinedDisplay}

@@ -8,7 +8,7 @@ import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/i
 import { parse } from '@conform-to/zod'
 import { cn } from '~/utils/tailwind-merge.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
+import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
 
 type NewsletterProps = {
 	className?: string
@@ -29,9 +29,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 	return (
 		<div className={cn('mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2', className)}>
 			<div className="flex flex-col justify-between">
-				<Heading as="h2" size="2xl">
-					{title}
-				</Heading>
+				<H2 size="2xl">{title}</H2>
 				<Text size="lg" className="mt-4 text-muted-400">
 					{description}
 				</Text>

@@ -1,5 +1,4 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { Kbd } from '../components/typography/kbd.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { fileURLToPath } from 'url'
@@ -7,6 +6,8 @@ import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -38,30 +39,28 @@ const HeadingRoute = () => {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Kbd (Keyboard)
-			</Heading>
+			<H1 className="mt-8">Kbd (Keyboard)</H1>
 			<Text className="mt-4">Marks text as keyboard or voice (or another entry device) input.</Text>
 			<Text className="mt-4">
 				This component is merely a styling layer on top of the <code>{'<kbd>'}</code> tag.
 			</Text>
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={usageSource} filename="KbdExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">Here's the Kbd component in action.</Text>
 			<p>
 				Press <Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, <Kbd>Shift + Down</Kbd> to move things by 10px.
 			</p>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="kbd" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Styling
-			</Heading>
+			</H2>
 			<CodeBlock code={stylingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)

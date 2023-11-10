@@ -2,7 +2,7 @@ import { Container } from '~/routes/_marketing+/ui+/components/layout/container.
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { H1 } from '../ui+/components/typography/h1.tsx'
 
 const Courses = () => {
 	const courses = [
@@ -24,9 +24,7 @@ const Courses = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
-						<Heading as="h1" size="4xl">
-							Courses for you to upgrade your skills
-						</Heading>
+						<H1 size="4xl">Courses for you to upgrade your skills</H1>
 						<Text size="lg" className="mt-6 text-muted-800">
 							Awesome courses to upgrade your skills.
 						</Text>

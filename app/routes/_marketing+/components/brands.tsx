@@ -2,15 +2,15 @@ import DiamondBackground from './bg-diamonds.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { trusted } from '../logos/logos.ts'
-import { Heading } from '../ui+/components/typography/heading.tsx'
+import { H2 } from '../ui+/components/typography/h2.tsx'
 
 const Brands = () => {
 	return (
 		<>
 			<Container>
-				<Heading as="h2" size="3xl" align="center">
+				<H2 size="3xl" align="center">
 					Brands
-				</Heading>
+				</H2>
 				<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
 					Some of the companies that I've worked with or featured my work:
 				</Text>

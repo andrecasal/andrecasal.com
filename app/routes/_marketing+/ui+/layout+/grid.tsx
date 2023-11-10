@@ -1,10 +1,10 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Grid } from '../components/layout/grid.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
 import { Code } from '../components/typography/code.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 
 const component: componentProps = {
 	name: 'Grid',
@@ -153,9 +153,9 @@ const HeadingRoute = () => {
 			<Features features={features} />
 			<Parts parts={parts} />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Notes
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				If you set <Code>inline</Code>, <Code>justify</Code> has no meaning because the {'<Grid />'} has the least width possible.
 			</Text>
@@ -175,9 +175,9 @@ const HeadingRoute = () => {
 				Setting <Code>align="stretch"</Code> has the same effect as setting <Code>h-full</Code> on all the children (assuming <Code>flow="row"</Code>).
 			</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Accessibility
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				Changing visual order creates a disconnect between content and presentation and is, therefore,{' '}
 				<Link to="/articles/the-dark-side-of-the-grid" className="underline">

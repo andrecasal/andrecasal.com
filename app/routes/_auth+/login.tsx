@@ -7,7 +7,7 @@ import { commitSession, getSession } from '~/utils/session.server.ts'
 import { InlineLogin } from '../resources+/login.tsx'
 import { Verifier, unverifiedSessionKey } from '../resources+/verify.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '../_marketing+/ui+/components/typography/heading.tsx'
+import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAnonymous(request)
@@ -41,7 +41,7 @@ export default function LoginPage() {
 		<div className="flex min-h-full flex-col justify-center pb-32 pt-20">
 			<div className="mx-auto w-full max-w-md">
 				<div className="flex flex-col gap-3 text-center">
-					<Heading size="xl">Welcome back!</Heading>
+					<H1 size="xl">Welcome back!</H1>
 					<Text size="lg" className="text-muted-500">
 						Please enter your details.
 					</Text>

@@ -2,12 +2,13 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from './components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { CommandLine } from './components/typography/command-line.tsx'
 import { Code } from './components/typography/code.tsx'
+import { H1 } from './components/typography/h1.tsx'
+import { H2 } from './components/typography/h2.tsx'
 
 export const loader = async () => {
 	const basePath = '../'
@@ -49,12 +50,12 @@ function App() {
 
 	return (
 		<>
-			<Heading as="h1" size="4xl" className="mt-8 lg:mt-0">
+			<H1 size="4xl" className="mt-8 lg:mt-0">
 				Installation
-			</Heading>
-			<Heading as="h2" size="3xl" className="mt-8">
+			</H1>
+			<H2 size="3xl" className="mt-8">
 				Dependencies
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				This library has a development dependency:
 				<CommandLine commands={[{ type: 'command', text: 'npm i -D tailwindcss' }]} />
@@ -68,17 +69,17 @@ function App() {
 				<CommandLine commands={radixDependencies.map(text => ({ type: 'command', text }))} />
 			</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				tailwind.css
-			</Heading>
+			</H2>
 			<Text className="mt-2">
 				You can control the entire theme through the <Code>tailwind.css</Code> file.
 			</Text>
 			<CodeBlock code={tailwindCSSCode} filename="tailwind" extension="css" className="mt-2" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				tailwind.config.ts
-			</Heading>
+			</H2>
 			<Text className="mt-2">
 				Then, you'll need the <code>tailwind.config.ts</code> that uses those CSS variables.
 			</Text>
@@ -90,9 +91,9 @@ function App() {
 			</Text>
 			<CodeBlock code={tailwindMergeCode} filename="tailwind-merge" extension="ts" className="mt-2" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Providers
-			</Heading>
+			</H2>
 			<Text className="mt-2">
 				In order to use the{' '}
 				<Link to="/ui/overlays/tooltip" className="underline">
@@ -102,9 +103,9 @@ function App() {
 			</Text>
 			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-2" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Ready
-			</Heading>
+			</H2>
 			<Text className="mt-8">
 				Ok, you're ready to start using the components. You can copy+paste the ones you need or download the repo. You'll find all components{' '}
 				<a href="https://github.com/andrecasal/andrecasal.com/tree/main/app/routes/_marketing%2B/ui%2B/components" target="_blank" className="underline" rel="noreferrer">

@@ -13,8 +13,8 @@ import { generateTOTP } from '~/utils/totp.server.ts'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { SignupEmail } from './email.server.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
-import { Heading } from '~/routes/_marketing+/ui+/components/typography/heading.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
+import { H1 } from '~/routes/_marketing+/ui+/components/typography/h1.tsx'
 
 export const onboardingOTPQueryParam = 'code'
 export const onboardingEmailQueryParam = 'email'
@@ -132,7 +132,7 @@ export default function SignupRoute() {
 		<Container>
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="text-center">
-					<Heading size="xl">Let's start your journey!</Heading>
+					<H1 size="xl">Let's start your journey!</H1>
 					<Text size="lg" className="mt-3 text-muted-500">
 						Please enter your email.
 					</Text>

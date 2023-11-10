@@ -1,5 +1,4 @@
 import { json } from '@remix-run/node'
-import { Heading } from '../components/typography/heading.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
@@ -9,6 +8,9 @@ import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Tooltip } from '~/routes/_marketing+/ui+/components/ui/tooltip.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { CommandLine } from '../components/typography/command-line.tsx'
+import { H1 } from '../components/typography/h1.tsx'
+import { H2 } from '../components/typography/h2.tsx'
+import { H3 } from '../components/typography/h3.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -71,14 +73,12 @@ function App() {
 
 	return (
 		<>
-			<Heading as="h1" className="mt-8">
-				Tooltip
-			</Heading>
+			<H1 className="mt-8">Tooltip</H1>
 			<Text className="mt-4">A popup that displays related information when a button receives keyboard focus or the mouse hovers over it.</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Features
-			</Heading>
+			</H2>
 			<ul className="list-inside space-y-1 text-gray-500 dark:text-gray-400">
 				<li className="flex items-center">
 					<Icon name="check" size="md" className="mr-2 inline-block rounded-full bg-green-500 text-white" />
@@ -94,9 +94,9 @@ function App() {
 				</li>
 			</ul>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Keyboard interactions
-			</Heading>
+			</H2>
 			<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-muted-300">
 					<thead className="bg-muted-300">
@@ -138,9 +138,9 @@ function App() {
 				</table>
 			</div>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Usage
-			</Heading>
+			</H2>
 			<CodeBlock code={usageExample} filename="TooltipExample" extension="tsx" className="mt-4" />
 			<Text className="mt-4">
 				Here's the{' '}
@@ -150,9 +150,9 @@ function App() {
 				in action.
 			</Text>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Props
-			</Heading>
+			</H2>
 			<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 				<table className="min-w-full divide-y divide-gray-300">
 					<thead className="bg-gray-50">
@@ -178,9 +178,9 @@ function App() {
 				</table>
 			</div>
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Installation
-			</Heading>
+			</H2>
 			<Text className="mt-4">
 				You can follow the{' '}
 				<Link to="/ui" className="underline">
@@ -196,28 +196,28 @@ function App() {
 			</Text>
 			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
 
-			<Heading as="h3" size="2xl" className="mt-8">
+			<H3 size="2xl" className="mt-8">
 				Provider
-			</Heading>
+			</H3>
 			<Text className="mt-4">
 				Additionally, the tooltip component's display delay is controlled globally by a tooltip provider, so you'll need to add the provider to your app's root component. A slight
 				delay (300-500 milliseconds) is recommended to prevent accidental hover-triggered tooltips from appearing too quickly and becoming distracting.
 			</Text>
 			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
 
-			<Heading as="h3" size="2xl" className="mt-8">
+			<H3 size="2xl" className="mt-8">
 				Dependencies
-			</Heading>
+			</H3>
 			<CommandLine commands={[{ type: 'command', text: 'npm i @radix-ui/react-tooltip' }]} className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Source
-			</Heading>
+			</H2>
 			<CodeBlock code={source} filename="tooltip" extension="tsx" className="mt-4" />
 
-			<Heading as="h2" size="3xl" className="mt-8">
+			<H2 size="3xl" className="mt-8">
 				Styling
-			</Heading>
+			</H2>
 			<CodeBlock code={stylingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)

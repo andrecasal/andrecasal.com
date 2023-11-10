@@ -6,7 +6,7 @@ import { Container } from '~/routes/_marketing+/ui+/components/layout/container.
 import { Icon } from '~/components/ui/icon.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Link } from '@remix-run/react'
-import { Heading } from './ui+/components/typography/heading.tsx'
+import { H2 } from './ui+/components/typography/h2.tsx'
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 
@@ -69,9 +69,9 @@ export default function Index() {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<Heading as="h2" size="md" align="center" className="text-brand">
+						<H2 size="md" align="center" className="text-brand">
 							Everything you need to
-						</Heading>
+						</H2>
 						<Text size="3xl" align="center" className="mt-4 font-bold">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer

@@ -1,6 +1,7 @@
-import { Heading } from '../../ui+/components/typography/heading.tsx'
 import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
+import { H1 } from '../../ui+/components/typography/h1.tsx'
+import { H2 } from '../../ui+/components/typography/h2.tsx'
 
 export const title = 'Quotes'
 export const description =
@@ -9,14 +10,14 @@ export const description =
 const TheDarkSideOfTheGrid = () => {
 	return (
 		<>
-			<Heading as="h1" size="4xl" className="mt-10">
+			<H1 size="4xl" className="mt-10">
 				{title}
-			</Heading>
+			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={theDarkSideOfTheGrid} alt="The Dark Side Of The Grid" className="rounded-2xl object-cover" />
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Introduction
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					This article explains everything there is to know about the use of internal and external sources in written communication and how they translate to web developement and
 					semantic markup.
@@ -28,9 +29,9 @@ const TheDarkSideOfTheGrid = () => {
 					Let's start with clear definitions.
 				</Text>
 
-				<Heading as="h2" size="4xl" className="mt-10">
+				<H2 size="4xl" className="mt-10">
 					Definitions
-				</Heading>
+				</H2>
 				<Text size="xl" className="mt-8">
 					This article explains everything there is to know about the use of internal and external sources in written communication and how they translate to web developement and
 					semantic markup.
