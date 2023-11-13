@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Kbd } from '../components/typography/kbd.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -22,14 +22,14 @@ export const loader = async () => {
 
 const CodeRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const codeUsage = `<Text className="mt-4">
+	const codeUsage = `<P className="mt-4">
 	Here's the code component in action:{' '}
 	<Code className="mt-4">npm i -D tailwindcss</Code>. And here's the same component with copy functionality enabled:{' '}
 	<Code copy className="mt-4">
 		npm i -D tailwindcss
 	</Code>
 	.
-</Text>`
+</P>`
 	const stylingSource = `.code {
 	@apply rounded-md bg-muted-200 px-space-5 py-space-2 text-muted-900;
 }`
@@ -37,7 +37,7 @@ const CodeRoute = () => {
 	return (
 		<>
 			<H1 className="mt-8">Code</H1>
-			<Text className="mt-4">A semantic code element that supports copy to clipboard.</Text>
+			<P className="mt-4">A semantic code element that supports copy to clipboard.</P>
 
 			<H2 size="3xl" className="mt-8">
 				Features
@@ -55,17 +55,17 @@ const CodeRoute = () => {
 				Usage
 			</H2>
 			<CodeBlock code={codeUsage} filename="CodeExample" extension="tsx" className="mt-4" />
-			<Text className="mt-4">
+			<P className="mt-4">
 				Here's the code component, without copy functionality, in action: <Code className="mt-4">npm i -D tailwindcss</Code>. And here's with copy functionality enabled:{' '}
 				<Code copy className="mt-4">
 					npm i -D tailwindcss
 				</Code>
 				.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Notice that when copy is not enabled, the component is just text, but it becomes focusable (try <Kbd>Tab</Kbd>'ing) when copy is enabled so you can press <Kbd>Enter</Kbd> to
 				copy to clipboard.
-			</Text>
+			</P>
 
 			<H2 size="xl" className="mt-8">
 				Props
@@ -103,9 +103,9 @@ const CodeRoute = () => {
 			<H2 size="3xl" className="mt-8">
 				Styling
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				The styling is controlled through the <Code>.code</Code> class.
-			</Text>
+			</P>
 			<CodeBlock code={stylingSource} filename="tailwind" extension="css" className="mt-4" />
 		</>
 	)

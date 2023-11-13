@@ -1,9 +1,9 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Sticky } from '../components/layout/sticky.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Sticky',
@@ -40,9 +40,9 @@ const StickyRoute = () => {
 	return (
 		<>
 			<Description name={name} description={description} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				You are responsible for giving it a <Code>top-x</Code>, <Code>left-x</Code>, <Code>bottom-x</Code> or <Code>right-x</Code> position to stick to.
-			</Text>
+			</P>
 			<Features features={features} />
 			<Parts parts={parts} />
 			<Usage usage={usage} shortName={shortName} />
@@ -58,9 +58,9 @@ const StickyRoute = () => {
 				<div className="h-40" />
 			</div>
 			<Source source={source} fileName={fileName} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				This is just a <Code>div</Code> with the <Code>sticky</Code> class on it, but it's easier to read <Code>{'<Sticky>'}</Code> than <Code>{'<div className="sticky">'}</Code>.
-			</Text>
+			</P>
 		</>
 	)
 }

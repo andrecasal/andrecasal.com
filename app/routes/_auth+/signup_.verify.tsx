@@ -10,9 +10,9 @@ import { commitSession, getSession } from '~/utils/session.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { onboardingEmailSessionKey } from './onboarding.tsx'
 import { onboardingEmailQueryParam, onboardingOTPQueryParam, verificationType } from './signup/index.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 const verifySchema = z.object({
 	[onboardingEmailQueryParam]: z.string().email(),
@@ -130,9 +130,9 @@ export default function SignupVerifyRoute() {
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="text-center">
 					<H1 size="xl">Check your email</H1>
-					<Text size="lg" className="mt-3 text-muted-500">
+					<P size="lg" className="mt-3 text-muted-500">
 						We've sent you a code to verify your email address.
-					</Text>
+					</P>
 				</div>
 
 				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>

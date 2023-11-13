@@ -48,12 +48,12 @@ type h4Props = VariantProps<typeof h4Variants> & { children: ReactNode } & HTMLA
 /**
  * A h4 component.
  *
+ * @param {string} [size='xl'] - The size variant of the h4 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [weight='bold'] - The font weight of the h4 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [size='4xl'] - The size variant of the h4 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [align='left'] - The text alignment of the h4 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h4 (tighter, tight, normal, wide, wider, or widest).
  */
-const H4 = forwardRef<HTMLHeadingElement, h4Props>(({ size = '4xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
+const H4 = forwardRef<HTMLHeadingElement, h4Props>(({ size = 'xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
 	return (
 		<h4 ref={ref} className={cn(h4Variants({ size, weight, align, tracking }), className)} {...props}>
 			{children}

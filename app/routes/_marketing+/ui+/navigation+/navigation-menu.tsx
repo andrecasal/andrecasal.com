@@ -1,10 +1,10 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Description, Features, Source, readSource, type componentProps, Usage, Keyboard, Styling, Parts } from '../sections/sections.tsx'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuIndicator } from '../components/navigation/navigation-menu.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Navigation Menu',
@@ -104,7 +104,7 @@ const AlertDialogRoute = () => {
 	return (
 		<>
 			<Description name={name} description={description} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				<Code>NavigationMenu</Code> should not be confused with <Code>DropDownMenu</Code> or <Code>ContextMenu</Code>, although this primitive shares the name menu in the colloquial
 				sense to refer to a set of navigation links, it does not use the{' '}
 				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/" target="_blank" rel="noreferrer" className="underline">
@@ -112,17 +112,15 @@ const AlertDialogRoute = () => {
 				</a>
 				. This is because menu and menubars behave like native operating system menus most commonly found in desktop application windows, as such they feature complex functionality
 				like composite focus management and first-character navigation.
-			</Text>
-			<Text className="mt-4">
-				These features are often considered unnecessary for website navigation and at worst can confuse users who are familiar with established website patterns.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">These features are often considered unnecessary for website navigation and at worst can confuse users who are familiar with established website patterns.</P>
+			<P className="mt-4">
 				See the{' '}
 				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/" target="_blank" rel="noreferrer" className="underline">
 					W3C Disclosure Navigation Menu
 				</a>{' '}
 				example for more information.
-			</Text>
+			</P>
 			<Features features={features} />
 			<Keyboard keyboard={keyboard} />
 			<Parts parts={parts} />

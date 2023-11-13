@@ -48,8 +48,8 @@ type h1Props = VariantProps<typeof h1Variants> & { children: ReactNode } & HTMLA
 /**
  * A h1 component.
  *
- * @param {string} [weight='bold'] - The font weight of the h1 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
  * @param {string} [size='4xl'] - The size variant of the h1 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
+ * @param {string} [weight='bold'] - The font weight of the h1 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
  * @param {string} [align='left'] - The text alignment of the h1 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h1 (tighter, tight, normal, wide, wider, or widest).
  */

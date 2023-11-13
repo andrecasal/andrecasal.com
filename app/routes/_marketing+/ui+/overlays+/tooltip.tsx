@@ -4,13 +4,13 @@ import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { Link, useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Tooltip } from '~/routes/_marketing+/ui+/components/ui/tooltip.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { CommandLine } from '../components/typography/command-line.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
 import { H3 } from '../components/typography/h3.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -23,13 +23,13 @@ export const loader = async () => {
 
 const TooltipRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
-	const usageExample = `<Text className="mt-4">
+	const usageExample = `<P className="mt-4">
 	Here's the{' '}
 	<Tooltip content="This is a tooltip">
 		<button className="bg-green-500">tooltip component</button>
 	</Tooltip>{' '}
 	in action.
-</Text>`
+</P>`
 	const stylingSource = `.tooltip {
 	border-radius: calc(var(--radius) - 2px);
 	background-color: hsl(var(--color-foreground));
@@ -74,7 +74,7 @@ function App() {
 	return (
 		<>
 			<H1 className="mt-8">Tooltip</H1>
-			<Text className="mt-4">A popup that displays related information when a button receives keyboard focus or the mouse hovers over it.</Text>
+			<P className="mt-4">A popup that displays related information when a button receives keyboard focus or the mouse hovers over it.</P>
 
 			<H2 size="3xl" className="mt-8">
 				Features
@@ -142,13 +142,13 @@ function App() {
 				Usage
 			</H2>
 			<CodeBlock code={usageExample} filename="TooltipExample" extension="tsx" className="mt-4" />
-			<Text className="mt-4">
+			<P className="mt-4">
 				Here's the{' '}
 				<Tooltip content="This is a tooltip">
 					<button className="bg-green-500">tooltip component</button>
 				</Tooltip>{' '}
 				in action.
-			</Text>
+			</P>
 
 			<H2 size="3xl" className="mt-8">
 				Props
@@ -181,28 +181,28 @@ function App() {
 			<H2 size="3xl" className="mt-8">
 				Installation
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				You can follow the{' '}
 				<Link to="/ui" className="underline">
 					global installation guide
 				</Link>{' '}
 				that will install everything you need to use all the components or you can install the tooltip component by itself by installing its dependencies and wrap your app with the
 				tooltip provider.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Either way, you'll need the to add <code>'tooltip'</code> to the <code>spacing</code> key on the <code>extendTailwindMerge()</code> function, so <code>twMerge()</code> knows
 				that the tooltip's custom class <code>text-size-tooltip</code> belongs to the sizing category, so it won't conflict with color classes like{' '}
 				<code>text-tooltip-foreground</code>, <code>bg-tooltip-background</code>, or <code>text-green-500</code> for example.
-			</Text>
+			</P>
 			<CodeBlock code={twMerge} filename="tailwind-merge" extension="ts" className="mt-4" />
 
 			<H3 size="2xl" className="mt-8">
 				Provider
 			</H3>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Additionally, the tooltip component's display delay is controlled globally by a tooltip provider, so you'll need to add the provider to your app's root component. A slight
 				delay (300-500 milliseconds) is recommended to prevent accidental hover-triggered tooltips from appearing too quickly and becoming distracting.
-			</Text>
+			</P>
 			<CodeBlock code={tooltipProviderInRoot} filename="root" extension="tsx" className="mt-4" />
 
 			<H3 size="2xl" className="mt-8">

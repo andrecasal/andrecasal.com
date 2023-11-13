@@ -6,12 +6,13 @@ import BackgroundBlur from './components/bg-blur.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import zacharyCassette from './images/zachary-cassette.jpg'
 import { H1 } from './ui+/components/typography/h1.tsx'
 import { H2 } from './ui+/components/typography/h2.tsx'
 import { H3 } from './ui+/components/typography/h3.tsx'
 import { H4 } from './ui+/components/typography/h4.tsx'
+import { P } from './ui+/components/typography/p.tsx'
+import { Span } from './ui+/components/typography/span.tsx'
 
 const features = [
 	{
@@ -208,10 +209,10 @@ const FullStackWebDevMentor = () => {
 							<H1 size="4xl" className="mt-10">
 								Modern full-stack web development mentorship
 							</H1>
-							<Text size="md" className="mt-6 text-muted-600">
+							<P size="md" className="mt-6 text-muted-600">
 								Are you looking for a seasoned full-stack web dev mentor to guide you through modern tools and techniques and impart essential knowledge to step up your
 								development game? I love working with people, and I'm here to help you level up your skills and career.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button asChild>
 									<Link to="#pricing">Let's level up together</Link>
@@ -247,13 +248,13 @@ const FullStackWebDevMentor = () => {
 								<H2 size="md" className="text-brand">
 									Full-stack web development
 								</H2>
-								<Text size="3xl" className="mt-2 font-bold">
+								<P size="3xl" className="mt-2 font-bold">
 									Can be overwhelming
-								</Text>
-								<Text size="xl" className="mt-6 text-muted-700">
+								</P>
+								<P size="xl" className="mt-6 text-muted-700">
 									Layout, styling, design systems, responsiveness, server-side rendering, hydration, user experience, accessibility, validation, data modeling, caching,
 									memoization, performance, authentication, security, email, testing, visual regression, deployment, monitoring, logging, developer experience...
-								</Text>
+								</P>
 							</div>
 						</div>
 					</div>
@@ -263,34 +264,34 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="max-w-xl text-muted-700 lg:max-w-lg">
-								<Text size="md">
+								<P size="md">
 									It can be disheartening to spend endless hours scrolling through online tutorials and courses, try to remember all the best practices, and to constantly
 									make an effort to stay up-to-date in this fast-paced industry. It can be mentally and emotionally exhausting and your dream of becoming a proficient
 									full-stack web developer may, at times, feel out of reach.
-								</Text>
-								<Text size="md" className="mt-8">
+								</P>
+								<P size="md" className="mt-8">
 									That's the problem I'm here to solve.
-								</Text>
+								</P>
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
 										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<Text as="span">
+										<Span>
 											<strong className="font-semibold text-muted-900">Modern tools.</strong> Forget analysis paralysis. I'll guide you through the best tools for the
 											job.
-										</Text>
+										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<Text as="span">
+										<Span>
 											<strong className="font-semibold text-muted-900">Knowledge.</strong> I'll teach you everything you need to know to ship world-class products.
-										</Text>
+										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="mountain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
-										<Text as="span">
+										<Span>
 											<strong className="font-semibold text-muted-900">Real-world experience.</strong> We will build a real, production-ready, full-stack web app
 											together from start to finish.
-										</Text>
+										</Span>
 									</li>
 								</ul>
 							</div>
@@ -304,27 +305,27 @@ const FullStackWebDevMentor = () => {
 						<H2 size="md" align="center" className="text-brand">
 							Everything you need
 						</H2>
-						<Text size="3xl" weight="bold" align="center" className="mt-2">
+						<P size="3xl" weight="bold" align="center" className="mt-2">
 							To ship modern full-stack web apps
-						</Text>
-						<Text size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
+						</P>
+						<P size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
 							Here are some of the things you can learn with me:
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl gap-y-16 sm:mt-20 lg:mt-24 lg:max-w-none">
 						<dl className="relative grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 							{features.map(feature => (
 								<div key={feature.name} className="flex flex-col">
 									<dt>
-										<Text as="span" size="md" weight="semibold" className="flex items-center gap-x-3 text-muted-900">
+										<Span size="md" weight="semibold" className="flex items-center gap-x-3 text-muted-900">
 											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 											{feature.name}
-										</Text>
+										</Span>
 									</dt>
 									<dd>
-										<Text size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+										<P size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
 											{feature.description}
-										</Text>
+										</P>
 									</dd>
 								</div>
 							))}
@@ -336,15 +337,15 @@ const FullStackWebDevMentor = () => {
 									{moreFeatures.map(feature => (
 										<div key={feature.name} className="flex flex-col">
 											<dt>
-												<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+												<Span size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 													<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 													{feature.name}
-												</Text>
+												</Span>
 											</dt>
 											<dd>
-												<Text size="md" className="mt-4 flex flex-auto flex-col text-muted-600">
+												<P size="md" className="mt-4 flex flex-auto flex-col text-muted-600">
 													{feature.description}
-												</Text>
+												</P>
 											</dd>
 										</div>
 									))}
@@ -369,29 +370,29 @@ const FullStackWebDevMentor = () => {
 						</H2>
 						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
-								<Text size="xl" className="text-muted-600">
+								<P size="xl" className="text-muted-600">
 									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. I
 									highly recommend you already bring a real-world application in mind that you'd like to build or improve so we can get our hands dirty.
-								</Text>
-								<Text size="md" className="mt-10 max-w-xl text-muted-700">
+								</P>
+								<P size="md" className="mt-10 max-w-xl text-muted-700">
 									Then comes the bulk of the work, where you'll build your app with my guidance. I'll be there to make sure you're on the right track, helping you with any
 									questions you have, and correcting any mistakes you make along the way. This usually includes weekly calls, code reviews, and bouncing ideas back and
 									forth on chat.
-								</Text>
-								<Text size="md" className="mt-10 max-w-xl text-muted-700">
+								</P>
+								<P size="md" className="mt-10 max-w-xl text-muted-700">
 									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to do: learned everything you wanted to, got a
 									higher-paying job, shipped your app, or any combination of those.
-								</Text>
+								</P>
 							</div>
 							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">
 								{stats.map(stat => (
 									<div key={stat.value} className="flex flex-col gap-y-2">
-										<Text as="span" size="4xl" weight="semibold" className="text-muted-900">
+										<Span size="4xl" weight="semibold" className="text-muted-900">
 											{stat.value}
-										</Text>
-										<Text size="md" className="text-muted-600">
+										</Span>
+										<P size="md" className="text-muted-600">
 											{stat.label}
-										</Text>
+										</P>
 									</div>
 								))}
 							</div>
@@ -406,21 +407,21 @@ const FullStackWebDevMentor = () => {
 							<H2 align="center" size="md" className="text-brand">
 								Testimonials
 							</H2>
-							<Text size="3xl" weight="bold" className="mt-2">
+							<P size="3xl" weight="bold" className="mt-2">
 								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
-							</Text>
+							</P>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
-									<Text size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
+									<P size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</P>
 								</blockquote>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt={featuredTestimonial.author.name} />
 									<div className="flex-auto">
-										<Text size="sm" weight="semibold">
+										<P size="sm" weight="semibold">
 											{featuredTestimonial.author.name}
-										</Text>
+										</P>
 									</div>
 									{/* <img className="h-10 w-auto flex-none" src={featuredTestimonial.author.logoUrl} alt="" /> */}
 								</figcaption>
@@ -440,14 +441,14 @@ const FullStackWebDevMentor = () => {
 											{column.map(testimonial => (
 												<figure key={testimonial.author.name} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
-														<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
+														<P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P>
 													</blockquote>
 													<figcaption className="mt-6 flex items-center gap-x-4">
 														{/* <img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt="" /> */}
 														<div>
-															<Text size="sm" weight="semibold">
+															<P size="sm" weight="semibold">
 																{testimonial.author.name}
-															</Text>
+															</P>
 														</div>
 													</figcaption>
 												</figure>
@@ -466,18 +467,18 @@ const FullStackWebDevMentor = () => {
 						<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple no-tricks pricing
 						</H2>
-						<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
+						<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 							I charge ~80€ per hour. The payments are done monthly.
 							<br />
 							Here are the most common plans mentees go for.
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Mentorship 4h/week</H3>
-							<Text size="md" className="mt-6 text-muted-600">
+							<P size="md" className="mt-6 text-muted-600">
 								This is the most popular plan for <strong>mentees building a product full-time</strong>. Chat is always available.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
@@ -496,25 +497,25 @@ const FullStackWebDevMentor = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" weight="semibold" className="text-muted-600">
+									<P size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
-									</Text>
-									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text as="span" size="4xl" weight="bold">
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
 											€1024
-										</Text>
-										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
-										</Text>
-									</Text>
+										</Span>
+									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call
 										</a>
 									</Button>
-									<Text size="xs" className="mt-6 text-muted-600">
+									<P size="xs" className="mt-6 text-muted-600">
 										Invoices and receipts available for easy company reimbursement
-									</Text>
+									</P>
 								</div>
 							</div>
 						</div>
@@ -522,9 +523,9 @@ const FullStackWebDevMentor = () => {
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Mentorship 2h/week</H3>
-							<Text size="md" className="mt-6 text-muted-600">
+							<P size="md" className="mt-6 text-muted-600">
 								This is the most popular plan for <strong>mentees building something on the side</strong>. Chat is always available.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
@@ -543,31 +544,31 @@ const FullStackWebDevMentor = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" weight="semibold" className="text-muted-600">
+									<P size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
-									</Text>
-									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text as="span" size="4xl" weight="bold">
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
 											€640
-										</Text>
-										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
-										</Text>
-									</Text>
+										</Span>
+									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call
 										</a>
 									</Button>
-									<Text size="xs" className="mt-6 text-muted-600">
+									<P size="xs" className="mt-6 text-muted-600">
 										Invoices and receipts available for easy company reimbursement
-									</Text>
+									</P>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div className="mx-auto max-w-2xl sm:text-center">
-						<Text size="md" className="mt-6 text-muted-600">
+						<P size="md" className="mt-6 text-muted-600">
 							If you're a student or have been unemployed for more than 3 months, I offer a 50% discount. Just{' '}
 							<a
 								// eslint-disable-next-line remix-react-routes/use-link-for-routes
@@ -577,7 +578,7 @@ const FullStackWebDevMentor = () => {
 								send me an email
 							</a>{' '}
 							with your situation and we'll figure it out.
-						</Text>
+						</P>
 					</div>
 				</div>
 			</Container>

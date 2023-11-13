@@ -12,9 +12,9 @@ import { commitSession, getSession } from '~/utils/session.server.ts'
 import { nameSchema, passwordSchema, usernameSchema } from '~/utils/user-validation.ts'
 import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 export const onboardingEmailSessionKey = 'onboardingEmail'
 
@@ -134,9 +134,9 @@ export default function OnboardingPage() {
 				<div className="mx-auto w-full max-w-lg">
 					<div className="flex flex-col gap-3 text-center">
 						<H1 size="xl">Welcome aboard!</H1>
-						<Text size="lg" className="text-muted-500">
+						<P size="lg" className="text-muted-500">
 							Please enter your details.
-						</Text>
+						</P>
 					</div>
 					<Spacer size="xs" />
 					<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...form.props}>

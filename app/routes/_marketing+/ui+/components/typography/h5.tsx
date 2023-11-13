@@ -48,12 +48,12 @@ type h5Props = VariantProps<typeof h5Variants> & { children: ReactNode } & HTMLA
 /**
  * A h5 component.
  *
+ * @param {string} [size='lg'] - The size variant of the h5 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [weight='bold'] - The font weight of the h5 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [size='4xl'] - The size variant of the h5 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [align='left'] - The text alignment of the h5 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h5 (tighter, tight, normal, wide, wider, or widest).
  */
-const H5 = forwardRef<HTMLHeadingElement, h5Props>(({ size = '4xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
+const H5 = forwardRef<HTMLHeadingElement, h5Props>(({ size = 'lg', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
 	return (
 		<h5 ref={ref} className={cn(h5Variants({ size, weight, align, tracking }), className)} {...props}>
 			{children}

@@ -1,7 +1,7 @@
 import { type Post } from '~/routes/_marketing+/articles/_index.tsx'
 import { Badge } from './ui/badge.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 
 export const ArticlePreview = ({ post }: { post: Post }) => {
 	return (
@@ -9,9 +9,9 @@ export const ArticlePreview = ({ post }: { post: Post }) => {
 			<img src={post.imageUrl} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
 			<div className="absolute inset-0 -z-10 bg-gradient-to-t from-muted-900 via-muted-900/40" />
 			<div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-muted-900/10" />
-			<Text size="xs" className="text-background">
+			<P size="xs" className="text-background">
 				{post.date}
-			</Text>
+			</P>
 			<H3 size="lg" className="text-background">
 				<a href={post.href}>
 					{/* This span 👇 makes the link clickable on the entire area */}

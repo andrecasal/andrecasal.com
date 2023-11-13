@@ -1,5 +1,4 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import BackgroundDiagonal from './components/bg-diagonal.tsx'
@@ -17,6 +16,8 @@ import { H1 } from './ui+/components/typography/h1.tsx'
 import { H2 } from './ui+/components/typography/h2.tsx'
 import { H3 } from './ui+/components/typography/h3.tsx'
 import { H4 } from './ui+/components/typography/h4.tsx'
+import { P } from './ui+/components/typography/p.tsx'
+import { Span } from './ui+/components/typography/span.tsx'
 
 const Tutoring = () => {
 	const features = [
@@ -215,10 +216,10 @@ const Tutoring = () => {
 							<H1 size="4xl" className="mt-24 sm:mt-10">
 								Tutoring
 							</H1>
-							<Text size="lg" className="mt-6 text-muted-600">
+							<P size="lg" className="mt-6 text-muted-600">
 								I've been tutoring college students on computer science for over 16 years. I've helped hundreds of students get through their classes and graduate. I can help
 								you too.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button variant="primary" asChild>
 									<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noreferrer">
@@ -235,47 +236,47 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-32">
 				<div className="max-w-3xl text-muted-700">
-					<Text size="md" weight="semibold" className="text-brand">
+					<P size="md" weight="semibold" className="text-brand">
 						I understand the
-					</Text>
+					</P>
 					<H2 size="3xl" className="mt-2 text-muted-900">
 						College life
 					</H2>
-					<Text size="xl" className="mt-6 leading-8">
+					<P size="xl" className="mt-6 leading-8">
 						Ok, so you're in college and you don't want to be disrespected, shamed, or humiliated by your peers. Much less by your teachers. Having gone through college and been
 						a tutor for more than 16 years, I know how you feel. You feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
 						won't magically make your grades go up. Besides, spending more time reading the recommended books won't help because you can't lose any more time and you're already
 						sleeping less than what would be healthy.
-					</Text>
+					</P>
 					<div className="mt-10 max-w-2xl">
-						<Text>
+						<P>
 							You might have even tried tutoring centers. I remember having gone to this tutoring center for Calculus when I was in high school. I packed my backpack, left home
 							one hour before, arrived at the center, and started studying. We would pay 30€/hour for a teacher in a room full of students. During the two hours I was there, I
 							was able to ask exactly two questions to the teacher, whose answers were short and too hurried to understand anything useful. I get it, the teacher wanted to
 							spread her time across all the students. I remember asking myself "is it worth it to lose two hours to come and go, pay 30€/hour to come study here, and just get
 							the teacher's attention twice in two hours? For this, I might as well study at home!"
-						</Text>
-						<Text className="mt-8">
+						</P>
+						<P className="mt-8">
 							After that, I tried a private math tutor. He knew the subject matter, but couldn't bridge my knowledge to his knowledge. He couldn't understand which background
 							knowledge I was missing to understand the current concepts, so he mechanistically repeated the same answers that I wouldn't be able to understand until he gave me
 							the background knowledge required. It was frustrating.
-						</Text>
-						<Text className="mt-6">
+						</P>
+						<P className="mt-6">
 							Are you looking for a better solution to improve your grades, and feel proud of yourself and the things you'll be able to accomplish? That's why I'm here. To help
 							you dominate the subject matter, deliver well-made projects on time, and get top grades with tutoring dedicated to you!
-						</Text>
+						</P>
 						<H3 size="2xl" className="mt-16 text-muted-900">
 							From beginner to expert
 						</H3>
-						<Text className="mt-10">
+						<P className="mt-10">
 							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. Wow, son, you're doing well in college! Imagine your teachers:
 							guys, if you have questions direct them to him, he knows this stuff! Imagine your colleagues recognizing your knowledge, and asking for study sessions with you!
-						</Text>
+						</P>
 					</div>
 					<div className="mt-44 max-w-2xl">
-						<Text size="md" weight="semibold" className="text-brand">
+						<P size="md" weight="semibold" className="text-brand">
 							How it feels like
-						</Text>
+						</P>
 						<H2 size="3xl" className="mt-2 text-muted-900">
 							Working with me
 						</H2>
@@ -283,17 +284,17 @@ const Tutoring = () => {
 							<img className="aspect-video rounded-xl bg-muted-50 object-cover" src={andreOnMacBookPro} alt="André on a Zoom call with a student" />
 							<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-muted-500">André on a Zoom call with a student.</figcaption>
 						</figure>
-						<Text className="mt-6">
+						<P className="mt-6">
 							Imagine this: your teacher asks you a question that he knows no student would be able to answer. But you have a secret weapon - tutoring lessons with an expert
 							tutor with excellent communication skills. As you start to thoroughly and beautifully answer your teacher's question, your colleagues start to look at you in awe
 							and you see a smile of approval begin to form on your teacher's lips. When you're done there's a pause while the shock of your answer subsides. You feel a rush of
 							adrenaline as the awareness that everyone is now looking at you hits you. You chuckle and your teacher says “Guys, make friends with him, he's going places!”
-						</Text>
-						<Text className="mt-8">
+						</P>
+						<P className="mt-8">
 							During the rest of the class, all your colleagues will be thinking you'd be a good friend to have. Trust me, you won't have any problems making friends. Your
 							biggest problem will be to distinguish the ones who appreciate you for your intelligence from those who just want to take advantage of you.
-						</Text>
-						<Text className="mt-8">
+						</P>
+						<P className="mt-8">
 							You're doing the exams. Confident. Focused. Your colleagues struggle to remember the concepts they need to answer the questions. You completely blaze through the
 							memorization questions the teacher posed, knowing every single answer by heart. A great start makes you feel even more confident and allows you more time to
 							answer all the questions and revise your answers after you're done. Still, 10 minutes left on the clock. You turn in your exam early, feeling proud of yourself
@@ -302,27 +303,27 @@ const Tutoring = () => {
 								<li>Hello, son?</li>
 								<li>Nailed it!</li>
 							</ul>
-						</Text>
-						<Text className="mt-8">
+						</P>
+						<P className="mt-8">
 							How is this possible? Because I'll give you my own researched and scientifically proven method for memorizing anything important. Plus I'll connect to you, at
 							your current level of knowledge, and help you bridge the gap between where you are now and where you need to be to pass the exams like it was first-grade math.
 							You'll be able to have tutoring sessions just for yourself or for your group.
-						</Text>
+						</P>
 					</div>
 					<div className="mt-16 max-w-2xl">
 						<h3 className="text-2xl font-bold tracking-tight text-muted-900">I dedicate myself to my students</h3>
-						<Text className="mt-6">
+						<P className="mt-6">
 							You're studying in the library with your colleagues and find a problem you can't solve. You ask your colleagues but no one knows the answer. You're blocked. You
 							open your browser and search on Google. You know the solution is easy if you just have the right knowledge, but you just can't find the answer online. But you
 							remember you have a trusted tutor always by your side! You take your phone, open WhatsApp, and write a quick message. A minute later you receive a clear
 							explanation that exactly answers the doubt you had. You feel relieved and thankful for being able to carry on studying without bumps in the road.
-						</Text>
-						<Text className="mt-6">
+						</P>
+						<P className="mt-6">
 							The average rate of passing grades of my more than 600 students is 98,75%. I dedicate myself to my students and I'm relentless when it comes to making sure
 							they're having access to the right knowledge. Besides the tutoring sessions themselves, I'll give you support through WhatsApp so that you can keep on studying
 							and have a smooth experience without bumps in the road - as long as those are questions easily answered by text message. Otherwise, it would make more sense to
 							schedule a tutoring session, of course. During tutoring sessions, you'll also have real-time comments on the work you're doing.
-						</Text>
+						</P>
 					</div>
 				</div>
 			</Container>
@@ -331,12 +332,12 @@ const Tutoring = () => {
 					<H2 size="md" align="center" className="text-brand">
 						Everything you need to be a
 					</H2>
-					<Text size="3xl" weight="bold" className="mt-2 text-muted-900">
+					<P size="3xl" weight="bold" className="mt-2 text-muted-900">
 						Successful student
-					</Text>
-					<Text size="lg" className="mt-6 text-muted-600">
+					</P>
+					<P size="lg" className="mt-6 text-muted-600">
 						You'll learn how to organize your time, material, and study sessions, so that you can deliver them on time and with the quality you need to get top grades.
-					</Text>
+					</P>
 				</div>
 				<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 					<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
@@ -347,7 +348,7 @@ const Tutoring = () => {
 									{feature.name}
 								</dt>
 								<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-									<Text className="flex-auto">{feature.description}</Text>
+									<P className="flex-auto">{feature.description}</P>
 								</dd>
 							</div>
 						))}
@@ -361,23 +362,23 @@ const Tutoring = () => {
 							<H1 size="4xl" className="mt-10">
 								About André
 							</H1>
-							<Text size="lg" className="mt-6 text-muted-700">
+							<P size="lg" className="mt-6 text-muted-700">
 								André has been working as a software engineer, for more than 16 years, with companies like Calouste Gulbenkian Foundation, American TV network NBC, and energy
 								drink Monster Energy. He has provided technical direction to countless startups, and managed teams of over 20 people. Currently, he helps other software
 								engineers to improve their careers through mentoring and his online courses, which have been featured by Microsoft. Teaching has always been one of his
 								passions, and that is why throughout his career he has consulted, mentored, and tutored with remarkable reviews.
-							</Text>
+							</P>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0">
 							<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
 						</div>
 					</div>
 					<div className="max-w-2xl">
-						<Text className="mt-8">André is part of Noumena's Advisory Council, hosts Tech Jobs Fair Lisbon, and is launching a Software Engineering School.</Text>
-						<Text className="mt-8">
+						<P className="mt-8">André is part of Noumena's Advisory Council, hosts Tech Jobs Fair Lisbon, and is launching a Software Engineering School.</P>
+						<P className="mt-8">
 							Besides tech, entrepreneurship, and business, André also has a deep interest in teaching practical introspection and (nonviolent) communication skills. He feels
 							that, to a large degree, the quality of your mind determines the quality of your life, and he's passionate about personal transformation and development.
-						</Text>
+						</P>
 					</div>
 				</Container>
 			</BackgroundDiagonal>
@@ -388,21 +389,21 @@ const Tutoring = () => {
 							<H2 size="md" align="center" className="text-brand">
 								Testimonials
 							</H2>
-							<Text size="3xl" weight="bold" className="mt-2">
+							<P size="3xl" weight="bold" className="mt-2">
 								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
-							</Text>
+							</P>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 								<blockquote className="p-12 text-muted-900">
-									<Text size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
+									<P size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</P>
 								</blockquote>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" />
 									<div className="flex-auto">
-										<Text size="sm" weight="semibold">
+										<P size="sm" weight="semibold">
 											{featuredTestimonial.author.name}
-										</Text>
+										</P>
 										<div className="flex gap-0.5">
 											{Array(5)
 												.fill(null)
@@ -428,16 +429,16 @@ const Tutoring = () => {
 											{column.map((testimonial, i) => (
 												<figure key={i} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
-														<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
+														<P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P>
 													</blockquote>
 													<figcaption className="mt-6 flex items-center gap-x-4">
 														{'imageUrl' in testimonial.author ? (
 															<img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt={testimonial.author.name} />
 														) : null}
 														<div>
-															<Text size="sm" weight="semibold">
+															<P size="sm" weight="semibold">
 																{testimonial.author.name}
-															</Text>
+															</P>
 															<div className="flex gap-0.5">
 																{Array(5)
 																	.fill(null)
@@ -464,24 +465,24 @@ const Tutoring = () => {
 							<H2 size="3xl" className="mt-10 max-w-xl text-muted-900">
 								The subjects I teach
 							</H2>
-							<Text size="lg" className="mt-6 text-muted-600">
+							<P size="lg" className="mt-6 text-muted-600">
 								I've been teaching computer science and software engineering for more than 16 years, so I've mastered quite a few subjects. Below you can find a
 								non-exhaustive list of the subjects I can help you with.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-6"></div>
 						</div>
 					</div>
 					<div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
 						{stats.map(stat => (
 							<div key={stat.name} className="py-6">
-								<Text size="sm" weight="medium" className="leading-6 text-muted-400">
+								<P size="sm" weight="medium" className="leading-6 text-muted-400">
 									{stat.name}
-								</Text>
-								<Text className="mt-2 flex items-baseline gap-x-2">
-									<Text as="span" size="4xl" weight="semibold" className="tracking-tight">
+								</P>
+								<P className="mt-2 flex items-baseline gap-x-2">
+									<Span size="4xl" weight="semibold" className="tracking-tight">
 										{stat.value}
-									</Text>
-								</Text>
+									</Span>
+								</P>
 							</div>
 						))}
 					</div>
@@ -496,9 +497,7 @@ const Tutoring = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.programming.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
-												{item.name}
-											</Text>
+											<Span size="sm">{item.name}</Span>
 										</li>
 									))}
 								</ul>
@@ -508,9 +507,7 @@ const Tutoring = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.webdev.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
-												{item.name}
-											</Text>
+											<Span size="sm">{item.name}</Span>
 										</li>
 									))}
 								</ul>
@@ -522,9 +519,7 @@ const Tutoring = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.computerscience.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
-												{item.name}
-											</Text>
+											<Span size="sm">{item.name}</Span>
 										</li>
 									))}
 								</ul>
@@ -534,9 +529,7 @@ const Tutoring = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.math.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
-												{item.name}
-											</Text>
+											<Span size="sm">{item.name}</Span>
 										</li>
 									))}
 								</ul>
@@ -551,18 +544,18 @@ const Tutoring = () => {
 						<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple no-tricks pricing
 						</H2>
-						<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
+						<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 							I charge 40€ per hour. The payments are done per session.
 							<br />
 							Here are the most common plans mentees go for.
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Continuous tutoring (4h/week)</H3>
-							<Text size="md" className="mt-6 text-muted-600">
+							<P size="md" className="mt-6 text-muted-600">
 								This is the most popular plan for students wanting <strong>excellent grades</strong>.<br /> Chat is always available.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
@@ -581,25 +574,25 @@ const Tutoring = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" weight="semibold" className="text-muted-600">
+									<P size="md" weight="semibold" className="text-muted-600">
 										Pay once a month
-									</Text>
-									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text as="span" size="4xl" weight="bold">
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
 											€640
-										</Text>
-										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
-										</Text>
-									</Text>
+										</Span>
+									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
 											Schedule initial call
 										</a>
 									</Button>
-									<Text size="xs" className="mt-6 text-muted-600">
+									<P size="xs" className="mt-6 text-muted-600">
 										Invoices and receipts available for easy company reimbursement
-									</Text>
+									</P>
 								</div>
 							</div>
 						</div>
@@ -607,10 +600,10 @@ const Tutoring = () => {
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Single session</H3>
-							<Text size="md" className="mt-6 text-muted-600">
+							<P size="md" className="mt-6 text-muted-600">
 								Need help with a <strong>single project</strong> or <strong>exams</strong>?<br />
 								Schedule however many of these sessions you want.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
 									We can use this time for
@@ -629,17 +622,17 @@ const Tutoring = () => {
 						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
-									<Text size="md" weight="semibold" className="text-muted-600">
+									<P size="md" weight="semibold" className="text-muted-600">
 										Pay per hour
-									</Text>
-									<Text className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Text as="span" size="4xl" weight="bold">
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
 											€40
-										</Text>
-										<Text as="span" size="sm" weight="semibold" className="tracking-wide text-muted-600">
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
-										</Text>
-									</Text>
+										</Span>
+									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
 										<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noopener noreferrer">
 											Schedule a tutoring session
@@ -657,10 +650,10 @@ const Tutoring = () => {
 						<H2 size="4xl" className="mt-10 text-muted-900">
 							Satisfaction Guaranteed
 						</H2>
-						<Text size="lg" className="mt-6 text-muted-600">
+						<P size="lg" className="mt-6 text-muted-600">
 							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in 16 years of tutoring, no one
 							has ever asked for their money back - I'll give you your money back.
-						</Text>
+						</P>
 					</div>
 					<div className="mt-16 rounded-xl bg-brand p-40 sm:mt-24 lg:mt-0">
 						<img src={satisfactionGuarantee} alt="Satisfaction Guarantee stamp" />
@@ -673,14 +666,14 @@ const Tutoring = () => {
 						<H2 size="4xl" className="mt-10 max-w-lg text-muted-900">
 							A note to you
 						</H2>
-						<Text size="lg" className="mt-6 text-muted-600">
+						<P size="lg" className="mt-6 text-muted-600">
 							I just want to thank you for taking the time to read about my tutoring service. It continues to be a tremendous honor to have so many students trust me to help
 							them find a better way of going through college. I sincerely hope you decide to get tutoring lessons, even if not with me, because I know it to be such a good
 							decision.
-						</Text>
-						<Text size="lg" className="mt-6 text-muted-600">
+						</P>
+						<P size="lg" className="mt-6 text-muted-600">
 							To your success! 🥂
-						</Text>
+						</P>
 					</div>
 					<div className="mt-16 rounded-xl p-8 sm:mt-24 lg:mt-0">
 						<img src={signatureBlack} alt="André Casal signature" className="mt-16 dark:hidden" />

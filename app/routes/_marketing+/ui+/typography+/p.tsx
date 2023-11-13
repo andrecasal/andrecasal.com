@@ -1,44 +1,43 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Styling } from '../sections/sections.tsx'
-import { H3 } from '../components/typography/h3.tsx'
 import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
-	name: 'H3',
-	shortName: 'H3',
-	fileName: 'h3',
+	name: 'P',
+	shortName: 'P',
+	fileName: 'p',
 	category: 'typography',
-	description: ['An h3 element with control for typographic attributes.'],
-	features: ['Drop-in replacement for the native <h3> element.', 'Automatically inherits design tokens.', 'Allows control of size, weight, alignment, and tracking.'],
+	description: ['A p element with control for typographic attributes.'],
+	features: ['Drop-in replacement for the native <p> element.', 'Automatically inherits design tokens.', 'Allows control of size, weight, alignment, and tracking.'],
 	parts: [
 		{
-			name: 'H3',
-			description: 'An h3 element.',
+			name: 'P',
+			description: 'A p element with control for typographic attributes.',
 			props: [
-				{ name: 'weight', type: 'enum: black, extrabold, bold, semibold, medium, normal, light, extralight, thin', default: 'bold' },
-				{ name: 'size', type: 'enum: 4xl, 3xl, 2xl, xl, lg, md, sm, xs', default: '2xl' },
+				{ name: 'weight', type: 'enum: black, extrabold, bold, semibold, medium, normal, light, extralight, thin', default: 'normal' },
+				{ name: 'size', type: 'enum: 4xl, 3xl, 2xl, xl, lg, md, sm, xs', default: 'md' },
 				{ name: 'align', type: 'enum: left, center, or right', default: 'left' },
 				{ name: 'tracking', type: 'enum: tighter, tight, normal, wide, wider, or widest', default: 'size-dependent' },
 			],
 		},
 	],
-	usage: `<H3 size="6xl">H3 6xl</H3>
-<H3 size="5xl" weight="thin">
-	H3 5xl
-</H3>
-<H3 size="4xl" align="center">
-	H3 4xl
-</H3>
-<H3 size="3xl" align="right" tracking="widest">
-	H3 3xl
-</H3>
-<H3 size="2xl">H3 2xl</H3>
-<H3 size="xl">H3 xl</H3>
-<H3 size="lg">H3 lg</H3>
-<H3 size="md">H3 md</H3>
-<H3 size="sm">H3 sm</H3>
-<H3 size="xs">H3 xs</H3>`,
+	usage: `<P size="6xl">P 6xl</P>
+<P size="5xl" weight="thin">
+	P 5xl
+</P>
+<P size="4xl" align="center">
+	P 4xl
+</P>
+<P size="3xl" align="right" tracking="widest">
+	P 3xl
+</P>
+<P size="2xl">P 2xl</P>
+<P size="xl">P xl</P>
+<P size="lg">P lg</P>
+<P size="md">P md</P>
+<P size="sm">P sm</P>
+<P size="xs">P xs</P>`,
 	styling: `/* Typography: https://andrecasal.com/articles/fluid-typography-sizing-with-modular-scales */
 @layer base {
 	:root {
@@ -159,7 +158,7 @@ const component: componentProps = {
 
 export const loader = async () => json({ source: await readSource({ category: component.category, fileName: component.fileName }) })
 
-const HeadingRoute = () => {
+const TextRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
 	const { name, description, shortName, fileName, features, usage, parts, styling } = component
 
@@ -168,24 +167,24 @@ const HeadingRoute = () => {
 			<Description name={name} description={description} />
 			<Features features={features} />
 			<Parts parts={parts} />
-			<P className="mt-4">Note that the tracking's default value depends on the size prop and is controlled through CSS variables.</P>
+			<P className="mt-4">The tracking's default value depends on the size prop and is controlled through CSS variables: check out the styling section.</P>
 			<Usage usage={usage} shortName={shortName} />
-			<H3 size="6xl">H3 6xl</H3>
-			<H3 size="5xl" weight="thin">
-				H3 5xl
-			</H3>
-			<H3 size="4xl" align="center">
-				H3 4xl
-			</H3>
-			<H3 size="3xl" align="right" tracking="widest">
-				H3 3xl
-			</H3>
-			<H3 size="2xl">H3 2xl</H3>
-			<H3 size="xl">H3 xl</H3>
-			<H3 size="lg">H3 lg</H3>
-			<H3 size="md">H3 md</H3>
-			<H3 size="sm">H3 sm</H3>
-			<H3 size="xs">H3 xs</H3>
+			<P size="6xl">P 6xl</P>
+			<P size="5xl" weight="thin">
+				P 5xl
+			</P>
+			<P size="4xl" align="center">
+				P 4xl
+			</P>
+			<P size="3xl" align="right" tracking="widest">
+				P 3xl
+			</P>
+			<P size="2xl">P 2xl</P>
+			<P size="xl">P xl</P>
+			<P size="lg">P lg</P>
+			<P size="md">P md</P>
+			<P size="sm">P sm</P>
+			<P size="xs">P xs</P>
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
 			<P className="mt-4">
@@ -198,4 +197,4 @@ const HeadingRoute = () => {
 		</>
 	)
 }
-export default HeadingRoute
+export default TextRoute

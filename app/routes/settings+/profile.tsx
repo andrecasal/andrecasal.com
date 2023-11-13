@@ -12,8 +12,8 @@ import { twoFAVerificationType } from './profile.two-factor.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
+import { Span } from '../_marketing+/ui+/components/typography/span.tsx'
 
 const profileFormSchema = z.object({
 	name: nameSchema.optional(),
@@ -138,10 +138,8 @@ export default function EditUserProfile() {
 					<Link className="text-muted-500" to={`/users/${data.user.username}`}>
 						Profile
 					</Link>
-					<Text as="span" className="text-muted-500">
-						▶️
-					</Text>
-					<Text as="span">Edit Profile</Text>
+					<Span className="text-muted-500">▶️</Span>
+					<Span>Edit Profile</Span>
 				</div>
 				<div className="mt-16 flex flex-col gap-12">
 					<div className="flex justify-center">

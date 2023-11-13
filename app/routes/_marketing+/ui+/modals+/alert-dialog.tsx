@@ -1,11 +1,11 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogCancel, AlertDialogAction, AlertDialogDescription } from '../components/modals/alert-dialog.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Description, Features, Source, readSource, type componentProps, Usage, Keyboard, Styling, PartsTitle, Part } from '../sections/sections.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Alert Dialog',
@@ -123,11 +123,11 @@ const AlertDialogRoute = () => {
 	return (
 		<>
 			<Description name={name} description={description} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				The difference between a <Code>{'<Dialog />'}</Code> and an <Code>{'<AlertDialog />'}</Code> is that the latter is always modal, traps focus automatically, focuses the close
 				button by default (to avoid destructive actions by mistake), and because it expects a response, has a <Code>Cancel</Code> and an <Code>Action</Code> button instead of a{' '}
 				<Code>Close</Code> button.
-			</Text>
+			</P>
 			<Features features={features} />
 			<Keyboard keyboard={keyboard} />
 
@@ -136,13 +136,13 @@ const AlertDialogRoute = () => {
 			<Part {...parts.find(({ name }) => name === 'AlertDialogTrigger')!} />
 			<Part {...parts.find(({ name }) => name === 'AlertDialogContent')!} />
 			<Part {...parts.find(({ name }) => name === 'AlertDialogTitle')!} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you want to hide the title, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
+			</P>
 			<Part {...parts.find(({ name }) => name === 'AlertDialogDescription')!} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you want to hide the description, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
+			</P>
 			<Part {...parts.find(({ name }) => name === 'AlertDialogCancel')!} />
 			<Part {...parts.find(({ name }) => name === 'AlertDialogAction')!} />
 			<Usage usage={usage} shortName={shortName} />
@@ -167,18 +167,18 @@ const AlertDialogRoute = () => {
 					</form>
 				</AlertDialogContent>
 			</AlertDialog>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note: Because I wanted to show you an accurate example, the "Yes, delete account" button will actually submit the form, but because this page doesn't handle any{' '}
 				<Code>POST</Code>
 				requests, it will just reload.
-			</Text>
+			</P>
 
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note: The <Code>overlay</Code> class applies to all modals, and the <Code>dialog</Code> and <Code>dialog-x-button</Code> classes apply to both <Code>{'<Dialog />'}</Code> and{' '}
 				<Code>{'<AlertDialog />'}</Code> components.
-			</Text>
+			</P>
 		</>
 	)
 }

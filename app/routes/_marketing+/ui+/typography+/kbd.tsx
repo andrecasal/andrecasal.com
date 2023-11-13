@@ -5,9 +5,9 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -40,15 +40,15 @@ const HeadingRoute = () => {
 	return (
 		<>
 			<H1 className="mt-8">Kbd (Keyboard)</H1>
-			<Text className="mt-4">Marks text as keyboard or voice (or another entry device) input.</Text>
-			<Text className="mt-4">
+			<P className="mt-4">Marks text as keyboard or voice (or another entry device) input.</P>
+			<P className="mt-4">
 				This component is merely a styling layer on top of the <code>{'<kbd>'}</code> tag.
-			</Text>
+			</P>
 			<H2 size="3xl" className="mt-8">
 				Usage
 			</H2>
 			<CodeBlock code={usageSource} filename="KbdExample" extension="tsx" className="mt-4" />
-			<Text className="mt-4">Here's the Kbd component in action.</Text>
+			<P className="mt-4">Here's the Kbd component in action.</P>
 			<p>
 				Press <Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, <Kbd>Shift + Down</Kbd> to move things by 10px.
 			</p>

@@ -4,7 +4,6 @@ import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { useState } from 'react'
 import { json } from '@remix-run/node'
 import { H1 } from '../ui+/components/typography/h1.tsx'
@@ -13,6 +12,7 @@ import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/in
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
 import { post as fluidTypographyPost } from './fluid-typography-sizing-with-modular-scales/index.tsx'
 import { post as remixDataFlowPost } from './remix-data-flow/index.tsx'
+import { P } from '../ui+/components/typography/p.tsx'
 
 export type Post = {
 	title: string
@@ -52,9 +52,9 @@ const Articles = () => {
 					<div className="py-24 sm:py-32">
 						<div className="mx-auto max-w-2xl lg:mx-0">
 							<H1 size="4xl">Great web dev articles</H1>
-							<Text size="lg" className="mt-6 text-muted-800">
+							<P size="lg" className="mt-6 text-muted-800">
 								Articles to make full-stack web dev a cakewalk.
-							</Text>
+							</P>
 						</div>
 						{/* <div className="mx-auto mt-10 max-w-2xl lg:max-w-none">
 							<div className="mt-6 flex max-w-md gap-x-4">
@@ -74,7 +74,7 @@ const Articles = () => {
 						</div> */}
 						<div className="mx-auto mt-8 flex max-w-2xl flex-col gap-4 lg:max-w-none">
 							<div>
-								<Text size="md">Filter by topic:</Text>
+								<P size="md">Filter by topic:</P>
 							</div>
 							<div className="flex flex-wrap gap-4">
 								{tagsArray.map(({ tag, selected }) => (

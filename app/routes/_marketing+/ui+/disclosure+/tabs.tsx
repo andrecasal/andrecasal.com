@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Tabs } from '../components/ui/tabs.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -74,7 +74,7 @@ const HeadingRoute = () => {
 	return (
 		<>
 			<H1 className="mt-8">Tabs</H1>
-			<Text className="mt-4">Set of content sections to be displayed one at a time.</Text>
+			<P className="mt-4">Set of content sections to be displayed one at a time.</P>
 
 			<H2 size="3xl" className="mt-8">
 				Features
@@ -110,7 +110,7 @@ const HeadingRoute = () => {
 				Usage
 			</H2>
 			<CodeBlock code={usageExample} filename="TabsExample" extension="tsx" className="mt-4" />
-			<Text>Here are the tabs in action.</Text>
+			<P>Here are the tabs in action.</P>
 			<Tabs.Root defaultValue="login" className="mt-4">
 				<Tabs.List>
 					<Tabs.Trigger value="login">Login</Tabs.Trigger>

@@ -1,8 +1,8 @@
 import { Newsletter } from '~/components/newsletter.tsx'
 import { CodeBlock, type Language } from '~/components/ui/code-block.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H2 } from './ui+/components/typography/h2.tsx'
+import { P } from './ui+/components/typography/p.tsx'
 
 const Tips = () => {
 	const tips: { title: string; description: string; filename: string; extension: Language; code: string }[] = [
@@ -51,23 +51,23 @@ console.log(sortedArray) // ['I', 'must', 'study']`,
 					<H2 size="md" className="text-brand">
 						Golden nuggets of knowledge
 					</H2>
-					<Text size="3xl" weight="bold" className="mt-2">
+					<P size="3xl" weight="bold" className="mt-2">
 						Hot tips to upgrade your skills
-					</Text>
-					<Text size="lg" className="mt-6 text-muted-600">
+					</P>
+					<P size="lg" className="mt-6 text-muted-600">
 						Explore the art of writing elegant and maintainable code that sparks joy for developers and users alike. Master best practices, code refactoring, and design patterns
 						to create software that stands the test of time.
-					</Text>
+					</P>
 				</div>
 			</div>
 			{tips.map(({ title, description, filename, extension, code }, i) => (
 				<div key={i} className="py-24 sm:py-32">
-					<Text size="3xl" weight="bold" className="mt-2">
+					<P size="3xl" weight="bold" className="mt-2">
 						{title}
-					</Text>
-					<Text size="lg" className="mt-6 text-muted-600">
+					</P>
+					<P size="lg" className="mt-6 text-muted-600">
 						{description}
-					</Text>
+					</P>
 					<CodeBlock filename={filename} extension={extension} code={code} className="mt-10" />
 				</div>
 			))}

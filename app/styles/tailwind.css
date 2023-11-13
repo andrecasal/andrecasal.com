@@ -165,7 +165,7 @@
 		--text-line-height-5xl: 1.2;
 		--text-line-height-6xl: 1.2;
 
-		/* Tracking. Default values. Can be overridden by the 'tracking' prop on the <Heading /> and <Text /> components) */
+		/* Tracking. Default values. Can be overridden by the 'tracking' prop on the <Heading /> and <P /> components) */
 		--text-tracking-xs: 0em;
 		--text-tracking-sm: 0em;
 		--text-tracking-md: 0em;

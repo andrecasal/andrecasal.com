@@ -1,9 +1,9 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Divider } from '../components/layout/divider.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Divider',
@@ -24,26 +24,26 @@ const component: componentProps = {
 	],
 	usage: `<div>
 	<div className="space-y-1">
-		<Text as="p" size="md" weight="bold">
+		<P size="md" weight="bold">
 			andrecasal/ui
-		</Text>
-		<Text as="p" size="sm">
+		</P>
+		<P size="sm">
 			An open-source UI component library.
-		</Text>
+		</P>
 	</div>
 	<Divider className="my-4" />
 	<Flex gap="10" align="center" className="h-5">
-		<Text as="p" size="sm">
+		<P size="sm">
 			Blog
-		</Text>
+		</P>
 		<Divider orientation="vertical" />
-		<Text as="p" size="sm">
+		<P size="sm">
 			Docs
-		</Text>
+		</P>
 		<Divider orientation="vertical" />
-		<Text as="p" size="sm">
+		<P size="sm">
 			Source
-		</Text>
+		</P>
 	</Flex>
 </div>`,
 }
@@ -62,26 +62,18 @@ const DividerRoute = () => {
 			<Usage usage={usage} shortName={shortName} />
 			<div>
 				<div className="space-y-1">
-					<Text as="p" size="md" weight="bold">
+					<P size="md" weight="bold">
 						andrecasal/ui
-					</Text>
-					<Text as="p" size="sm">
-						An open-source UI component library.
-					</Text>
+					</P>
+					<P size="sm">An open-source UI component library.</P>
 				</div>
 				<Divider className="my-4" />
 				<Flex gap="10" align="center" className="h-5">
-					<Text as="p" size="sm">
-						Blog
-					</Text>
+					<P size="sm">Blog</P>
 					<Divider orientation="vertical" />
-					<Text as="p" size="sm">
-						Docs
-					</Text>
+					<P size="sm">Docs</P>
 					<Divider orientation="vertical" />
-					<Text as="p" size="sm">
-						Source
-					</Text>
+					<P size="sm">Source</P>
 				</Flex>
 			</div>
 			<Source source={source} fileName={fileName} />

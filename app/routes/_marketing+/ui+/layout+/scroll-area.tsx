@@ -1,11 +1,11 @@
 import { json } from '@remix-run/node'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { ScrollArea } from '../components/layout/scroll-area.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Scroll Area',
@@ -32,14 +32,14 @@ const component: componentProps = {
 	usage: `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-200 dark:bg-muted-300">
 	<ScrollArea>
 		<div className="p-5">
-			<Text size="lg">
+			<P size="lg">
 				Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 				synonymously, typographically they are separate but related concepts.
-			</Text>
-			<Text size="lg" className="mt-8">
+			</P>
+			<P size="lg" className="mt-8">
 				Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable
 				and recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-			</Text>
+			</P>
 		</div>
 	</ScrollArea>
 </div>`,
@@ -52,26 +52,26 @@ const HeadingRoute = () => {
 	const { name, description, shortName, fileName, features, usage, parts } = component
 	const badExampleOne = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100 p-5">
 	<ScrollArea>
-		<Text size="lg">
+		<P size="lg">
 			Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 			synonymously, typographically they are separate but related concepts.
-		</Text>
-		<Text size="lg" className="mt-8">
+		</P>
+		<P size="lg" className="mt-8">
 			Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable and
 			recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-		</Text>
+		</P>
 	</ScrollArea>
 </div>`
 	const badExampleTwo = `<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
 	<ScrollArea className="p-5">
-		<Text size="lg">
+		<P size="lg">
 			Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 			synonymously, typographically they are separate but related concepts.
-		</Text>
-		<Text size="lg" className="mt-8">
+		</P>
+		<P size="lg" className="mt-8">
 			Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable and
 			recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-		</Text>
+		</P>
 	</ScrollArea>
 </div>`
 
@@ -83,9 +83,9 @@ const HeadingRoute = () => {
 			<H2 size="3xl" className="mt-8">
 				Notes
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				<Code>type</Code> describes the nature of scrollbar visibility, similar to how the scrollbar preferences in macOS control visibility of native scrollbars:
-			</Text>
+			</P>
 			<ul className="ml-4 mt-2 list-disc">
 				<li>
 					<Code>auto</Code> means that scrollbars are visible when content is overflowing on the corresponding orientation.
@@ -104,14 +104,14 @@ const HeadingRoute = () => {
 			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-200 dark:bg-muted-300">
 				<ScrollArea>
 					<div className="p-5">
-						<Text size="lg">
+						<P size="lg">
 							Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 							synonymously, typographically they are separate but related concepts.
-						</Text>
-						<Text size="lg" className="mt-8">
+						</P>
+						<P size="lg" className="mt-8">
 							Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable
 							and recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-						</Text>
+						</P>
 					</div>
 				</ScrollArea>
 			</div>
@@ -119,40 +119,40 @@ const HeadingRoute = () => {
 			<H2 size="3xl" className="mt-8">
 				Common Pitfalls
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note the <Code>{'<div className="p-5">'}</Code> on the example. It's good practice to set padding <em>inside</em> the scroll area, rather than outside or on the scroll area.
-			</Text>
-			<Text className="mt-4">See how both the content and the scroll bar don't touch the sides of the containing div:</Text>
+			</P>
+			<P className="mt-4">See how both the content and the scroll bar don't touch the sides of the containing div:</P>
 			<CodeBlock code={badExampleOne} filename="BadScrollAreaExampleOne" extension="tsx" className="mt-4" />
 			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100 p-5">
 				<ScrollArea>
-					<Text size="lg">
+					<P size="lg">
 						Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 						synonymously, typographically they are separate but related concepts.
-					</Text>
-					<Text size="lg" className="mt-8">
+					</P>
+					<P size="lg" className="mt-8">
 						Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable and
 						recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-					</Text>
+					</P>
 				</ScrollArea>
 			</div>
-			<Text className="mt-4">And here notice how the scroll bar does extend to the edges, but the content does not:</Text>
+			<P className="mt-4">And here notice how the scroll bar does extend to the edges, but the content does not:</P>
 			<CodeBlock code={badExampleTwo} filename="BadScrollAreaExampleTwo" extension="tsx" className="mt-4" />
 			<div className="h-40 max-w-lg overflow-y-auto rounded-lg bg-muted-100">
 				<ScrollArea className="p-5">
-					<Text size="lg">
+					<P size="lg">
 						Three fundamental aspects of typography are legibility, readability, and aesthetics. Although in a non-technical sense "legible" and "readable" are often used
 						synonymously, typographically they are separate but related concepts.
-					</Text>
-					<Text size="lg" className="mt-8">
+					</P>
+					<P size="lg" className="mt-8">
 						Legibility describes how easily individual characters can be distinguished from one another. It is described by Walter Tracy as "the quality of being decipherable and
 						recognisable". For instance, if a "b" and an "h", or a "3" and an "8", are difficult to distinguish at small sizes, this is a problem of legibility.
-					</Text>
+					</P>
 				</ScrollArea>
 			</div>
-			<Text className="mt-4">
+			<P className="mt-4">
 				So make sure to add padding <em>inside</em> the scroll area.
-			</Text>
+			</P>
 
 			<Source source={source} fileName={fileName} />
 		</>

@@ -1,6 +1,5 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
 
 import { Button } from '~/components/ui/button.tsx'
@@ -8,6 +7,7 @@ import { Input } from '~/components/ui/input.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Drawer, DrawerClose, DrawerContent, DrawerTitle, DrawerTrigger } from '../components/modals/drawer.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Keyboard, Styling } from '../sections/sections.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Drawer',
@@ -86,7 +86,7 @@ const component: componentProps = {
 	</DrawerTrigger>
 	<DrawerContent>
 		<DrawerTitle>Edit profile</DrawerTitle>
-		<Text className="mt-4">Make changes to your profile here. Click save when you're done.</Text>
+		<P className="mt-4">Make changes to your profile here. Click save when you're done.</P>
 		<form>
 			<fieldset className="mb-5 flex items-center gap-5">
 				<label htmlFor="name" className="w-48 text-right">
@@ -146,7 +146,7 @@ const DialogRoute = () => {
 				</DrawerTrigger>
 				<DrawerContent>
 					<DrawerTitle>Edit profile</DrawerTitle>
-					<Text className="mt-4">Make changes to your profile here. Click save when you're done.</Text>
+					<P className="mt-4">Make changes to your profile here. Click save when you're done.</P>
 					<form className="mt-10">
 						<fieldset className="mb-5 flex items-center gap-5">
 							<label htmlFor="name" className="w-48 text-right">
@@ -171,10 +171,10 @@ const DialogRoute = () => {
 					</form>
 				</DrawerContent>
 			</Drawer>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note: Because I wanted to show you an accurate example, the save button will actually submit the form, but because this page doesn't handle any <Code>POST</Code> requests, it
 				will just reload.
-			</Text>
+			</P>
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
 		</>

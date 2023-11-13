@@ -4,11 +4,11 @@ import { fileURLToPath } from 'url'
 import path, { dirname } from 'path'
 import { promises as fs } from 'fs'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { type CommandAndLogArray, CommandLine } from '~/routes/_marketing+/ui+/components/typography/command-line.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export const loader = async () => {
 	const basePath = '../app/routes/'
@@ -22,7 +22,7 @@ export const loader = async () => {
 const CommandLineRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
 	const singleCommandLineUsageExample: CommandAndLogArray = [{ type: 'command', text: `npm i -D tailwindcss` }]
-	const multipleCommandLineUsageExample = `<Text className="mt-4">
+	const multipleCommandLineUsageExample = `<P className="mt-4">
 Here's the inline component with an array in action:{' '}
 <CommandLine
 	commands={[
@@ -52,7 +52,7 @@ Ok to proceed? (y) y\`,
 	return (
 		<>
 			<H1 className="mt-8">Command Line</H1>
-			<Text className="mt-4 max-w-3xl">A semantic command line element that supports copy to clipboard.</Text>
+			<P className="mt-4 max-w-3xl">A semantic command line element that supports copy to clipboard.</P>
 
 			<H2 size="3xl" className="mt-8">
 				Features
@@ -76,7 +76,7 @@ Ok to proceed? (y) y\`,
 				Usage
 			</H2>
 			<CodeBlock code={multipleCommandLineUsageExample} filename="InlineCommandLineExample" extension="tsx" className="mt-4" />
-			<Text className="mt-4">Here's the {'<CommandLine />'} component in action:</Text>
+			<P className="mt-4">Here's the {'<CommandLine />'} component in action:</P>
 			<CommandLine commands={singleCommandLineUsageExample} />
 			<CommandLine
 				className="mt-8"
@@ -140,14 +140,14 @@ Ok to proceed? (y) y`,
 			<H2 size="3xl" className="mt-8">
 				Styling
 			</H2>
-			<Text className="mt-4 max-w-3xl">
+			<P className="mt-4 max-w-3xl">
 				This component is made for developers, so the styling is not based on CSS variables a designer can control, but it's built-in into the component and you can change it however
 				you like. I made it look like the{' '}
 				<a href="https://github.com/wesbos/Cobalt2-iterm" target="_blank" rel="noreferrer">
 					Cobalt2 powerline
 				</a>
 				, which is what I use in my VS Code.
-			</Text>
+			</P>
 		</>
 	)
 }

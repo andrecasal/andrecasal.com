@@ -1,11 +1,11 @@
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { P } from './ui+/components/typography/p.tsx'
 
 const Shorts = () => {
 	return (
 		<Container>
-			<Text>Shorts</Text>
+			<P>Shorts</P>
 			<Newsletter
 				className="relative isolate mt-32 sm:mt-56"
 				title="Get exclusive shorts that I only share with email subscribers"

@@ -1,19 +1,19 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Link } from '@remix-run/react'
 import { H1 } from '../components/typography/h1.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const Overview = () => {
 	return (
 		<Container>
 			<H1 size="3xl">Theme Overview</H1>
-			<Text size="md" className="mt-2">
+			<P size="md" className="mt-2">
 				Theming in andrecasal/ui is completely controled using CSS Variables in the tailwind.css file. These variables are used as input for custom utility-based TailwindCSS classes.
 				Utility classes are used because they scale easily while keeping a small CSS footprint.
-			</Text>
-			<Text size="md" className="mt-2">
+			</P>
+			<P size="md" className="mt-2">
 				Here's what you can control:
-			</Text>
+			</P>
 			<ul className="mt-8 list-disc pl-5">
 				<li>Spacing scale</li>
 				<li>Border roundness scale</li>
@@ -40,13 +40,13 @@ const Overview = () => {
 				<li>Shadows</li>
 				<li>Animations</li>
 			</ul>
-			<Text size="md" className="mt-2">
+			<P size="md" className="mt-2">
 				Eventually, I plan to build a drop-in{' '}
 				<Link to="/ui/architecture" className="underline">
 					Theme Panel component
 				</Link>{' '}
 				that will allow you to quickly preview changes to the theme.
-			</Text>
+			</P>
 		</Container>
 	)
 }

@@ -1,8 +1,9 @@
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from './ui/button.tsx'
 import { Link } from '@remix-run/react'
 import { Icon } from './ui/icon.tsx'
 import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
+import { Span } from '~/routes/_marketing+/ui+/components/typography/span.tsx'
 
 export const CoursePresentation = ({
 	course: {
@@ -26,16 +27,16 @@ export const CoursePresentation = ({
 			<img className="w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src={img} alt="" />
 			<div className="w-full flex-auto">
 				<H2 size="3xl">{title}</H2>
-				<Text size="lg" className="mt-6 text-muted-700">
+				<P size="lg" className="mt-6 text-muted-700">
 					{description}
-				</Text>
+				</P>
 				<ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-size-md sm:grid-cols-2">
 					{benefits.map(benefit => (
 						<li key={benefit}>
-							<Text as="span" size="md" className="flex gap-x-3">
+							<Span size="md" className="flex gap-x-3">
 								<Icon name="check" className="h-7 w-5 flex-none" aria-hidden="true" />
 								{benefit}
-							</Text>
+							</Span>
 						</li>
 					))}
 				</ul>

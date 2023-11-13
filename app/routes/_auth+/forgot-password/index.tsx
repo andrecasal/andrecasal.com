@@ -12,9 +12,9 @@ import { getDomainUrl } from '~/utils/misc.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 import { emailSchema, usernameSchema } from '~/utils/user-validation.ts'
 import { ForgotPasswordEmail } from './email.server.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '~/routes/_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 
 export const forgotPasswordOTPQueryParam = 'code'
 export const forgotPasswordTargetQueryParam = 'usernameOrEmail'
@@ -119,9 +119,9 @@ export default function ForgotPasswordRoute() {
 				<div className="flex flex-col justify-center">
 					<div className="text-center">
 						<H1 size="xl">Forgot Password</H1>
-						<Text size="lg" className="mt-3 text-muted-500">
+						<P size="lg" className="mt-3 text-muted-500">
 							No worries, we'll send you reset instructions.
-						</Text>
+						</P>
 					</div>
 					<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
 						<div>

@@ -1,10 +1,10 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Flex',
@@ -106,27 +106,27 @@ const HeadingRoute = () => {
 			<H2 size="3xl" className="mt-8">
 				Notes
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you set <Code>inline</Code>, justify has no meaning because the <Code>{'<Flex />'}</Code> has the least width possible.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				If you set <Code>align="stretch"</Code>, the children shouldn't have a fixed height, because otherwise, they won't stretch.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Flexbox loses a lot of its power if you use <Code>flex-wrap: wrap</Code>, so this option is omitted on purpose. If you need to wrap, you should probably use a grid instead.
 				But if you don't, you can still use <Code>className="flex-wrap"</Code>.
-			</Text>
+			</P>
 
 			<H2 size="3xl" className="mt-8">
 				Accessibility concerns
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Changing visual order creates a disconnect between content and presentation and is, therefore,{' '}
 				<Link to="/articles/the-dark-side-of-the-grid" className="underline">
 					bad for accessibility
 				</Link>
 				. For this reason, I've ommitted <Code>flex-direction: row-reverse</Code> and <Code>flex-direction: column-reverse</Code>.
-			</Text>
+			</P>
 
 			<Usage usage={usage} shortName={shortName} />
 			<Flex inline gap="6" className="mt-4 rounded-md bg-slate-200 p-4">

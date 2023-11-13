@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { P } from './ui+/components/typography/p.tsx'
 
 export default function Talks() {
 	const talks = [
@@ -63,9 +63,9 @@ export default function Talks() {
 		<Container>
 			<div className="py-24 sm:py-32">
 				<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Talks</h2>
-				<Text size="lg" className="mt-2 leading-8 text-muted-600">
+				<P size="lg" className="mt-2 leading-8 text-muted-600">
 					Learn how to grow your business with expert advice.
-				</Text>
+				</P>
 				<div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
 					{talks.map(talk => (
 						<article key={talk.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
@@ -89,21 +89,21 @@ export default function Talks() {
 											{talk.title}
 										</a>
 									</h3>
-									<Text size="sm" className="mt-5 leading-6 text-muted-600">
+									<P size="sm" className="mt-5 leading-6 text-muted-600">
 										{talk.description}
-									</Text>
+									</P>
 								</div>
 								<div className="mt-6 flex border-t border-muted-900/5 pt-6">
 									<div className="relative flex items-center gap-x-4">
 										<img src={talk.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-muted-50" />
 										<div className="text-sm leading-6">
-											<Text weight="bold" className="text-muted-900">
+											<P weight="bold" className="text-muted-900">
 												<a href={talk.author.href}>
 													<span className="absolute inset-0" />
 													{talk.author.name}
 												</a>
-											</Text>
-											<Text className="text-muted-600">{talk.author.role}</Text>
+											</P>
+											<P className="text-muted-600">{talk.author.role}</P>
 										</div>
 									</div>
 								</div>

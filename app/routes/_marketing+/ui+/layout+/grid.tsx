@@ -1,10 +1,10 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Grid } from '../components/layout/grid.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage } from '../sections/sections.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Grid',
@@ -156,35 +156,35 @@ const HeadingRoute = () => {
 			<H2 size="3xl" className="mt-8">
 				Notes
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you set <Code>inline</Code>, <Code>justify</Code> has no meaning because the {'<Grid />'} has the least width possible.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Setting <Code>align</Code> only has meaning if the <Code>{'<Grid />'}</Code> has a height. Otherwise it will have the least height possible.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				If you set <Code>justify="stretch"</Code>, the children shouldn't have a fixed width. Otherwise they won't stretch.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				If you set <Code>align="stretch"</Code>, the children shouldn't have a fixed height. Otherwise they won't stretch.
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Setting <Code>justify="stretch"</Code> has the same effect as setting <Code>w-full</Code> on all the children (assuming <Code>flow="row"</Code>).
-			</Text>
-			<Text className="mt-4">
+			</P>
+			<P className="mt-4">
 				Setting <Code>align="stretch"</Code> has the same effect as setting <Code>h-full</Code> on all the children (assuming <Code>flow="row"</Code>).
-			</Text>
+			</P>
 
 			<H2 size="3xl" className="mt-8">
 				Accessibility
 			</H2>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Changing visual order creates a disconnect between content and presentation and is, therefore,{' '}
 				<Link to="/articles/the-dark-side-of-the-grid" className="underline">
 					bad for accessibility
 				</Link>
 				. For this reason, I've ommitted <Code>grid-auto-flow:row dense</Code> and <Code>grid-auto-flow: column dense</Code>.
-			</Text>
+			</P>
 
 			<Usage usage={usage} shortName={shortName} />
 			<Grid cols="3" rows="3" justify="stretch" align="stretch" gapX="6" gapY="6" className="mt-4 h-96 rounded-md bg-slate-200 p-4">

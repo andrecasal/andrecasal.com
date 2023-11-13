@@ -9,9 +9,9 @@ import { StatusButton } from '~/components/ui/status-button.tsx'
 import { authenticator, requireAnonymous, resetUserPassword } from '~/utils/auth.server.ts'
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import { passwordSchema } from '~/utils/user-validation.ts'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 export const resetPasswordUsernameSessionKey = 'resetPasswordUsername'
 
@@ -101,9 +101,9 @@ export default function ResetPasswordPage() {
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="text-center">
 					<H1 size="xl">Password Reset</H1>
-					<Text size="lg" className="mt-3 text-muted-500">
+					<P size="lg" className="mt-3 text-muted-500">
 						Hi, {data.resetPasswordUsername}. No worries. It happens all the time.
-					</Text>
+					</P>
 				</div>
 				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
 					<Field

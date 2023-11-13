@@ -1,7 +1,7 @@
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
+import { P } from '../../ui+/components/typography/p.tsx'
 
 export const title = 'Quotes'
 export const description =
@@ -18,27 +18,27 @@ const TheDarkSideOfTheGrid = () => {
 				<H2 size="4xl" className="mt-10">
 					Introduction
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					This article explains everything there is to know about the use of internal and external sources in written communication and how they translate to web developement and
 					semantic markup.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					We'll distinguish between the “quote” and “quotation”. We'll also explain how to properly use quotation marks and
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Let's start with clear definitions.
-				</Text>
+				</P>
 
 				<H2 size="4xl" className="mt-10">
 					Definitions
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					This article explains everything there is to know about the use of internal and external sources in written communication and how they translate to web developement and
 					semantic markup.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Let's start with clear definitions.
-				</Text>
+				</P>
 			</div>
 		</>
 	)

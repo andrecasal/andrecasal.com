@@ -13,9 +13,9 @@ import { resetPasswordUsernameSessionKey } from './reset-password.tsx'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import invariant from 'tiny-invariant'
 import { StatusButton } from '~/components/ui/status-button.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 const verifySchema = z.object({
 	[forgotPasswordTargetQueryParam]: z.union([emailSchema, usernameSchema]),
@@ -148,9 +148,9 @@ export default function ForgotPasswordVerifyRoute() {
 					<>
 						<div className="text-center">
 							<H1 size="xl">Check your email</H1>
-							<Text size="lg" className="mt-3 text-muted-500">
+							<P size="lg" className="mt-3 text-muted-500">
 								We've sent you a code to verify your password reset.
-							</Text>
+							</P>
 						</div>
 						<Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
 							<Field

@@ -1,12 +1,12 @@
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../components/modals/dialog.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Flex } from '../components/layout/flex.tsx'
 import { Description, Features, Source, readSource, type componentProps, Usage, Keyboard, Styling, PartsTitle, Part } from '../sections/sections.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'Dialog',
@@ -84,7 +84,7 @@ const component: componentProps = {
 	</DialogTrigger>
 	<DialogContent>
 		<DialogTitle>Edit profile</DialogTitle>
-		<Text className="mt-4">Make changes to your profile here. Click save when you're done.</Text>
+		<P className="mt-4">Make changes to your profile here. Click save when you're done.</P>
 		<form>
 			<fieldset className="mb-5 flex items-center gap-5">
 				<label htmlFor="name" className="w-48 text-right">
@@ -141,13 +141,13 @@ const DialogRoute = () => {
 			<Part {...parts.find(({ name }) => name === 'DialogTrigger')!} />
 			<Part {...parts.find(({ name }) => name === 'DialogContent')!} />
 			<Part {...parts.find(({ name }) => name === 'DialogTitle')!} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you want to hide the title, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
+			</P>
 			<Part {...parts.find(({ name }) => name === 'DialogDescription')!} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				If you want to hide the description, wrap it with <Code>{'<VisuallyHidden asChild>'}</Code>.
-			</Text>
+			</P>
 			<Part {...parts.find(({ name }) => name === 'DialogClose')!} />
 			<Usage usage={usage} shortName={shortName} />
 			<Dialog>
@@ -181,10 +181,10 @@ const DialogRoute = () => {
 					</form>
 				</DialogContent>
 			</Dialog>
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note: Because I wanted to show you an accurate example, the save button will actually submit the form, but because this page doesn't handle any <Code>POST</Code> requests, it
 				will just reload.
-			</Text>
+			</P>
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
 		</>

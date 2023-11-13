@@ -1,10 +1,10 @@
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
 import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
+import { P } from '../../ui+/components/typography/p.tsx'
 
 export const post: Post = {
 	title: 'Fluid Space Sizing',
@@ -26,54 +26,54 @@ const FluidSpaceSizing = () => {
 				<H2 size="4xl" className="mt-10">
 					Introduction
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					This article assumes you've read the{' '}
 					<Link to="/articles/fluid-typography-sizing-with-modular-scales" className="underline">
 						Fluid Typography Sizing and Scales
 					</Link>{' '}
 					first.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Spacing is the cement that holds together the bricks of components on a UI. The importance of good spacing is hard to overstate: it's the most important aspect of design.
 					And the difference between an exquisitely elegant design and a graceless one. So it's no wonder designers are rightly taught to pay great attention to whitespace.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					However, it remains one of the most unnecessarily unsystematized aspects of web design and development. Most designers still space things out by hand:{' '}
 					<Kbd>Shift + Left</Kbd>, <Kbd>Shift + Right</Kbd>, <Kbd>Shift + Up</Kbd>, and <Kbd>Shift + Down</Kbd> to move things around by increments of 10px and counting 10, 20, 30
 					in their heads is the bread and butter of spacing.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					As for developers, spacing is handled with hard-coded utility classes 🥴, infinitely growing BEM classes 🤢, or, God forbid, plain old ah hoc CSS 🤮. Out of all of these,
 					utility classes is the least worse: if there's a clear spacing scale agreed upon between developer and designer, it's relatively easy to implement a given design. But if
 					the designer decides to change a spacing rule that runs across the entire ui, you're going to have a hard time identifying all the instances that pertain to that spacing
 					rule and update them to something else.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Why is that? Because, even if you're using utility classes, those spacing rules have been hard-coded in the UI's components.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					We can do better.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Let's give spacing the same well-thought-out treatment that we gave typography with a hand-picked scale and fluid space sizing. This enables clear communication between
 					designer and developer, preserves the designer's complete control over spacing, even after the implementation is complete, and greatly speeds up development.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Modular scale
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					For the same reason we're not going to use a modular scale for typography, we're not going to use a modular scale for spacing. The reason is that modular scales are too
 					limited and you could try different ratios and equations, but at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Hand-picked scale
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					It's more pragmatic to hand-pick the values because this approach grants the designer complete control over the number and variety of space sizes.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Let's take a look at TailwindCSS's spacing scale.
-				</Text>
+				</P>
 				<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 					<table className="min-w-full divide-y divide-gray-300">
 						<thead className="bg-gray-50">
@@ -374,22 +374,22 @@ const FluidSpaceSizing = () => {
 						</tbody>
 					</table>
 				</div>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					This is a comprehensive enough scale, however a few notes.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					First, there's one major no-go: semantics are tied with implementation. The names of the steps in the scale (1, 1.5, 2, 2.5, etc) are tied to multiples of 4px, which is
 					an implementation detail. In order for the designer to have complete control over the design after the implementation is done, semantics and implementation have to be
 					decoupled. This is absolutely crucial for development speed.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					The other awkward thing is that we have half steps (0.5, 1.5, 2.5, etc) on the lower end of the scale because we need multiples of 2px, and we skip steps (64, 72, 80,
 					etc) on the higher end of the scale because we don't need those multiples of 4px. This inconsistency makes for a harder-to-communicate scale and an awkward developer
 					experience where if the designer asks you to step a component's spacing up, you don't go from 64 to 65, but from 64 to 72 🤦‍♂️.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Let's do better.
-				</Text>
+				</P>
 				<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 					<table className="min-w-full divide-y divide-gray-300">
 						<thead className="bg-gray-50">
@@ -690,46 +690,46 @@ const FluidSpaceSizing = () => {
 						</tbody>
 					</table>
 				</div>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					This simple change is deceptively powerful.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					First, the designer doesn't have to think about absolute values (4px, 10px, 16px, etc), but relative ones ("this should be more spaced out than that by 2 steps", "that
 					should be more spaced out than this by 4 steps", etc). Eventually the designer has to converge on absolute values, of course, but as long as the designer starts with a
 					somewhat decent scale, the flexibility to think in relative terms is a huge speed booster, specially in the early phases of design.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Also, if the designer gets the relative values right - which is much easier than to get the absolute values right - the implementation will not change: step 30 will still
 					be step 30, whether the designer decides later that that means 240px or 244px. This frees the developer to develop at full speed and, given an initial mockup,{' '}
 					<strong>in parallel</strong>, without having to wait for the designer to get the values right.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Finally, by giving the designer complete control over the absolute values, we eliminate an entire category of back-and-forth work between designer and developer! The only
 					possible mistakes or changes that require coordination between the two are those that involve a different relative step. But this is a much smaller set of changes and it
 					would most likely involve changing a single class on a single component, for example.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Breakpoint-based space sizing
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					As is the case with typography, we're not going to use breakpoint-based sizing because it creates a jarring user experience and an unsustainable burden on designers and
 					developers.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Fluid space sizing
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					As is the case with typography, if we're going to change the sizing at different viewport widths, we don't need as many steps, because a space of 384px would always be
 					too overwhelming (it would overflow, in fact), on a 320px wide viewport.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					And we need no variation in the lower steps, some from step 15 onwards, and more variation in the higher steps because of the two opposing forces between the need to
 					increase the spacing on larger screens to keep the design balanced and the fact that users don't resize their browser windows to see the same content bigger, but to see
 					more content - and therefore we don't want to just scale up the entire UI (that'd be a terrible UX).
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					So let's cap the scale at step 20 and add a min and a max space size.
-				</Text>
+				</P>
 				<div className="mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 					<table className="min-w-full divide-y divide-gray-300">
 						<thead className="bg-gray-50">
@@ -920,32 +920,32 @@ const FluidSpaceSizing = () => {
 						</tbody>
 					</table>
 				</div>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					Resize your browser window to see how the bars change size starting from step 15 onwards.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Note on inversion of control
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					The technique we're using here is generally referred to, in software engineering, as "inversion of control". We create an abstraction (the scale) and implement our UI
 					using it. This allows the designer to retain complete control over the specific values each step in the scale maps to.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Conclusion
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					In conclusion, as is the case with typography, between modular or hand-picked scales, hand-picked scales offer the right amount of control, while between breakpoint-based
 					and fluid space sizing, fluid space sizing offers a significantly more efficient design and development process. This allows the developer to start working right after
 					mockups are available, while giving the designer complete control over spacing, and offers a smoother (let's call it "fluid" 😉) user experience.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					The knowledge I'm sharing in these articles is encoded in my{' '}
 					<Link to="/ui" className="underline">
 						andrecasal/ui
 					</Link>{' '}
 					component library. All you need from the designer is a mockup and potentially some layout rules (i.e. what to do as the viewport width increases), and you can hit the
 					ground running building your app. Refine the design details later!
-				</Text>
+				</P>
 			</div>
 		</>
 	)

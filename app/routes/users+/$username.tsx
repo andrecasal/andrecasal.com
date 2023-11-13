@@ -7,9 +7,9 @@ import { Button } from '~/components/ui/button.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { getUserImgSrc } from '~/utils/misc.ts'
 import { useOptionalUser } from '~/utils/user.ts'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
 import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')
@@ -58,9 +58,9 @@ export default function UsernameIndex() {
 								{userDisplayName}
 							</H1>
 						</div>
-						<Text align="center" className="mt-2 text-muted-500">
+						<P align="center" className="mt-2 text-muted-500">
 							Joined {data.userJoinedDisplay}
-						</Text>
+						</P>
 						{isLoggedInUser ? (
 							<Form action="/logout" method="POST" className="mt-3">
 								<Button type="submit" variant="secondary" size="pill">
@@ -88,7 +88,7 @@ export function ErrorBoundary() {
 	return (
 		<GeneralErrorBoundary
 			statusHandlers={{
-				404: ({ params }) => <Text>No user with the username "{params.username}" exists</Text>,
+				404: ({ params }) => <P>No user with the username "{params.username}" exists</P>,
 			}}
 		/>
 	)

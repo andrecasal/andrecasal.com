@@ -1,12 +1,12 @@
 import { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent } from './components/ui/slide-in-dialog.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { NavLink, Outlet } from '@remix-run/react'
 import { useState } from 'react'
 import { Flex } from './components/layout/flex.tsx'
 import { ScrollArea } from './components/layout/scroll-area.tsx'
 import { H2 } from './components/typography/h2.tsx'
+import { Span } from './components/typography/span.tsx'
 
 const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 	const navigation = [
@@ -88,10 +88,12 @@ const SideMenu = ({ setIsOpen }: { setIsOpen?: (a: boolean) => void }) => {
 				{ name: 'H4', href: '/ui/typography/h4', done: true },
 				{ name: 'H5', href: '/ui/typography/h5', done: true },
 				{ name: 'H6', href: '/ui/typography/h6', done: true },
-				{ name: 'P', href: '/ui/typography/p', done: false },
-				{ name: 'Span', href: '/ui/typography/span', done: false },
-				{ name: 'Em', href: '/ui/typography/em', done: false },
-				{ name: 'Strong', href: '/ui/typography/strong', done: false },
+				{ name: 'P', href: '/ui/typography/p', done: true },
+				{ name: 'Span', href: '/ui/typography/span', done: true },
+				{ name: 'Em', href: '/ui/typography/em', done: true },
+				{ name: 'I', href: '/ui/typography/i', done: true },
+				{ name: 'Strong', href: '/ui/typography/strong', done: true },
+				{ name: 'B', href: '/ui/typography/b', done: true },
 				{ name: 'Quote', href: '/ui/typography/quote', done: false },
 				{ name: 'Blockquote', href: '/ui/typography/blockquote', done: false },
 				{ name: 'Ul', href: '/ui/typography/ul', done: false },
@@ -230,9 +232,9 @@ const BoldNavLink = ({ name, href, done, onClick, ...props }: BoldNavLinkProps) 
 			{name}
 		</NavLink>
 	) : (
-		<Text size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400" {...props}>
+		<Span size="sm" className="-mx-2 cursor-not-allowed rounded p-2 text-muted-400" {...props}>
 			{name} (soon)
-		</Text>
+		</Span>
 	)
 }
 
@@ -245,9 +247,7 @@ const UI = () => {
 				<SlideInDialog open={isOpen} onOpenChange={setIsOpen}>
 					<SlideInDialogTrigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-start gap-2 rounded-lg p-2.5 lg:hidden">
 						<Icon name="bars-3" className="h-6 min-h-tap w-6 min-w-tap" aria-hidden="true" />
-						<Text as="span" className="whitespace-nowrap">
-							Open side menu
-						</Text>
+						<Span className="whitespace-nowrap">Open side menu</Span>
 					</SlideInDialogTrigger>
 					<SlideInDialogContent side="left" title="andrecasal/ui side menu" className="lg:hidden">
 						<SideMenu setIsOpen={setIsOpen} />

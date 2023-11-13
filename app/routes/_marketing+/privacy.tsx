@@ -1,10 +1,10 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { P } from './ui+/components/typography/p.tsx'
 
 const Privacy = () => {
 	return (
 		<Container>
-			<Text>Privacy</Text>
+			<P>Privacy</P>
 		</Container>
 	)
 }

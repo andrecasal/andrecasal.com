@@ -1,7 +1,8 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
 import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
+import { Span } from '~/routes/_marketing+/ui+/components/typography/span.tsx'
 
 const navigation = {
 	social: [
@@ -101,9 +102,9 @@ const Footer = () => {
 							<H2 size="2xl" className="font-semibold tracking-normal">
 								André Casal
 							</H2>
-							<Text size="md" className="text-muted-600">
+							<P size="md" className="text-muted-600">
 								Making the world a better place by constructing elegant software.
-							</Text>
+							</P>
 							<div className="flex space-x-6">
 								{navigation.social.map(item => (
 									<a key={item.name} href={item.href} target="_blank" className="text-muted-400 hover:text-muted-500" rel="noreferrer">
@@ -121,11 +122,11 @@ const Footer = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.sitemap.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
+											<Span size="sm">
 												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
 													{item.name}
 												</a>
-											</Text>
+											</Span>
 										</li>
 									))}
 								</ul>
@@ -137,11 +138,11 @@ const Footer = () => {
 								<ul className="mt-6 space-y-4">
 									{navigation.courses.map(item => (
 										<li key={item.name}>
-											<Text as="span" size="sm">
+											<Span size="sm">
 												<a href={item.href} className="text-muted-600 hover:text-muted-900">
 													{item.name}
 												</a>
-											</Text>
+											</Span>
 										</li>
 									))}
 								</ul>
@@ -152,22 +153,22 @@ const Footer = () => {
 								</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.legal.map(item => (
-										<Text key={item.name} size="sm" asChild>
+										<P key={item.name} size="sm" asChild>
 											<li>
 												<a href={item.href} className="text-size-sm text-muted-600 hover:text-muted-900">
 													{item.name}
 												</a>
 											</li>
-										</Text>
+										</P>
 									))}
 								</ul>
 							</div> */}
 						</div>
 					</div>
 					<div className="mt-8 pt-4 sm:mt-10 lg:mt-12">
-						<Text size="xs" className="text-muted-500">
+						<P size="xs" className="text-muted-500">
 							All rights reserved &copy; André Casal {new Date().getFullYear()}
-						</Text>
+						</P>
 					</div>
 				</div>
 			</footer>

@@ -1,7 +1,7 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import HeroAndre from './components/hero-andre.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H2 } from './ui+/components/typography/h2.tsx'
+import { P } from './ui+/components/typography/p.tsx'
 
 export default function AboutRoute() {
 	const stats = [
@@ -66,29 +66,29 @@ export default function AboutRoute() {
 			<Container>
 				<H2 size="4xl">
 					My story
-					<Text size="xl" className="mt-4 text-muted-600">
+					<P size="xl" className="mt-4 text-muted-600">
 						I was born in Aveiro, grew up in Madeira Island, went back to Aveiro for high-school and college, and I've been living in Lisbon for{' '}
 						{new Date(Date.now()).getUTCFullYear() - 2016} years. I was always passionate about computers and technology. Once, when I was 13, I spent 40 "contos" (the equivalent
 						of 328€ today, adjusted for inflation) on a dial-up internet connection trying to download songs to my computer. My Dad was pissed 😅😆, but I was hooked.
-					</Text>
+					</P>
 				</H2>
 				<div className="mx-auto mt-14 max-w-2xl lg:mx-0 lg:max-w-none">
 					<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">My mission</h2>
 					<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 						<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
-							<Text size="xl" className="leading-8 text-muted-600">
+							<P size="xl" className="leading-8 text-muted-600">
 								My mission is to achieve the highest level of personal excellence that I can and teach others to do the same.
-							</Text>
+							</P>
 							<div className="mt-10 max-w-xl text-base leading-7 text-muted-700">
-								<Text>
+								<P>
 									Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est.
 									Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
 									semper sed amet vitae sed turpis id.
-								</Text>
-								<Text className="mt-10">
+								</P>
+								<P className="mt-10">
 									Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac
 									cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-								</Text>
+								</P>
 							</div>
 						</div>
 						<div className="lg:flex lg:flex-auto lg:justify-center">
@@ -110,9 +110,9 @@ export default function AboutRoute() {
 			<Container className="mt-32 sm:mt-40">
 				<div className="mx-auto max-w-2xl lg:mx-0">
 					<h2 className="text-3xl font-bold tracking-tight text-muted-900 sm:text-4xl">Some of the values I live by</h2>
-					<Text size="lg" className="mt-6 leading-8 text-muted-600">
+					<P size="lg" className="mt-6 leading-8 text-muted-600">
 						These are some of the values I live by.
-					</Text>
+					</P>
 				</div>
 				<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 					{values.map(value => (
@@ -127,9 +127,9 @@ export default function AboutRoute() {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<H2 size="3xl">Conclusion</H2>
-						<Text size="lg" className="mt-6 text-muted-600">
+						<P size="lg" className="mt-6 text-muted-600">
 							This is my conclusion.
-						</Text>
+						</P>
 					</div>
 				</div>
 			</Container>

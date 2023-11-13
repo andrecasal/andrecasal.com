@@ -2,7 +2,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
-const textVariants = cva('', {
+const spanVariants = cva('', {
 	variants: {
 		size: {
 			'6xl': 'text-size-6xl',
@@ -43,27 +43,23 @@ const textVariants = cva('', {
 	},
 })
 
-type TextType = 'p' | 'span' | 'div'
-
-type TextProps = { as?: TextType } & VariantProps<typeof textVariants> & { children: ReactNode } & HTMLAttributes<HTMLParagraphElement>
+type SpanProps = VariantProps<typeof spanVariants> & { children: ReactNode } & HTMLAttributes<HTMLSpanElement>
 
 /**
- * A text component.
+ * A span component with control for typographic attributes.
  *
- * @param {HeadingType} [as='p'] - The HTML text element type (p, span, or div).
- * @param {string} [weight='bold'] - The font weight of the heading (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [size='4xl'] - The size variant of the heading (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
- * @param {string} [align='left'] - The text alignment of the heading (left, center, or right).
+ * @param {string} [size] - The size variant of the heading (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
+ * @param {string} [weight] - The font weight of the heading (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
+ * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const Text = forwardRef<HTMLParagraphElement, TextProps>(({ as = 'p', size = 'md', weight = 'normal', align = 'left', tracking, children, className, ...props }, ref) => {
-	const Comp = as
+const Span = forwardRef<HTMLParagraphElement, SpanProps>(({ size, weight, align, tracking, children, className, ...props }, ref) => {
 	return (
-		<Comp ref={ref} className={cn(textVariants({ size, weight, align, tracking }), className)} {...props}>
+		<span ref={ref} className={cn(spanVariants({ size, weight, align, tracking }), className)} {...props}>
 			{children}
-		</Comp>
+		</span>
 	)
 })
-Text.displayName = 'Text'
+Span.displayName = 'Span'
 
-export { Text, textVariants }
+export { Span }

@@ -4,9 +4,10 @@ import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Link } from '@remix-run/react'
 import { H2 } from './ui+/components/typography/h2.tsx'
+import { P } from './ui+/components/typography/p.tsx'
+import { Span } from './ui+/components/typography/span.tsx'
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 
@@ -72,25 +73,23 @@ export default function Index() {
 						<H2 size="md" align="center" className="text-brand">
 							Everything you need to
 						</H2>
-						<Text size="3xl" align="center" className="mt-4 font-bold">
+						<P size="3xl" align="center" className="mt-4 font-bold">
 							Become a modern
 							<br className="hidden sm:block" /> full-stack web developer
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
 								<Link key={feature.name} to={feature.link} className="rounded-xl p-4 hover:bg-muted-100 dark:hover:bg-muted-200">
 									<dt>
-										<Text as="span" size="md" className="flex gap-2 font-bold text-muted-900">
+										<Span size="md" className="flex gap-2 font-bold text-muted-900">
 											<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
 											{feature.name}
-										</Text>
+										</Span>
 									</dt>
 									<dd className="mt-2 text-muted-600">
-										<Text as="span" size="md">
-											{feature.description}
-										</Text>
+										<Span size="md">{feature.description}</Span>
 									</dd>
 								</Link>
 							))}

@@ -1,44 +1,38 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Styling } from '../sections/sections.tsx'
-import { H3 } from '../components/typography/h3.tsx'
+import { H2 } from '../components/typography/h2.tsx'
 import { P } from '../components/typography/p.tsx'
+import { Code } from '../components/typography/code.tsx'
+import { B } from '../components/typography/b.tsx'
 
 const component: componentProps = {
-	name: 'H3',
-	shortName: 'H3',
-	fileName: 'h3',
+	name: 'B',
+	shortName: 'B',
+	fileName: 'b',
 	category: 'typography',
-	description: ['An h3 element with control for typographic attributes.'],
-	features: ['Drop-in replacement for the native <h3> element.', 'Automatically inherits design tokens.', 'Allows control of size, weight, alignment, and tracking.'],
+	description: ['A b element with control for typographic attributes.'],
+	features: [
+		'Drop-in replacement for the native <b> element.',
+		"Automatically inherits the parent's design tokens (just like a normal b tag).",
+		'Allows control of size, weight, alignment, and tracking.',
+	],
 	parts: [
 		{
-			name: 'H3',
-			description: 'An h3 element.',
+			name: 'B',
+			description: 'A b element with control for typographic attributes.',
 			props: [
 				{ name: 'weight', type: 'enum: black, extrabold, bold, semibold, medium, normal, light, extralight, thin', default: 'bold' },
-				{ name: 'size', type: 'enum: 4xl, 3xl, 2xl, xl, lg, md, sm, xs', default: '2xl' },
-				{ name: 'align', type: 'enum: left, center, or right', default: 'left' },
+				{ name: 'size', type: 'enum: 4xl, 3xl, 2xl, xl, lg, md, sm, xs', default: 'No default value' },
+				{ name: 'align', type: 'enum: left, center, or right', default: 'No default value' },
 				{ name: 'tracking', type: 'enum: tighter, tight, normal, wide, wider, or widest', default: 'size-dependent' },
 			],
 		},
 	],
-	usage: `<H3 size="6xl">H3 6xl</H3>
-<H3 size="5xl" weight="thin">
-	H3 5xl
-</H3>
-<H3 size="4xl" align="center">
-	H3 4xl
-</H3>
-<H3 size="3xl" align="right" tracking="widest">
-	H3 3xl
-</H3>
-<H3 size="2xl">H3 2xl</H3>
-<H3 size="xl">H3 xl</H3>
-<H3 size="lg">H3 lg</H3>
-<H3 size="md">H3 md</H3>
-<H3 size="sm">H3 sm</H3>
-<H3 size="xs">H3 xs</H3>`,
+	usage: `<P>
+	The two most popular science courses offered by the school are <B>chemistry</B> (the study of chemicals and the composition of substances) and <B>physics</B> (the study of
+	the nature and properties of matter and energy).
+</P>`,
 	styling: `/* Typography: https://andrecasal.com/articles/fluid-typography-sizing-with-modular-scales */
 @layer base {
 	:root {
@@ -159,33 +153,50 @@ const component: componentProps = {
 
 export const loader = async () => json({ source: await readSource({ category: component.category, fileName: component.fileName }) })
 
-const HeadingRoute = () => {
+const SpanRoute = () => {
 	const { source } = useLoaderData<typeof loader>()
 	const { name, description, shortName, fileName, features, usage, parts, styling } = component
 
 	return (
 		<>
 			<Description name={name} description={description} />
+			<P className="mt-4">
+				Generally, <Code>b</Code> tags will go inside <Code>p</Code> tags and inherit whatever typographical attributes that paragraph has. But because <Code>b</Code>'s' are not
+				limited to being inside paragraphs, this elements also allows you to control typographic attributes.
+			</P>
+			<P className="mt-4">
+				The <Code>{'<b>'}</Code> HTML element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly
+				known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <Code>{'<b>'}</Code> for styling text because that's a job for
+				CSS and you should not use <Code>{'<b>'}</Code> for granting importance or stress emphasis because that's a job for the <Code>{'<strong>'}</Code> and <Code>{'<em>'}</Code>{' '}
+				tags, respectively.
+			</P>
+			<H2 className="mt-8">
+				{'<b>'} vs {'<strong>'}
+			</H2>
+			<P>
+				It is often confusing to new developers why there are so many ways to express the same thing on a rendered website. {'<b>'} and {'<strong>'} are perhaps one of the most
+				common sources of confusion, causing developers to ask "Should I use {'<b>'} or {'<strong>'}? Don't they both do the same thing?"
+			</P>
+			<P className="mt-4">
+				Not exactly. The {'<strong>'} element is for content that is of greater importance, while the {'<b>'} element is used to draw attention to text without indicating that it's
+				more important.
+			</P>
+			<P className="mt-4">
+				It may help to realize that both are valid and semantic elements in HTML and that it's a coincidence that they both have the same default styling (boldface) in most browsers
+				(although some older browsers actually underline {'<strong>'}). Each element is meant to be used in certain types of scenarios, and if you want to bold text for decoration,
+				you should instead actually use the CSS font-weight property.
+			</P>
+			<P className="mt-4">
+				The intended meaning or purpose of the enclosed text should be what determines which element you use. Communicating meaning is what semantics are all about.
+			</P>
 			<Features features={features} />
 			<Parts parts={parts} />
-			<P className="mt-4">Note that the tracking's default value depends on the size prop and is controlled through CSS variables.</P>
+			<P className="mt-4">The tracking's default value depends on the size prop and is controlled through CSS variables: check out the styling section.</P>
 			<Usage usage={usage} shortName={shortName} />
-			<H3 size="6xl">H3 6xl</H3>
-			<H3 size="5xl" weight="thin">
-				H3 5xl
-			</H3>
-			<H3 size="4xl" align="center">
-				H3 4xl
-			</H3>
-			<H3 size="3xl" align="right" tracking="widest">
-				H3 3xl
-			</H3>
-			<H3 size="2xl">H3 2xl</H3>
-			<H3 size="xl">H3 xl</H3>
-			<H3 size="lg">H3 lg</H3>
-			<H3 size="md">H3 md</H3>
-			<H3 size="sm">H3 sm</H3>
-			<H3 size="xs">H3 xs</H3>
+			<P>
+				The two most popular science courses offered by the school are <B>chemistry</B> (the study of chemicals and the composition of substances) and <B>physics</B> (the study of
+				the nature and properties of matter and energy).
+			</P>
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
 			<P className="mt-4">
@@ -198,4 +209,4 @@ const HeadingRoute = () => {
 		</>
 	)
 }
-export default HeadingRoute
+export default SpanRoute

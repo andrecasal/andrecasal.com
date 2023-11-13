@@ -4,8 +4,8 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import cg from 'classgroup'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Button } from './button.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 
 const ToastProvider = ToastPrimitives.Provider
 
@@ -75,9 +75,9 @@ ToastClose.displayName = ToastPrimitives.Close.displayName
 
 const ToastTitle = forwardRef<ElementRef<typeof ToastPrimitives.Title>, ComponentPropsWithoutRef<typeof ToastPrimitives.Title>>(({ className, children, ...props }, ref) => (
 	<ToastPrimitives.Title ref={ref} {...props} asChild>
-		<Text size="sm" className="font-medium text-muted-900 group-[.danger]:text-danger-title">
+		<P size="sm" className="font-medium text-muted-900 group-[.danger]:text-danger-title">
 			{children}
-		</Text>
+		</P>
 	</ToastPrimitives.Title>
 ))
 ToastTitle.displayName = ToastPrimitives.Title.displayName
@@ -85,9 +85,9 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName
 const ToastDescription = forwardRef<ElementRef<typeof ToastPrimitives.Description>, ComponentPropsWithoutRef<typeof ToastPrimitives.Description>>(
 	({ className, children, ...props }, ref) => (
 		<ToastPrimitives.Description ref={ref} {...props}>
-			<Text size="sm" className="text-muted-500 group-[.danger]:text-danger-foreground">
+			<P size="sm" className="text-muted-500 group-[.danger]:text-danger-foreground">
 				{children}
-			</Text>
+			</P>
 		</ToastPrimitives.Description>
 	),
 )

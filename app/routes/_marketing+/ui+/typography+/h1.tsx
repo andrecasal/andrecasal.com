@@ -1,9 +1,9 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Description, Features, Source, readSource, type componentProps, Parts, Usage, Styling } from '../sections/sections.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { Code } from '../components/typography/code.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const component: componentProps = {
 	name: 'H1',
@@ -17,7 +17,7 @@ const component: componentProps = {
 			name: 'H1',
 			description: 'An h1 element.',
 			props: [
-				{ name: 'weight', type: 'string', default: 'bold' },
+				{ name: 'weight', type: 'enum: black, extrabold, bold, semibold, medium, normal, light, extralight, thin', default: 'bold' },
 				{ name: 'size', type: 'enum: 4xl, 3xl, 2xl, xl, lg, md, sm, xs', default: '4xl' },
 				{ name: 'align', type: 'enum: left, center, or right', default: 'left' },
 				{ name: 'tracking', type: 'enum: tighter, tight, normal, wide, wider, or widest', default: 'size-dependent' },
@@ -81,7 +81,7 @@ const component: componentProps = {
 		--text-line-height-5xl: 1.2;
 		--text-line-height-6xl: 1.2;
 
-		/* Tracking. Default values. Can be overridden by the 'tracking' prop on the <Heading /> and <Text /> components) */
+		/* Tracking. Default values. Can be overridden by the 'tracking' prop on the <Heading /> and <P /> components) */
 		--text-tracking-xs: 0em;
 		--text-tracking-sm: 0em;
 		--text-tracking-md: 0em;
@@ -169,12 +169,12 @@ const HeadingRoute = () => {
 			<Description name={name} description={description} />
 			<Features features={features} />
 			<Parts parts={parts} />
-			<Text className="mt-4">Note that the tracking's default value depends on the size prop and is controlled through CSS variables.</Text>
+			<P className="mt-4">Note that the tracking's default value depends on the size prop and is controlled through CSS variables.</P>
 			<Usage usage={usage} shortName={shortName} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				Note that a page can only have a single <Code>h1</Code> tag, so this page is semantically incorrect for demonstration purposes. Check the styling section to see how it
 				changes with size.
-			</Text>
+			</P>
 			<H1 size="6xl">H1 6xl</H1>
 			<H1 size="5xl" weight="thin">
 				H1 5xl
@@ -193,13 +193,13 @@ const HeadingRoute = () => {
 			<H1 size="xs">H1 xs</H1>
 			<Source source={source} fileName={fileName} />
 			<Styling styling={styling} />
-			<Text className="mt-4">
+			<P className="mt-4">
 				The typographic styling is actually pretty simple once you wrap your head around it. For an explanation check out the{' '}
 				<Link to="/articles/fluid-typography-sizing-with-modular-scales" className="underline">
 					Fluid Typography Sizing and Scales article
 				</Link>
 				.
-			</Text>
+			</P>
 		</>
 	)
 }

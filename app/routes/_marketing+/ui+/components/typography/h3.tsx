@@ -48,12 +48,12 @@ type h3Props = VariantProps<typeof h3Variants> & { children: ReactNode } & HTMLA
 /**
  * A h3 component.
  *
+ * @param {string} [size='2xl'] - The size variant of the h3 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [weight='bold'] - The font weight of the h3 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [size='4xl'] - The size variant of the h3 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
  * @param {string} [align='left'] - The text alignment of the h3 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h3 (tighter, tight, normal, wide, wider, or widest).
  */
-const H3 = forwardRef<HTMLHeadingElement, h3Props>(({ size = '4xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
+const H3 = forwardRef<HTMLHeadingElement, h3Props>(({ size = '2xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
 	return (
 		<h3 ref={ref} className={cn(h3Variants({ size, weight, align, tracking }), className)} {...props}>
 			{children}

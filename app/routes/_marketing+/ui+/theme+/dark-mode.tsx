@@ -1,10 +1,10 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Code } from '../components/typography/code.tsx'
 import { Link } from '@remix-run/react'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
+import { P } from '../components/typography/p.tsx'
 
 const Architecture = () => {
 	const darkModeStyles = `/* Colors */
@@ -65,7 +65,7 @@ const Architecture = () => {
 	return (
 		<Container>
 			<H1 size="3xl">Dark Mode</H1>
-			<Text size="md" className="mt-2">
+			<P size="md" className="mt-2">
 				Dark mode is controlled using the <Code>.dark</Code> class applied to either {'<html>'} or {'<body>'}. It's up to you to correctly set this class based on the user's
 				preference. Both the{' '}
 				<a
@@ -81,15 +81,15 @@ const Architecture = () => {
 					ShipFast
 				</Link>{' '}
 				come with a <Code>useTheme()</Code> hook that you can use to easily set the class.
-			</Text>
+			</P>
 
 			<H2 size="3xl" className="mt-8">
 				Styles
 			</H2>
-			<Text size="md" className="mt-2">
+			<P size="md" className="mt-2">
 				Dark mode styles are defined by redefining the CSS variables in the <Code>tailwind.css</Code> file when a <Code>.dark</Code> class is applied. For example, here's how we
 				change the colors when dark mode is enabled:
-			</Text>
+			</P>
 			<CodeBlock code={darkModeStyles} filename="tailwind" extension="css" className="mt-4" />
 		</Container>
 	)

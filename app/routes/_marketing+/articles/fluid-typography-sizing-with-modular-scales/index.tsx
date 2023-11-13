@@ -1,10 +1,10 @@
 import { CodeBlock } from '~/components/ui/code-block.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
 import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
+import { P } from '../../ui+/components/typography/p.tsx'
 
 export const post: Post = {
 	title: 'Fluid Typography Sizing and Scales',
@@ -278,39 +278,39 @@ const FluidTypographySizingWithModularScales = () => {
 				<H2 size="4xl" className="mt-10">
 					Introduction
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					Typography is a fundamental aspect of web design, and choosing the right sizes for your fonts is important for creating visually appealing and readable content. However,
 					traditionally, web designers rely on hand-picked font sizes and a set of breakpoints to control how those sizes vary across screen widths.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Developers today are often handed a collection of mockups for mobile (320px), large mobile (640px), tablet (768px), small desktop (1024px), medium desktop (1280px), and
 					large desktop (1536px). The effort expended by designers and developers in generating so many discrete artifacts is an inefficient use of time and resources. It also
 					perpetuates the archaic practice of creating device-specific websites.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Often, developers are left to guess at the logic of sizing, if any, used in the design process. This usually leads to a high number of hacky (and often similar) values in
 					the codebase, needlessly increasing the development effort and the complexity of the project.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					In this article, we'll delve into two key notions: modular vs hand-picked scales and breakpoint-based vs fluid type sizing.
-				</Text>
+				</P>
 
 				<H2 size="4xl" className="mt-16">
 					Modular scale
 				</H2>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					One popular method for establishing a typography scale is to use a modular scale, based on a specific ratio. Ratios like 4:5, 2:3, or the "golden ratio" of 1:1.618 are
 					commonly used. Typically, you start with a base font size, often 16px (a common default for browsers), and then apply your chosen ratio to calculate the subsequent sizes
 					in your scale.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					While the mathematical elegance of this approach is appealing, it has a deal-breaking limitation: limited size options. You could try different ratios and equations, but
 					at that point you’re just trying to pick a scale that happens to match the sizes you already know you want.
-				</Text>
+				</P>
 				<CodeBlock code={modularScale} filename="modular-scale" extension="css" className="mt-8" />
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Here's the modular scale in action.
-				</Text>
+				</P>
 			</div>
 			<div
 				className="mt-4 leading-none"
@@ -357,20 +357,20 @@ const FluidTypographySizingWithModularScales = () => {
 					Hand-picked scale
 				</H2>
 
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					When it comes to interface design, it's more pragmatic to hand-pick the values. This approach grants you complete control over the number and variety of sizes.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					A good example of a scale that works well with most projects and aligns nicely with its own spacing is{' '}
 					<a href="https://tailwindcss.com/docs/font-size" target="_blank" rel="noreferrer">
 						TailwindCSS's typographic scale
 					</a>
 					.
-				</Text>
+				</P>
 				<CodeBlock code={tailwindCSSScale} filename="tailwind" extension="css" className="mt-8" />
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Here's TailwindCSS's hand-picked typographic scale in action.
-				</Text>
+				</P>
 				<div className="mt-4">
 					<p className="text-9xl">Text at 9xl</p>
 					<p className="text-8xl">Text at 8xl</p>
@@ -386,32 +386,32 @@ const FluidTypographySizingWithModularScales = () => {
 					<p className="text-sm">Text at sm</p>
 					<p className="text-xs">Text at xs</p>
 				</div>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Most of the text on a website is body text. Notice how you have more choices for appropriate body text sizes between xs and xl with this hand-picked scale.
-				</Text>
+				</P>
 
 				<H2 size="4xl" className="mt-16">
 					Breakpoint-based type sizing
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					The first thing you need to understand about breakpoint-based type sizing is that if we're going to change the font size at different screen sizes, we don't need as many
 					steps. A font size larger than 60px will never be used on a mobile screen - that would be too overwhelming. Instead, we'll cap the steps off at the 6xl step and have it
 					scale up as the screen width increases.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					Another thing to note is that the widest variations occur at the higher steps. It's nice to be able to adapt the lower steps if we want to, but as a general rule, small
 					text looks good at any screen width. It's at the higher steps that the text starts to look too underwhelming on large screens.
-				</Text>
-				<Text size="xl" className="mt-8">
+				</P>
+				<P size="xl" className="mt-8">
 					This change in variation is explained by two opposing forces: the need to increase the font size to prevent underwhelming and awkward sizes on larger screens and the fact
 					that users don't resize their browser windows to see the same content bigger, but to see more content. So, as a general rule, headings vary in size quite a bit so that
 					the design remains balanced, while body text doesn't vary as much so users can see more of it.
-				</Text>
+				</P>
 				<CodeBlock code={breakpointBasedTypeSizing} filename="breakpoint-based-type-sizing" extension="css" className="mt-8" />
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Here's the breakpoint-based type sizing in action. Notice how the text size increases suddenly as the screen width increases, creating a jarring experience, more
 					noticeable on the larger steps.
-				</Text>
+				</P>
 				<div className="mt-4">
 					<p className="text-[60px] sm:text-[78.705501618123px] md:text-[85.747572815534px] lg:text-[99.8317152103561px] xl:text-[103.185964912281px] 2xl:text-[128px]">
 						Text at 6xl
@@ -444,44 +444,44 @@ const FluidTypographySizingWithModularScales = () => {
 						Text at xs
 					</p>
 				</div>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					There are two major problems with this technique: the effort required to design all those mockups is tremendous and designers usually prefer to play with round pixel
 					units instead of fractional values, for good reasons I won't get into here.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					Look at that xs step. It's 12px on small screens and 14px on large screens, a 2px difference, but there are 4 breakpoints in between. What round values should the
 					designer choose for those middle breakpoints? Well, either 12px, 13px, or 14px. But it's guaranteed there will be repetition. This is a weird situation where the right
 					value is really a fractional one, but the designer is forced to choose a round value, and the developer is left guessing at the logic - if any - behind those values.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					I don't want to get too technical here, but fractional pixel values are not a problem for web developers - most screens today either have more than one physical pixel per
 					virtual pixel or employ anti-alias on the surrounding pixels to make the text look crisp at any subpixel value. This is automatically handled by the browser and OS.
-				</Text>
+				</P>
 
 				<H2 size="4xl" className="mt-16">
 					Fluid type sizing
 				</H2>
-				<Text size="xl" className="mt-8">
+				<P size="xl" className="mt-8">
 					The{' '}
 					<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" target="_blank" rel="noreferrer" className="underline">
 						clamp() function
 					</a>
 					, introduced in CSS, offers a more fluid and responsive approach to typography sizing. It allows designers to define a minimum and maximum font size range, ensuring that
 					text scales smoothly between these values based on the viewport size.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					For example, you can use the <code>clamp(16px, 5vw, 24px)</code> to set a font size that is 5% of the viewport width, 16 pixels on small screens, and a maximum of 24
 					pixels on larger screens. This results in a seamless transition of font sizes as the screen size changes, providing a better reading experience for users.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					However, this vw unit isn't ideal: the font can start to grow too soon, too late, too slow, or too fast. What you want is a linear growth rate from the minimum viewport
 					size, 320px say, to the maximum width the website will have, 1536px say. Imagine the font size on the y axis and the viewport width on the x axis. Here's how we can use
 					CSS variables and the calc() function to calculate the exact growth rate we want between those two points, using the general equation of a straight line: y = mx + c.
-				</Text>
+				</P>
 				<CodeBlock code={fluidTypeSizing} filename="stylesheet" extension="css" className="mt-8" />
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Here's the fluid type sizing in action. Notice how the text size increases smoothly as the screen width increases, more noticeable on the larger steps.
-				</Text>
+				</P>
 				<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 					<p className="text-size-6xl">Text at 6xl</p>
 					<p className="text-size-5xl">Text at 5xl</p>
@@ -494,74 +494,74 @@ const FluidTypographySizingWithModularScales = () => {
 					<p className="text-size-sm">Text at sm</p>
 					<p className="text-size-xs">Text at xs</p>
 				</div>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					The design process to implement fluid typography is rather simple for both designers and developers. Designers only have to draw two mockups: one for small screens and
 					one for large screens. While the developer only needs to tell the browser to interpolate between the two scales, based on the current viewport width.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					A note on layout shift
 				</H2>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					You might notice that, as you resize the browser window, the text moves up and down quite a bit here. There's two reasons for this. One is layout shift: users don't
 					resize their browser windows to see the same content bigger, but to see more content, so as you increase the window's width, things that used to take up a single column
 					now take multiple columns instead, taking more space horizontally and pulling the content upwards.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					The other reason is that the text's line height also changes, so even if you only had text, like in this blog post, without any layout shifts, the text below would still
 					move up and down as you resize the window.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					This effect compounds vertically, so the more you move away from the top, the more noticeable this effect is.
-				</Text>
-				<Text size="xl" className="mt-4">
+				</P>
+				<P size="xl" className="mt-4">
 					If you wish to see this effect without the text moving up and down too much, visit any other page on this website that contains large text and see how it resizes smoothly
 					as you resize the browser window.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					Note on accessibility
 				</H2>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Whatever techniques you use for typographic scales and viewport width-based sizing, you should always make sure to use rem units for font sizes, so that users can change
 					the base font size in their browser settings.
-				</Text>
+				</P>
 				<H2 size="4xl" className="mt-16">
 					The map of the terrain
 				</H2>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Before we go, let's zoom out and look at the big picture. Typography on the web has the following concerns: font family, font size, paragraph length, line height, letter
 					spacing, and vertical alignment. Until I write articles on the other topics, here's a quick list of what you need to know (without explanations).
-				</Text>
+				</P>
 				<ul className="mt-8 list-disc pl-5">
 					<li>
-						<Text size="xl">Font family: ignore typefaces with less than 5 weights.</Text>
+						<P size="xl">Font family: ignore typefaces with less than 5 weights.</P>
 					</li>
 					<li>
-						<Text size="xl">Font size: treated in this article.</Text>
+						<P size="xl">Font size: treated in this article.</P>
 					</li>
 					<li>
-						<Text size="xl">Paragraph length: Make sure body text stays between 45 and 75 characters.</Text>
+						<P size="xl">Paragraph length: Make sure body text stays between 45 and 75 characters.</P>
 					</li>
 					<li>
-						<Text size="xl">Line height: scale it proportionally to paragraph length at 1.5em for 45 characters and 2em for 75 characters. Use ems, not rems.</Text>
+						<P size="xl">Line height: scale it proportionally to paragraph length at 1.5em for 45 characters and 2em for 75 characters. Use ems, not rems.</P>
 					</li>
 					<li>
-						<Text size="xl">Letter spacing: big titles usually need tighter letter spacing, while body text doesn't.</Text>
+						<P size="xl">Letter spacing: big titles usually need tighter letter spacing, while body text doesn't.</P>
 					</li>
 					<li>
-						<Text size="xl">Vertical alignment: baseline, not center.</Text>
+						<P size="xl">Vertical alignment: baseline, not center.</P>
 					</li>
 				</ul>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					Once you've learned about these topics, you've covered everything you need to know about typography to be an efficient web developer.
-				</Text>
+				</P>
 
 				<H2 size="4xl" className="mt-16">
 					Conclusion
 				</H2>
-				<Text size="xl" className="mt-4">
+				<P size="xl" className="mt-4">
 					In conclusion, between modular or hand-picked scales, hand-picked scales offer the right amount of control, while between breakpoint-based and fluid type sizing, fluid
 					type sizing offers a significantly more efficient design and development process, a smoother user experience, and solves the problem of fractional pixel values.
-				</Text>
+				</P>
 			</div>
 		</>
 	)

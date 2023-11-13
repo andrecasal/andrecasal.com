@@ -5,7 +5,6 @@ import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from
 import { z } from 'zod'
 import { ErrorList, Field } from '~/components/forms.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { newsletterNameQueryParam, newsletterEmailQueryParam, newsletterOTPQueryParam, newsletterVerificationType } from './newsletter/index.tsx'
@@ -17,6 +16,8 @@ import { Input } from '~/components/ui/input.tsx'
 import { subscribeUser } from '~/utils/email.server.ts'
 import { Container } from './ui+/components/layout/container.tsx'
 import { H1 } from './ui+/components/typography/h1.tsx'
+import { P } from './ui+/components/typography/p.tsx'
+import { Span } from './ui+/components/typography/span.tsx'
 
 const verifySchema = z.object({
 	[newsletterNameQueryParam]: nameSchema,
@@ -63,26 +64,18 @@ const NewsletterVerifyRoute = () => {
 			<div className="flex flex-col justify-center pb-32 pt-20">
 				<div className="mx-auto max-w-md">
 					<H1 size="3xl">Confirm your subscription</H1>
-					<Text size="lg" className="mt-6 text-muted-500">
-						Hi{' '}
-						<Text as="span" weight="semibold">
-							{name.defaultValue}
-						</Text>
-						,
-					</Text>
-					<Text size="lg" className="mt-6 text-muted-500">
-						We've sent a link to{' '}
-						<Text as="span" weight="semibold">
-							{email.defaultValue}
-						</Text>{' '}
-						to verify your email address. Just click that link.
-					</Text>
+					<P size="lg" className="mt-6 text-muted-500">
+						Hi <Span weight="semibold">{name.defaultValue}</Span>,
+					</P>
+					<P size="lg" className="mt-6 text-muted-500">
+						We've sent a link to <Span weight="semibold">{email.defaultValue}</Span> to verify your email address. Just click that link.
+					</P>
 					<Form method="post" className="mx-auto mt-24" {...form.props}>
 						<Input {...conform.input(name)} type="hidden" />
 						<Input {...conform.input(email)} type="hidden" />
-						<Text size="sm" className="my-6 text-muted-500">
+						<P size="sm" className="my-6 text-muted-500">
 							If the link doesn't work, we've also sent you a code:
-						</Text>
+						</P>
 						<Field labelProps={{ htmlFor: code.id, children: 'Code' }} inputProps={{ ...conform.input(code), autoComplete: 'off' }} errors={code.errors} />
 						<ErrorList errors={form.errors} id={form.errorId} />
 						<StatusButton type="submit" className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} disabled={isSubmitting}>

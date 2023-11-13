@@ -3,8 +3,9 @@ import BackgroundDiagonal from './bg-diagonal.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { H1 } from '../ui+/components/typography/h1.tsx'
+import { P } from '../ui+/components/typography/p.tsx'
+import { Span } from '../ui+/components/typography/span.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -16,16 +17,16 @@ const HeroAndre = () => {
 							<Badge variant="info" size="md" className="whitespace-nowrap">
 								What's new
 							</Badge>
-							<Text as="span" size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
-								<Text as="span">Launched ShipFast ⚡️</Text>
-							</Text>
+							<P size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
+								<Span>Launched ShipFast ⚡️</Span>
+							</P>
 						</Link>
 						<H1 size="4xl" className="mt-10">
 							Hi! I'm André Casal.
 						</H1>
-						<Text size="lg" className="mt-6 text-muted-700">
+						<P size="lg" className="mt-6 text-muted-700">
 							I help full-stack web devs create profitable one-person businesses.
-						</Text>
+						</P>
 						<div className="mt-10 flex items-center gap-x-6">
 							<Button size="lg" asChild>
 								<Link to="/mentorship">Let's work together</Link>

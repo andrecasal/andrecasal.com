@@ -1,5 +1,4 @@
 import { Icon } from '~/components/ui/icon.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { Kbd } from '../components/typography/kbd.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { Code } from '../components/typography/code.tsx'
@@ -9,6 +8,7 @@ import { promises as fs } from 'fs'
 import { H1 } from '../components/typography/h1.tsx'
 import { H2 } from '../components/typography/h2.tsx'
 import { H3 } from '../components/typography/h3.tsx'
+import { P } from '../components/typography/p.tsx'
 
 export type componentProps = {
 	name: string
@@ -51,9 +51,9 @@ export const Description = ({ name, description }: { name: componentProps['name'
 		<>
 			<H1 className="mt-8">{name}</H1>
 			{description.map((text, i) => (
-				<Text key={i} className="mt-4">
+				<P key={i} className="mt-4">
 					{text}
-				</Text>
+				</P>
 			))}
 		</>
 	)
@@ -128,7 +128,7 @@ export const Part = ({ name, description, props, data }: componentProps['parts']
 			<H3 size="xl" className="mt-8">
 				{name}
 			</H3>
-			<Text className="mt-4">{description}</Text>
+			<P className="mt-4">{description}</P>
 			{props ? (
 				<div className="mt-4 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
 					<table className="min-w-full divide-y divide-gray-300">
@@ -206,9 +206,9 @@ export const Usage = ({ usage, shortName }: { usage: componentProps['usage']; sh
 				Usage
 			</H2>
 			<CodeBlock code={usage} filename={`${shortName}Example`} extension="tsx" className="mt-4" />
-			<Text className="mt-4">
+			<P className="mt-4">
 				Here's the <Code>{`<${shortName} />`}</Code> component in action.
-			</Text>
+			</P>
 		</>
 	)
 }

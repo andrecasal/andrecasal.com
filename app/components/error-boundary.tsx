@@ -1,16 +1,16 @@
 import { isRouteErrorResponse, useParams, useRouteError } from '@remix-run/react'
 import { type ErrorResponse } from '@remix-run/router'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
+import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 import { getErrorMessage } from '~/utils/misc.ts'
 
 type StatusHandler = (info: { error: ErrorResponse; params: Record<string, string | undefined> }) => JSX.Element | null
 
 export function GeneralErrorBoundary({
 	defaultStatusHandler = ({ error }) => (
-		<Text>
+		<P>
 			{error.status} {error.data}
-		</Text>
+		</P>
 	),
 	statusHandlers,
 	unexpectedErrorHandler = error => <p>{getErrorMessage(error)}</p>,

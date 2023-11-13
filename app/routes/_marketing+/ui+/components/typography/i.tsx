@@ -2,7 +2,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
-const h6Variants = cva('', {
+const italicVariants = cva('', {
 	variants: {
 		size: {
 			'6xl': 'text-size-6xl',
@@ -43,23 +43,23 @@ const h6Variants = cva('', {
 	},
 })
 
-type h6Props = VariantProps<typeof h6Variants> & { children: ReactNode } & HTMLAttributes<HTMLHeadingElement>
+type ItalicProps = VariantProps<typeof italicVariants> & { children: ReactNode } & HTMLAttributes<HTMLElement>
 
 /**
- * A h6 component.
+ * An i component with control for typographic attributes.
  *
- * @param {string} [size='md'] - The size variant of the h6 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
- * @param {string} [weight='bold'] - The font weight of the h6 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [align='left'] - The text alignment of the h6 (left, center, or right).
- * @param {string} [tracking] - The letter spacing of the h6 (tighter, tight, normal, wide, wider, or widest).
+ * @param {string} [size] - The size variant of the heading (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
+ * @param {string} [weight] - The font weight of the heading (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
+ * @param {string} [align] - The P alignment of the heading (left, center, or right).
+ * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const H6 = forwardRef<HTMLHeadingElement, h6Props>(({ size = 'md', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
+const I = forwardRef<HTMLElement, ItalicProps>(({ size, weight, align, tracking, children, className, ...props }, ref) => {
 	return (
-		<h6 ref={ref} className={cn(h6Variants({ size, weight, align, tracking }), className)} {...props}>
+		<i ref={ref} className={cn('italic', italicVariants({ size, weight, align, tracking }), className)} {...props}>
 			{children}
-		</h6>
+		</i>
 	)
 })
-H6.displayName = 'H6'
+I.displayName = 'I'
 
-export { H6 }
+export { I }

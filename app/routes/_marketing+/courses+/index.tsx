@@ -1,8 +1,8 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { H1 } from '../ui+/components/typography/h1.tsx'
+import { P } from '../ui+/components/typography/p.tsx'
 
 const Courses = () => {
 	const courses = [
@@ -25,9 +25,9 @@ const Courses = () => {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<H1 size="4xl">Courses for you to upgrade your skills</H1>
-						<Text size="lg" className="mt-6 text-muted-800">
+						<P size="lg" className="mt-6 text-muted-800">
 							Awesome courses to upgrade your skills.
-						</Text>
+						</P>
 					</div>
 				</div>
 			</Container>

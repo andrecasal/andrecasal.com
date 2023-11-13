@@ -2,8 +2,6 @@ import { Link } from '@remix-run/react'
 import BackgroundSquareLines from '../components/bg-square-lines.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-/* import { Badge } from '~/components/ui/badge.tsx' */
-import { Text } from '~/routes/_marketing+/ui+/components/typography/text.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '~/components/ui/accordion.tsx'
@@ -17,6 +15,8 @@ import { H1 } from '../ui+/components/typography/h1.tsx'
 import { H2 } from '../ui+/components/typography/h2.tsx'
 import { H3 } from '../ui+/components/typography/h3.tsx'
 import { H4 } from '../ui+/components/typography/h4.tsx'
+import { P } from '../ui+/components/typography/p.tsx'
+import { Span } from '../ui+/components/typography/span.tsx'
 
 const MasteryForVSCode = () => {
 	const features = [
@@ -242,23 +242,23 @@ const MasteryForVSCode = () => {
 								<Badge variant="info" size="md">
 									Latest updates
 								</Badge>
-								<Text as="span" size="sm" className="inline-flex items-center space-x-2 font-medium text-muted-600">
-									<Text as="span">Add AI assistance</Text>
+								<Span size="sm" className="inline-flex items-center space-x-2 font-medium text-muted-600">
+									<Span>Add AI assistance</Span>
 									<Icon name="chevron-right" className="h-5 w-5 text-muted-400" aria-hidden="true" />
-								</Text>
+								</P>
 							</Link>
 						</div> */}
 							<H1 size="4xl">
 								Mastery
 								<br className="hidden lg:block" /> for VS Code
 							</H1>
-							<Text size="lg" className="mt-6 text-muted-600">
+							<P size="lg" className="mt-6 text-muted-600">
 								Upgrade your coding game with <strong>the</strong> course on VS Code.
-							</Text>
-							<Text size="md" className="mt-6 text-muted-900">
+							</P>
+							<P size="md" className="mt-6 text-muted-900">
 								Are you a full-stack web developer looking to level up your coding skills? Welcome to <strong>Mastery for VS Code</strong> - the ultimate online course that
 								will transform you into a VS Code ninja! Say goodbye to inefficient workflows and hello to unparalleled productivity.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button size="lg" asChild>
 									<Link to="#pricing">I want to master VS Code</Link>
@@ -285,27 +285,27 @@ const MasteryForVSCode = () => {
 						<H2 size="md" align="center" className="text-brand">
 							Course Overview
 						</H2>
-						<Text size="3xl" className="mt-2 font-bold">
+						<P size="3xl" className="mt-2 font-bold">
 							Efficient full-stack web development
-						</Text>
-						<Text size="lg" className="mt-6 text-muted-700">
+						</P>
+						<P size="lg" className="mt-6 text-muted-700">
 							In this course, you will:
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
 							{features.map(feature => (
 								<div key={feature.name} className="flex flex-col">
 									<dt>
-										<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+										<Span size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 											{feature.name}
-										</Text>
+										</Span>
 									</dt>
 									<dd>
-										<Text size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
+										<P size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
 											{feature.description}
-										</Text>
+										</P>
 									</dd>
 								</div>
 							))}
@@ -319,12 +319,12 @@ const MasteryForVSCode = () => {
 						<H2 size="md" align="center" className="text-brand">
 							Everything you need
 						</H2>
-						<Text size="3xl" className="mt-2 font-bold">
+						<P size="3xl" className="mt-2 font-bold">
 							Benefits of the course
-						</Text>
-						<Text size="lg" className="mt-6 text-muted-700">
+						</P>
+						<P size="lg" className="mt-6 text-muted-700">
 							Here's what you can expect out of this course.
-						</Text>
+						</P>
 					</div>
 				</div>
 				<div className="relative overflow-hidden">
@@ -338,15 +338,15 @@ const MasteryForVSCode = () => {
 						{moreFeatures.map(feature => (
 							<div key={feature.name} className="flex flex-col">
 								<dt>
-									<Text as="span" size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
+									<Span size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
 										<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										{feature.name}
-									</Text>
+									</Span>
 								</dt>
 								<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-									<Text size="md" className="flex-auto">
+									<P size="md" className="flex-auto">
 										{feature.description}
-									</Text>
+									</P>
 								</dd>
 							</div>
 						))}
@@ -360,25 +360,25 @@ const MasteryForVSCode = () => {
 							<H2 size="md" className="text-brand">
 								Track record
 							</H2>
-							<Text size="3xl" className="mt-2 font-bold">
+							<P size="3xl" className="mt-2 font-bold">
 								Trusted by thousands of devs worldwide
-							</Text>
-							<Text size="lg" className="mt-6 text-muted-700">
+							</P>
+							<P size="lg" className="mt-6 text-muted-700">
 								Join the other thousands of developers that have taken the course and loved it.
-							</Text>
+							</P>
 						</div>
 						<dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
 							{stats.map(stat => (
 								<div key={stat.id} className="flex flex-col gap-y-3">
 									<dt>
-										<Text as="span" size="sm" className="font-semibold text-muted-600">
+										<Span size="sm" className="font-semibold text-muted-600">
 											{stat.name}
-										</Text>
+										</Span>
 									</dt>
 									<dd>
-										<Text as="span" size="3xl" className="order-first font-semibold tracking-tight text-muted-900">
+										<Span size="3xl" className="order-first font-semibold tracking-tight text-muted-900">
 											{stat.value}
-										</Text>
+										</Span>
 									</dd>
 								</div>
 							))}
@@ -392,21 +392,21 @@ const MasteryForVSCode = () => {
 						<H2 size="md" align="center" className="text-brand">
 							Testimonials
 						</H2>
-						<Text size="3xl" className="mt-2 font-bold">
+						<P size="3xl" className="mt-2 font-bold">
 							I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 						<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
 							<blockquote className="p-12 text-muted-900">
-								<Text size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</Text>
+								<P size="xl" className="font-semibold tracking-tight">{`“${featuredTestimonial.body}”`}</P>
 							</blockquote>
 							<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
 								<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="Zachary Cassette" />
 								<div className="flex-auto">
-									<Text size="sm" className="font-semibold">
+									<P size="sm" className="font-semibold">
 										{featuredTestimonial.author.name}
-									</Text>
+									</P>
 								</div>
 								{/* <img className="h-10 w-auto flex-none" src={featuredTestimonial.author.logoUrl} alt="" /> */}
 							</figcaption>
@@ -426,13 +426,13 @@ const MasteryForVSCode = () => {
 										{column.map(testimonial => (
 											<figure key={testimonial.author.name} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 												<blockquote>
-													<Text size="sm" className="text-muted-900">{`“${testimonial.body}”`}</Text>
+													<P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P>
 												</blockquote>
 												<figcaption className="mt-6 flex items-center gap-x-4">
 													<div>
-														<Text size="sm" className="font-semibold">
+														<P size="sm" className="font-semibold">
 															{testimonial.author.name}
-														</Text>
+														</P>
 													</div>
 												</figcaption>
 											</figure>
@@ -451,11 +451,11 @@ const MasteryForVSCode = () => {
 							<H1 size="3xl" className="mt-10">
 								Hi! I'm André Casal a seasoned full-stack web developer.
 							</H1>
-							<Text size="lg" className="mt-6 text-muted-700">
+							<P size="lg" className="mt-6 text-muted-700">
 								With over 16 years of experience, my passion for coding and optimizing workflows led me to master VS Code, and now I'm excited to share my knowledge with you.
 								As an enthusiastic educator, I'm dedicated to helping you succeed in your coding journey, and help you ship better products, delight your customers, and take
 								your career to new heights.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button size="lg" asChild>
 									<Link to="/mentorship">I want to master VS Code</Link>
@@ -474,25 +474,25 @@ const MasteryForVSCode = () => {
 						<H2 size="md" align="center" className="text-brand">
 							Easy to follow modules
 						</H2>
-						<Text size="3xl" className="mt-2 font-bold">
+						<P size="3xl" className="mt-2 font-bold">
 							Course structure
-						</Text>
-						<Text size="lg" className="mt-6 text-gray-600">
+						</P>
+						<P size="lg" className="mt-6 text-gray-600">
 							The course is divided into easy-to-follow modules.
-						</Text>
+						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
 						<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 							{modules.map((module, i) => (
 								<div key={module.name} className="flex flex-col">
 									<dt className="flex items-baseline gap-x-3 text-base font-semibold leading-7 text-muted-900">
-										<Text as="span" size="4xl" className="text-muted-300">
+										<Span size="4xl" className="text-muted-300">
 											{i + 1}
-										</Text>{' '}
+										</Span>{' '}
 										{module.name}
 									</dt>
 									<dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-										<Text className="flex-auto">{module.description}</Text>
+										<P className="flex-auto">{module.description}</P>
 									</dd>
 								</div>
 							))}
@@ -505,16 +505,16 @@ const MasteryForVSCode = () => {
 					<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 						Enroll now
 					</H2>
-					<Text size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
+					<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 						Gain instant access to the <strong>Mastery for VS Code</strong> course.
-					</Text>
+					</P>
 				</div>
 				<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 					<div className="p-8 sm:p-10 lg:flex-auto">
 						<H3 size="2xl">Lifetime membership</H3>
-						<Text size="md" className="mt-6 text-muted-600">
+						<P size="md" className="mt-6 text-muted-600">
 							Level up your coding skills and dominate the world of full-stack web development!
-						</Text>
+						</P>
 						<div className="mt-10 flex items-center gap-x-4">
 							<H4 size="sm" className="flex-none font-semibold text-brand">
 								What’s included
@@ -533,25 +533,25 @@ const MasteryForVSCode = () => {
 					<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
 						<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 							<div className="mx-auto max-w-xs px-8">
-								<Text size="md" className="font-semibold text-muted-600">
+								<P size="md" className="font-semibold text-muted-600">
 									Pay once, own it forever
-								</Text>
-								<Text className="mt-6 flex items-baseline justify-center gap-x-2">
-									<Text as="span" size="4xl" className="font-bold">
+								</P>
+								<P className="mt-6 flex items-baseline justify-center gap-x-2">
+									<Span size="4xl" className="font-bold">
 										€180
-									</Text>
-									<Text as="span" size="sm" className="font-semibold tracking-wide text-muted-600">
+									</Span>
+									<Span size="sm" className="font-semibold tracking-wide text-muted-600">
 										EUR
-									</Text>
-								</Text>
+									</Span>
+								</P>
 								<Button variant="primary" size="wide" asChild className="mt-10">
 									<a href="https://andrecasal.gumroad.com/l/vscode" target="_blank" rel="noopener noreferrer">
 										I want to master VS Code
 									</a>
 								</Button>
-								<Text size="xs" className="mt-6 text-muted-600">
+								<P size="xs" className="mt-6 text-muted-600">
 									30-day money-back guarantee: I'm confident you'll love the course, but if you're not satisfied, I'll refund your payment – no questions asked.
-								</Text>
+								</P>
 							</div>
 						</div>
 					</div>
@@ -564,12 +564,12 @@ const MasteryForVSCode = () => {
 						{faqs.map(({ question, answer }, i) => (
 							<AccordionItem key={i} value={i.toString()} className="pt-6">
 								<AccordionTrigger className="flex w-full items-start justify-between text-left text-muted-900">
-									<Text size="md" className="font-semibold">
+									<P size="md" className="font-semibold">
 										{question}
-									</Text>
+									</P>
 								</AccordionTrigger>
 								<AccordionContent className="mt-2 pr-12">
-									<Text size="md">{answer}</Text>
+									<P size="md">{answer}</P>
 								</AccordionContent>
 							</AccordionItem>
 						))}
@@ -585,28 +585,28 @@ const MasteryForVSCode = () => {
 						<H2 size="4xl" className="mt-2 text-muted-900">
 							A note on excellency
 						</H2>
-						<Text size="lg" className="mt-6 text-muted-600">
+						<P size="lg" className="mt-6 text-muted-600">
 							Have you ever spent a ton of time trying to do something simple with VS Code? Maybe you're missing something. Maybe there's a bug in one of your tools. Maybe
 							there's a bug in VS Code. Do you remember how frustrating it was to spend all that time just to end up quitting, or realize it's a bug in one of your tools or VS
 							Code itself, or you just had to do something differently?
-						</Text>
-						<Text size="md" className="mt-8">
+						</P>
+						<P size="md" className="mt-8">
 							I remember once I needed to debug GCC-compiled threads. I spent several days until I realized I just had to change a little word in my launch.json configuration
 							from "-gdb-set follow-fork-mode parent" to "-gdb-set follow-fork-mode child". Argh, it's so frustrating spending all that time for such little gains.
-						</Text>
-						<Text size="md" className="mt-8">
+						</P>
+						<P size="md" className="mt-8">
 							For those of us who want to achieve excellence, this pain is worth it, because we know it compounds: I'll never again forget that command (or how to get it) if I
 							ever need to debug GCC-compiled threads. But wouldn't it be great if you didn't have to go through that process, waste all that time, and just get the answer
 							you're looking for immediately?
-						</Text>
-						<Text size="md" className="mt-8">
+						</P>
+						<P size="md" className="mt-8">
 							That's where this course comes in. I'll show you everything you need to know about VS Code, the good and the bad - I know, I've recorded a video for every single
 							one of its 600+ settings and that playlist was featured my Microsoft. After taking this course, you'll master VS Code. Besides having it configured like an
 							efficient professional, you'll know exactly what VS Code can do, what it can't, and how to work around it.
-						</Text>
-						<Text size="md" className="mt-8">
+						</P>
+						<P size="md" className="mt-8">
 							To your success! 🥂
-						</Text>
+						</P>
 						<img src={signatureBlack} alt="André Casal signature" className="mt-16 dark:hidden" />
 						<img src={signatureWhite} alt="André Casal signature" className="mt-16 hidden dark:block" />
 					</div>
@@ -619,9 +619,9 @@ const MasteryForVSCode = () => {
 							<H2 size="3xl" className="mt-2">
 								Boost your VS Code productivity today.
 							</H2>
-							<Text size="lg" className="mx-auto mt-6 max-w-xl">
+							<P size="lg" className="mx-auto mt-6 max-w-xl">
 								Upgrade your coding game with <strong>the</strong> course on VS Code.
-							</Text>
+							</P>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<Button size="lg" asChild>
 									<Link to="#pricing">I want to boost my productivity</Link>

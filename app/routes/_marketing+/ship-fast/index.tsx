@@ -1,6 +1,5 @@
 import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '../ui+/components/layout/container.tsx'
-import { Text } from '../ui+/components/typography/text.tsx'
 import { Tabs } from '../ui+/components/ui/tabs.tsx'
 import { Link } from '@remix-run/react'
 import BackgroundBlur from '../components/bg-blur.tsx'
@@ -13,6 +12,7 @@ import arrow from './arrow.png'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { H1 } from '../ui+/components/typography/h1.tsx'
 import { H2 } from '../ui+/components/typography/h2.tsx'
+import { P } from '../ui+/components/typography/p.tsx'
 
 const ShipFast = () => {
 	const features = [
@@ -157,11 +157,11 @@ const ShipFast = () => {
 							ShipFast: Your Fast Track to Full-Stack Web Mastery!
 						</H1>
 						<div>
-							<Text size="md" className="mx-auto max-w-3xl text-muted-700">
+							<P size="md" className="mx-auto max-w-3xl text-muted-700">
 								Become a full-stack web developer with a <span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">fully featured production-ready stack</span>{' '}
 								that's also a <span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">practical course in full-stack web dev</span> and is{' '}
 								<span className="inline-block -rotate-1 bg-brand/40 px-2 font-bold">not overwhelming</span>.
-							</Text>
+							</P>
 						</div>
 						<Flex justify="center" className="mt-10 w-full">
 							<Button size="lg" asChild>
@@ -419,9 +419,9 @@ const ShipFast = () => {
 						Or you could <span className="inline-block -rotate-2 bg-brand/40 px-2">get</span> <span className="whitespace-nowrap">✨ ShipFast ✨</span>
 					</H2>
 					<div className="mx-auto max-w-2xl">
-						<Text size="lg" align="center" className="mt-8 text-muted-600">
+						<P size="lg" align="center" className="mt-8 text-muted-600">
 							It's a boilerplate that comes with all of this stuff already integrated, so you can focus on building your app.
-						</Text>
+						</P>
 					</div>
 				</section>
 				<Flex wrap justify="center" gap="14">
@@ -559,16 +559,16 @@ const ShipFast = () => {
 						</div>
 					</div>
 				</Flex>
-				<Text size="lg" className="mx-auto mt-4 max-w-3xl text-center text-muted-600">
+				<P size="lg" className="mx-auto mt-4 max-w-3xl text-center text-muted-600">
 					Spend your time building your app, not configuring tools and integrating APIs.
-				</Text>
+				</P>
 
 				<H2 size="3xl" className="mt-14 text-center">
 					The tech stack 🥞
 				</H2>
-				<Text size="xl" className="mx-auto mt-4 max-w-3xl text-center">
+				<P size="xl" className="mx-auto mt-4 max-w-3xl text-center">
 					Here's all the tech you get with ShipFast and why it's awesome.
-				</Text>
+				</P>
 				<Tabs.Root defaultValue="email" className="mt-14 w-full">
 					<Tabs.List className="w-full overflow-x-auto">
 						<Tabs.Trigger value="email">Email</Tabs.Trigger>
@@ -628,16 +628,16 @@ const ShipFast = () => {
 										Send marketing emails to your subscribers
 									</li>
 								</ul>
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 4 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With React Email, Resend, and MailerLite
-								</Text>
-								<Text size="xs">Don't like MailerLite? ShipFast is modular. Easily swap out for another Marketing Email Provider.</Text>
+								</P>
+								<P size="xs">Don't like MailerLite? ShipFast is modular. Easily swap out for another Marketing Email Provider.</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="payments">
@@ -660,15 +660,15 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 4 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With Stripe
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="auth">
@@ -699,12 +699,12 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 6 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="db">
@@ -738,15 +738,15 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 6 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With Prisma, SQLite, and LiteFS
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="seo">
@@ -777,12 +777,12 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 10 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="style">
@@ -801,18 +801,18 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 8 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="underline">
 										TailwindCSS
 									</a>
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="cicd">
@@ -843,13 +843,13 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 4 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://github.com/features/actions" target="_blank" rel="noreferrer" className="underline">
 										GitHub Actions
@@ -858,7 +858,7 @@ const ShipFast = () => {
 									<a href="https://fly.io/" target="_blank" rel="noreferrer" className="underline">
 										Fly.io
 									</a>
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="analytics">
@@ -885,18 +885,18 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 4 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://usefathom.com/ref/CENIUT" target="_blank" rel="noreferrer" className="underline">
 										Fathom
 									</a>
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="monitor">
@@ -919,13 +919,13 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 4 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://sentry.io" target="_blank" rel="noreferrer" className="underline">
 										Sentry
@@ -935,7 +935,7 @@ const ShipFast = () => {
 										Grafana
 									</a>
 									.
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 						<Tabs.Content value="more" className="flex flex-col">
@@ -954,19 +954,19 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: &infin; hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://remix.run/" target="_blank" rel="noreferrer" className="underline">
 										Remix
 									</a>
 									.
-								</Text>
+								</P>
 							</div>
 							<div className="inline-block text-left">
 								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
@@ -991,19 +991,19 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: &infin;
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<a href="https://mswjs.io/" target="_blank" rel="noreferrer" className="underline">
 										MSW
 									</a>
 									.
-								</Text>
+								</P>
 							</div>
 							<div className="inline-block text-left">
 								<H2 size="2xl" align="left" className="mt-space-14 text-green-500">
@@ -1027,18 +1027,18 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: 3 hours
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
-								<Text size="sm" className="mt-space-12">
+								</P>
+								<P size="sm" className="mt-space-12">
 									With{' '}
 									<Link to="/ui" className="underline">
 										andrecasal/ui
 									</Link>
-								</Text>
+								</P>
 							</div>
 
 							<div className="inline-block text-left">
@@ -1064,12 +1064,12 @@ const ShipFast = () => {
 									</li>
 								</ul>
 
-								<Text size="sm" className="mt-space-12 font-bold text-green-500">
+								<P size="sm" className="mt-space-12 font-bold text-green-500">
 									Time saved: &infin;
-								</Text>
-								<Text size="sm" className="font-bold text-green-500">
+								</P>
+								<P size="sm" className="font-bold text-green-500">
 									Headaches: none
-								</Text>
+								</P>
 							</div>
 						</Tabs.Content>
 					</div>
@@ -1079,12 +1079,12 @@ const ShipFast = () => {
 				<Container>
 					<Grid cols="2" gapX="10" className="my-60">
 						<div>
-							<Text size="4xl" weight="bold" className="max-w-3xl">
+							<P size="4xl" weight="bold" className="max-w-3xl">
 								Hey, it's André 👋
-							</Text>
-							<Text size="md" className="mt-8">
+							</P>
+							<P size="md" className="mt-8">
 								I've built ShipFast to:
-							</Text>
+							</P>
 							<ul className="mt-space-6 max-w-2xl list-inside space-y-1 text-left dark:text-muted-700">
 								<li>
 									<Icon name="check" size="md" className="mr-2 inline-block h-5 w-5 rounded-full bg-green-500 text-white" />
@@ -1158,9 +1158,9 @@ const ShipFast = () => {
 									>
 										Get ShipFast
 									</a>
-									<Text size="xs" align="center">
+									<P size="xs" align="center">
 										Pay once. Build unlimited projects.
-									</Text>
+									</P>
 									<ul className="mt-8 space-y-3 text-sm leading-6 text-muted-600 xl:mt-10">
 										{tier.features.map(feature => (
 											<li key={feature} className="flex gap-x-2">
@@ -1252,16 +1252,16 @@ export default ShipFast
 
 const Good = ({ children }: any) => {
 	return (
-		<Text size="lg" className="mt-8 max-w-2xl rounded-xl border border-green-200 bg-green-50 p-4 text-foreground dark:border-green-700 dark:bg-green-900">
+		<P size="lg" className="mt-8 max-w-2xl rounded-xl border border-green-200 bg-green-50 p-4 text-foreground dark:border-green-700 dark:bg-green-900">
 			{children}
-		</Text>
+		</P>
 	)
 }
 
 const Bad = ({ children }: any) => {
 	return (
-		<Text size="lg" className="ml-auto mt-8 max-w-2xl rounded-xl border border-red-200 bg-red-50 p-4 text-foreground dark:border-red-700 dark:bg-red-900">
+		<P size="lg" className="ml-auto mt-8 max-w-2xl rounded-xl border border-red-200 bg-red-50 p-4 text-foreground dark:border-red-700 dark:bg-red-900">
 			{children}
-		</Text>
+		</P>
 	)
 }
