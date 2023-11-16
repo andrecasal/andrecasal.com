@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const italicVariants = cva('', {
 	},
 })
 
-type ItalicProps = VariantProps<typeof italicVariants> & { children: ReactNode } & HTMLAttributes<HTMLElement>
+type ItalicProps = VariantProps<typeof italicVariants> & HTMLAttributes<HTMLElement>
 
 /**
  * An i component with control for typographic attributes.
@@ -53,13 +53,9 @@ type ItalicProps = VariantProps<typeof italicVariants> & { children: ReactNode }
  * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const I = forwardRef<HTMLElement, ItalicProps>(({ size, weight, align, tracking, children, className, ...props }, ref) => {
-	return (
-		<i ref={ref} className={cn('italic', italicVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</i>
-	)
-})
+const I = forwardRef<HTMLElement, ItalicProps>(({ size, weight, align, tracking, className, ...props }, ref) => (
+	<i ref={ref} className={cn('i', italicVariants({ size, weight, align, tracking }), className)} {...props} />
+))
 I.displayName = 'I'
 
 export { I }

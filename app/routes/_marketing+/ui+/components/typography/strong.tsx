@@ -53,13 +53,9 @@ type StrongProps = VariantProps<typeof strongVariants> & { children: ReactNode }
  * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const Strong = forwardRef<HTMLElement, StrongProps>(({ size, weight = 'bold', align, tracking, children, className, ...props }, ref) => {
-	return (
-		<strong ref={ref} className={cn(strongVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</strong>
-	)
-})
+const Strong = forwardRef<HTMLElement, StrongProps>(({ size, weight, align, tracking, className, ...props }, ref) => (
+	<strong ref={ref} className={cn('strong', strongVariants({ size, weight, align, tracking }), className)} {...props} />
+))
 Strong.displayName = 'Strong'
 
 export { Strong }

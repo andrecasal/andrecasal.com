@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const h5Variants = cva('', {
 	},
 })
 
-type h5Props = VariantProps<typeof h5Variants> & { children: ReactNode } & HTMLAttributes<HTMLHeadingElement>
+type h5Props = VariantProps<typeof h5Variants> & HTMLAttributes<HTMLHeadingElement>
 
 /**
  * A h5 component.
@@ -53,13 +53,9 @@ type h5Props = VariantProps<typeof h5Variants> & { children: ReactNode } & HTMLA
  * @param {string} [align='left'] - The text alignment of the h5 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h5 (tighter, tight, normal, wide, wider, or widest).
  */
-const H5 = forwardRef<HTMLHeadingElement, h5Props>(({ size = 'lg', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
-	return (
-		<h5 ref={ref} className={cn(h5Variants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</h5>
-	)
-})
+const H5 = forwardRef<HTMLHeadingElement, h5Props>(({ size = 'lg', weight = 'bold', align = 'left', tracking, className, ...props }, ref) => (
+	<h5 ref={ref} className={cn(h5Variants({ size, weight, align, tracking }), className)} {...props} />
+))
 H5.displayName = 'H5'
 
 export { H5 }

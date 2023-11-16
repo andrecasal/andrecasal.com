@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const h3Variants = cva('', {
 	},
 })
 
-type h3Props = VariantProps<typeof h3Variants> & { children: ReactNode } & HTMLAttributes<HTMLHeadingElement>
+type h3Props = VariantProps<typeof h3Variants> & HTMLAttributes<HTMLHeadingElement>
 
 /**
  * A h3 component.
@@ -53,13 +53,9 @@ type h3Props = VariantProps<typeof h3Variants> & { children: ReactNode } & HTMLA
  * @param {string} [align='left'] - The text alignment of the h3 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h3 (tighter, tight, normal, wide, wider, or widest).
  */
-const H3 = forwardRef<HTMLHeadingElement, h3Props>(({ size = '2xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
-	return (
-		<h3 ref={ref} className={cn(h3Variants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</h3>
-	)
-})
+const H3 = forwardRef<HTMLHeadingElement, h3Props>(({ size = '2xl', weight = 'bold', align = 'left', tracking, className, ...props }, ref) => (
+	<h3 ref={ref} className={cn(h3Variants({ size, weight, align, tracking }), className)} {...props} />
+))
 H3.displayName = 'H3'
 
 export { H3 }

@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const emVariants = cva('', {
 	},
 })
 
-type EmProps = VariantProps<typeof emVariants> & { children: ReactNode } & HTMLAttributes<HTMLElement>
+type EmProps = VariantProps<typeof emVariants> & HTMLAttributes<HTMLElement>
 
 /**
  * An em component with control for typographic attributes.
@@ -53,12 +53,8 @@ type EmProps = VariantProps<typeof emVariants> & { children: ReactNode } & HTMLA
  * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const Em = forwardRef<HTMLElement, EmProps>(({ size, weight, align, tracking, children, className, ...props }, ref) => {
-	return (
-		<em ref={ref} className={cn('italic', emVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</em>
-	)
+const Em = forwardRef<HTMLElement, EmProps>(({ size, weight, align, tracking, className, ...props }, ref) => {
+	return <em ref={ref} className={cn('em', emVariants({ size, weight, align, tracking }), className)} {...props} />
 })
 Em.displayName = 'Em'
 

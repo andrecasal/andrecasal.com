@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const spanVariants = cva('', {
 	},
 })
 
-type SpanProps = VariantProps<typeof spanVariants> & { children: ReactNode } & HTMLAttributes<HTMLSpanElement>
+type SpanProps = VariantProps<typeof spanVariants> & HTMLAttributes<HTMLSpanElement>
 
 /**
  * A span component with control for typographic attributes.
@@ -53,13 +53,9 @@ type SpanProps = VariantProps<typeof spanVariants> & { children: ReactNode } & H
  * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const Span = forwardRef<HTMLParagraphElement, SpanProps>(({ size, weight, align, tracking, children, className, ...props }, ref) => {
-	return (
-		<span ref={ref} className={cn(spanVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</span>
-	)
-})
+const Span = forwardRef<HTMLParagraphElement, SpanProps>(({ size, weight, align, tracking, className, ...props }, ref) => (
+	<span ref={ref} className={cn(spanVariants({ size, weight, align, tracking }), className)} {...props} />
+))
 Span.displayName = 'Span'
 
 export { Span }

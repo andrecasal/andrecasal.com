@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const pVariants = cva('', {
 	},
 })
 
-type PProps = VariantProps<typeof pVariants> & { children: ReactNode } & HTMLAttributes<HTMLParagraphElement>
+type PProps = VariantProps<typeof pVariants> & HTMLAttributes<HTMLParagraphElement>
 
 /**
  * A paragraph component with control for typographic attributes.
@@ -53,13 +53,9 @@ type PProps = VariantProps<typeof pVariants> & { children: ReactNode } & HTMLAtt
  * @param {string} [align='left'] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const P = forwardRef<HTMLParagraphElement, PProps>(({ size = 'md', weight = 'normal', align = 'left', tracking, children, className, ...props }, ref) => {
-	return (
-		<p ref={ref} className={cn(pVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</p>
-	)
-})
+const P = forwardRef<HTMLParagraphElement, PProps>(({ size = 'md', weight = 'normal', align = 'left', tracking, className, ...props }, ref) => (
+	<p ref={ref} className={cn(pVariants({ size, weight, align, tracking }), className)} {...props} />
+))
 P.displayName = 'P'
 
 export { P }

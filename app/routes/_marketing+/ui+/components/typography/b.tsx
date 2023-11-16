@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const boldVariants = cva('', {
 	},
 })
 
-type BoldProps = VariantProps<typeof boldVariants> & { children: ReactNode } & HTMLAttributes<HTMLElement>
+type BoldProps = VariantProps<typeof boldVariants> & HTMLAttributes<HTMLElement>
 
 /**
  * A bold component with control for typographic attributes.
@@ -53,13 +53,9 @@ type BoldProps = VariantProps<typeof boldVariants> & { children: ReactNode } & H
  * @param {string} [align] - The P alignment of the heading (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the heading (tighter, tight, normal, wide, wider, or widest).
  */
-const B = forwardRef<HTMLElement, BoldProps>(({ size, weight = 'bold', align, tracking, children, className, ...props }, ref) => {
-	return (
-		<b ref={ref} className={cn(boldVariants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</b>
-	)
-})
+const B = forwardRef<HTMLElement, BoldProps>(({ size, weight, align, tracking, className, ...props }, ref) => (
+	<b ref={ref} className={cn('b', boldVariants({ size, weight, align, tracking }), className)} {...props} />
+))
 B.displayName = 'B'
 
 export { B }

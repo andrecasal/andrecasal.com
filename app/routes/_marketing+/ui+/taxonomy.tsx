@@ -1,3 +1,4 @@
+import { Code } from './components/typography/code.tsx'
 import { H1 } from './components/typography/h1.tsx'
 import { H2 } from './components/typography/h2.tsx'
 import { H3 } from './components/typography/h3.tsx'
@@ -116,10 +117,13 @@ const Taxonomy = () => {
 					<strong>Status</strong> - components that pertain to the state of the app.
 				</li>
 				<li>
+					<strong>Actions</strong> - components that pertain to actions.
+				</li>
+				<li>
 					<strong>Data Display</strong> - components to display complex data structures.
 				</li>
 				<li>
-					<strong>Data Entry</strong> - components for data input.
+					<strong>Form elements</strong> - components that go inside <Code>{'<form>'}</Code>.
 				</li>
 			</ul>
 			<P size="md" className="mt-2">

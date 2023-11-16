@@ -1,8 +1,8 @@
-import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
 import { cn } from '~/utils/tailwind-merge.ts'
 
-const h1Variants = cva('', {
+const quoteVariants = cva('', {
 	variants: {
 		size: {
 			'6xl': 'text-size-6xl',
@@ -43,19 +43,11 @@ const h1Variants = cva('', {
 	},
 })
 
-type h1Props = VariantProps<typeof h1Variants> & HTMLAttributes<HTMLHeadingElement>
+type QuoteProps = VariantProps<typeof quoteVariants> & HTMLAttributes<HTMLQuoteElement>
 
-/**
- * A h1 component.
- *
- * @param {string} [size='4xl'] - The size variant of the h1 (4xl, 3xl, 2xl, xl, lg, md, sm, xs).
- * @param {string} [weight='bold'] - The font weight of the h1 (thin, extralight, light, normal, medium, semibold, bold, extrabold, or black).
- * @param {string} [align='left'] - The text alignment of the h1 (left, center, or right).
- * @param {string} [tracking] - The letter spacing of the h1 (tighter, tight, normal, wide, wider, or widest).
- */
-const H1 = forwardRef<HTMLHeadingElement, h1Props>(({ size = '4xl', weight = 'bold', align = 'left', tracking, className, ...props }, ref) => (
-	<h1 ref={ref} className={cn(h1Variants({ size, weight, align, tracking }), className)} {...props} />
+const Q = forwardRef<HTMLQuoteElement, QuoteProps>(({ size, weight, align, tracking, className, ...props }, ref) => (
+	<q ref={ref} className={cn('q', quoteVariants({ size, weight, align, tracking }), className)} {...props} />
 ))
-H1.displayName = 'H1'
+Q.displayName = 'Q'
 
-export { H1 }
+export { Q }

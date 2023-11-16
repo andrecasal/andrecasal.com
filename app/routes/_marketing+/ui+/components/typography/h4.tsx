@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '~/utils/tailwind-merge.ts'
 
@@ -43,7 +43,7 @@ const h4Variants = cva('', {
 	},
 })
 
-type h4Props = VariantProps<typeof h4Variants> & { children: ReactNode } & HTMLAttributes<HTMLHeadingElement>
+type h4Props = VariantProps<typeof h4Variants> & HTMLAttributes<HTMLHeadingElement>
 
 /**
  * A h4 component.
@@ -53,13 +53,9 @@ type h4Props = VariantProps<typeof h4Variants> & { children: ReactNode } & HTMLA
  * @param {string} [align='left'] - The text alignment of the h4 (left, center, or right).
  * @param {string} [tracking] - The letter spacing of the h4 (tighter, tight, normal, wide, wider, or widest).
  */
-const H4 = forwardRef<HTMLHeadingElement, h4Props>(({ size = 'xl', weight = 'bold', align = 'left', tracking, children, className, ...props }, ref) => {
-	return (
-		<h4 ref={ref} className={cn(h4Variants({ size, weight, align, tracking }), className)} {...props}>
-			{children}
-		</h4>
-	)
-})
+const H4 = forwardRef<HTMLHeadingElement, h4Props>(({ size = 'xl', weight = 'bold', align = 'left', tracking, className, ...props }, ref) => (
+	<h4 ref={ref} className={cn(h4Variants({ size, weight, align, tracking }), className)} {...props} />
+))
 H4.displayName = 'H4'
 
 export { H4 }
