@@ -13,9 +13,10 @@ import { useIsomorphicLayoutEffect } from 'usehooks-ts'
 const prefetch = 'intent'
 
 const navigation = [
-	/* { name: 'Tips', href: '/tips' }, */
+	{ name: 'Tutoring', href: '/tutoring' },
+	{ name: 'Mentorship', href: '/mentorship' },
 	/* { name: 'Shorts', href: '/shorts' }, */
-	{ name: 'ui', href: '/ui' },
+	{ name: 'UI', href: '/ui' },
 	{ name: 'ShipFast', href: '/ship-fast' },
 	{ name: 'Articles', href: '/articles' },
 	/* { name: 'Talks', href: '/talks' }, */
@@ -27,7 +28,6 @@ const navigation = [
 			{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' },
 		],
 	},
-	{ name: 'Mentorship', href: '/mentorship' },
 	/* { name: 'About', href: '/courses', children: [
 		{ name: 'About André', href: '/about' },
 		{ name: 'Uses', href: '/uses' },

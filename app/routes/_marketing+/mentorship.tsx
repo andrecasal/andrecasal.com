@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible.tsx'
+/* import { useState } from 'react'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible.tsx' */
 import BackgroundSquareLines from './components/bg-square-lines.tsx'
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
@@ -14,7 +14,30 @@ import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
 
-const features = [
+const services = [
+	{
+		name: 'Idea Validation and Refinement',
+		description: "Transform your ideas into viable business concepts through a rigorous validation process. I'll help you refine your vision, ensuring it aligns with market demands and stands out in a crowded landscape.",
+		icon: 'trophy',
+	},
+	{
+		name: 'Customer Acquisition Strategies',
+		description: "Finding and retaining customers is the lifeblood of any business. I'll guide you in developing effective marketing and customer acquisition strategies to build a loyal customer base from the ground up.",
+		icon: 'trophy',
+	},
+	{
+		name: 'Sustainable Growth Planning',
+		description: "Scaling a business requires careful planning and execution. Together, we'll develop a roadmap for sustainable growth, incorporating strategies for expansion, resource management, and market diversification.",
+		icon: 'trophy',
+	},
+	{
+		name: 'Entrepreneurial Mindset Coaching',
+		description: "Success in entrepreneurship goes beyond business strategies; it's also about cultivating the right mindset. I offer coaching to help you develop the resilience, creativity, and strategic thinking essential for long-term success.",
+		icon: 'trophy',
+	},
+]
+
+/* const features = [
 	{
 		name: 'Beautiful UIs',
 		description: 'Learn how to build and maintain design systems controllable with CSS Variables (custom properties), so you can ship beautiful and consistent UIs.',
@@ -60,9 +83,9 @@ const features = [
 		description: 'Learn how to mock external services and APIs, so you can test your code locally and in the cloud without having to rely on external services.',
 		icon: 'masks-theater',
 	},
-]
+] */
 
-const moreFeatures = [
+/* const moreFeatures = [
 	{
 		name: 'Validation',
 		description: 'Learn how to build full-stack validation, so you can prevent invalid user input from reaching your database.',
@@ -130,7 +153,7 @@ const moreFeatures = [
 		description: 'Learn how to use On-page Analytics to track user behavior in your pages, and understand why are users converting or not, so you can make data-driven decisions.',
 		icon: 'document-chart-bar',
 	},
-]
+] */
 
 const stats = [
 	{ label: 'with an initial call', value: 'Start' },
@@ -198,7 +221,7 @@ function classNames(...classes: string[]) {
 const includedFeatures = ['Solving challenges', 'Pair programming', 'Code Reviews', 'Merge Requests']
 
 const FullStackWebDevMentor = () => {
-	const [open, setOpen] = useState<boolean>(false)
+	/* const [open, setOpen] = useState<boolean>(false) */
 
 	return (
 		<>
@@ -207,11 +230,10 @@ const FullStackWebDevMentor = () => {
 					<div className="pb-24 pt-12 sm:pb-32 sm:pt-16 lg:flex lg:gap-x-10 lg:pb-40 lg:pt-20">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 							<H1 size="4xl" className="mt-10">
-								Modern full-stack web development mentorship
+								Business mentoring for entrepreneurs.
 							</H1>
 							<P size="md" className="mt-6 text-muted-600">
-								Are you looking for a seasoned full-stack web dev mentor to guide you through modern tools and techniques and impart essential knowledge to step up your
-								development game? I love working with people, and I'm here to help you level up your skills and career.
+								I'll help you build your service or tech product, find your first customers, grow your business, and become an independent entrepreneur.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6">
 								<Button asChild>
@@ -245,15 +267,11 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="lg:max-w-2xl">
-								<H2 size="md" className="text-brand">
-									Full-stack web development
+								<H2 size="3xl">
+									Building a business can be overwhelming
 								</H2>
-								<P size="3xl" className="mt-2 font-bold">
-									Can be overwhelming
-								</P>
 								<P size="xl" className="mt-6 text-muted-700">
-									Layout, styling, design systems, responsiveness, server-side rendering, hydration, user experience, accessibility, validation, data modeling, caching,
-									memoization, performance, authentication, security, email, testing, visual regression, deployment, monitoring, logging, developer experience...
+									Embarking on the journey of entrepreneurship is both thrilling and challenging. As a seasoned business mentor, I understand the intricacies involved in transforming an idea into a thriving venture. Whether you're just starting or looking to take your business to new heights, I offer comprehensive guidance to navigate the entrepreneurial landscape.
 								</P>
 							</div>
 						</div>
@@ -264,33 +282,26 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="max-w-xl text-muted-700 lg:max-w-lg">
-								<P size="md">
-									It can be disheartening to spend endless hours scrolling through online tutorials and courses, try to remember all the best practices, and to constantly
-									make an effort to stay up-to-date in this fast-paced industry. It can be mentally and emotionally exhausting and your dream of becoming a proficient
-									full-stack web developer may, at times, feel out of reach.
-								</P>
-								<P size="md" className="mt-8">
-									That's the problem I'm here to solve.
-								</P>
+								<H3 size="lg">
+									Why Choose Me as Your Business Mentor?
+								</H3>
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
 										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Modern tools.</strong> Forget analysis paralysis. I'll guide you through the best tools for the
-											job.
+											<strong className="font-semibold text-muted-900">Proven Track Record</strong><br />With a track record of success in diverse industries, I bring a wealth of practical experience to the table. Having founded and scaled multiple businesses myself, I've encountered the hurdles you might face and conquered them. My hands-on experience sets me apart, ensuring you receive advice grounded in real-world achievements.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Knowledge.</strong> I'll teach you everything you need to know to ship world-class products.
+											<strong className="font-semibold text-muted-900">Tailored Strategies for Success</strong><br />No two businesses are the same, and that's why a one-size-fits-all approach doesn't work. I specialize in crafting personalized strategies tailored to your unique goals, industry, and challenges. Whether you're in the service sector or tech industry, my guidance is designed to align with your specific needs.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="mountain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Real-world experience.</strong> We will build a real, production-ready, full-stack web app
-											together from start to finish.
+											<strong className="font-semibold text-muted-900">Comprehensive Business Development</strong><br />From ideation to execution, I provide comprehensive support at every stage of business development. Whether you're brainstorming your first business concept or seeking strategies for sustainable growth, I offer a holistic approach that covers product development, market analysis, customer acquisition, and long-term scalability.
 										</Span>
 									</li>
 								</ul>
@@ -302,36 +313,30 @@ const FullStackWebDevMentor = () => {
 			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
-						<H2 size="md" align="center" className="text-brand">
-							Everything you need
+						<H2 size="3xl" align="center">
+							Here are some of the things you can learn with me
 						</H2>
-						<P size="3xl" weight="bold" align="center" className="mt-2">
-							To ship modern full-stack web apps
-						</P>
-						<P size="lg" className="mx-auto mt-6 max-w-xl text-center text-muted-600">
-							Here are some of the things you can learn with me:
-						</P>
 					</div>
 					<div className="mx-auto mt-16 grid max-w-2xl gap-y-16 sm:mt-20 lg:mt-24 lg:max-w-none">
 						<dl className="relative grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-							{features.map(feature => (
-								<div key={feature.name} className="flex flex-col">
+							{services.map(service => (
+								<div key={service.name} className="flex flex-col">
 									<dt>
 										<Span size="md" weight="semibold" className="flex items-center gap-x-3 text-muted-900">
-											<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
-											{feature.name}
+											<Icon name={service.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
+											{service.name}
 										</Span>
 									</dt>
 									<dd>
 										<P size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-											{feature.description}
+											{service.description}
 										</P>
 									</dd>
 								</div>
 							))}
-							{!open ? <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-background sm:h-32" /> : null}
+							{/* {!open ? <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-background sm:h-32" /> : null} */}
 						</dl>
-						<Collapsible open={open} onOpenChange={setOpen}>
+						{/* <Collapsible open={open} onOpenChange={setOpen}>
 							<CollapsibleContent asChild>
 								<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 									{moreFeatures.map(feature => (
@@ -358,7 +363,7 @@ const FullStackWebDevMentor = () => {
 									</CollapsibleTrigger>
 								</Button>
 							</div>
-						</Collapsible>
+						</Collapsible> */}
 					</div>
 				</div>
 			</Container>
@@ -371,17 +376,14 @@ const FullStackWebDevMentor = () => {
 						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
 								<P size="xl" className="text-muted-600">
-									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. I
-									highly recommend you already bring a real-world application in mind that you'd like to build or improve so we can get our hands dirty.
+									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. The goal is to gain clarity on exactly what you'd like to build, so we can get our hands dirty.
 								</P>
 								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									Then comes the bulk of the work, where you'll build your app with my guidance. I'll be there to make sure you're on the right track, helping you with any
-									questions you have, and correcting any mistakes you make along the way. This usually includes weekly calls, code reviews, and bouncing ideas back and
-									forth on chat.
+									Then comes the bulk of the work, where you'll build your business with my guidance. I'll be there to make sure you're on the right track, helping you with any
+									questions you have, and correcting any mistakes you make along the way. This usually includes weekly calls, code reviews (if applicable), and bouncing ideas back and forth on chat.
 								</P>
 								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to do: learned everything you wanted to, got a
-									higher-paying job, shipped your app, or any combination of those.
+									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to do and, hopefully, your business is thriving.
 								</P>
 							</div>
 							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">

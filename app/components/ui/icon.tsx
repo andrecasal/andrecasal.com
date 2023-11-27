@@ -55,7 +55,7 @@ export function Icon({
 	return (
 		<svg
 			{...props}
-			className={cn(sizeClassName[size], 'inline self-center', className)}
+			className={cn(sizeClassName[size], 'inline', className)}
 		>
 			<use href={`${href}#${name}`} />
 		</svg>
@@ -63,6 +63,7 @@ export function Icon({
 }
 
 export type IconName =
+  | "academic-cap"
   | "accessibility"
   | "arrow-path"
   | "avatar"
@@ -74,6 +75,7 @@ export type IconName =
   | "bug"
   | "camera"
   | "chart-bar"
+  | "chat-bubble-left-right"
   | "chat-bubbles"
   | "chat"
   | "check"
@@ -88,6 +90,7 @@ export type IconName =
   | "crumbled-paper"
   | "desktop"
   | "document-chart-bar"
+  | "estuda-comigo"
   | "exit"
   | "file-text-folded"
   | "file-text"
@@ -100,6 +103,7 @@ export type IconName =
   | "lock-closed"
   | "lock-open-1"
   | "masks-theater"
+  | "mix"
   | "moon"
   | "mountain"
   | "paper-plane"

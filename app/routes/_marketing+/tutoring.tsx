@@ -23,12 +23,12 @@ const Tutoring = () => {
 	const features = [
 		{
 			name: 'Easy Zoom calls',
-			description: 'All you need to do is click a link at the time of the session.',
+			description: 'Easy Zoom calls with an expert tutor just one click away.',
 			icon: 'video',
 		},
 		{
-			name: 'Free recordings',
-			description: "I'll give you full lifetime access to a playlist containing all our calls.",
+			name: 'Free private recordings',
+			description: "I'll give you full lifetime access to a private playlist only you can access containing all our calls.",
 			icon: 'play',
 		},
 		{
@@ -37,9 +37,9 @@ const Tutoring = () => {
 			icon: 'chat',
 		},
 		{
-			name: 'Whatsapp support',
-			description: "I'll give you real-time Whatsapp support for any questions that can be quickly solved through texting.",
-			icon: 'chat',
+			name: 'Ethical commitment',
+			description: "I commit to not helping you cheat. I'll help you understand the subject matter and solve your doubts, but I won't do your work for you.",
+			icon: 'heart',
 		},
 	]
 
@@ -217,7 +217,7 @@ const Tutoring = () => {
 								Tutoring
 							</H1>
 							<P size="lg" className="mt-6 text-muted-600">
-								I've been tutoring college students on computer science for over 16 years. I've helped hundreds of students get through their classes and graduate. I can help
+								I've been tutoring college students on computer science for over {new Date().getFullYear() - 2006} years. I've helped hundreds of students get through their classes and graduate. I can help
 								you too.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6">
@@ -236,15 +236,12 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-32">
 				<div className="max-w-3xl text-muted-700">
-					<P size="md" weight="semibold" className="text-brand">
-						I understand the
-					</P>
 					<H2 size="3xl" className="mt-2 text-muted-900">
-						College life
+						The college life
 					</H2>
 					<P size="xl" className="mt-6 leading-8">
 						Ok, so you're in college and you don't want to be disrespected, shamed, or humiliated by your peers. Much less by your teachers. Having gone through college and been
-						a tutor for more than 16 years, I know how you feel. You feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
+						a tutor for more than {new Date().getFullYear() - 2006} years, I know how you feel. You may feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
 						won't magically make your grades go up. Besides, spending more time reading the recommended books won't help because you can't lose any more time and you're already
 						sleeping less than what would be healthy.
 					</P>
@@ -257,28 +254,23 @@ const Tutoring = () => {
 							the teacher's attention twice in two hours? For this, I might as well study at home!"
 						</P>
 						<P className="mt-8">
-							After that, I tried a private math tutor. He knew the subject matter, but couldn't bridge my knowledge to his knowledge. He couldn't understand which background
-							knowledge I was missing to understand the current concepts, so he mechanistically repeated the same answers that I wouldn't be able to understand until he gave me
-							the background knowledge required. It was frustrating.
+							After that, I tried a private math tutor. He knew the subject matter, but he couldn't understand that I lacked some fundamental concepts to understand the current concepts. So he mechanistically repeated the same answers that I kept not understanding because I lacked that background knowledge. It was frustrating.
 						</P>
 						<P className="mt-6">
 							Are you looking for a better solution to improve your grades, and feel proud of yourself and the things you'll be able to accomplish? That's why I'm here. To help
-							you dominate the subject matter, deliver well-made projects on time, and get top grades with tutoring dedicated to you!
+							you dominate the subject matter, deliver well-made projects on time, and get top grades with private tutoring dedicated to you!
 						</P>
 						<H3 size="2xl" className="mt-16 text-muted-900">
 							From beginner to expert
 						</H3>
 						<P className="mt-10">
-							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. Wow, son, you're doing well in college! Imagine your teachers:
-							guys, if you have questions direct them to him, he knows this stuff! Imagine your colleagues recognizing your knowledge, and asking for study sessions with you!
+							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. "Wow, son, you're doing well in college!" - says your dad. Imagine your teachers:
+							"Guys, if you have questions direct them to him, he knows this stuff!" Imagine your colleagues recognizing your knowledge, and asking for study sessions with you!
 						</P>
 					</div>
 					<div className="mt-44 max-w-2xl">
-						<P size="md" weight="semibold" className="text-brand">
-							How it feels like
-						</P>
 						<H2 size="3xl" className="mt-2 text-muted-900">
-							Working with me
+							How it feels like working with me
 						</H2>
 						<figure className="mt-16">
 							<img className="aspect-video rounded-xl bg-muted-50 object-cover" src={andreOnMacBookPro} alt="André on a Zoom call with a student" />
@@ -295,7 +287,7 @@ const Tutoring = () => {
 							biggest problem will be to distinguish the ones who appreciate you for your intelligence from those who just want to take advantage of you.
 						</P>
 						<P className="mt-8">
-							You're doing the exams. Confident. Focused. Your colleagues struggle to remember the concepts they need to answer the questions. You completely blaze through the
+							Now imagine you're doing the exams. Confident. Focused. Your colleagues struggle to remember the concepts they need to answer the questions. You completely blaze through the
 							memorization questions the teacher posed, knowing every single answer by heart. A great start makes you feel even more confident and allows you more time to
 							answer all the questions and revise your answers after you're done. Still, 10 minutes left on the clock. You turn in your exam early, feeling proud of yourself
 							and everything you're achieving! You leave the exam room, take your phone out and dial your parent's phone number.
@@ -329,14 +321,11 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-24 sm:py-32">
 				<div className="mx-auto max-w-2xl lg:text-center">
-					<H2 size="md" align="center" className="text-brand">
-						Everything you need to be a
+					<H2 size="3xl" className="mt-2 text-muted-900 text-center">
+						Everything you need to be a successful student	
 					</H2>
-					<P size="3xl" weight="bold" className="mt-2 text-muted-900">
-						Successful student
-					</P>
-					<P size="lg" className="mt-6 text-muted-600">
-						You'll learn how to organize your time, material, and study sessions, so that you can deliver them on time and with the quality you need to get top grades.
+					<P size="lg" className="mt-6 text-muted-600 text-center">
+						Besides having access to an expert tutor, you'll learn how to organize your time, material, and study sessions, so that you can deliver them on time and with the quality you need to get top grades.
 					</P>
 				</div>
 				<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -363,7 +352,7 @@ const Tutoring = () => {
 								About André
 							</H1>
 							<P size="lg" className="mt-6 text-muted-700">
-								André has been working as a software engineer, for more than 16 years, with companies like Calouste Gulbenkian Foundation, American TV network NBC, and energy
+								André is a serial entrepreneur with a background in software engineering, working for more than {new Date().getFullYear() - 2006} years, with companies like Calouste Gulbenkian Foundation, American TV network NBC, and energy
 								drink Monster Energy. He has provided technical direction to countless startups, and managed teams of over 20 people. Currently, he helps other software
 								engineers to improve their careers through mentoring and his online courses, which have been featured by Microsoft. Teaching has always been one of his
 								passions, and that is why throughout his career he has consulted, mentored, and tutored with remarkable reviews.
@@ -373,25 +362,15 @@ const Tutoring = () => {
 							<img src="/img/andre.jpg" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
 						</div>
 					</div>
-					<div className="max-w-2xl">
-						<P className="mt-8">André is part of Noumena's Advisory Council, hosts Tech Jobs Fair Lisbon, and is launching a Software Engineering School.</P>
-						<P className="mt-8">
-							Besides tech, entrepreneurship, and business, André also has a deep interest in teaching practical introspection and (nonviolent) communication skills. He feels
-							that, to a large degree, the quality of your mind determines the quality of your life, and he's passionate about personal transformation and development.
-						</P>
-					</div>
 				</Container>
 			</BackgroundDiagonal>
 			<BackgroundBlur>
 				<Container>
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
-							<H2 size="md" align="center" className="text-brand">
-								Testimonials
+							<H2 size="3xl" weight="bold" className="mt-2 text-center">
+							Testimonials from some of the amazing people I've worked with <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</H2>
-							<P size="3xl" weight="bold" className="mt-2">
-								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
-							</P>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
@@ -408,7 +387,7 @@ const Tutoring = () => {
 											{Array(5)
 												.fill(null)
 												.map((_value, i) => (
-													<Icon key={i} name="star" className="text-size-lg text-brand" />
+													<Icon key={i} name="star-filled" className="text-size-lg text-brand" />
 												))}
 										</div>
 									</div>
@@ -443,7 +422,7 @@ const Tutoring = () => {
 																{Array(5)
 																	.fill(null)
 																	.map((_value, i) => (
-																		<Icon key={i} name="star" className="text-size-lg text-brand" />
+																		<Icon key={i} name="star-filled" className="text-size-lg text-brand" />
 																	))}
 															</div>
 														</div>
@@ -552,56 +531,9 @@ const Tutoring = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<H3 size="2xl">Continuous tutoring (4h/week)</H3>
-							<P size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for students wanting <strong>excellent grades</strong>.<br /> Chat is always available.
-							</P>
-							<div className="mt-10 flex items-center gap-x-4">
-								<H4 size="sm" className="flex-none font-semibold text-brand">
-									We can use this time for
-								</H4>
-								<div className="h-px flex-auto bg-muted-100" />
-							</div>
-							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
-								{includedFeatures.map(feature => (
-									<li key={feature} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
-										{feature}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-								<div className="mx-auto max-w-xs px-8">
-									<P size="md" weight="semibold" className="text-muted-600">
-										Pay once a month
-									</P>
-									<P className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Span size="4xl" weight="bold">
-											€640
-										</Span>
-										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
-											EUR
-										</Span>
-									</P>
-									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
-											Schedule initial call
-										</a>
-									</Button>
-									<P size="xs" className="mt-6 text-muted-600">
-										Invoices and receipts available for easy company reimbursement
-									</P>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Single session</H3>
 							<P size="md" className="mt-6 text-muted-600">
-								Need help with a <strong>single project</strong> or <strong>exams</strong>?<br />
+								Need help with a <strong>single project</strong> or an <strong>exam</strong>?<br />
 								Schedule however many of these sessions you want.
 							</P>
 							<div className="mt-10 flex items-center gap-x-4">
@@ -642,6 +574,53 @@ const Tutoring = () => {
 							</div>
 						</div>
 					</div>
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+						<div className="p-8 sm:p-10 lg:flex-auto">
+							<H3 size="2xl">Continuous support 2h/week</H3>
+							<P size="md" className="mt-6 text-muted-600">
+								This is the most popular plan for students wanting <strong>great grades</strong>.
+							</P>
+							<div className="mt-10 flex items-center gap-x-4">
+								<H4 size="sm" className="flex-none font-semibold text-brand">
+									We can use this time for
+								</H4>
+								<div className="h-px flex-auto bg-muted-100" />
+							</div>
+							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+								{includedFeatures.map(feature => (
+									<li key={feature} className="flex gap-x-3">
+										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+								<div className="mx-auto max-w-xs px-8">
+									<P size="md" weight="semibold" className="text-muted-600">
+										Monthly subscription
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
+											€297
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
+										</Span>
+									</P>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://buy.stripe.com/dR6cNfgHk1Bvgx24gi" target="_blank" rel="noopener noreferrer">
+											Subscribe to this plan
+										</a>
+									</Button>
+									<P size="xs" className="mt-6 text-muted-600">
+										Subscribe and cancel at any time.
+									</P>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</Container>
 			<Container className="pt-14">
@@ -651,7 +630,7 @@ const Tutoring = () => {
 							Satisfaction Guaranteed
 						</H2>
 						<P size="lg" className="mt-6 text-muted-600">
-							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in 16 years of tutoring, no one
+							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in {new Date().getFullYear() - 2006} years of tutoring, no one
 							has ever asked for their money back - I'll give you your money back.
 						</P>
 					</div>
@@ -686,3 +665,4 @@ const Tutoring = () => {
 }
 
 export default Tutoring
+
