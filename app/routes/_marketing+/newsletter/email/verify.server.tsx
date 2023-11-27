@@ -18,7 +18,7 @@ export const VerifyNewsletterSubscriptionEmail = ({ name, onboardingUrl, otp }: 
 		<EmailRoot subjectLine="Action Required: Confirm Your Email Address Now" previewText="Complete your subscription by confirming your email address. Just one click away!">
 			<Section>
 				<Heading as="h1" className="my-14 text-3xl font-bold">
-					Confirm your subscription
+					Confirm Your Email Address
 				</Heading>
 				<Text className="text-base">Hi {name},</Text>
 				<Text className="text-base">Thank you for subscribing to André Casal's newsletter! To ensure you receive our updates and exclusive content, please confirm your email address by clicking the button below:</Text>
