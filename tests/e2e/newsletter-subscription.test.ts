@@ -77,7 +77,7 @@ test('subscribing with short code', async ({ page }) => {
 	expect(email.to).toBe(subscriptionData.email)
 	expect(email.from).toBe('Andre Casal <andre@transactional.andrecasal.com>')
 	expect(email.subject).toMatch(/Confirm your subscription!/i)
-	const codeMatch = email.text.match(/this code into the page :\n\n(?<code>\d+)/)
+	const codeMatch = email.text.match(/this code into the page:\n\n(?<code>\d+)/)
 	const code = codeMatch?.groups?.code
 	invariant(code, 'Newsletter subscription code not found')
 	await page.getByRole('textbox', { name: /code/i }).fill(code)
