@@ -445,7 +445,7 @@ const Tutoring = () => {
 								The subjects I teach
 							</H2>
 							<P size="lg" className="mt-6 text-muted-600">
-								I've been teaching computer science and software engineering for more than 16 years, so I've mastered quite a few subjects. Below you can find a
+								I've been teaching computer science and software engineering for more than {new Date().getFullYear() - 2006} years, so I've mastered quite a few subjects. Below you can find a
 								non-exhaustive list of the subjects I can help you with.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6"></div>
@@ -521,7 +521,7 @@ const Tutoring = () => {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
 						<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
-							Simple no-tricks pricing
+							Simple pricing
 						</H2>
 						<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
 							I charge 40€ per hour. The payments are done per session.
@@ -574,7 +574,7 @@ const Tutoring = () => {
 							</div>
 						</div>
 					</div>
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+					<div id="continuous-support" className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Continuous support 2h/week</H3>
 							<P size="md" className="mt-6 text-muted-600">
