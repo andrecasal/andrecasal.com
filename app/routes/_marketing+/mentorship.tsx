@@ -13,147 +13,7 @@ import { H3 } from './ui+/components/typography/h3.tsx'
 import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
-
-const services = [
-	{
-		name: 'Idea Validation and Refinement',
-		description: "Transform your ideas into viable business concepts through a rigorous validation process. I'll help you refine your vision, ensuring it aligns with market demands and stands out in a crowded landscape.",
-		icon: 'trophy',
-	},
-	{
-		name: 'Customer Acquisition Strategies',
-		description: "Finding and retaining customers is the lifeblood of any business. I'll guide you in developing effective marketing and customer acquisition strategies to build a loyal customer base from the ground up.",
-		icon: 'trophy',
-	},
-	{
-		name: 'Sustainable Growth Planning',
-		description: "Scaling a business requires careful planning and execution. Together, we'll develop a roadmap for sustainable growth, incorporating strategies for expansion, resource management, and market diversification.",
-		icon: 'trophy',
-	},
-	{
-		name: 'Entrepreneurial Mindset Coaching',
-		description: "Success in entrepreneurship goes beyond business strategies; it's also about cultivating the right mindset. I offer coaching to help you develop the resilience, creativity, and strategic thinking essential for long-term success.",
-		icon: 'trophy',
-	},
-]
-
-/* const features = [
-	{
-		name: 'Beautiful UIs',
-		description: 'Learn how to build and maintain design systems controllable with CSS Variables (custom properties), so you can ship beautiful and consistent UIs.',
-		icon: 'swatch',
-	},
-	{
-		name: 'Light/Dark Mode',
-		description: 'Learn how to implement client hints, and light/dark/system modes in your apps, so you can give your users the option to choose their preferred color scheme.',
-		icon: 'circle-half-filled',
-	},
-	{
-		name: 'Accessibility',
-		description: 'Learn how to use Radix UI to make your apps fully accessible and keyboard navigatable, so you can reach more users and improve the experience for everyone.',
-		icon: 'accessibility',
-	},
-	{
-		name: 'Full-stack apps',
-		description: 'Learn how to build full-stack apps with the gold standard of Remix and React & friends.',
-		icon: 'trophy',
-	},
-	{
-		name: 'TypeScript',
-		description: 'Learn how to use TypeScript to write fully typed code, so you can catch the largest category of bugs as you write the code.',
-		icon: 'code',
-	},
-	{
-		name: 'Code formatting',
-		description: 'Learn how to automatically format code in a style you enjoy, in multiple languages, so you can read coder faster.',
-		icon: 'file-text',
-	},
-	{
-		name: 'Linting',
-		description: 'Learn how to use linters to catch bugs, so you can write better code and avoid common mistakes.',
-		icon: 'bug',
-	},
-	{
-		name: 'Testing',
-		description: 'Learn how, which and when to write automated tests for your apps, so you can test your code locally and in the cloud.',
-		icon: 'beaker',
-	},
-	{
-		name: 'Mocking',
-		description: 'Learn how to mock external services and APIs, so you can test your code locally and in the cloud without having to rely on external services.',
-		icon: 'masks-theater',
-	},
-] */
-
-/* const moreFeatures = [
-	{
-		name: 'Validation',
-		description: 'Learn how to build full-stack validation, so you can prevent invalid user input from reaching your database.',
-		icon: 'check',
-	},
-	{
-		name: 'Security',
-		description: 'Learn how to implement secure login and signup flows, two-factor authentication (2FA), and more, so you can protect your users and their data.',
-		icon: 'lock-closed',
-	},
-	{
-		name: 'Database ORM',
-		description: 'Learn how to use an ORM to interact with your database, so you can write less code and focus on your business logic.',
-		icon: 'circle-stack',
-	},
-	{
-		name: 'Performance',
-		description: 'Learn how to improve the performance of your apps with code-splitting and how to avoid network request waterfalls, so you can deliver a better user experience.',
-		icon: 'bolt',
-	},
-	{
-		name: 'Caching and memoization',
-		description:
-			'Learn how to use in-app caching, memoization, and in-memory and SQLite-based caching, so you can improve the performance of your apps and reduce your cloud hosting costs.',
-		icon: 'chip',
-	},
-	{
-		name: 'Email',
-		description: 'Learn how to send beautifully designed emails from your apps, so you can send transactional emails, newsletters, and more.',
-		icon: 'paper-plane',
-	},
-	{
-		name: 'Workflows',
-		description: 'Integrate most, if not all, of your development workflow into VS Code. No need to switch between multiple apps to get things done.',
-		icon: 'arrow-path',
-	},
-	{
-		name: 'Push to deploy',
-		description:
-			'Integrate CI/CD pipelines with your GitHub repositories to automatically test and deploy your apps to the cloud. No need to manually upload files or run commands on the server.',
-		icon: 'rocket',
-	},
-	{
-		name: 'Deploy all over the world',
-		description: 'Run your full stack apps (and databases) on the edge, close to your users. No need to worry about latency or network speed.',
-		icon: 'globe',
-	},
-	{
-		name: 'Monitoring',
-		description: 'Learn how to monitor your apps, so you can detect and fix issues before your users notice them.',
-		icon: 'chart-bar',
-	},
-	{
-		name: 'Logging',
-		description: 'Learn how to log errors and events in your apps, so you can debug issues and monitor your apps.',
-		icon: 'file-text-folded',
-	},
-	{
-		name: 'Navigation Analytics',
-		description: 'Learn how to use Analytics to track user behavior and conversions in your apps, so you can make data-driven decisions.',
-		icon: 'presentation-chart',
-	},
-	{
-		name: 'On-page Analytics',
-		description: 'Learn how to use On-page Analytics to track user behavior in your pages, and understand why are users converting or not, so you can make data-driven decisions.',
-		icon: 'document-chart-bar',
-	},
-] */
+import { cn } from '~/utils/tailwind-merge.ts'
 
 const stats = [
 	{ label: 'with an initial call', value: 'Start' },
@@ -214,11 +74,7 @@ const testimonials = [
 	],
 ]
 
-function classNames(...classes: string[]) {
-	return classes.filter(Boolean).join(' ')
-}
-
-const includedFeatures = ['Solving challenges', 'Pair programming', 'Code Reviews', 'Merge Requests']
+const benefits = ['A clear path forward', 'Seasoned entrepreneur to bounce ideas off of', 'Guidance throughout the entire process', 'Motivating fast growth']
 
 const FullStackWebDevMentor = () => {
 	/* const [open, setOpen] = useState<boolean>(false) */
@@ -289,114 +145,24 @@ const FullStackWebDevMentor = () => {
 									<li className="flex items-start gap-x-3">
 										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Proven Track Record</strong><br />With a track record of success in diverse industries, I bring a wealth of practical experience to the table. Having founded and scaled multiple businesses myself, I've encountered the hurdles you might face and conquered them. My hands-on experience sets me apart, ensuring you receive advice grounded in real-world achievements.
+											<strong className="font-semibold text-muted-900">Proven Track Record</strong><br />
+
+											Having founded and scaled multiple businesses myself (and continuing to), I've encountered many of the hurdles you will face and conquered them. My hands-on experience sets me apart, ensuring you receive advice grounded in real-world achievements. I'm in a position to help you build a business plan and guide you through it, helping you see what's important at each stage of the business, and where you should focus your energy and why, as I've done for multiple entrepreneurs whose businesses I've helped save, build, or scale up to multiple thousands per month. Check out the testimonials to see what they say about me.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Tailored Strategies for Success</strong><br />No two businesses are the same, and that's why a one-size-fits-all approach doesn't work. I specialize in crafting personalized strategies tailored to your unique goals, industry, and challenges. Whether you're in the service sector or tech industry, my guidance is designed to align with your specific needs.
+											<strong className="font-semibold text-muted-900">Wealth of skills</strong><br />Business is complicated. There's a lot of skills you need to know in order to be a successfull business owner or entrepreneur. Planning, strategizing, researching, acquisition, communication, marketing, designing, launching, people and financial management, policy and law, the specific skill that services your clients or creates your product, not to talk about your personal skills of mindset, grit, productivity, emotional management and so forth. I'm not strong in policy and law (due to a personal desinterest), so I usually lean on friends or professionals to help me with that part, but I do hold substantial knowledge in all the other skills, with a strong emphasis on another one: full-stack web development. So I'm well placed to help you build your business, but extra well placed if you're building a software-based business.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
-										<Icon name="mountain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
+										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Comprehensive Business Development</strong><br />From ideation to execution, I provide comprehensive support at every stage of business development. Whether you're brainstorming your first business concept or seeking strategies for sustainable growth, I offer a holistic approach that covers product development, market analysis, customer acquisition, and long-term scalability.
+											<strong className="font-semibold text-muted-900">Continuous Positive Support</strong><br />From my experience, the best kind of mentorship is continuous and mostly through chat with the occasional video call. My mentees describe me as a source of positive energy and working with me as having a magnet that constantly guides and pulls them through the path to self-growth and success.
 										</Span>
 									</li>
 								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</Container>
-			<Container>
-				<div className="py-24 sm:py-32">
-					<div className="mx-auto max-w-2xl lg:text-center">
-						<H2 size="3xl" align="center">
-							Here are some of the things you can learn with me
-						</H2>
-					</div>
-					<div className="mx-auto mt-16 grid max-w-2xl gap-y-16 sm:mt-20 lg:mt-24 lg:max-w-none">
-						<dl className="relative grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-							{services.map(service => (
-								<div key={service.name} className="flex flex-col">
-									<dt>
-										<Span size="md" weight="semibold" className="flex items-center gap-x-3 text-muted-900">
-											<Icon name={service.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
-											{service.name}
-										</Span>
-									</dt>
-									<dd>
-										<P size="md" className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-600">
-											{service.description}
-										</P>
-									</dd>
-								</div>
-							))}
-							{/* {!open ? <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-background sm:h-32" /> : null} */}
-						</dl>
-						{/* <Collapsible open={open} onOpenChange={setOpen}>
-							<CollapsibleContent asChild>
-								<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-									{moreFeatures.map(feature => (
-										<div key={feature.name} className="flex flex-col">
-											<dt>
-												<Span size="md" className="flex items-center gap-x-3 text-base font-semibold leading-7 text-muted-900">
-													<Icon name={feature.icon as any} className="h-5 w-5 flex-none text-brand" aria-hidden="true" />
-													{feature.name}
-												</Span>
-											</dt>
-											<dd>
-												<P size="md" className="mt-4 flex flex-auto flex-col text-muted-600">
-													{feature.description}
-												</P>
-											</dd>
-										</div>
-									))}
-								</dl>
-							</CollapsibleContent>
-							<div className="flex justify-around">
-								<Button size="lg" variant="outline" asChild>
-									<CollapsibleTrigger className="mt-8 rounded-lg border px-6 py-2 text-lg leading-8 text-muted-600 sm:mt-10 lg:mt-12">
-										{open ? 'Show less...' : 'And much, much more...'}
-									</CollapsibleTrigger>
-								</Button>
-							</div>
-						</Collapsible> */}
-					</div>
-				</div>
-			</Container>
-			<Container>
-				<div className="py-32">
-					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-						<H2 size="3xl" className="mt-2">
-							The process
-						</H2>
-						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
-							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
-								<P size="xl" className="text-muted-600">
-									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. The goal is to gain clarity on exactly what you'd like to build, so we can get our hands dirty.
-								</P>
-								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									Then comes the bulk of the work, where you'll build your business with my guidance. I'll be there to make sure you're on the right track, helping you with any
-									questions you have, and correcting any mistakes you make along the way. This usually includes weekly calls, code reviews (if applicable), and bouncing ideas back and forth on chat.
-								</P>
-								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to do and, hopefully, your business is thriving.
-								</P>
-							</div>
-							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">
-								{stats.map(stat => (
-									<div key={stat.value} className="flex flex-col gap-y-2">
-										<Span size="4xl" weight="semibold" className="text-muted-900">
-											{stat.value}
-										</Span>
-										<P size="md" className="text-muted-600">
-											{stat.label}
-										</P>
-									</div>
-								))}
 							</div>
 						</div>
 					</div>
@@ -406,12 +172,9 @@ const FullStackWebDevMentor = () => {
 				<Container>
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
-							<H2 align="center" size="md" className="text-brand">
-								Testimonials
+							<H2 align="center" >
+								Testimonials from the <span className="text-brand px-2">amazing</span> people I've worked with <Icon name="heart-filled" className="" aria-hidden="true" />
 							</H2>
-							<P size="3xl" weight="bold" className="mt-2">
-								I've worked with amazing people <Icon name="heart" className="h-10 w-10 text-brand" aria-hidden="true" />
-							</P>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
@@ -433,7 +196,7 @@ const FullStackWebDevMentor = () => {
 									{columnGroup.map((column, columnIdx) => (
 										<div
 											key={columnIdx}
-											className={classNames(
+											className={cn(
 												(columnGroupIdx === 0 && columnIdx === 0) || (columnGroupIdx === testimonials.length - 1 && columnIdx === columnGroup.length - 1)
 													? 'xl:row-span-2'
 													: 'xl:row-start-1',
@@ -464,34 +227,64 @@ const FullStackWebDevMentor = () => {
 				</Container>
 			</BackgroundBlur>
 			<Container>
+				<div className="py-32">
+					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+						<H2 size="3xl" className="mt-2">
+							The process
+						</H2>
+						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
+								<P size="xl" className="text-muted-600">
+									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. The goal is to gain clarity on exactly what you'd like to build, so we can get our hands dirty.
+								</P>
+								<P size="md" className="mt-10 max-w-xl text-muted-700">
+									Then comes the bulk of the work, where you'll build your business with my guidance. I'll be there to make sure you're on the right track, helping you with any
+									questions you have, and correcting any mistakes you make along the way. We'll be bouncing a lot of ideas back and forth during this phase.
+								</P>
+								<P size="md" className="mt-10 max-w-xl text-muted-700">
+									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to, your business is thriving, and you're most likely making more money than you've ever made in your life <Icon name="heart-filled" />.
+								</P>
+							</div>
+							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">
+								{stats.map(stat => (
+									<div key={stat.value} className="flex flex-col gap-y-2">
+										<Span size="4xl" weight="semibold" className="text-muted-900">
+											{stat.value}
+										</Span>
+										<P size="md" className="text-muted-600">
+											{stat.label}
+										</P>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</Container>
+			<Container>
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
 						<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
-							Simple no-tricks pricing
+							Simple pricing
 						</H2>
-						<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
-							I charge ~80€ per hour. The payments are done monthly.
-							<br />
-							Here are the most common plans mentees go for.
-						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<H3 size="2xl">Mentorship 4h/week</H3>
+							<H3 size="2xl">Mentorship</H3>
 							<P size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for <strong>mentees building a product full-time</strong>. Chat is always available.
+								Click the "schedule initial call" button to see if we're a good fit. If we are, we'll officially start the mentorship and hit the ground running building your next venture.
 							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
-									We can use this time for
+									What you'll get
 								</H4>
 								<div className="h-px flex-auto bg-muted-100" />
 							</div>
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
-								{includedFeatures.map(feature => (
-									<li key={feature} className="flex gap-x-3">
+								{benefits.map(benefit => (
+									<li key={benefit} className="flex gap-x-3">
 										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
-										{feature}
+										{benefit}
 									</li>
 								))}
 							</ul>
@@ -500,14 +293,14 @@ const FullStackWebDevMentor = () => {
 							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
 								<div className="mx-auto max-w-xs px-8">
 									<P size="md" weight="semibold" className="text-muted-600">
-										Pay once a month
+										Monthly subscription
 									</P>
 									<P className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Span size="4xl" weight="bold">
-											€1024
+											€320
 										</Span>
 										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
-											EUR
+											EUR/month
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
@@ -516,54 +309,7 @@ const FullStackWebDevMentor = () => {
 										</a>
 									</Button>
 									<P size="xs" className="mt-6 text-muted-600">
-										Invoices and receipts available for easy company reimbursement
-									</P>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-						<div className="p-8 sm:p-10 lg:flex-auto">
-							<H3 size="2xl">Mentorship 2h/week</H3>
-							<P size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for <strong>mentees building something on the side</strong>. Chat is always available.
-							</P>
-							<div className="mt-10 flex items-center gap-x-4">
-								<H4 size="sm" className="flex-none font-semibold text-brand">
-									We can use this time for
-								</H4>
-								<div className="h-px flex-auto bg-muted-100" />
-							</div>
-							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
-								{includedFeatures.map(feature => (
-									<li key={feature} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
-										{feature}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-								<div className="mx-auto max-w-xs px-8">
-									<P size="md" weight="semibold" className="text-muted-600">
-										Pay once a month
-									</P>
-									<P className="mt-6 flex items-baseline justify-center gap-x-2">
-										<Span size="4xl" weight="bold">
-											€640
-										</Span>
-										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
-											EUR
-										</Span>
-									</P>
-									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://calendly.com/andrecasal/meeting" target="_blank" rel="noopener noreferrer">
-											Schedule initial call
-										</a>
-									</Button>
-									<P size="xs" className="mt-6 text-muted-600">
-										Invoices and receipts available for easy company reimbursement
+										Invoices and receipts available for easy company reimbursement.
 									</P>
 								</div>
 							</div>
