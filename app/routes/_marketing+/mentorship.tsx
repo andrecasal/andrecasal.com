@@ -300,7 +300,7 @@ const FullStackWebDevMentor = () => {
 											€320
 										</Span>
 										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
-											EUR/month
+											EUR
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
