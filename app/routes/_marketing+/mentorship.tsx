@@ -123,11 +123,11 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="lg:max-w-2xl">
-								<H2 size="3xl">
-									Building a business can be overwhelming
-								</H2>
+								<H2 size="3xl">Building a business can be overwhelming</H2>
 								<P size="xl" className="mt-6 text-muted-700">
-									Embarking on the journey of entrepreneurship is both thrilling and challenging. As a seasoned business mentor, I understand the intricacies involved in transforming an idea into a thriving venture. Whether you're just starting or looking to take your business to new heights, I offer comprehensive guidance to navigate the entrepreneurial landscape.
+									Embarking on the journey of entrepreneurship is both thrilling and challenging. As a seasoned business mentor, I understand the intricacies involved in
+									transforming an idea into a thriving venture. Whether you're just starting or looking to take your business to new heights, I offer comprehensive guidance
+									to navigate the entrepreneurial landscape.
 								</P>
 							</div>
 						</div>
@@ -138,28 +138,41 @@ const FullStackWebDevMentor = () => {
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
 							<div className="max-w-xl text-muted-700 lg:max-w-lg">
-								<H3 size="lg">
-									Why Choose Me as Your Business Mentor?
-								</H3>
+								<H3 size="lg">Why Choose Me as Your Business Mentor?</H3>
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
 										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Proven Track Record</strong><br />
-
-											Having founded and scaled multiple businesses myself (and continuing to), I've encountered many of the hurdles you will face and conquered them. My hands-on experience sets me apart, ensuring you receive advice grounded in real-world achievements. I'm in a position to help you build a business plan and guide you through it, helping you see what's important at each stage of the business, and where you should focus your energy and why, as I've done for multiple entrepreneurs whose businesses I've helped save, build, or scale up to multiple thousands per month. Check out the testimonials to see what they say about me.
+											<strong className="font-semibold text-muted-900">Proven Track Record</strong>
+											<br />
+											Having founded and scaled multiple businesses myself (and continuing to), I've encountered many of the hurdles you will face and conquered them.
+											My hands-on experience sets me apart, ensuring you receive advice grounded in real-world achievements. I'm in a position to help you build a
+											business plan and guide you through it, helping you see what's important at each stage of the business, and where you should focus your energy and
+											why, as I've done for multiple entrepreneurs whose businesses I've helped save, build, or scale up to multiple thousands per month. Check out the
+											testimonials to see what they say about me.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Wealth of skills</strong><br />Business is complicated. There's a lot of skills you need to know in order to be a successfull business owner or entrepreneur. Planning, strategizing, researching, acquisition, communication, marketing, designing, launching, people and financial management, policy and law, the specific skill that services your clients or creates your product, not to talk about your personal skills of mindset, grit, productivity, emotional management and so forth. I'm not strong in policy and law (due to a personal desinterest), so I usually lean on friends or professionals to help me with that part, but I do hold substantial knowledge in all the other skills, with a strong emphasis on another one: full-stack web development. So I'm well placed to help you build your business, but extra well placed if you're building a software-based business.
+											<strong className="font-semibold text-muted-900">Wealth of skills</strong>
+											<br />
+											Business is complicated. There's a lot of skills you need to know in order to be a successfull business owner or entrepreneur. Planning,
+											strategizing, researching, acquisition, communication, marketing, designing, launching, people and financial management, policy and law, the
+											specific skill that services your clients or creates your product, not to talk about your personal skills of mindset, grit, productivity,
+											emotional management and so forth. I'm not strong in policy and law (due to a personal desinterest), so I usually lean on friends or professionals
+											to help me with that part, but I do hold substantial knowledge in all the other skills, with a strong emphasis on another one: full-stack web
+											development. So I'm well placed to help you build your business, but extra well placed if you're building a software-based business.
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
 										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Continuous Positive Support</strong><br />From my experience, the best kind of mentorship is continuous and mostly through chat with the occasional video call. My mentees describe me as a source of positive energy and working with me as having a magnet that constantly guides and pulls them through the path to self-growth and success.
+											<strong className="font-semibold text-muted-900">Continuous Positive Support</strong>
+											<br />
+											From my experience, the best kind of mentorship is continuous and mostly through chat with the occasional video call. My mentees describe me as a
+											source of positive energy and working with me as having a magnet that constantly guides and pulls them through the path to self-growth and
+											success.
 										</Span>
 									</li>
 								</ul>
@@ -172,8 +185,8 @@ const FullStackWebDevMentor = () => {
 				<Container>
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
-							<H2 align="center" >
-								Testimonials from the <span className="text-brand px-2">amazing</span> people I've worked with <Icon name="heart-filled" className="" aria-hidden="true" />
+							<H2 align="center">
+								Testimonials from the <span className="px-2 text-brand">amazing</span> people I've worked with <Icon name="heart-filled" className="" aria-hidden="true" />
 							</H2>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -235,14 +248,16 @@ const FullStackWebDevMentor = () => {
 						<div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
 							<div className="lg:w-full lg:max-w-2xl lg:flex-auto">
 								<P size="xl" className="text-muted-600">
-									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint. The goal is to gain clarity on exactly what you'd like to build, so we can get our hands dirty.
+									We start by having an initial call to build context on what you'd like to accomplish, bounce ideas back and forth, and make a plan for the first sprint.
+									The goal is to gain clarity on exactly what you'd like to build, so we can get our hands dirty.
 								</P>
 								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									Then comes the bulk of the work, where you'll build your business with my guidance. I'll be there to make sure you're on the right track, helping you with any
-									questions you have, and correcting any mistakes you make along the way. We'll be bouncing a lot of ideas back and forth during this phase.
+									Then comes the bulk of the work, where you'll build your business with my guidance. I'll be there to make sure you're on the right track, helping you with
+									any questions you have, and correcting any mistakes you make along the way. We'll be bouncing a lot of ideas back and forth during this phase.
 								</P>
 								<P size="md" className="mt-10 max-w-xl text-muted-700">
-									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to, your business is thriving, and you're most likely making more money than you've ever made in your life <Icon name="heart-filled" />.
+									This happends until we reach the mentorship's natural end, where you've accomplished what you've set out to, your business is thriving, and you're most
+									likely making more money than you've ever made in your life <Icon name="heart-filled" />.
 								</P>
 							</div>
 							<div className="flex w-full items-start justify-start gap-8 lg:ml-14 lg:flex-col xl:w-80">
@@ -272,7 +287,8 @@ const FullStackWebDevMentor = () => {
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Mentorship</H3>
 							<P size="md" className="mt-6 text-muted-600">
-								Click the "schedule initial call" button to see if we're a good fit. If we are, we'll officially start the mentorship and hit the ground running building your next venture.
+								Click the "schedule initial call" button to see if we're a good fit. If we are, we'll officially start the mentorship and hit the ground running building your
+								next venture.
 							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
@@ -300,7 +316,7 @@ const FullStackWebDevMentor = () => {
 											€320
 										</Span>
 										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
-											EUR
+											EUR/month
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
