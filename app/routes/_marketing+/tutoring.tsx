@@ -203,9 +203,9 @@ const Tutoring = () => {
 		math: [{ name: 'Algebra' }, { name: 'Mathematical Analysis' }, { name: 'Calculus' }, { name: 'Numerical Analysis' }],
 	}
 
-	const includedFeatures = ['Studying together', 'Removing your doubts', 'Solving hard challenges', 'Helping with projects']
+	const includedFeatures = ['Studying together', 'Clarifying your doubts', 'Solving hard challenges', 'Helping you with projects']
 
-	const singleSessionFeatures = ['Studying together', 'Removing your doubts', 'Solving hard challenges', 'Helping with projects']
+	const singleSessionFeatures = ['Studying together', 'Clarifying your doubts', 'Solving hard challenges', 'Helping you with projects']
 
 	return (
 		<>
@@ -517,16 +517,14 @@ const Tutoring = () => {
 					</div>
 				</div>
 			</Container>
-			<Container className="pt-44">
+			<Container className="pt-44" id="pricing">
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl sm:text-center">
 						<H2 size="3xl" align="center" className="mt-2 font-bold" id="pricing">
 							Simple pricing
 						</H2>
 						<P size="lg" align="center" className="mx-auto mt-6 max-w-xl text-muted-600">
-							I charge 40€ per hour. The payments are done per session.
-							<br />
-							Here are the most common plans mentees go for.
+							I charge 40€ per hour. The payments are done per session or through a monthly subscription.
 						</P>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
@@ -574,11 +572,11 @@ const Tutoring = () => {
 							</div>
 						</div>
 					</div>
-					<div id="continuous-support" className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
 							<H3 size="2xl">Continuous support 2h/week</H3>
 							<P size="md" className="mt-6 text-muted-600">
-								This is the most popular plan for students wanting <strong>great grades</strong>.
+								These are the most popular plans for students wanting <strong>continuous support</strong>.
 							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
@@ -603,14 +601,155 @@ const Tutoring = () => {
 									</P>
 									<P className="mt-6 flex items-baseline justify-center gap-x-2">
 										<Span size="4xl" weight="bold">
-											€297
+											€320
 										</Span>
 										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
 											EUR
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://buy.stripe.com/dR6cNfgHk1Bvgx24gi" target="_blank" rel="noopener noreferrer">
+										<a href="https://buy.stripe.com/dR6cNf9eSa81fsY6or" target="_blank" rel="noopener noreferrer">
+											Subscribe to this plan
+										</a>
+									</Button>
+									<P size="xs" className="mt-6 text-muted-600">
+										Subscribe and cancel at any time.
+									</P>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+						<div className="p-8 sm:p-10 lg:flex-auto">
+							<H3 size="2xl">Continuous support 4h/week</H3>
+							<P size="md" className="mt-6 text-muted-600">
+								These are the most popular plans for students wanting <strong>great grades</strong>.
+							</P>
+							<div className="mt-10 flex items-center gap-x-4">
+								<H4 size="sm" className="flex-none font-semibold text-brand">
+									We can use this time for
+								</H4>
+								<div className="h-px flex-auto bg-muted-100" />
+							</div>
+							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+								{includedFeatures.map(feature => (
+									<li key={feature} className="flex gap-x-3">
+										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+								<div className="mx-auto max-w-xs px-8">
+									<P size="md" weight="semibold" className="text-muted-600">
+										Monthly subscription
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
+											€640
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
+										</Span>
+									</P>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://buy.stripe.com/00g14xgHk0xr5So9AE" target="_blank" rel="noopener noreferrer">
+											Subscribe to this plan
+										</a>
+									</Button>
+									<P size="xs" className="mt-6 text-muted-600">
+										Subscribe and cancel at any time.
+									</P>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+						<div className="p-8 sm:p-10 lg:flex-auto">
+							<H3 size="2xl">Continuous support 6h/week</H3>
+							<P size="md" className="mt-6 text-muted-600">
+								These are the most popular plans for students wanting <strong>excellent grades</strong>.
+							</P>
+							<div className="mt-10 flex items-center gap-x-4">
+								<H4 size="sm" className="flex-none font-semibold text-brand">
+									We can use this time for
+								</H4>
+								<div className="h-px flex-auto bg-muted-100" />
+							</div>
+							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+								{includedFeatures.map(feature => (
+									<li key={feature} className="flex gap-x-3">
+										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+								<div className="mx-auto max-w-xs px-8">
+									<P size="md" weight="semibold" className="text-muted-600">
+										Monthly subscription
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
+											€960
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
+										</Span>
+									</P>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://buy.stripe.com/8wM6oR9eSdkd5SoaEJ" target="_blank" rel="noopener noreferrer">
+											Subscribe to this plan
+										</a>
+									</Button>
+									<P size="xs" className="mt-6 text-muted-600">
+										Subscribe and cancel at any time.
+									</P>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+						<div className="p-8 sm:p-10 lg:flex-auto">
+							<H3 size="2xl">Continuous support 8h/week</H3>
+							<P size="md" className="mt-6 text-muted-600">
+								These are the most popular plans for students wanting <strong>top grades</strong>.
+							</P>
+							<div className="mt-10 flex items-center gap-x-4">
+								<H4 size="sm" className="flex-none font-semibold text-brand">
+									We can use this time for
+								</H4>
+								<div className="h-px flex-auto bg-muted-100" />
+							</div>
+							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+								{includedFeatures.map(feature => (
+									<li key={feature} className="flex gap-x-3">
+										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+										{feature}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+								<div className="mx-auto max-w-xs px-8">
+									<P size="md" weight="semibold" className="text-muted-600">
+										Monthly subscription
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
+											€1280
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
+										</Span>
+									</P>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://buy.stripe.com/bIY6oRaiWa81gx2aEK" target="_blank" rel="noopener noreferrer">
 											Subscribe to this plan
 										</a>
 									</Button>
