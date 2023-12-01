@@ -18,6 +18,7 @@ import { H3 } from './ui+/components/typography/h3.tsx'
 import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
+import { Link } from '@remix-run/react'
 
 const Tutoring = () => {
 	const features = [
@@ -221,11 +222,7 @@ const Tutoring = () => {
 								you too.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6">
-								<Button variant="primary" asChild>
-									<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noreferrer">
-										I want an awesome tutor
-									</a>
-								</Button>
+								<Link to="#pricing" className="inline-flex whitespace-nowrap items-center justify-center rounded-md text-size-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand text-muted-50 hover:bg-brand/90 border h-14 px-10">I want an awesome tutor</Link>
 							</div>
 						</div>
 					</div>
