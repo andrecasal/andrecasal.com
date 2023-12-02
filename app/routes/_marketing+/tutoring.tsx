@@ -561,7 +561,7 @@ const Tutoring = () => {
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://calendly.com/d/dtz-m4z-kxh" target="_blank" rel="noopener noreferrer">
+										<a href="https://calendly.com/andrecasal/" target="_blank" rel="noopener noreferrer">
 											Schedule a tutoring session
 										</a>
 									</Button>
