@@ -38,7 +38,7 @@ export const EmailRoot = ({ subjectLine, previewText, children }: { subjectLine:
 								</Link>
 							</Row>
 							<Row>
-								<Text className="mb-10 mt-2 text-lg leading-8 text-gray-600">Modern full-stack web development.</Text>
+								<Text className="mb-10 mt-2 text-lg leading-8 text-gray-600">A tech entrepreneur who loves to build stuff.</Text>
 							</Row>
 							<Row>
 								<Link href="https://twitter.com/theandrecasal" target="_blank" className="mr-4 text-[#ca8b04]">

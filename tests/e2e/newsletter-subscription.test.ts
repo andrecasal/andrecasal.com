@@ -29,7 +29,7 @@ test('subscribing with link', async ({ page }) => {
 	await emailTextbox.fill(subscriptionData.email)
 
 	await page.getByRole('button', { name: /I want my tips/i }).click()
-	await page.waitForTimeout(3000); // Bad practice, but there's no patience
+	await page.waitForTimeout(3000); // Bad practice, but there's no patience to find out how to make Playwright wait for the animation to end
 	await expect(page.getByText(/Verify Your Email Address/i)).toBeVisible()
 
 	const email = await readEmail(subscriptionData.email)
