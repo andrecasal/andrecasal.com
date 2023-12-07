@@ -62,7 +62,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 										Name
 									</Label>
 								</VisuallyHidden>
-								<Input id="name" type="text" placeholder="Enter your name" name="name" required defaultValue={name.defaultValue} className={name.error ? 'bg-danger-background border-danger-foreground' : ''} />
+								<Input id="name" type="text" placeholder="Enter your name" name="name" required defaultValue={name.defaultValue} className={name.error ? 'border-danger-foreground' : ''} />
 								<P size="xs" className="ml-3.5 text-danger-foreground">
 									{name.error}&nbsp;
 								</P>
@@ -73,7 +73,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 										Email address
 									</Label>
 								</VisuallyHidden>
-								<Input id="email-address" type="email" placeholder="Enter your email" name="email" autoComplete="email" required defaultValue={email.defaultValue} className={email.error ? 'bg-danger-background border-danger-foreground' : ''} />
+								<Input id="email-address" type="email" placeholder="Enter your email" name="email" autoComplete="email" required defaultValue={email.defaultValue} className={email.error ? 'border-danger-foreground' : ''} />
 								<P size="xs" className="ml-3.5 text-danger-foreground">
 									{email.error}&nbsp;
 								</P>
