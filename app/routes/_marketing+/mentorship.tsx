@@ -77,8 +77,6 @@ const testimonials = [
 const benefits = ['A clear path forward', 'Seasoned entrepreneur to bounce ideas off of', 'Guidance throughout the entire process', 'Motivating fast growth']
 
 const FullStackWebDevMentor = () => {
-	/* const [open, setOpen] = useState<boolean>(false) */
-
 	return (
 		<>
 			<BackgroundSquareLines>
@@ -96,24 +94,6 @@ const FullStackWebDevMentor = () => {
 									<Link to="#pricing">Let's level up together</Link>
 								</Button>
 							</div>
-						</div>
-						<div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
-							<svg viewBox="0 0 366 729" role="img" className="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
-								<title>App screenshot</title>
-								<defs>
-									<clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
-										<rect width={316} height={684} rx={36} />
-									</clipPath>
-								</defs>
-								<path
-									fill="#4B5563"
-									d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z"
-								/>
-								<path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
-								<foreignObject width={316} height={684} transform="translate(24 24)" clipPath="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)">
-									<img src="/img/vs-code-screenshot.png" alt="VS Code" className="h-full object-cover" />
-								</foreignObject>
-							</svg>
 						</div>
 					</div>
 				</Container>
@@ -141,7 +121,7 @@ const FullStackWebDevMentor = () => {
 								<H3 size="lg">Why Choose Me as Your Business Mentor?</H3>
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
-										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
+										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
 										<Span>
 											<strong className="font-semibold text-muted-900">Proven Track Record</strong>
 											<br />
@@ -153,7 +133,7 @@ const FullStackWebDevMentor = () => {
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
-										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
+										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
 										<Span>
 											<strong className="font-semibold text-muted-900">Wealth of skills</strong>
 											<br />
@@ -166,9 +146,9 @@ const FullStackWebDevMentor = () => {
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
-										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none text-brand" aria-hidden="true" />
+										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
 										<Span>
-											<strong className="font-semibold text-muted-900">Continuous Positive Support</strong>
+											<strong className="font-semibold text-muted-900">Continuous Support</strong>
 											<br />
 											From my experience, the best kind of mentorship is continuous and mostly through chat with the occasional video call. My mentees describe me as a
 											source of positive energy and working with me as having a magnet that constantly guides and pulls them through the path to self-growth and
@@ -285,10 +265,9 @@ const FullStackWebDevMentor = () => {
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
 						<div className="p-8 sm:p-10 lg:flex-auto">
-							<H3 size="2xl">Mentorship</H3>
+							<H3 size="2xl">Single session</H3>
 							<P size="md" className="mt-6 text-muted-600">
-								Click the "schedule initial call" button to see if we're a good fit. If we are, we'll officially start the mentorship and hit the ground running building your
-								next venture.
+								Need one-on-one help with a specific problem? I'm available for single sessions to help you with whatever you need.
 							</P>
 							<div className="mt-10 flex items-center gap-x-4">
 								<H4 size="sm" className="flex-none font-semibold text-brand">
@@ -299,7 +278,54 @@ const FullStackWebDevMentor = () => {
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
 								{benefits.map(benefit => (
 									<li key={benefit} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand" aria-hidden="true" />
+										<Icon name="check" className="h-6 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										{benefit}
+									</li>
+								))}
+							</ul>
+						</div>
+						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+							<div className="h-full rounded-2xl bg-muted-50 py-10 text-center ring-1 ring-inset ring-muted-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+								<div className="mx-auto max-w-xs px-8">
+									<P size="md" weight="semibold" className="text-muted-600">
+										Pay per hour
+									</P>
+									<P className="mt-6 flex items-baseline justify-center gap-x-2">
+										<Span size="4xl" weight="bold">
+											€80
+										</Span>
+										<Span size="sm" weight="semibold" className="tracking-wide text-muted-600">
+											EUR
+										</Span>
+									</P>
+									<Button variant="primary" size="wide" asChild className="mt-10">
+										<a href="https://calendly.com/andrecasal/business-mentorship" target="_blank" rel="noopener noreferrer">
+											Schedule a mentoring session
+										</a>
+									</Button>
+									<P size="xs" className="mt-6 text-muted-600">
+										Invoices and receipts available for easy company reimbursement.
+									</P>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-muted-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+						<div className="p-8 sm:p-10 lg:flex-auto">
+							<H3 size="2xl">Continuous chat support</H3>
+							<P size="md" className="mt-6 text-muted-600">
+								Unlock continuous chat support with me, where I'll be available to help you with whatever you need, whenever you need it.
+							</P>
+							<div className="mt-10 flex items-center gap-x-4">
+								<H4 size="sm" className="flex-none font-semibold text-brand">
+									What you'll get
+								</H4>
+								<div className="h-px flex-auto bg-muted-100" />
+							</div>
+							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
+								{benefits.map(benefit => (
+									<li key={benefit} className="flex gap-x-3">
+										<Icon name="check" className="h-6 w-5 flex-none text-brand self-start" aria-hidden="true" />
 										{benefit}
 									</li>
 								))}
