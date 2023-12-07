@@ -96,7 +96,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 							}}
 						/>
 					</div>
-					<div className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+					<div id="data-test-newsletter-finished-animation" className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
 						<H2 align="center">Verify Your Email Address</H2>
 						<P align="center" className="mt-space-6"><B className="text-success-foreground">Got it!</B> Please <B className="text-danger-foreground">check your email</B> to confirm your subscription, otherwise you won't get my emails.</P>
 						<Button size="wide" variant="link" className="underline text-foreground" onClick={() => {

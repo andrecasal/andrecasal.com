@@ -77,7 +77,7 @@ export async function action({ request }: ActionArgs) {
 
 	const response = await sendEmail({
 		to: email,
-		subject: `Confirm your subscription!`,
+		subject: `Action Required: Verify Your Email Address`,
 		react: <VerifyNewsletterSubscriptionEmail name={name} onboardingUrl={newsletterVerifyURL.toString()} />,
 	})
 
