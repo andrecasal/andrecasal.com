@@ -1,5 +1,5 @@
 import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { json, type ActionArgs, redirect } from '@remix-run/node'
+import { json, type ActionArgs } from '@remix-run/node'
 import { parse } from '@conform-to/zod'
 import { z } from 'zod'
 import { emailSchema, nameSchema } from '~/utils/user-validation.ts'
@@ -41,7 +41,7 @@ export async function action({ request }: ActionArgs) {
 	const formData = await request.formData()
 	const submission = parse(formData, { schema: newsletterSchema })
 	if (submission.intent !== 'submit') {
-		return json({ submission } as const)
+		return json({ status: 'error', submission } as const)
 	}
 	if (!submission.value) {
 		return json({ status: 'error', submission } as const, { status: 400 })
@@ -73,17 +73,16 @@ export async function action({ request }: ActionArgs) {
 	const newsletterVerifyURL = new URL(`${getDomainUrl(request)}/newsletter/verify`)
 	newsletterVerifyURL.searchParams.set(newsletterNameQueryParam, name)
 	newsletterVerifyURL.searchParams.set(newsletterEmailQueryParam, email)
-	const redirectTo = new URL(newsletterVerifyURL.toString())
 	newsletterVerifyURL.searchParams.set(newsletterOTPQueryParam, otp)
 
 	const response = await sendEmail({
 		to: email,
 		subject: `Confirm your subscription!`,
-		react: <VerifyNewsletterSubscriptionEmail name={name} onboardingUrl={newsletterVerifyURL.toString()} otp={otp} />,
+		react: <VerifyNewsletterSubscriptionEmail name={name} onboardingUrl={newsletterVerifyURL.toString()} />,
 	})
 
 	if (response.status === 'success') {
-		return redirect(redirectTo.pathname + redirectTo.search)
+		return json({ status: 'success', submission } as const)
 	} else {
 		submission.error[''] = response.error.message
 		return json(

@@ -9,5 +9,5 @@ export const usernameSchema = z
 	})
 
 export const passwordSchema = z.string().min(6, { message: 'Password is too short' }).max(100, { message: 'Password is too long' })
-export const nameSchema = z.string().min(2, { message: 'Name is too short' }).max(40, { message: 'Name is too long' })
-export const emailSchema = z.string().email({ message: 'Email is invalid' }).min(3, { message: 'Email is too short' }).max(100, { message: 'Email is too long' })
+export const nameSchema = z.string().nonempty({ message: 'Name is required'}).max(40, { message: 'Name is too long' })
+export const emailSchema = z.string().nonempty({ message: 'Email is required'}).email({ message: 'Email is invalid' }).min(3, { message: 'Email is too short' }).max(100, { message: 'Email is too long' })

@@ -55,7 +55,7 @@ export function Icon({
 	return (
 		<svg
 			{...props}
-			className={cn(sizeClassName[size], 'inline', className)}
+			className={cn(sizeClassName[size], 'inline self-center', className)}
 		>
 			<use href={`${href}#${name}`} />
 		</svg>

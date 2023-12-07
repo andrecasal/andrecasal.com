@@ -13,20 +13,19 @@ import {
 } from '@react-email/components'
 import { EmailRoot } from '~/components/email-root.tsx'
 
-export const VerifyNewsletterSubscriptionEmail = ({ name, onboardingUrl, otp }: { name: string; onboardingUrl: string; otp: string }) => {
+export const VerifyNewsletterSubscriptionEmail = ({ name, onboardingUrl }: { name: string; onboardingUrl: string }) => {
 	return (
-		<EmailRoot subjectLine="Action Required: Confirm Your Email Address Now" previewText="Complete your subscription by confirming your email address. Just one click away!">
+		<EmailRoot subjectLine="Action Required: Verify Your Email Address" previewText="Complete your subscription by verifying your email address. Just one click away!">
 			<Section>
 				<Heading as="h1" className="my-14 text-3xl font-bold">
-					Confirm Your Email Address
+					Verify Your Email Address
 				</Heading>
 				<Text className="text-base">Hi {name},</Text>
-				<Text className="text-base">Thank you for subscribing to André Casal's newsletter! To ensure you receive our updates and exclusive content, please confirm your email address by clicking the button below:</Text>
+				<Text className="text-base">Please click the button below to verify your email address.</Text>
 				<Button href={onboardingUrl} className="mt-2 rounded bg-[#ca8b04] px-8 py-4 text-center text-xl leading-5 text-white hover:bg-[#ca8b04]/90">
 					Confirm Your Email Address
 				</Button>
-				<Text className="mt-20 text-sm text-gray-400">Alternatively you can also copy+paste this code into the page:</Text>
-				<Text className="mt-6 text-lg font-bold text-gray-400">{otp}</Text>
+				<Text className="text-base">Thank you for subscribing to André Casal's newsletter!</Text>
 				<Text className="mt-20 text-xs text-gray-400">
 					If you didn't subscribe to{' '}
 					<Link href="https://andrecasal.com/newsletter" target="_blank" className="font-semibold text-[#ca8b04]">
