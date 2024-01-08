@@ -151,16 +151,16 @@ async function validate(request: Request, body: URLSearchParams | FormData) {
 			target: email,
 		},
 	})
-	const session = await getSession(request.headers.get('Cookie'))
-	session.set(newsletterNameSessionKey, name)
 
 	const response = await subscribeUser({ name, email })
-	if (response.status === 'success') {
-		return redirectWithConfetti('/newsletter/welcome', {
-			headers: { 'Set-Cookie': await commitSession(session) },
-		})
-	} else {
+	if (response.status !== 'success') {
 		submission.error[''] = response.error.message
 		return json({ status: 'error', submission } as const, { status: 500 })
 	}
+
+	const session = await getSession(request.headers.get('Cookie'))
+	session.set(newsletterNameSessionKey, name)
+	return redirectWithConfetti('/newsletter/welcome', {
+		headers: { 'Set-Cookie': await commitSession(session) },
+	})
 }

@@ -98,6 +98,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 					they are on if the JavaScript hasn't had a chance to hydrate yet.
 				*/}
 				{isHydrated ? null : <input type="hidden" name="redirectTo" value={requestInfo.path} />}
+				
 				<DropdownMenu.Trigger className="box-content flex h-6 min-h-tap w-6 min-w-tap cursor-pointer items-center justify-center rounded-lg p-2.5">
 					<Icon name="sun" className={`h-5 w-5 ${mode !== 'light' ? 'hidden' : ''}`} />
 					<Icon name="moon" className={`h-5 w-5 ${mode !== 'dark' ? 'hidden' : ''}`} />
