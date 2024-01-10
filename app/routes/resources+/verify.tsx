@@ -2,7 +2,7 @@ import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
 import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { useFetcher } from '@remix-run/react'
-import { safeRedirect } from 'remix-utils'
+import { safeRedirect } from 'remix-utils/safe-redirect'
 import invariant from 'tiny-invariant'
 import { z } from 'zod'
 import { twoFAVerificationType } from '~/routes/settings+/profile.two-factor.tsx'
@@ -45,10 +45,7 @@ export async function action({ request }: DataFunctionArgs) {
 	// destory it and let them try over again... Or we'll do that if they wanna cancel.
 	if (!session || form.get('intent') === 'cancel') {
 		const redirectTo = form.get('redirectTo')
-		const params =
-			typeof redirectTo === 'string' && redirectTo && redirectTo !== '/'
-				? new URLSearchParams({ redirectTo })
-				: null
+		const params = typeof redirectTo === 'string' && redirectTo && redirectTo !== '/' ? new URLSearchParams({ redirectTo }) : null
 		cookieSession.unset(unverifiedSessionKey)
 		throw redirect(['/login', params?.toString()].filter(Boolean).join('?'), {
 			headers: {
@@ -129,13 +126,7 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 }
 
-export function Verifier({
-	redirectTo,
-	formError,
-}: {
-	redirectTo?: string
-	formError?: string | null
-}) {
+export function Verifier({ redirectTo, formError }: { redirectTo?: string; formError?: string | null }) {
 	const fetcher = useFetcher<typeof action>()
 
 	const [form, fields] = useForm({
@@ -151,35 +142,12 @@ export function Verifier({
 	return (
 		<fetcher.Form action={ROUTE_PATH} method="POST" {...form.props}>
 			<input type="hidden" name="redirectTo" value={redirectTo} />
-			<Field
-				labelProps={{ children: '2FA Code' }}
-				inputProps={{ ...conform.input(fields.code), autoFocus: true }}
-				errors={fields.code.errors}
-			/>
+			<Field labelProps={{ children: '2FA Code' }} inputProps={{ ...conform.input(fields.code), autoFocus: true }} errors={fields.code.errors} />
 			<div className="flex flex-row-reverse justify-between">
-				<StatusButton
-					type="submit"
-					name="intent"
-					value="confirm"
-					status={
-						fetcher.state === 'submitting'
-							? 'pending'
-							: fetcher.data?.status ?? 'idle'
-					}
-				>
+				<StatusButton type="submit" name="intent" value="confirm" status={fetcher.state === 'submitting' ? 'pending' : fetcher.data?.status ?? 'idle'}>
 					Confirm
 				</StatusButton>
-				<StatusButton
-					type="submit"
-					variant="secondary"
-					name="intent"
-					value="cancel"
-					status={
-						fetcher.state === 'submitting'
-							? 'pending'
-							: fetcher.data?.status ?? 'idle'
-					}
-				>
+				<StatusButton type="submit" variant="secondary" name="intent" value="cancel" status={fetcher.state === 'submitting' ? 'pending' : fetcher.data?.status ?? 'idle'}>
 					Cancel
 				</StatusButton>
 			</div>

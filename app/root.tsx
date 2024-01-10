@@ -22,6 +22,10 @@ import { Toaster } from './components/ui/toaster.tsx'
 import Footer from './components/footer.tsx'
 import { FathomScript, useTrackPageview } from './utils/fathom.tsx'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
+import { csrf } from './utils/csrf.server.ts'
+import { HoneypotProvider } from 'remix-utils/honeypot/react'
+import { honeypot } from './utils/honeypot.server.ts'
 
 export const links: LinksFunction = () => {
 	return [
@@ -47,7 +51,7 @@ export const links: LinksFunction = () => {
 }
 
 export const meta: V2_MetaFunction = () => {
-	return [{ title: 'André Casal' }, { name: 'description', content: 'Full-stack web dev mentor' }]
+	return [{ title: 'André Casal' }, { name: 'description', content: 'Full-stack web dev' }]
 }
 
 export async function loader({ request }: DataFunctionArgs) {
@@ -75,6 +79,8 @@ export async function loader({ request }: DataFunctionArgs) {
 		await authenticator.logout(request, { redirectTo: '/' })
 	}
 	const { flash, headers: flasHeaders } = await getFlashSession(request)
+	const honeyProps = honeypot.getInputProps()
+	const [csrfToken, csrfCookieHeader] = await csrf.commitToken()
 
 	return json(
 		{
@@ -89,9 +95,11 @@ export async function loader({ request }: DataFunctionArgs) {
 			},
 			ENV: getEnv(),
 			flash,
+			honeyProps,
+			csrfToken,
 		},
 		{
-			headers: combineHeaders({ 'Server-Timing': timings.toString() }, flasHeaders),
+			headers: combineHeaders({ 'Server-Timing': timings.toString() }, flasHeaders, csrfCookieHeader ? { 'set-cookie': csrfCookieHeader } : null),
 		},
 	)
 }
@@ -143,4 +151,15 @@ function App() {
 		</html>
 	)
 }
-export default withSentry(App)
+function AppWithProviders() {
+	const data = useLoaderData<typeof loader>()
+	return (
+		<AuthenticityTokenProvider token={data.csrfToken}>
+			<HoneypotProvider {...data.honeyProps}>
+				<App />
+			</HoneypotProvider>
+		</AuthenticityTokenProvider>
+	)
+}
+
+export default withSentry(AppWithProviders)

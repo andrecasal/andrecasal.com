@@ -10,17 +10,7 @@ import { sendEmail } from '~/utils/email.server.ts'
 import { VerifyNewsletterSubscriptionEmail } from './email/verify.server.tsx'
 import { Newsletter as NewsletterComponent } from '~/components/newsletter.tsx'
 
-export const newsletterNameQueryParam = 'name'
-export const newsletterEmailQueryParam = 'email'
-export const newsletterOTPQueryParam = 'code'
-export const newsletterVerificationType = 'newsletter'
-
-export const newsletterSchema = z.object({
-	name: nameSchema,
-	email: emailSchema,
-})
-
-const Newsletter = () => {
+export default function Newsletter() {
 	return (
 		<Container>
 			<NewsletterComponent
@@ -33,9 +23,15 @@ const Newsletter = () => {
 	)
 }
 
-export default Newsletter
+export const newsletterNameQueryParam = 'name'
+export const newsletterEmailQueryParam = 'email'
+export const newsletterOTPQueryParam = 'code'
+export const newsletterVerificationType = 'newsletter'
 
-export const verificationType = 'newsletter'
+export const newsletterSchema = z.object({
+	name: nameSchema,
+	email: emailSchema,
+})
 
 export async function action({ request }: ActionArgs) {
 	const formData = await request.formData()
@@ -56,11 +52,11 @@ export async function action({ request }: ActionArgs) {
 	// delete old verifications. Users should not have more than one verification
 	// of a specific type for a specific target at a time.
 	await prisma.verification.deleteMany({
-		where: { type: verificationType, target: email },
+		where: { type: newsletterVerificationType, target: email },
 	})
 	await prisma.verification.create({
 		data: {
-			type: verificationType,
+			type: newsletterVerificationType,
 			target: email,
 			algorithm,
 			secret,
