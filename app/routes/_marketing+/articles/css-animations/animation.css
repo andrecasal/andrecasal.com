@@ -1,0 +1,8 @@
+@keyframes myanimation {
+	0% {
+		background: red;
+	}
+	100% {
+		transform: translateX(50px);
+	}
+}
