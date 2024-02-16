@@ -89,7 +89,7 @@ app.use(
 					"'self'",
 				].filter(Boolean),
 				'font-src': ["'self'"],
-				'frame-src': ["'self'"],
+				'frame-src': ["*.youtube.com"],
 				'img-src': [process.env.FATHOM_ANALYTICS_SITE_ID ? 'cdn.usefathom.com' : null, "'self'", 'data:'].filter(Boolean),
 				'script-src': [
 					process.env.FATHOM_ANALYTICS_SITE_ID ? 'cdn.usefathom.com' : null,

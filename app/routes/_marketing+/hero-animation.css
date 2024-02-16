@@ -1,0 +1,18 @@
+/* Blowout animation */
+@supports (animation-timeline: scroll()) {
+	@keyframes blow-out {
+		0%,
+		95% {
+			background: transparent;
+		}
+		100% {
+			transform: translate3d(0.04ch, 0, 99vh);
+			background: black;
+		}
+	}
+	@keyframes fade-in {
+		100% {
+			opacity: 1;
+		}
+	}
+}

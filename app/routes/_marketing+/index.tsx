@@ -1,4 +1,4 @@
-import type { V2_MetaFunction } from '@remix-run/node'
+import type { V2_MetaFunction, LinksFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
@@ -7,8 +7,11 @@ import { Icon } from '~/components/ui/icon.tsx'
 import { Link } from '@remix-run/react'
 import { H2 } from './ui+/components/typography/h2.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
+import styles from './hero-animation.css'
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
 
 export default function Index() {
 	const successful_businesses = [
@@ -47,7 +50,7 @@ export default function Index() {
 		},
 		{
 			name: 'Newsletter & Articles',
-			description: "Golden nuggets of (usually technical) knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.",
+			description: 'Golden nuggets of (usually technical) knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.',
 			icon: 'file-text',
 			link: '/articles',
 		},
@@ -61,7 +64,7 @@ export default function Index() {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
 						<H2 size="3xl" align="center" className="mt-4 font-bold">
-							<span className="inline-block -rotate-1 text-brand px-2 font-bold">Successfull</span> businesses
+							<span className="inline-block -rotate-1 px-2 font-bold text-brand">Successfull</span> businesses
 						</H2>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -85,7 +88,7 @@ export default function Index() {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
 						<H2 size="3xl" align="center" className="mt-4 font-bold">
-							Currently <span className="inline-block -rotate-1 text-brand px-2 font-bold">building</span>
+							Currently <span className="inline-block -rotate-1 px-2 font-bold text-brand">building</span>
 						</H2>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
