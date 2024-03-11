@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { json } from '@remix-run/node'
 import { H1 } from '../ui+/components/typography/h1.tsx'
 
-import { post as layout } from './layout/index.tsx'
+/* import { post as layout } from './layout/index.tsx' */
 import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
 import { post as fluidTypographyPost } from './fluid-typography-sizing-with-modular-scales/index.tsx'
@@ -25,7 +25,7 @@ export type Post = {
 }
 
 export const loader = () => {
-	const posts: Post[] = [layout, theDarkSideOfTheGridPost, fluidSpacePost, fluidTypographyPost, remixDataFlowPost]
+	const posts: Post[] = [/* layout,  */theDarkSideOfTheGridPost, fluidSpacePost, fluidTypographyPost, remixDataFlowPost]
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
 	return json({ posts, tags })
 }

@@ -12,22 +12,12 @@ import { useIsomorphicLayoutEffect } from 'usehooks-ts'
 
 const prefetch = 'intent'
 
-const navigation = [
-	{ name: 'Tutoring', href: '/tutoring' },
-	{ name: 'Mentorship', href: '/mentorship' },
-	/* { name: 'Shorts', href: '/shorts' }, */
-	{ name: 'UI', href: '/ui' },
-	{ name: 'ShipFast', href: '/ship-fast' },
+const navigation: { name: string; href: string; external?: boolean; children?: { name: string; href: string }[] }[] = [
 	{ name: 'Articles', href: '/articles' },
-	/* { name: 'Talks', href: '/talks' }, */
-	{
-		name: 'Courses',
-		href: '/courses',
-		children: [
-			{ name: 'All courses', href: '/courses' },
-			{ name: 'Mastery for VS Code', href: '/courses/mastery-for-vs-code' },
-		],
-	},
+	{ name: 'Mentorship', href: '/mentorship' },
+	{ name: 'VerveUI', href: 'https://verveui.pro', external: true },
+	{ name: 'ShipFast', href: '/ship-fast' },
+	{ name: 'VS Code', href: '/courses/mastery-for-vs-code' },
 	/* { name: 'About', href: '/courses', children: [
 		{ name: 'About André', href: '/about' },
 		{ name: 'Uses', href: '/uses' },
@@ -65,7 +55,7 @@ export default function Header() {
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<div className="hidden lg:flex lg:gap-x-6">
-								{navigation.map(({ name, href, children }) => (
+								{navigation.map(({ name, href, external, children }) => (
 									<Fragment key={name}>
 										{!children ? (
 											<NavigationMenuItem>
@@ -75,7 +65,7 @@ export default function Header() {
 														to={href}
 														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 													>
-														{name}
+														{name} {external ? <Icon name="paper-plane" className="h-4 w-4 inline-block -mt-1" /> : null}
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
