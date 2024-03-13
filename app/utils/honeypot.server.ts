@@ -5,11 +5,12 @@ export const honeypot = new Honeypot({
 	encryptionSeed: process.env.HONEYPOT_SECRET,
 })
 
-export function checkHoneypot(formData: FormData) {
+export function checkHoneypot(formData: FormData, location: string = 'unknown location') {
 	try {
 		honeypot.check(formData)
 	} catch (error) {
 		if (error instanceof SpamError) {
+			console.log(`HONEYPOT TRIGGERED ON ${location}:`, JSON.stringify(Object.fromEntries(formData.entries()), null, 2))
 			throw new Response('Form not submitted properly', { status: 400 })
 		}
 		throw error

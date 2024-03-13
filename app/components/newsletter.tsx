@@ -3,7 +3,7 @@ import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
 import { useFetcher, useNavigation } from '@remix-run/react'
 import { useForm } from '@conform-to/react'
-import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter/index.tsx'
+import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter.tsx'
 import { parse } from '@conform-to/zod'
 import { cn } from '~/utils/tailwind-merge.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
@@ -13,9 +13,9 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { Player } from '@lottiefiles/react-lottie-player'
 import * as newsletterAnimation from '~/components/newsletter-animation.json'
 import { useEffect, useRef, useState } from 'react'
-import { B } from '~/routes/_marketing+/ui+/components/typography/b.tsx'
 import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
+import { Flex } from '~/routes/_marketing+/ui+/components/layout/flex.tsx'
 
 type NewsletterProps = {
 	className?: string
@@ -27,7 +27,7 @@ type NewsletterProps = {
 const Newsletter = ({ className, title, description, buttonText }: NewsletterProps) => {
 	const fetcher = useFetcher<typeof action>()
 	const navigation = useNavigation()
-	const [form, { name, email }] = useForm({
+	const [form, { email }] = useForm({
 		lastSubmission: fetcher.data?.submission,
 		shouldValidate: 'onBlur',
 		onValidate: ({ formData }) => parse(formData, { schema: newsletterSchema }),
@@ -55,32 +55,17 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 						Once you subscribe you'll get my free guide to modern full-stack web development and solve analysis paralysis from choosing which tools to use.
 					</P>
 				</div>
-				<div className="grid">
+				<div className="mt-8 grid">
 					<fetcher.Form
 						method="post"
 						action="/newsletter"
-						className={`col-start-1 row-start-1 mt-space-13 flex flex-col transition-opacity ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
+						className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
 						{...form.props}
 					>
-						<div className="mt-6 grid grid-cols-3 gap-x-space-13">
-							<div>
-								<VisuallyHidden>
-									<Label htmlFor="name">Name</Label>
-								</VisuallyHidden>
-								<Input
-									id="name"
-									type="text"
-									placeholder="Enter your name"
-									name="name"
-									required
-									defaultValue={name.defaultValue}
-									className={name.error ? 'border-danger-foreground' : ''}
-								/>
-								<P size="xs" className="ml-3.5 text-danger-foreground">
-									{name.error}&nbsp;
-								</P>
-							</div>
-							<div className="col-span-2">
+						<AuthenticityTokenInput />
+						<HoneypotInputs />
+						<Flex gap="6" className="w-full">
+							<Flex direction="col" className="w-full">
 								<VisuallyHidden>
 									<Label htmlFor="email-address">Email address</Label>
 								</VisuallyHidden>
@@ -97,13 +82,11 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 								<P size="xs" className="ml-3.5 text-danger-foreground">
 									{email.error}&nbsp;
 								</P>
-							</div>
-						</div>
-						<AuthenticityTokenInput />
-						<HoneypotInputs />
-						<Button type="submit" disabled={navigation.state === 'submitting'}>
-							{buttonText}
-						</Button>
+							</Flex>
+							<Button type="submit" disabled={navigation.state === 'submitting'} className="px-8">
+								{buttonText}
+							</Button>
+						</Flex>
 					</fetcher.Form>
 					<div className={`col-start-1 row-start-1 transition-opacity ${state === 'animating' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
 						<Player
@@ -122,10 +105,8 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 						id="data-test-newsletter-finished-animation"
 						className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
 					>
-						<H2 align="center">Verify Your Email Address</H2>
 						<P align="center" className="mt-space-6">
-							<B className="text-success-foreground">Got it!</B> Please <B className="text-danger-foreground">check your email</B> to confirm your subscription, otherwise you
-							won't get my emails.
+							Got it, thanks!
 						</P>
 						<Button
 							size="wide"
