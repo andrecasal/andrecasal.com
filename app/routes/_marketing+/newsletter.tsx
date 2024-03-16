@@ -56,6 +56,7 @@ export async function action({ request }: ActionArgs) {
 		audienceId: process.env.RESEND_GENERAL_AUDIENCE,
 	})
 	if (result.error) {
+		console.error('🔴 Error subscribing to newsletter:', JSON.stringify(result))
 		return json({ status: 'error', submission } as const, { status: 400 })
 	}
 
