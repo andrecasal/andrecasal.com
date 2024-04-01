@@ -90,7 +90,7 @@ const FullStackWebDevMentor = () => {
 								I'll help you build your service or tech product, find your first customers, grow your business, and become an independent entrepreneur.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6">
-								<Button asChild>
+								<Button size="lg" asChild>
 									<Link to="#pricing">Let's level up together</Link>
 								</Button>
 							</div>
@@ -113,7 +113,7 @@ const FullStackWebDevMentor = () => {
 						</div>
 					</div>
 					<div className="pt-8 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-						<img className="w-full max-w-none rounded-xl bg-muted-900 shadow-xl ring-1 ring-muted-400/10" src="/img/andre.jpg" alt="André Casal" />
+						<img className="w-full max-w-none rounded-full bg-muted-900 shadow-xl ring-1 ring-muted-400/10" src="/img/andre_casal.png" alt="André Casal" />
 					</div>
 					<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:grid-cols-2 lg:gap-x-8">
 						<div className="lg:pr-4">
