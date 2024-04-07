@@ -437,7 +437,7 @@ const Tutoring = () => {
 							</P>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0">
-							<img src="/img/andre_casal.png" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
+							<img src="/img/andre_casal_squared.png" alt="André Casal" className="aspect-[6/5] h-full rounded-2xl object-cover" />
 						</div>
 					</div>
 				</Container>
