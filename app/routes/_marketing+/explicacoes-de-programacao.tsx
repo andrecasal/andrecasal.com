@@ -19,6 +19,11 @@ import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
 import { Link } from '@remix-run/react'
+import { type V2_MetaFunction } from '@remix-run/node'
+
+export const meta: V2_MetaFunction = () => {
+	return [{ title: 'Explicações de Programação com André Casal' }]
+}
 
 const Tutoring = () => {
 	const features = [
@@ -810,5 +815,4 @@ const Tutoring = () => {
 		</>
 	)
 }
-
 export default Tutoring
