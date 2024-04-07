@@ -1,6 +1,6 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type DataFunctionArgs, type HeadersFunction, type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation } from '@remix-run/react'
 import { withSentry } from '@sentry/remix'
 import { useTheme } from './routes/resources+/theme/index.tsx'
 import { getTheme } from './routes/resources+/theme/theme-session.server.ts'
@@ -117,9 +117,10 @@ function App() {
 	const theme = useTheme()
 	useToast(data.flash?.toast)
 	useTrackPageview()
+	const location = useLocation()
 
 	return (
-		<html lang="en" className={`${theme} h-full`}>
+		<html lang={location.pathname === '/explicacoes-de-programacao' ? 'pt-PT' : 'en'} className={`${theme} h-full`}>
 			<head>
 				<ClientHintCheck nonce={nonce} />
 				<Meta />
