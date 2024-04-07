@@ -19,10 +19,65 @@ import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
 import { Link } from '@remix-run/react'
-import { type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
 
 export const meta: V2_MetaFunction = () => {
-	return [{ title: 'Explicações de Programação' }]
+	return [
+		{ title: 'Explicações de Programação' },
+		{
+			name: 'description',
+			content: 'Procuras explicações de programação e queres resultados? Ajudei 650+ alunos a obliterar os exames! Satisfação 100% garantida!',
+		},
+	]
+}
+
+export const links: LinksFunction = () => {
+	return [
+		{
+			rel: 'preload',
+			href: collegeLife,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: andreOnMacBookPro,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: goncaloBarreiros,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: pauloJorge,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: miguelFerreira,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: satisfactionGuarantee,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: signatureBlack,
+			as: 'image',
+		},
+		{
+			rel: 'preload',
+			href: signatureWhite,
+			as: 'image',
+		},
+		{
+			rel: 'canonical',
+			href: 'https://andrecasal.com/explicacoes-de-programacao',
+		},
+	]
 }
 
 const Tutoring = () => {
@@ -236,7 +291,11 @@ const Tutoring = () => {
 						</div>
 					</div>
 					<div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-						<img className="aspect-[3/2] w-full rounded-2xl bg-muted-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" src={collegeLife} alt="College life" />
+						<img
+							className="aspect-[3/2] w-full rounded-2xl bg-muted-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
+							src={collegeLife}
+							alt="Explicações de Programação"
+						/>
 					</div>
 				</div>
 			</Container>
