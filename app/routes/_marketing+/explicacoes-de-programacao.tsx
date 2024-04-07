@@ -28,6 +28,11 @@ export const meta: V2_MetaFunction = () => {
 			name: 'description',
 			content: 'Procuras explicações de programação e queres resultados? Ajudei 650+ alunos a obliterar os exames! Satisfação 100% garantida!',
 		},
+		{
+			name: 'keywords',
+			content:
+				'explicações, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
+		},
 	]
 }
 
@@ -420,9 +425,9 @@ const Tutoring = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<H1 size="4xl" className="mt-10">
+							<H2 size="4xl" className="mt-10">
 								Sobre o André
-							</H1>
+							</H2>
 							<P size="lg" className="mt-6 text-muted-700">
 								O André tem vindo a trabalhar como engenheiro de software, há mais de 15 anos, com empresas como a Fundação Calouste Gulbenkian, a rede de televisão americana
 								NBC, a marca de bebidas Monster Energy e outras empresas de grande escala. Ele tem fornecido apoio em engenharia a inúmeras startups e gerido equipas de mais
