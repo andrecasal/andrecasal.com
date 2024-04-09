@@ -33,6 +33,29 @@ export const meta: V2_MetaFunction = () => {
 			content:
 				'explicações, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
 		},
+		{
+			'script:ld+json': {
+				'@context': 'https://schema.org/',
+				'@type': 'AggregateRating',
+				itemReviewed: {
+					'@type': 'EducationalOrganization',
+					name: 'Explicações de Programação - André Casal',
+					image: 'https://andrecasal.com/img/andre_casal_squared.png',
+					telephone: '925194895',
+					address: {
+						'@type': 'PostalAddress',
+						streetAddress: 'Rua do Conde de Redondo',
+						addressLocality: 'Lisboa',
+						postalCode: '1150-109',
+						addressCountry: 'Portugal',
+					},
+				},
+				ratingValue: '5',
+				bestRating: '5',
+				worstRating: '5',
+				ratingCount: '14',
+			},
+		},
 	]
 }
 
