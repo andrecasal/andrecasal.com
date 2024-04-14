@@ -18,7 +18,7 @@ export const post: Post = {
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
 }
 
 const TheDarkSideOfTheGrid = () => {
