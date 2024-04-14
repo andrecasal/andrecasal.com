@@ -1,4 +1,4 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import { StatusButton } from '~/components/ui/status-button.tsx'
 import { requireUserId } from '~/utils/auth.server.ts'
@@ -7,6 +7,10 @@ import { generateTOTP } from '~/utils/totp.server.ts'
 import { twoFAVerificationType } from './profile.two-factor.tsx'
 import { verificationType as verifyVerificationType } from './profile.two-factor.verify.tsx'
 import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/two-factor` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

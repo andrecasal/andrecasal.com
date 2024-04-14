@@ -19,6 +19,11 @@ import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
 import { Link } from '@remix-run/react'
+import { type LinksFunction } from '@remix-run/node'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: 'https://andrecasal.com/tutoring' }]
+}
 
 const Tutoring = () => {
 	const features = [
@@ -218,11 +223,16 @@ const Tutoring = () => {
 								Tutoring
 							</H1>
 							<P size="lg" className="mt-6 text-muted-600">
-								I've been tutoring college students on computer science for over {new Date().getFullYear() - 2006} years. I've helped hundreds of students get through their classes and graduate. I can help
-								you too.
+								I've been tutoring college students on computer science for over {new Date().getFullYear() - 2006} years. I've helped hundreds of students get through their
+								classes and graduate. I can help you too.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6">
-								<Link to="#pricing" className="inline-flex whitespace-nowrap items-center justify-center rounded-md text-size-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand text-muted-50 hover:bg-brand/90 border h-14 px-10">I want an awesome tutor</Link>
+								<Link
+									to="#pricing"
+									className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-md border bg-brand px-10 text-size-sm font-semibold text-muted-50 ring-offset-background transition-colors hover:bg-brand/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+								>
+									I want an awesome tutor
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -238,9 +248,9 @@ const Tutoring = () => {
 					</H2>
 					<P size="xl" className="mt-6 leading-8">
 						Ok, so you're in college and you don't want to be disrespected, shamed, or humiliated by your peers. Much less by your teachers. Having gone through college and been
-						a tutor for more than {new Date().getFullYear() - 2006} years, I know how you feel. You may feel like your teachers don't care enough, your colleagues are just as lost as you, and going to the library
-						won't magically make your grades go up. Besides, spending more time reading the recommended books won't help because you can't lose any more time and you're already
-						sleeping less than what would be healthy.
+						a tutor for more than {new Date().getFullYear() - 2006} years, I know how you feel. You may feel like your teachers don't care enough, your colleagues are just as
+						lost as you, and going to the library won't magically make your grades go up. Besides, spending more time reading the recommended books won't help because you can't
+						lose any more time and you're already sleeping less than what would be healthy.
 					</P>
 					<div className="mt-10 max-w-2xl">
 						<P>
@@ -251,7 +261,8 @@ const Tutoring = () => {
 							the teacher's attention twice in two hours? For this, I might as well study at home!"
 						</P>
 						<P className="mt-8">
-							After that, I tried a private math tutor. He knew the subject matter, but he couldn't understand that I lacked some fundamental concepts to understand the current concepts. So he mechanistically repeated the same answers that I kept not understanding because I lacked that background knowledge. It was frustrating.
+							After that, I tried a private math tutor. He knew the subject matter, but he couldn't understand that I lacked some fundamental concepts to understand the current
+							concepts. So he mechanistically repeated the same answers that I kept not understanding because I lacked that background knowledge. It was frustrating.
 						</P>
 						<P className="mt-6">
 							Are you looking for a better solution to improve your grades, and feel proud of yourself and the things you'll be able to accomplish? That's why I'm here. To help
@@ -261,8 +272,9 @@ const Tutoring = () => {
 							From beginner to expert
 						</H3>
 						<P className="mt-10">
-							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. "Wow, son, you're doing well in college!" - says your dad. Imagine your teachers:
-							"Guys, if you have questions direct them to him, he knows this stuff!" Imagine your colleagues recognizing your knowledge, and asking for study sessions with you!
+							Imagine yourself commanding the respect and admiration of your parents, teachers, and colleagues. "Wow, son, you're doing well in college!" - says your dad.
+							Imagine your teachers: "Guys, if you have questions direct them to him, he knows this stuff!" Imagine your colleagues recognizing your knowledge, and asking for
+							study sessions with you!
 						</P>
 					</div>
 					<div className="mt-44 max-w-2xl">
@@ -284,10 +296,10 @@ const Tutoring = () => {
 							biggest problem will be to distinguish the ones who appreciate you for your intelligence from those who just want to take advantage of you.
 						</P>
 						<P className="mt-8">
-							Now imagine you're doing the exams. Confident. Focused. Your colleagues struggle to remember the concepts they need to answer the questions. You completely blaze through the
-							memorization questions the teacher posed, knowing every single answer by heart. A great start makes you feel even more confident and allows you more time to
-							answer all the questions and revise your answers after you're done. Still, 10 minutes left on the clock. You turn in your exam early, feeling proud of yourself
-							and everything you're achieving! You leave the exam room, take your phone out and dial your parent's phone number.
+							Now imagine you're doing the exams. Confident. Focused. Your colleagues struggle to remember the concepts they need to answer the questions. You completely blaze
+							through the memorization questions the teacher posed, knowing every single answer by heart. A great start makes you feel even more confident and allows you more
+							time to answer all the questions and revise your answers after you're done. Still, 10 minutes left on the clock. You turn in your exam early, feeling proud of
+							yourself and everything you're achieving! You leave the exam room, take your phone out and dial your parent's phone number.
 							<ul className="max-w-md list-inside list-disc space-y-1">
 								<li>Hello, son?</li>
 								<li>Nailed it!</li>
@@ -318,11 +330,12 @@ const Tutoring = () => {
 			</Container>
 			<Container className="py-24 sm:py-32">
 				<div className="mx-auto max-w-2xl lg:text-center">
-					<H2 size="3xl" className="mt-2 text-muted-900 text-center">
-						Everything you need to be a successful student	
+					<H2 size="3xl" className="mt-2 text-center text-muted-900">
+						Everything you need to be a successful student
 					</H2>
-					<P size="lg" className="mt-6 text-muted-600 text-center">
-						Besides having access to an expert tutor, you'll learn how to organize your time, material, and study sessions, so that you can deliver them on time and with the quality you need to get top grades.
+					<P size="lg" className="mt-6 text-center text-muted-600">
+						Besides having access to an expert tutor, you'll learn how to organize your time, material, and study sessions, so that you can deliver them on time and with the
+						quality you need to get top grades.
 					</P>
 				</div>
 				<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -349,10 +362,11 @@ const Tutoring = () => {
 								About André
 							</H1>
 							<P size="lg" className="mt-6 text-muted-700">
-								André is a serial entrepreneur with a background in software engineering, working for more than {new Date().getFullYear() - 2006} years, with companies like Calouste Gulbenkian Foundation, American TV network NBC, and energy
-								drink Monster Energy. He has provided technical direction to countless startups, and managed teams of over 20 people. Currently, he helps other software
-								engineers to improve their careers through mentoring and his online courses, which have been featured by Microsoft. Teaching has always been one of his
-								passions, and that is why throughout his career he has consulted, mentored, and tutored with remarkable reviews.
+								André is a serial entrepreneur with a background in software engineering, working for more than {new Date().getFullYear() - 2006} years, with companies like
+								Calouste Gulbenkian Foundation, American TV network NBC, and energy drink Monster Energy. He has provided technical direction to countless startups, and
+								managed teams of over 20 people. Currently, he helps other software engineers to improve their careers through mentoring and his online courses, which have
+								been featured by Microsoft. Teaching has always been one of his passions, and that is why throughout his career he has consulted, mentored, and tutored with
+								remarkable reviews.
 							</P>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0">
@@ -366,7 +380,7 @@ const Tutoring = () => {
 					<div className="py-32">
 						<div className="mx-auto max-w-2xl text-center">
 							<H2 size="3xl" weight="bold" className="mt-2 text-center">
-							Testimonials from some of the amazing people I've worked with <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
+								Testimonials from some of the amazing people I've worked with <Icon name="heart-filled" className="h-10 w-10 text-brand" aria-hidden="true" />
 							</H2>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
@@ -442,8 +456,8 @@ const Tutoring = () => {
 								The subjects I teach
 							</H2>
 							<P size="lg" className="mt-6 text-muted-600">
-								I've been teaching computer science and software engineering for more than {new Date().getFullYear() - 2006} years, so I've mastered quite a few subjects. Below you can find a
-								non-exhaustive list of the subjects I can help you with.
+								I've been teaching computer science and software engineering for more than {new Date().getFullYear() - 2006} years, so I've mastered quite a few subjects.
+								Below you can find a non-exhaustive list of the subjects I can help you with.
 							</P>
 							<div className="mt-10 flex items-center gap-x-6"></div>
 						</div>
@@ -766,8 +780,8 @@ const Tutoring = () => {
 							Satisfaction Guaranteed
 						</H2>
 						<P size="lg" className="mt-6 text-muted-600">
-							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in {new Date().getFullYear() - 2006} years of tutoring, no one
-							has ever asked for their money back - I'll give you your money back.
+							I'm sure you'll love the tutoring sessions with me. In the remote possibility of you not liking them - and I'm proud to say that in{' '}
+							{new Date().getFullYear() - 2006} years of tutoring, no one has ever asked for their money back - I'll give you your money back.
 						</P>
 					</div>
 					<div className="mt-16 rounded-xl bg-brand p-40 sm:mt-24 lg:mt-0">
@@ -801,4 +815,3 @@ const Tutoring = () => {
 }
 
 export default Tutoring
-

@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -24,6 +24,10 @@ const resetPasswordSchema = z
 		message: 'The passwords did not match',
 		path: ['confirmPassword'],
 	})
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/reset-password` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAnonymous(request)

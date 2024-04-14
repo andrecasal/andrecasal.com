@@ -7,6 +7,7 @@ import { H3 } from '../../ui+/components/typography/h3.tsx'
 import { Code } from '../../ui+/components/typography/code.tsx'
 import { H4 } from '../../ui+/components/typography/h4.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
+import { type LinksFunction } from '@remix-run/node'
 
 export const post: Post = {
 	title: 'CSS Layout Algorithms',
@@ -15,6 +16,10 @@ export const post: Post = {
 	date: '2024-02-16',
 	href: '/articles/layout',
 	topics: ['CSS', 'Layout'],
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
 }
 
 const Layout = () => {
@@ -232,9 +237,8 @@ const Layout = () => {
 					Inline formatting context
 				</H4>
 				<P size="xl" className="mt-8">
-					An inline formatting context only exists if all siblings in a containing block are inline-level elements, even if those elements are anonymous inline boxes.
-
-					Note, this root inline box concept effectively replaces the "anonymous inline element" concept introduced in CSS2§9.2.2.1.
+					An inline formatting context only exists if all siblings in a containing block are inline-level elements, even if those elements are anonymous inline boxes. Note, this
+					root inline box concept effectively replaces the "anonymous inline element" concept introduced in CSS2§9.2.2.1.
 				</P>
 				<P size="xl" className="mt-8">
 					Let's see how it works.

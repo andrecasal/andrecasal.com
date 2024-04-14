@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { ErrorList, Field } from '~/components/forms.tsx'
@@ -18,6 +18,10 @@ const verifySchema = z.object({
 	[onboardingEmailQueryParam]: z.string().email(),
 	[onboardingOTPQueryParam]: z.string().min(6).max(6),
 })
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/signup/verify` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const params = new URL(request.url).searchParams

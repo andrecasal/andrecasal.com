@@ -1,4 +1,4 @@
-import { json, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
 import { useLoaderData, useSearchParams } from '@remix-run/react'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
 import { Spacer } from '~/components/spacer.tsx'
@@ -25,6 +25,10 @@ export async function loader({ request }: DataFunctionArgs) {
 			},
 		},
 	)
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/login` }]
 }
 
 export const meta: V2_MetaFunction = () => {

@@ -5,6 +5,7 @@ import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
 import { P } from '../../ui+/components/typography/p.tsx'
+import { type LinksFunction } from '@remix-run/node'
 
 export const post: Post = {
 	title: 'Fluid Typography Sizing and Scales',
@@ -13,6 +14,10 @@ export const post: Post = {
 	date: '2023-09-11',
 	href: '/articles/fluid-typography-sizing-with-modular-scales',
 	topics: ['Typography', 'CSS', 'Design Systems'],
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
 }
 
 const FluidTypographySizingWithModularScales = () => {

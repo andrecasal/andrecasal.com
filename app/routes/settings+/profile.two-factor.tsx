@@ -1,4 +1,4 @@
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import { type LinksFunction, json, type DataFunctionArgs } from '@remix-run/node'
 import { Link, Outlet, useNavigate } from '@remix-run/react'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Dialog, DialogClose, DialogContent, DialogTitle } from '~/components/ui/dialog.tsx'
@@ -6,6 +6,10 @@ import { requireUserId } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
 
 export const twoFAVerificationType = '2fa'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/two-factor` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

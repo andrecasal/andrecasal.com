@@ -13,6 +13,11 @@ import { Newsletter } from '~/components/newsletter.tsx'
 import { H1 } from '../ui+/components/typography/h1.tsx'
 import { H2 } from '../ui+/components/typography/h2.tsx'
 import { P } from '../ui+/components/typography/p.tsx'
+import { type LinksFunction } from '@remix-run/node'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: 'https://andrecasal.com/ship-fast' }]
+}
 
 const ShipFast = () => {
 	const features = [

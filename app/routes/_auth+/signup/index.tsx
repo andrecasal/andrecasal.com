@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -23,6 +23,10 @@ export const verificationType = 'signup'
 const signupSchema = z.object({
 	email: emailSchema,
 })
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/signup` }]
+}
 
 export async function action({ request }: DataFunctionArgs) {
 	const formData = await request.formData()

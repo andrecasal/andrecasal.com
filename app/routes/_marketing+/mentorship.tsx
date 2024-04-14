@@ -14,6 +14,11 @@ import { H4 } from './ui+/components/typography/h4.tsx'
 import { P } from './ui+/components/typography/p.tsx'
 import { Span } from './ui+/components/typography/span.tsx'
 import { cn } from '~/utils/tailwind-merge.ts'
+import { type LinksFunction } from '@remix-run/node'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: 'https://andrecasal.com/mentorship' }]
+}
 
 const stats = [
 	{ label: 'with an initial call', value: 'Start' },
@@ -121,7 +126,7 @@ const FullStackWebDevMentor = () => {
 								<H3 size="lg">Why Choose Me as Your Business Mentor?</H3>
 								<ul className="mt-8 space-y-8 text-muted-600">
 									<li className="flex items-start gap-x-3">
-										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										<Icon name="trophy" className="mt-1.5 h-5 w-5 flex-none self-start text-brand" aria-hidden="true" />
 										<Span>
 											<strong className="font-semibold text-muted-900">Proven Track Record</strong>
 											<br />
@@ -133,7 +138,7 @@ const FullStackWebDevMentor = () => {
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
-										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										<Icon name="brain" className="mt-1.5 h-5 w-5 flex-none self-start text-brand" aria-hidden="true" />
 										<Span>
 											<strong className="font-semibold text-muted-900">Wealth of skills</strong>
 											<br />
@@ -146,7 +151,7 @@ const FullStackWebDevMentor = () => {
 										</Span>
 									</li>
 									<li className="flex gap-x-3">
-										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										<Icon name="chat-bubbles" className="mt-1.5 h-5 w-5 flex-none self-start text-brand" aria-hidden="true" />
 										<Span>
 											<strong className="font-semibold text-muted-900">Continuous Support</strong>
 											<br />
@@ -278,7 +283,7 @@ const FullStackWebDevMentor = () => {
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
 								{benefits.map(benefit => (
 									<li key={benefit} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										<Icon name="check" className="h-6 w-5 flex-none self-start text-brand" aria-hidden="true" />
 										{benefit}
 									</li>
 								))}
@@ -325,7 +330,7 @@ const FullStackWebDevMentor = () => {
 							<ul className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-muted-600 sm:grid-cols-2 sm:gap-6">
 								{benefits.map(benefit => (
 									<li key={benefit} className="flex gap-x-3">
-										<Icon name="check" className="h-6 w-5 flex-none text-brand self-start" aria-hidden="true" />
+										<Icon name="check" className="h-6 w-5 flex-none self-start text-brand" aria-hidden="true" />
 										{benefit}
 									</li>
 								))}

@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, type DataFunctionArgs, redirect } from '@remix-run/node'
+import { json, type DataFunctionArgs, redirect, type LinksFunction } from '@remix-run/node'
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import * as QRCode from 'qrcode'
 import invariant from 'tiny-invariant'
@@ -24,6 +24,10 @@ const verifySchema = z.union([
 		intent: z.literal('cancel'),
 	}),
 ])
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/verify` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

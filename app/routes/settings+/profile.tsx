@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { Form, Link, Outlet, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { authenticator, getPasswordHash, requireUserId, verifyLogin } from '~/utils/auth.server.ts'
@@ -22,6 +22,10 @@ const profileFormSchema = z.object({
 	currentPassword: z.union([passwordSchema, z.string().min(0).max(0)]).optional(),
 	newPassword: z.union([passwordSchema, z.string().min(0).max(0)]).optional(),
 })
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/profile` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

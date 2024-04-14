@@ -6,6 +6,7 @@ import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
 import { P } from '../../ui+/components/typography/p.tsx'
+import { type LinksFunction } from '@remix-run/node'
 
 export const post: Post = {
 	title: 'The Dark Side Of The Grid (and Flexbox)',
@@ -14,6 +15,10 @@ export const post: Post = {
 	date: '2023-10-04',
 	href: '/articles/the-dark-side-of-the-grid',
 	topics: ['Accessibility', 'CSS'],
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
 }
 
 const TheDarkSideOfTheGrid = () => {

@@ -1,6 +1,6 @@
 import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
-import { type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
 import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { P } from '../../ui+/components/typography/p.tsx'
@@ -12,6 +12,10 @@ export const post: Post = {
 	date: '2023-09-01',
 	href: '/articles/remix-data-flow',
 	topics: ['Remix', 'Full-stack'],
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
 }
 
 export const meta: V2_MetaFunction = () => {

@@ -17,6 +17,11 @@ import { H3 } from '../ui+/components/typography/h3.tsx'
 import { H4 } from '../ui+/components/typography/h4.tsx'
 import { P } from '../ui+/components/typography/p.tsx'
 import { Span } from '../ui+/components/typography/span.tsx'
+import { type LinksFunction } from '@remix-run/node'
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: 'https://andrecasal.com/courses/mastery-for-vs-code' }]
+}
 
 const MasteryForVSCode = () => {
 	const features = [

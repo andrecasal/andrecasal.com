@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation, useSearchParams } from '@remix-run/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import { z } from 'zod'
@@ -38,6 +38,10 @@ const onboardingFormSchema = z
 			})
 		}
 	})
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/onboarding` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAnonymous(request)

@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type DataFunctionArgs, json, redirect, unstable_createMemoryUploadHandler, unstable_parseMultipartFormData } from '@remix-run/node'
+import { type DataFunctionArgs, json, redirect, unstable_createMemoryUploadHandler, unstable_parseMultipartFormData, type LinksFunction } from '@remix-run/node'
 import { Form, Link, useActionData, useFetcher, useLoaderData, useNavigate } from '@remix-run/react'
 import { useState } from 'react'
 import { z } from 'zod'
@@ -31,6 +31,10 @@ const PhotoFormSchema = z.object({
 			}, 'Image size must be less than 3MB'),
 	),
 })
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/photo` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

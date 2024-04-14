@@ -5,6 +5,7 @@ import { type Post } from '../_index.tsx'
 import { H1 } from '../../ui+/components/typography/h1.tsx'
 import { H2 } from '../../ui+/components/typography/h2.tsx'
 import { P } from '../../ui+/components/typography/p.tsx'
+import { type LinksFunction } from '@remix-run/node'
 
 export const post: Post = {
 	title: 'Fluid Space Sizing',
@@ -13,6 +14,10 @@ export const post: Post = {
 	date: '2023-09-25',
 	href: '/articles/fluid-space-sizing',
 	topics: ['Spacing', 'CSS', 'Design Systems'],
+}
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/${post.href}` }]
 }
 
 const FluidSpaceSizing = () => {

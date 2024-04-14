@@ -1,6 +1,6 @@
 import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
 import { Form, Link, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -21,6 +21,10 @@ const verifySchema = z.object({
 	[forgotPasswordTargetQueryParam]: z.union([emailSchema, usernameSchema]),
 	[forgotPasswordOTPQueryParam]: z.string().min(6).max(6),
 })
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'canonical', href: `https://andrecasal.com/forgot-password/verify` }]
+}
 
 export async function loader({ request }: DataFunctionArgs) {
 	const params = new URL(request.url).searchParams
