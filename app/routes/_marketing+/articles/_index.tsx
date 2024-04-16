@@ -28,8 +28,12 @@ export type Post = {
 	topics: string[]
 }
 
+export const getPosts = () => {
+	return [/* layout,  */ theDarkSideOfTheGridPost, fluidSpacePost, fluidTypographyPost, remixDataFlowPost]
+}
+
 export const loader = () => {
-	const posts: Post[] = [/* layout,  */ theDarkSideOfTheGridPost, fluidSpacePost, fluidTypographyPost, remixDataFlowPost]
+	const posts: Post[] = getPosts()
 	const tags = [...new Set(posts.map(({ topics }) => topics).flat())]
 	return json({ posts, tags })
 }
