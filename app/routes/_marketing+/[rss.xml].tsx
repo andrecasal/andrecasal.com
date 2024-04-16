@@ -46,7 +46,8 @@ export const loader: LoaderFunction = async () => {
 			description: description,
 			pubDate: new Date(date).toUTCString(),
 			title: title,
-			link: `https://andrecasal.com/blog${href}`,
+			link: `https://andrecasal.com/articles${href}`,
+			guid: `https://andrecasal.com/articles${href}`,
 		})),
 	})
 
