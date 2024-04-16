@@ -424,11 +424,11 @@ const Tutoring = () => {
 							realmente requerem trabalho. Ainda faltam 20 minutos para o exame acabar mas já acabaste. Com calma e confiança revês o exame e ainda corriges um pequeno erro -
 							mais meio ponto na classificação. Faltam 10 minutos. Entregas o exame cedo, sentido-te orgulhoso de ti próprio e do que atingiste! Sais da sala, pegas no
 							telemóvel e ligas aos teus pais.
-							<ul className="max-w-md list-inside list-disc space-y-1">
-								<li>Estou filho?</li>
-								<li>Passei!</li>
-							</ul>
 						</P>
+						<ul className="max-w-md list-inside list-disc space-y-1">
+							<li>Estou filho?</li>
+							<li>Passei!</li>
+						</ul>
 						<P className="mt-8">
 							Como é que isto é possível? Porque aprendeste um método cientificamente provado para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu
 							nível de conhecimento atual e ajudo-te a fazer a ponte entre o conhecimento que tens agora e o conhecimento que precisarás para passar no exames. Podes ter
