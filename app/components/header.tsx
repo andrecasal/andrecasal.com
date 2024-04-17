@@ -1,5 +1,5 @@
 import { Fragment, useRef, useState } from 'react'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
 import { Dialog, DialogTrigger, DialogContent, DialogClose } from '~/components/ui/dialog.tsx'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from '~/components/ui/navigation-menu.tsx'
 import { Separator } from '~/components/ui/separator.tsx'
@@ -65,7 +65,7 @@ export default function Header() {
 														to={href}
 														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 													>
-														{name} {external ? <Icon name="paper-plane" className="h-4 w-4 inline-block -mt-1" /> : null}
+														{name} {external ? <Icon name="paper-plane" className="-mt-1 inline-block h-4 w-4" /> : null}
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>

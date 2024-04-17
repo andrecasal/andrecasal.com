@@ -1,10 +1,10 @@
 import { Link } from '@remix-run/react'
 import BackgroundDiagonal from './bg-diagonal.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Badge } from '~/components/ui/badge.tsx'
-import { H1 } from '../ui+/components/typography/h1.tsx'
-import { P } from '../ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 const HeroAndre = () => {
 	return (
@@ -27,7 +27,12 @@ const HeroAndre = () => {
 							I'm a tech entrepreneur that loves to build stuff.
 						</P>
 						<div className="mt-10 flex items-center gap-x-6">
-							<Link to="#built" className="h-14 px-10 text-size-md inline-flex whitespace-nowrap items-center justify-center rounded-md font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-muted-50 text-muted-800 hover:bg-muted-100 border">What have you built?</Link>
+							<Link
+								to="#built"
+								className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-md border bg-muted-50 px-10 text-size-md font-semibold text-muted-800 ring-offset-background transition-colors hover:bg-muted-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+							>
+								What have you built?
+							</Link>
 							<Button size="lg" asChild>
 								<Link to="/mentorship">Let's build together</Link>
 							</Button>

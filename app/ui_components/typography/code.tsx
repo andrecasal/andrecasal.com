@@ -1,6 +1,6 @@
 import { forwardRef, useState, type HTMLAttributes, type KeyboardEvent } from 'react'
 import { useCopyToClipboard } from 'usehooks-ts'
-import { Tooltip } from '~/routes/_marketing+/ui+/components/ui/tooltip.tsx'
+import { Tooltip } from '~/ui_components/ui/tooltip.tsx'
 
 type CodeProps = { copy?: boolean } & { children: string } & HTMLAttributes<HTMLElement>
 

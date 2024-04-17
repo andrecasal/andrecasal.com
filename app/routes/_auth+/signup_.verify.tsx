@@ -10,9 +10,9 @@ import { commitSession, getSession } from '~/utils/session.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { onboardingEmailSessionKey } from './onboarding.tsx'
 import { onboardingEmailQueryParam, onboardingOTPQueryParam, verificationType } from './signup/index.tsx'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 const verifySchema = z.object({
 	[onboardingEmailQueryParam]: z.string().email(),

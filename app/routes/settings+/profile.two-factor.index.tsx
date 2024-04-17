@@ -6,7 +6,7 @@ import { prisma } from '~/utils/db.server.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 import { twoFAVerificationType } from './profile.two-factor.tsx'
 import { verificationType as verifyVerificationType } from './profile.two-factor.verify.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/two-factor` }]

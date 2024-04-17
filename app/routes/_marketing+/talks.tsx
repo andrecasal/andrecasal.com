@@ -1,9 +1,9 @@
 import { Link } from '@remix-run/react'
 import { Newsletter } from '~/components/newsletter.tsx'
 import { Button } from '~/components/ui/button.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { P } from './ui+/components/typography/p.tsx'
 import { type LinksFunction } from '@remix-run/node'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/talks' }]

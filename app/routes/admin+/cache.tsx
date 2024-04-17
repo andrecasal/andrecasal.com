@@ -9,7 +9,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { cache, getAllCacheKeys, lruCache, searchCacheKeys } from '~/utils/cache.server.ts'
 import { Field } from '~/components/forms.tsx'
 import { requireAdmin } from '~/utils/permissions.server.ts'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
 
 export async function loader({ request }: DataFunctionArgs) {
 	await requireAdmin(request)

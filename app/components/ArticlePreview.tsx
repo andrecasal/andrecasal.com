@@ -1,7 +1,7 @@
 import { type Post } from '~/routes/_marketing+/articles/_index.tsx'
 import { Badge } from './ui/badge.tsx'
-import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
+import { H3 } from '~/ui_components/typography/h3.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const ArticlePreview = ({ post }: { post: Post }) => {
 	return (

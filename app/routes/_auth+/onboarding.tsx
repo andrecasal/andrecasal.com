@@ -12,9 +12,9 @@ import { commitSession, getSession } from '~/utils/session.server.ts'
 import { nameSchema, passwordSchema, usernameSchema } from '~/utils/user-validation.ts'
 import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { redirectWithConfetti } from '~/utils/flash-session.server.ts'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const onboardingEmailSessionKey = 'onboardingEmail'
 

@@ -1,13 +1,13 @@
 import layout from './layout.png'
 import { type Post } from '../_index.tsx'
-import { H1 } from '../../ui+/components/typography/h1.tsx'
-import { H2 } from '../../ui+/components/typography/h2.tsx'
-import { P } from '../../ui+/components/typography/p.tsx'
-import { H3 } from '../../ui+/components/typography/h3.tsx'
-import { Code } from '../../ui+/components/typography/code.tsx'
-import { H4 } from '../../ui+/components/typography/h4.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { type LinksFunction } from '@remix-run/node'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { H3 } from '~/ui_components/typography/h3.tsx'
+import { H4 } from '~/ui_components/typography/h4.tsx'
+import { Code } from '~/ui_components/typography/code.tsx'
 
 export const post: Post = {
 	title: 'CSS Layout Algorithms',

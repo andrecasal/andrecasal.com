@@ -1,8 +1,8 @@
 import { isRouteErrorResponse, useParams, useRouteError } from '@remix-run/react'
 import { type ErrorResponse } from '@remix-run/router'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 import { getErrorMessage } from '~/utils/misc.ts'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 type StatusHandler = (info: { error: ErrorResponse; params: Record<string, string | undefined> }) => JSX.Element | null
 

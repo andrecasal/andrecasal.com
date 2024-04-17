@@ -13,9 +13,9 @@ import { resetPasswordUsernameSessionKey } from './reset-password.tsx'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import invariant from 'tiny-invariant'
 import { StatusButton } from '~/components/ui/status-button.tsx'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 const verifySchema = z.object({
 	[forgotPasswordTargetQueryParam]: z.union([emailSchema, usernameSchema]),

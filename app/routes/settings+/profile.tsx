@@ -12,8 +12,8 @@ import { twoFAVerificationType } from './profile.two-factor.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { Span } from '../_marketing+/ui+/components/typography/span.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
 
 const profileFormSchema = z.object({
 	name: nameSchema.optional(),

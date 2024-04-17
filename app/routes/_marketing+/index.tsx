@@ -2,11 +2,11 @@ import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Link } from '@remix-run/react'
-import { H2 } from './ui+/components/typography/h2.tsx'
-import { Span } from './ui+/components/typography/span.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
 
 export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
 

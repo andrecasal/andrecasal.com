@@ -16,7 +16,7 @@ import { checkboxSchema } from '~/utils/zod-extensions.ts'
 import { twoFAVerificationType } from '../settings+/profile.two-factor.tsx'
 import { unverifiedSessionKey } from './verify.tsx'
 import { StatusButton } from '~/components/ui/status-button.tsx'
-import { Span } from '../_marketing+/ui+/components/typography/span.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
 
 const ROUTE_PATH = '/resources/login'
 

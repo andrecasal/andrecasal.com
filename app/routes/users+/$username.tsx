@@ -4,12 +4,12 @@ import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
 import { Spacer } from '~/components/spacer.tsx'
 import { Button } from '~/components/ui/button.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { getUserImgSrc } from '~/utils/misc.ts'
 import { useOptionalUser } from '~/utils/user.ts'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')

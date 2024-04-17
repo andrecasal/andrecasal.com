@@ -1,20 +1,20 @@
 /* import { useState } from 'react'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible.tsx' */
 import BackgroundSquareLines from './components/bg-square-lines.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
 import zacharyCassette from './images/zachary-cassette.jpg'
-import { H1 } from './ui+/components/typography/h1.tsx'
-import { H2 } from './ui+/components/typography/h2.tsx'
-import { H3 } from './ui+/components/typography/h3.tsx'
-import { H4 } from './ui+/components/typography/h4.tsx'
-import { P } from './ui+/components/typography/p.tsx'
-import { Span } from './ui+/components/typography/span.tsx'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { type LinksFunction } from '@remix-run/node'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { H3 } from '~/ui_components/typography/h3.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
+import { H4 } from '~/ui_components/typography/h4.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/mentorship' }]

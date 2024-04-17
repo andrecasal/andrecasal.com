@@ -1,8 +1,8 @@
 import DiamondBackground from './bg-diamonds.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { trusted } from '../logos/logos.ts'
-import { H2 } from '../ui+/components/typography/h2.tsx'
-import { P } from '../ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
 
 const Brands = () => {
 	return (

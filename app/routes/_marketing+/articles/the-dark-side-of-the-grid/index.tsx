@@ -1,12 +1,12 @@
 import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
 import { Link } from '@remix-run/react'
-import { Kbd } from '../../ui+/components/typography/kbd.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { type Post } from '../_index.tsx'
-import { H1 } from '../../ui+/components/typography/h1.tsx'
-import { H2 } from '../../ui+/components/typography/h2.tsx'
-import { P } from '../../ui+/components/typography/p.tsx'
 import { type LinksFunction } from '@remix-run/node'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { Kbd } from '~/ui_components/typography/kbd.tsx'
 
 export const post: Post = {
 	title: 'The Dark Side Of The Grid (and Flexbox)',

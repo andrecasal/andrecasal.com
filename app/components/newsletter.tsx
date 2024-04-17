@@ -7,15 +7,15 @@ import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter.t
 import { parse } from '@conform-to/zod'
 import { cn } from '~/utils/tailwind-merge.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
-import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { Player } from '@lottiefiles/react-lottie-player'
 import * as newsletterAnimation from '~/components/newsletter-animation.json'
 import { useEffect, useRef, useState } from 'react'
 import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
-import { Flex } from '~/routes/_marketing+/ui+/components/layout/flex.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { Flex } from '~/ui_components/layout/flex.tsx'
 
 type NewsletterProps = {
 	className?: string

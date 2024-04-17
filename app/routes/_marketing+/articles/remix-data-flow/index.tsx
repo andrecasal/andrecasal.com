@@ -2,8 +2,8 @@ import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
 import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
 import { type Post } from '../_index.tsx'
-import { H1 } from '../../ui+/components/typography/h1.tsx'
-import { P } from '../../ui+/components/typography/p.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const post: Post = {
 	title: 'Remix Data Flow',

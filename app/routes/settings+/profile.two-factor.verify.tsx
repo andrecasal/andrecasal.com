@@ -11,7 +11,7 @@ import { prisma } from '~/utils/db.server.ts'
 import { Field } from '~/components/forms.tsx'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { getTOTPAuthUri, verifyTOTP } from '~/utils/totp.server.ts'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const verificationType = '2fa-verify'
 

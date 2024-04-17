@@ -1,8 +1,8 @@
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import HeroAndre from './components/hero-andre.tsx'
-import { H2 } from './ui+/components/typography/h2.tsx'
-import { P } from './ui+/components/typography/p.tsx'
 import { type LinksFunction } from '@remix-run/node'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/about' }]

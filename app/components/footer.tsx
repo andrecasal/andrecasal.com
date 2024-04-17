@@ -1,8 +1,8 @@
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
-import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
-import { H3 } from '~/routes/_marketing+/ui+/components/typography/h3.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
-import { Span } from '~/routes/_marketing+/ui+/components/typography/span.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { H3 } from '~/ui_components/typography/h3.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
 
 const navigation = {
 	social: [

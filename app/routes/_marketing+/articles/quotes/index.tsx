@@ -1,7 +1,7 @@
 import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
-import { H1 } from '../../ui+/components/typography/h1.tsx'
-import { H2 } from '../../ui+/components/typography/h2.tsx'
-import { P } from '../../ui+/components/typography/p.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
 
 export const title = 'Quotes'
 export const description =

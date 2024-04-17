@@ -1,19 +1,18 @@
 import { useLoaderData } from '@remix-run/react'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
 import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { useState } from 'react'
 import { type LinksFunction, json } from '@remix-run/node'
-import { H1 } from '../ui+/components/typography/h1.tsx'
-
 /* import { post as layout } from './layout/index.tsx' */
 import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
 import { post as fluidTypographyPost } from './fluid-typography-sizing-with-modular-scales/index.tsx'
 import { post as remixDataFlowPost } from './remix-data-flow/index.tsx'
-import { P } from '../ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/articles' }]

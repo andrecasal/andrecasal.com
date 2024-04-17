@@ -9,9 +9,9 @@ import { StatusButton } from '~/components/ui/status-button.tsx'
 import { authenticator, requireAnonymous, resetUserPassword } from '~/utils/auth.server.ts'
 import { commitSession, getSession } from '~/utils/session.server.ts'
 import { passwordSchema } from '~/utils/user-validation.ts'
-import { Container } from '../_marketing+/ui+/components/layout/container.tsx'
-import { H1 } from '../_marketing+/ui+/components/typography/h1.tsx'
-import { P } from '../_marketing+/ui+/components/typography/p.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
+import { H1 } from '~/ui_components/typography/h1.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 export const resetPasswordUsernameSessionKey = 'resetPasswordUsername'
 

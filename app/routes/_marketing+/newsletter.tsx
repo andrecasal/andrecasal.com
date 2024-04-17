@@ -1,4 +1,3 @@
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
 import { Resend } from 'resend'
 import { type LinksFunction, json, type ActionArgs } from '@remix-run/node'
 import { parse } from '@conform-to/zod'
@@ -7,6 +6,7 @@ import { emailSchema } from '~/utils/user-validation.ts'
 import { Newsletter as NewsletterComponent } from '~/components/newsletter.tsx'
 import { validateCSRF } from '~/utils/csrf.server.ts'
 import { checkHoneypot } from '~/utils/honeypot.server.ts'
+import { Container } from '~/ui_components/layout/container.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/newsletter' }]

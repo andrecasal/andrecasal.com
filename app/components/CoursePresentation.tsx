@@ -1,9 +1,9 @@
 import { Button } from './ui/button.tsx'
 import { Link } from '@remix-run/react'
 import { Icon } from './ui/icon.tsx'
-import { H2 } from '~/routes/_marketing+/ui+/components/typography/h2.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
-import { Span } from '~/routes/_marketing+/ui+/components/typography/span.tsx'
+import { H2 } from '~/ui_components/typography/h2.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
+import { Span } from '~/ui_components/typography/span.tsx'
 
 export const CoursePresentation = ({
 	course: {

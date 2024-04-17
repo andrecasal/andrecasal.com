@@ -1,6 +1,6 @@
 import { Outlet } from '@remix-run/react'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { Container } from '~/routes/_marketing+/ui+/components/layout/container.tsx'
+import { Container } from '~/ui_components/layout/container.tsx'
 
 const ArticlesLayoutRoute = () => {
 	return (

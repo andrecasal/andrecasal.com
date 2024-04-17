@@ -5,7 +5,7 @@ import cg from 'classgroup'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
 import { Button } from './button.tsx'
-import { P } from '~/routes/_marketing+/ui+/components/typography/p.tsx'
+import { P } from '~/ui_components/typography/p.tsx'
 
 const ToastProvider = ToastPrimitives.Provider
 
