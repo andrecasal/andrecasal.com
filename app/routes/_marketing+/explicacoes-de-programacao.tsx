@@ -34,10 +34,11 @@ export const meta: V2_MetaFunction = () => {
 				'explicações, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
 		},
 		{
+			// Structure data for Google Search for my private tutoring services
 			'script:ld+json': {
 				'@context': 'https://schema.org',
 				'@id': 'https://andrecasal.com',
-				'@type': 'ProfessionalService',
+				"@type": "EducationalOrganization",
 				name: 'André Casal',
 				image: 'https://andrecasal.com/img/andre_casal_squared.png',
 				url: 'https://andrecasal.com',
@@ -45,22 +46,45 @@ export const meta: V2_MetaFunction = () => {
 				priceRange: '40',
 				aggregateRating: {
 					'@type': 'AggregateRating',
-					'@id': 'https://andrecasal.com/explicacoes-de-programacao',
-					name: 'André Casal',
-					url: 'https://andrecasal.com/explicacoes-de-programacao',
-					image: 'https://andrecasal.com/img/andre_casal_squared.png',
-					itemReviewed: {
-						'@type': 'EducationalOrganization',
-						name: 'Explicações de Programação - André Casal',
-						image: 'https://andrecasal.com/img/andre_casal_squared.png',
-						telephone: '925194895',
-						url: 'https://andrecasal.com/explicacoes-de-programacao',
-					},
 					ratingValue: '5',
 					bestRating: '5',
 					worstRating: '5',
-					ratingCount: '23',
+					ratingCount: '27',
 				},
+				review: [
+					{
+						'@type': 'Review',
+						author: {
+							'@type': 'Person',
+							name: 'Gonçalo Barreiros',
+							image: 'https://andrecasal.com/img/goncalo-barreiros.png',
+						},
+						reviewBody:
+							'Antes de começar a ser orientado pelo André, eu odiava Assembly e Microprocessadores. Eu estava a repetir a disciplina pela terceira vez e senti que ia reprovar mais uma vez. Mas depois que comecei a ser orientado pelo André, comecei a gostar do que estava a aprender, porque comecei a entender a matéria e até ficou divertido! Pela primeira vez, senti-me confiante! O André é muito simpático e paciente: ele desenhava diagramas, explicava, e usava outras linguagens de programação para me ajudar a ver a ligação entre linguagens de alto nível e Assembly, e tudo estava ótimo! Nunca tive um professor assim. Quando o resultado do exame chegou, fiquei perplexo ao ver que havia ido de reprovado nessa matéria por dois anos consecutivos para ter um 16! O método de ensino e a dedicação do André são, na minha opinião, imbatíveis.',
+						name: 'Gonçalo Barreiros',
+						datePublished: '2021-09-01',
+						reviewRating: {
+							'@type': 'Rating',
+							ratingValue: '5',
+						},
+					},
+					{
+						'@type': 'Review',
+						author: {
+							'@type': 'Person',
+							name: 'Paulo Jorge',
+							image: 'https://andrecasal.com/img/paulo-jorge.png',
+						},
+						reviewBody:
+							'Os meus professores introduziram a programação do Arduino com pequenos blocos de código. Um pouco de código aqui e ali. Mas eles nunca explicaram as coisas muito bem. Eles presumiam que íamos procurar as peças que faltavam. Tentei pesquisar na internet e conversar com colegas, mas não adiantou muito. Quando comecei as aulas de reforço com o André, minhas notas aumentaram exponencialmente. Estou com o André há um ano neste momento, a disciplina atual é a segunda que estamos a fazer juntos. Na primeira aula, se eu sei alguma coisa sobre Arduino, foi porque o André me ensinou. Quero dizer, o André não apenas me ensinou como a fazer projetos com Arduino, mas também me ensinou ao ponto de eu poder concluir os exames sozinho! E em termos de disponibilidade o André é top.',
+						name: 'Paulo Jorge',
+						datePublished: '2021-09-01',
+						reviewRating: {
+							'@type': 'Rating',
+							ratingValue: '5',
+						},
+					},
+				],
 			},
 		},
 	]
