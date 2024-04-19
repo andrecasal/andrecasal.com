@@ -30,15 +30,14 @@ export const meta: V2_MetaFunction = () => {
 		},
 		{
 			name: 'keywords',
-			content:
-				'explicador de programação, explicações de programação, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
+			content: 'explicações de programação, explicador de programação, tutoria de programação, tutor de programação, boas notas programação, como estudar programação',
 		},
 		{
 			// Structure data for Google Search for my private tutoring services
 			'script:ld+json': {
 				'@context': 'https://schema.org',
 				'@id': 'https://andrecasal.com',
-				"@type": "EducationalOrganization",
+				'@type': 'EducationalOrganization',
 				name: 'André Casal',
 				image: 'https://andrecasal.com/img/andre_casal_squared.png',
 				url: 'https://andrecasal.com',
@@ -142,7 +141,7 @@ export const links: LinksFunction = () => {
 const Tutoring = () => {
 	const features = [
 		{
-			name: 'Video-conferência em tempo real',
+			name: 'Aulas online por video-conferência',
 			description: 'Explicações com áudio, vídeo, whiteboard e controlo remoto para te ajudar a organizar a matéria, programar, e explicar conceitos da melhor forma possível.',
 			icon: 'video',
 		},
@@ -349,12 +348,15 @@ const Tutoring = () => {
 							</div>
 						</div>
 					</div>
-					<div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-						<img
-							className="aspect-[3/2] w-full rounded-2xl bg-muted-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-							src={collegeLife}
-							alt="Explicações de Programação"
-						/>
+					<div className="relative lg:col-span-5 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
+						<figure className="relative flex h-full flex-col">
+							<img
+								className="w-full rounded-2xl bg-muted-50 object-cover lg:aspect-auto lg:h-full"
+								src="/img/andre_casal_squared.png"
+								alt="André, o teu tutor de programação"
+							/>
+							<figcaption className="mt-4 gap-x-2 text-center text-sm leading-6 text-muted-500">André, o teu tutor de programação.</figcaption>
+						</figure>
 					</div>
 				</div>
 			</Container>
@@ -397,11 +399,11 @@ const Tutoring = () => {
 					</div>
 					<div className="mt-44 max-w-2xl">
 						<H2 size="3xl" className="mt-2 text-muted-900">
-							Como é trabalhar comigo
+							Como é trabalhar com um explicador de programação
 						</H2>
 						<figure className="mt-16">
 							<img className="aspect-video rounded-xl bg-muted-50 object-cover" src={andreOnMacBookPro} alt="André numa chamada com um aluno" />
-							<figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-muted-500">André numa chamada com um aluno.</figcaption>
+							<figcaption className="mt-4 gap-x-2 text-center text-sm leading-6 text-muted-500">André numa chamada com um aluno.</figcaption>
 						</figure>
 						<P className="mt-6">
 							Imagina isto: o teu professor fazer-te uma pergunta que sabe que nenhum estudante sabe responder. Mas tu tens uma arma secreta - lições com um tutor especializado
@@ -427,9 +429,9 @@ const Tutoring = () => {
 							<li>Passei!</li>
 						</ul>
 						<P className="mt-8">
-							Como é que isto é possível? Porque aprendeste um método cientificamente provado para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu
-							nível de conhecimento atual e ajudo-te a fazer a ponte entre o conhecimento que tens agora e o conhecimento que precisarás para passar no exames. Podes ter
-							explicações dedicadas só a ti ou em grupo.
+							Como é que isto é possível? Porque tiveste aulas de programação comigo! Eu ensinei <strong>como estudar programação</strong> e aprendeste um método
+							cientificamente provado para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu nível de conhecimento atual e ajudo-te a fazer a ponte
+							entre o conhecimento que tens agora e o conhecimento que precisarás para passar no exames. Podes ter explicações dedicadas só a ti ou em grupo.
 						</P>
 					</div>
 					<div className="mt-16 max-w-2xl">
@@ -455,7 +457,7 @@ const Tutoring = () => {
 						Tudo o que precisas para seres um aluno de sucesso
 					</H2>
 					<P size="lg" className="mt-6 text-center text-muted-600">
-						Além de teres acesso a um explicador especializado,aprenderás a organizar teu tempo, materiais e sessões de estudo, para poderes entregar os trabalho dentro do prazo
+						Além de teres acesso a um explicador especializado,aprenderás a organizar teu tempo, materiais e sessões de estudo, para poderes entregar os trabalhos dentro do prazo
 						e com a qualidade necessária para obteres as melhores notas.
 					</P>
 				</div>
@@ -483,11 +485,11 @@ const Tutoring = () => {
 								Sobre o André, o teu explicador de programação
 							</H2>
 							<P size="lg" className="mt-6 text-muted-700">
-								O André tem vindo a trabalhar como engenheiro de software, há mais de 15 anos, com empresas como a Fundação Calouste Gulbenkian, a rede de televisão americana
-								NBC, a marca de bebidas Monster Energy e outras empresas de grande escala. Ele tem fornecido apoio em engenharia a inúmeras startups e gerido equipas de mais
-								de 20 pessoas. Atualmente dá formação a alunos universitários, engenheiros de software, equipas de desenvolvimento para melhorarem a qualidade do seu trabalho
-								e o seu curso Mastery for VS Code foi elogiado e destacado pela Microsoft. Ensinar e ajudar pessoas a transformarem-se sempre foi a sua paixão e é por isso
-								que ao longo da sua carreira obteve comentários notáveis.
+								O André tem vindo a trabalhar como engenheiro de software, há mais de {new Date().getFullYear() - 2006} anos, com empresas como a Fundação Calouste
+								Gulbenkian, a rede de televisão americana NBC, a marca de bebidas Monster Energy e outras empresas de grande escala. Ele tem fornecido apoio em engenharia a
+								inúmeras startups e gerido equipas de mais de 20 pessoas. Atualmente dá formação a alunos universitários, engenheiros de software, equipas de desenvolvimento
+								para melhorarem a qualidade do seu trabalho e o seu curso Mastery for VS Code foi elogiado e destacado pela Microsoft. Ensinar e ajudar pessoas a
+								transformarem-se sempre foi a sua paixão e é por isso que ao longo da sua carreira obteve comentários notáveis.
 							</P>
 						</div>
 						<div className="mt-16 sm:mt-24 lg:mt-0">
@@ -604,7 +606,7 @@ const Tutoring = () => {
 					<div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
 						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div>
-								<H3 size="md">Programming</H3>
+								<H3 size="md">Programação</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.programming.map(item => (
 										<li key={item.name}>
@@ -614,7 +616,7 @@ const Tutoring = () => {
 								</ul>
 							</div>
 							<div className="mt-10 md:mt-0">
-								<H3 size="md">Web Development</H3>
+								<H3 size="md">Desenvolvimento Web</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.webdev.map(item => (
 										<li key={item.name}>
@@ -626,7 +628,7 @@ const Tutoring = () => {
 						</div>
 						<div className="md:grid md:grid-cols-2 md:gap-8">
 							<div>
-								<H3 size="md">Computer Science</H3>
+								<H3 size="md">Ciência da Computação</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.computerscience.map(item => (
 										<li key={item.name}>
@@ -636,7 +638,7 @@ const Tutoring = () => {
 								</ul>
 							</div>
 							<div className="mt-10 md:mt-0">
-								<H3 size="md">Math</H3>
+								<H3 size="md">Matemática</H3>
 								<ul className="mt-6 space-y-4">
 									{navigation.math.map(item => (
 										<li key={item.name}>
@@ -917,8 +919,8 @@ const Tutoring = () => {
 						</H2>
 						<P size="lg" className="mt-6 text-muted-600">
 							Só quero agradecer-te por reservares um tempo para leres sobre meu serviço de tutoria. Continua a ser uma tremenda honra ter tantos alunos que confiam em mim para
-							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decido ter explicações, mesmo que não comigo, porque sei que é
-							uma decisão muito boa.
+							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decidido ter tutoria de programação, mesmo que não comigo,
+							porque sei que é uma decisão muito boa.
 						</P>
 						<P size="lg" className="mt-6 text-muted-600">
 							Ao teu sucesso! 🥂
