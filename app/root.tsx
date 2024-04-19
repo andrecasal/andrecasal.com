@@ -43,7 +43,7 @@ export const links: LinksFunction = () => {
 		},
 		{ rel: 'apple-touch-icon', href: '/favicons/apple-touch-icon.png' },
 		{ rel: 'manifest', href: '/site.webmanifest' },
-		{ rel: 'icon', type: 'image/svg+xml', href: '/favicons/favicon.svg' },
+		{ rel: 'icon', type: 'image/svg+xml', href: '/favicons/favicon2.svg' },
 		{ rel: 'stylesheet', href: fontStylestylesheetUrl },
 		{ rel: 'stylesheet', href: tailwindStylesheetUrl },
 		cssBundleHref ? { rel: 'stylesheet', href: cssBundleHref } : null,
