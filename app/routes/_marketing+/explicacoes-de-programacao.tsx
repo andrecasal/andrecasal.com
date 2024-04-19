@@ -31,7 +31,7 @@ export const meta: V2_MetaFunction = () => {
 		{
 			name: 'keywords',
 			content:
-				'explicações, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
+				'explicador de programação, explicações de programação, programação, tutoria, universidade, estudantes, notas, exames, sucesso, resultados, garantia, tutor, explicador, mentor, explicação, explicadores, mentores, tutorias',
 		},
 		{
 			// Structure data for Google Search for my private tutoring services
@@ -480,7 +480,7 @@ const Tutoring = () => {
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 							<H2 size="4xl" className="mt-10">
-								Sobre o André
+								Sobre o André, o teu explicador de programação
 							</H2>
 							<P size="lg" className="mt-6 text-muted-700">
 								O André tem vindo a trabalhar como engenheiro de software, há mais de 15 anos, com empresas como a Fundação Calouste Gulbenkian, a rede de televisão americana
