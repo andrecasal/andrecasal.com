@@ -30,7 +30,7 @@ export const meta: V2_MetaFunction = () => {
 		},
 		{
 			name: 'keywords',
-			content: 'explicações de programação, explicador de programação, tutoria de programação, tutor de programação, boas notas programação, como estudar programação',
+			content: 'explicações de programação, explicador de programação, tutoria de programação, tutor de programação, professor particular de programação, boas notas programação, como estudar programação',
 		},
 		{
 			// Structure data for Google Search for my private tutoring services
@@ -355,7 +355,7 @@ const Tutoring = () => {
 								src="/img/andre_casal_squared.png"
 								alt="André, o teu tutor de programação"
 							/>
-							<figcaption className="mt-4 gap-x-2 text-center text-sm leading-6 text-muted-500">André, o teu tutor de programação.</figcaption>
+							<figcaption className="mt-4 gap-x-2 text-center text-sm leading-6 text-muted-500">André, o teu professor particular de programação.</figcaption>
 						</figure>
 					</div>
 				</div>
