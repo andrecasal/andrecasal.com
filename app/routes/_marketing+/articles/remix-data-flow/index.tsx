@@ -19,7 +19,17 @@ export const links: LinksFunction = () => {
 }
 
 export const meta: V2_MetaFunction = () => {
-	return [{ title: post.title, description: post.description }]
+	return [
+		{ title: `${post.title} | Andre Casal` },
+		{
+			name: 'description',
+			content: post.description,
+		},
+		{
+			name: 'keywords',
+			content: 'remix, data flow, full-stack, web development, react, state management',
+		},
+	]
 }
 
 const RemixDataFlow = () => {

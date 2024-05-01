@@ -7,7 +7,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
 import zacharyCassette from './images/zachary-cassette.jpg'
 import { cn } from '~/utils/tailwind-merge.ts'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -18,6 +18,20 @@ import { H4 } from '~/ui_components/typography/h4.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/mentorship' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `Tech Business Mentorship | Andre Casal` },
+		{
+			name: 'description',
+			content: `I'll help you build your service or tech product, find your first customers, grow your business, and become an independent entrepreneur.`,
+		},
+		{
+			name: 'keywords',
+			content: `business mentorship, tech business mentorship, business mentor, tech business mentor, business mentorship for entrepreneurs, tech business mentorship for entrepreneurs, business mentor for entrepreneurs, tech business mentor for entrepreneurs, business mentorship for startups, tech business mentorship for startups, business mentor for startups, tech business mentor for startups, business mentorship for small businesses, tech business mentorship for small businesses, business mentor for small businesses, tech business mentor for small businesses, business mentorship for entrepreneurs, tech business mentorship for entrepreneurs, business mentor for entrepreneurs, tech business mentor for entrepreneurs, business mentorship for startups, tech business mentorship for startups, business mentor for startups, tech business mentor for startups, business mentorship for small businesses, tech business mentorship for small businesses, business mentor for small businesses, tech business mentor for small businesses`,
+		},
+	]
 }
 
 const stats = [

@@ -1,7 +1,7 @@
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
 import { type Post } from '../_index.tsx'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -18,6 +18,20 @@ export const post: Post = {
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `${post.title} | Andre Casal` },
+		{
+			name: 'description',
+			content: post.description,
+		},
+		{
+			name: 'keywords',
+			content: 'spacing, css, design systems, web design, web development, web developer, web development articles, web development tutorials, web development guides',
+		},
+	]
 }
 
 const FluidSpaceSizing = () => {

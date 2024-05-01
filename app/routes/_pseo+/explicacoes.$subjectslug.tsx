@@ -1,4 +1,4 @@
-import { Button } from '~/components/ui/button.tsx'
+/* import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import BackgroundDiagonal from './components/bg-diagonal.tsx'
 import BackgroundBlur from './components/bg-blur.tsx'
@@ -134,3 +134,4 @@ const Explicacoes = () => {
 	)
 }
 export default Explicacoes
+ */

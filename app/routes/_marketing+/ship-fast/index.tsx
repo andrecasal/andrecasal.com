@@ -6,7 +6,7 @@ import { Button } from '~/components/ui/button.tsx'
 import shipFastImage from './shipfast.png'
 import arrow from './arrow.png'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -17,6 +17,20 @@ import { Grid } from '~/ui_components/layout/grid.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/ship-fast' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: 'Ship Fast - The Remix boilerplate designed for speed ⚡️' },
+		{
+			name: 'description',
+			content: 'Ship Fast is a remix stack with everything you need to hit the ground running building your app.',
+		},
+		{
+			name: 'keywords',
+			content: 'ship fast, remix, full-stack, web development, course, stack, boilerplate, template, starter, remix boilerplate',
+		},
+	]
 }
 
 const ShipFast = () => {

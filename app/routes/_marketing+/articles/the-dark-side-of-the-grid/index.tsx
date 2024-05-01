@@ -2,7 +2,7 @@ import theDarkSideOfTheGrid from './the-dark-side-of-the-grid.png'
 import { Link } from '@remix-run/react'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { type Post } from '../_index.tsx'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
@@ -19,6 +19,20 @@ export const post: Post = {
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `The Dark Side Of The Grid | Andre Casal` },
+		{
+			name: 'description',
+			content: `Learn about the Grid and Flexbox features you should avoid`,
+		},
+		{
+			name: 'keywords',
+			content: `css grid, css flexbox, css grid auto flow, css grid template areas, css flex direction, css position absolute, css grid dense, css grid auto flow dense, css grid template areas out of order, css flex direction row reverse, css flex direction col reverse, css position absolute out of order`,
+		},
+	]
 }
 
 const TheDarkSideOfTheGrid = () => {

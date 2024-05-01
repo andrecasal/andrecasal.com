@@ -4,7 +4,7 @@ import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { useState } from 'react'
-import { type LinksFunction, json } from '@remix-run/node'
+import { type LinksFunction, json, type V2_MetaFunction } from '@remix-run/node'
 /* import { post as layout } from './layout/index.tsx' */
 import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
@@ -16,6 +16,20 @@ import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/articles' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `Articles | Andre Casal` },
+		{
+			name: 'description',
+			content: `Articles to make full-stack web dev a cakewalk.`,
+		},
+		{
+			name: 'keywords',
+			content: `full-stack, web development, articles, tutorials, guides, web dev, front-end, back-end, javascript, typescript, react, node, css, html, web design, web development, web developer, web development articles, web development tutorials, web development guides, web development resources`,
+		},
+	]
 }
 
 export type Post = {

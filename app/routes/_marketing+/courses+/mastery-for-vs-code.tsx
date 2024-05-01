@@ -10,7 +10,7 @@ import zacharyCassette from '../images/zachary-cassette.jpg'
 import signatureBlack from '../images/signature-black.png'
 import signatureWhite from '../images/signature-white.png'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -21,6 +21,20 @@ import { H4 } from '~/ui_components/typography/h4.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/courses/mastery-for-vs-code' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `Mastery for VS Code | Andre Casal` },
+		{
+			name: 'description',
+			content: `Upgrade your coding game with the ultimate course on VS Code. Learn to dominate VS Code, streamline your development process, and boost your productivity.`,
+		},
+		{
+			name: 'keywords',
+			content: `vs code, visual studio code, code editor, web development, full-stack, web developer, productivity, efficiency, best practices, shortcuts, snippets, extensions, automation, feedback, AI, workflows, employability, community, mentorship`,
+		},
+	]
 }
 
 const MasteryForVSCode = () => {

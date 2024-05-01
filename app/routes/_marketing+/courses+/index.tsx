@@ -1,12 +1,26 @@
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/courses' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: `Courses | Andre Casal` },
+		{
+			name: 'description',
+			content: `Awesome courses to upgrade your skills.`,
+		},
+		{
+			name: 'keywords',
+			content: `courses, tutorials, guides, web dev, front-end, back-end, javascript, typescript, react, node, css, html, web design, web development, web developer, web development courses, web development tutorials, web development guides, web development resources`,
+		},
+	]
 }
 
 const Courses = () => {
