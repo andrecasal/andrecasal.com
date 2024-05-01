@@ -12,7 +12,7 @@ import satisfactionGuarantee from './images/satisfaction-guarantee.png'
 import signatureBlack from './images/signature-black.png'
 import signatureWhite from './images/signature-white.png'
 import { Link } from '@remix-run/react'
-import { type LinksFunction } from '@remix-run/node'
+import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -23,6 +23,20 @@ import { H4 } from '~/ui_components/typography/h4.tsx'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/tutoring' }]
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: 'Private tutor for coding or programming subjects' },
+		{
+			name: 'description',
+			content: "Searching for a tutoring and what results? I've helped 650+ students obliterate their exams! Satisfaction 100% guaranteed!",
+		},
+		{
+			name: 'keywords',
+			content: 'tutoring, private tutoring, private tutor, tutor, programming tutor, coding tutor, computer science tutor, software engineering tutor, web development tutor',
+		},
+	]
 }
 
 const Tutoring = () => {
@@ -358,9 +372,9 @@ const Tutoring = () => {
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
 						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<H1 size="4xl" className="mt-10">
+							<H2 size="4xl" className="mt-10">
 								About André
-							</H1>
+							</H2>
 							<P size="lg" className="mt-6 text-muted-700">
 								André is a serial entrepreneur with a background in software engineering, working for more than {new Date().getFullYear() - 2006} years, with companies like
 								Calouste Gulbenkian Foundation, American TV network NBC, and energy drink Monster Energy. He has provided technical direction to countless startups, and

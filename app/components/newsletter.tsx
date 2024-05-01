@@ -61,6 +61,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 						action="/newsletter"
 						className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
 						{...form.props}
+						encType="multipart/form-data"
 					>
 						<AuthenticityTokenInput />
 						<HoneypotInputs />
