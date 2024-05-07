@@ -4,6 +4,12 @@ import collegeLife from '~/routes/_marketing+/images/college-life.jpg'
 import andreOnMacBookPro from '~/routes/_marketing+/images/andre-on-macbook-pro.png'
 import goncaloBarreiros from '~/routes/_marketing+/images/goncalo-barreiros.png'
 import pauloJorge from '~/routes/_marketing+/images/paulo-jorge.png'
+import luciaZiyuan from '~/routes/_marketing+/images/lucia-ziyuan.png'
+import catiaSilva from '~/routes/_marketing+/images/catia-silva.png'
+import marcoBarreiros from '~/routes/_marketing+/images/marco-barreiros.png'
+import dejanMilosevic from '~/routes/_marketing+/images/dejan-milosevic.png'
+import yev from '~/routes/_marketing+/images/yev.png'
+import alexandreMiguelPinto from '~/routes/_marketing+/images/alexandre-miguel-pinto.png'
 import miguelFerreira from '~/routes/_marketing+/images/miguel-ferreira.png'
 import satisfactionGuarantee from '~/routes/_marketing+/images/satisfaction-guarantee.png'
 import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
@@ -139,6 +145,13 @@ const Route = () => {
 					},
 				},
 				{
+					body: 'O André é um professor muito amável que coloca o progresso dos seus alunos no centro da sua prática de ensino. Ele preocupa-se pessoalmente e adapta o seu ensino aos interesses e necessidades individuais dos alunos. Ele traz muitos anos de experiência do mundo real na construção de aplicações e negócios de sucesso para o seu ensino. Para além de ser um professor de programação muito conhecedor, também é apaixonado pela aprendizagem - crescimento pessoal, filosofia, saúde e afins. Aprenderá muito com ele para além da programação em si.',
+					author: {
+						name: 'Lucia Ziyuan',
+						imageUrl: luciaZiyuan,
+					},
+				},
+				{
 					body: 'Eu não conseguia entender a matéria da aula que estava a ser dada pelos professores. Eles não estavam a fazer um bom trabalho e não nos davam os recursos necessários. Tentei ir à biblioteca da universidade, tentei conversar com colegas que entendiam um pouco mais da aula mas não adiantou muito. A diferença [entre ter e não ter explicações com o André] é que eu não passaria nas provas. Tenho obtido resultados. Tem sido uma boa experiência, tenho aprendido e melhorado.',
 					author: {
 						name: 'Miguel Ferreira',
@@ -171,6 +184,19 @@ const Route = () => {
 						name: 'Wilson Mesquita',
 					},
 				},
+				{
+					body: 'André é um excelente tutor, todos os conceitos ficam realmente compreensíveis com suas explicações. Altamente recomendado! 💪',
+					author: {
+						name: 'Alexandre Miguel Pinto',
+						imageUrl: alexandreMiguelPinto,
+					},
+				},
+				{
+					body: 'É maravilhoso trabalhar com André! Ele é experiente e compassivo, e tem ideias inovadoras, paixão e amor por seu trabalho. Altamente recomendado!',
+					author: {
+						name: 'Amalia Sirica',
+					},
+				},
 			],
 		],
 		[
@@ -191,6 +217,20 @@ const Route = () => {
 					body: 'Profissional: competência e disponibilidade.',
 					author: {
 						name: 'Jaime Torrinhas',
+					},
+				},
+				{
+					body: 'André sempre foi muito profissional, motivado e apaixonado pelo que faz. E quando está a ensinar, é a pessoa mais dedicada que conheço. Ele traz à tona o melhor que há nas pessoas, em qualquer circunstância. Sempre com um sorriso e uma atitude positiva, é entusiasmante trabalhar com ele!',
+					author: {
+						name: 'Dejan Milosevic',
+						imageUrl: dejanMilosevic,
+					},
+				},
+				{
+					body: 'Um dos professores e mentores mais incríveis que conheci! Gentil e gentil, ele é um ótimo ouvinte e uma das pessoas mais calorosas que conheço. É um prazer enorme ser seu aluno 🫶',
+					author: {
+						name: 'Yev',
+						imageUrl: yev,
 					},
 				},
 			],
@@ -229,6 +269,20 @@ const Route = () => {
 					body: 'Além das expectativas!',
 					author: {
 						name: 'Helena Oliveira',
+					},
+				},
+				{
+					body: 'O André é um professor dedicado e muito comprometido. Tem uma capacidade de leitura e compreensão das necessidades que superou sempre as minhas expectativas. Tem interesse em ajudar sempre mais! É um conhecedor, gosta de aprender e ler sobre tudo, por isso quem o procurar vai ter explicações nao só de programação mas de outras áreas que se cruzem ou sejam necessárias. Recomendo muito, garantidamente é um contacto enriquecedor!',
+					author: {
+						name: 'Cátia Silva',
+						imageUrl: catiaSilva,
+					},
+				},
+				{
+					body: 'O André é um excelente professor! Sua paciência e clareza ao explicar os conceitos são notáveis. Sinto-me muito grato por suas aulas extras e definitivamente voltarei a procurá-lo se precisar de ajuda novamente. Recomendo totalmente!!!! Muito obrigado, André!',
+					author: {
+						name: 'Marco Barreiros',
+						imageUrl: marcoBarreiros,
 					},
 				},
 			],
