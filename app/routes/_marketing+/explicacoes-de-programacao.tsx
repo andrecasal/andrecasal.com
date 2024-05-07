@@ -138,7 +138,7 @@ export const links: LinksFunction = () => {
 	]
 }
 
-const Tutoring = () => {
+const Route = () => {
 	const features = [
 		{
 			name: 'Aulas online por video-conferência',
@@ -328,7 +328,7 @@ const Tutoring = () => {
 
 	return (
 		<>
-			<Container className="relative">
+			<Container className="relative mt-14">
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-20">
 					<div className="pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:pb-56 lg:pt-48 xl:col-span-6">
 						<div className="mx-auto max-w-2xl lg:mx-0">
@@ -935,4 +935,4 @@ const Tutoring = () => {
 		</>
 	)
 }
-export default Tutoring
+export default Route

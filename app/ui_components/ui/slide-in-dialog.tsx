@@ -60,5 +60,5 @@ const SlideInDialogContent = forwardRef<ElementRef<typeof DialogPrimitive.Conten
 		</DialogPrimitive.Portal>
 	)
 })
-
+SlideInDialogContent.displayName = 'SlideInDialogContent'
 export { SlideInDialog, SlideInDialogTrigger, SlideInDialogContent }

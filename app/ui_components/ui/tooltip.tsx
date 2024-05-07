@@ -19,4 +19,5 @@ const Tooltip = forwardRef<ElementRef<typeof TooltipPrimitive.Content>, TooltipP
 		</TooltipPrimitive.Root>
 	)
 })
+Tooltip.displayName = 'Tooltip'
 export { Tooltip }

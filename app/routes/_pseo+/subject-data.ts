@@ -1,3 +1,9 @@
+import digitalSistemsFile from './files/sistemas-digitais.zip'
+
+type Resources = {
+	name: string
+	link: string
+}
 type Software = {
 	name: string
 	link: string
@@ -14,18 +20,18 @@ type Subject = {
 	prerequisites: string[]
 	topics: List[]
 	software: Software[]
+	resources: Resources[]
 	exercises: string[]
-	isTutorable: boolean
 }
 
 export const subjects: Subject[] = [
 	{
 		slug: 'sistemas-digitais',
 		name: 'Sistemas Digitais',
-		prerequisites: ['Conhecimento básico de álgebra', 'Aritmética e sistemas numéricos (especialmente binário)', 'Manipulação de números e expressões lógicas'],
+		prerequisites: ['Álgebra', 'Aritmética', 'Sistemas numéricos', 'Sistema binário', 'Sistema octal', 'Sistema hexadecimal', 'Expressões lógicas'],
 		topics: [
 			{ name: 'Álgebra de Boole' },
-			{ name: 'Portas Lógicas (AND, OR, NOT, NAND, NOR, XOR, XNOR)' },
+			{ name: 'Portas Lógicas)', children: [{ name: 'AND' }, { name: 'OR' }, { name: 'NOT' }, { name: 'NAND' }, { name: 'NOR' }, { name: 'XOR' }, { name: 'XNOR' }] },
 			{ name: 'Expressões Booleanas' },
 			{ name: 'Tabelas de verdade' },
 			{ name: 'Mapas de Karnaugh' },
@@ -41,26 +47,27 @@ export const subjects: Subject[] = [
 					{ name: 'Somador completo' },
 				],
 			},
+			{ name: 'Flip-flops', children: [{ name: 'Latch SR' }, { name: 'Latch JK' }, { name: 'Flip-flop D' }, { name: 'Flip-flop T' }] },
 			{
 				name: 'Circuitos Sequenciais',
-				children: [
-					{ name: 'Flip-flops (Latch SR, Latch JK, Flip-flop D, Flip-flop T)' },
-					{ name: 'Registos' },
-					{ name: 'Contadores' },
-					{ name: 'Somador sequencial' },
-					{ name: 'Subtrator sequencial' },
-				],
+				children: [{ name: 'Registos' }, { name: 'Contadores' }, { name: 'Somador sequencial' }, { name: 'Subtrator sequencial' }],
 			},
-			{ name: 'Máquinas de Estado Finito (FSMs)' },
+			{ name: 'FSMs' },
 			{ name: 'Síntese Lógica' },
 			{ name: 'Projeto de Circuitos Digitais' },
-			{ name: 'Famílias Lógicas (TTL, CMOS)' },
+			{ name: 'Famílias Lógicas', children: [{ name: 'TTL' }, { name: 'CMOS' }] },
 			{ name: 'Temporização de Circuitos' },
-			{ name: 'Memórias (RAM, ROM, EEPROM, Flash)' },
+			{ name: 'Memórias', children: [{ name: 'RAM' }, { name: 'ROM' }, { name: 'EEPROM' }, { name: 'Flash' }] },
 			{ name: 'Interfaces Digitais' },
-			{ name: 'FPGA (Field-Programmable Gate Array)' },
-			{ name: 'VHDL/Verilog' },
-			{ name: 'Application-Specific Integrated Circuits (ASICs)' },
+			{ name: 'FPGAs' },
+			{ name: 'VHDL' },
+			{ name: 'ASICs' },
+		],
+		resources: [
+			{
+				name: 'Matéria de Sistemas Digitais',
+				link: digitalSistemsFile,
+			},
 		],
 		software: [
 			{
@@ -69,6 +76,5 @@ export const subjects: Subject[] = [
 			},
 		],
 		exercises: ['Construção de circuitos combinatórios', 'Construção de circuitos sequenciais', 'Programação de microcontroladores'],
-		isTutorable: true,
 	},
 ]

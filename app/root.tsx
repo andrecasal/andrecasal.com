@@ -130,11 +130,11 @@ function App() {
 			</head>
 			<body className="flex h-full flex-col justify-between bg-background text-foreground antialiased">
 				<TooltipPrimitive.Provider delayDuration={300}>
-					<Header />
+					{!location.pathname.startsWith('/explicacoes') ? <Header /> : null}
 					<div className="flex-1">
 						<Outlet />
 					</div>
-					<Footer />
+					{!location.pathname.startsWith('/explicacoes') ? <Footer /> : null}
 					<Confetti id={data.flash?.confetti} />
 					<Toaster />
 					<ScrollRestoration nonce={nonce} />
