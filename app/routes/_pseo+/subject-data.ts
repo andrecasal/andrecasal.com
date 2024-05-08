@@ -1,4 +1,5 @@
 import digitalSistemsFile from './files/sistemas-digitais.zip'
+import arquiteturaDeComputadores from './files/arquitetura-de-computadores.zip'
 
 type Resources = {
 	name: string
@@ -21,7 +22,6 @@ type Subject = {
 	topics: List[]
 	software: Software[]
 	resources: Resources[]
-	exercises: string[]
 }
 
 export const subjects: Subject[] = [
@@ -75,6 +75,57 @@ export const subjects: Subject[] = [
 				link: 'https://sourceforge.net/projects/circuit/',
 			},
 		],
-		exercises: ['Construção de circuitos combinatórios', 'Construção de circuitos sequenciais', 'Programação de microcontroladores'],
+	},
+	{
+		slug: 'arquitetura-de-computadores',
+		name: 'Arquiteura de Computadores',
+		prerequisites: ['Sistemas Digitais'],
+		topics: [
+			{
+				name: 'Ciclo de execução de instruções',
+				children: [{ name: 'Fetch' }, { name: 'Decode' }, { name: 'Execute' }, { name: 'Memory Access (if needed)' }, { name: 'Registry Write-back (if needed)' }],
+			},
+			{
+				name: 'CPU',
+				children: [
+					{ name: 'Program Counter' },
+					{ name: 'Instruction Memory' },
+					{ name: 'Registers' },
+					{ name: 'ALU' },
+					{ name: 'Data Memory' },
+					{ name: 'Control Unit' },
+					{ name: 'Datapath' },
+				],
+			},
+			{
+				name: 'Arquiteturas',
+				children: [{ name: 'RISC' }, { name: 'CISC' }, { name: 'VLIW' }, { name: 'EPIC' }, { name: 'MISC' }],
+			},
+			{
+				name: 'ISAs',
+				children: [{ name: 'MIPS' }, { name: 'ARM' }, { name: 'x86' }, { name: 'x86-64' }, { name: 'PowerPC' }, { name: 'SPARC' }, { name: 'RISC-V' }, { name: 'Itanium' }],
+			},
+			{ name: 'Pipelining' },
+			{ name: 'Previsão de saltos' },
+			{ name: 'Memória cache' },
+			{ name: 'Hierarquia de memória' },
+			{ name: 'Memoria Virtual' },
+			{ name: 'Sistemas de I/O' },
+			{ name: 'Buses' },
+			{ name: 'Multiprocessadores' },
+			{ name: 'Paralelismo' },
+		],
+		resources: [
+			{
+				name: 'Organização para Arquitetura de Computadores',
+				link: arquiteturaDeComputadores,
+			},
+		],
+		software: [
+			{
+				name: 'MARS',
+				link: 'https://courses.missouristate.edu/kenvollmar/mars/download.htm',
+			},
+		],
 	},
 ]

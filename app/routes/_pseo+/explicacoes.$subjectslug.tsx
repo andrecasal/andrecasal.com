@@ -10,6 +10,14 @@ import marcoBarreiros from '~/routes/_marketing+/images/marco-barreiros.png'
 import dejanMilosevic from '~/routes/_marketing+/images/dejan-milosevic.png'
 import yev from '~/routes/_marketing+/images/yev.png'
 import alexandreMiguelPinto from '~/routes/_marketing+/images/alexandre-miguel-pinto.png'
+import lilianaFerreira from '~/routes/_marketing+/images/liliana-ferreira.png'
+import paulaAlexandraSilva from '~/routes/_marketing+/images/paula-alexandra-silva.png'
+import joseGuimaraes from '~/routes/_marketing+/images/jose-guimaraes.png'
+import kirillLapshev from '~/routes/_marketing+/images/kirill-lapshev.png'
+import fabianaMilanez from '~/routes/_marketing+/images/fabiana-milanez.png'
+import apoZadeh from '~/routes/_marketing+/images/apo-zadeh.png'
+import inesBarreiros from '~/routes/_marketing+/images/ines-barreiros.png'
+import leahMeirinhos from '~/routes/_marketing+/images/leah-meirinhos.png'
 import miguelFerreira from '~/routes/_marketing+/images/miguel-ferreira.png'
 import satisfactionGuarantee from '~/routes/_marketing+/images/satisfaction-guarantee.png'
 import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
@@ -159,13 +167,67 @@ const Route = () => {
 					},
 				},
 				{
-					body: 'Excelente explicador!',
+					body: 'É maravilhoso trabalhar com André! Ele é experiente e compassivo, e tem ideias inovadoras, paixão e amor por seu trabalho. Altamente recomendado!',
 					author: {
-						name: 'Jose Maria',
+						name: 'Amalia Sirica',
 					},
 				},
+				{
+					body: 'Já conheço o André há algum tempo. Ele é um ótimo programador e se mantém atualizado com as melhores práticas do setor. Altamente recomendado',
+					author: {
+						name: 'Zuki G',
+					},
+				},
+				{
+					body: 'Ajudou muito, foi muito paciente e interessado em ensinar e explicar o assunto.',
+					author: {
+						name: 'Isabel Bozzato',
+					},
+				},
+				{
+					body: 'Excelente explicador!',
+					author: {
+						name: 'José Maria',
+					},
+				},
+				{ author: { name: 'Lecticia Benchimol' } },
+				{ author: { name: 'Marisa Oliveira' } },
 			],
 			[
+				{
+					body: 'André é um tutor e mentor de programação absolutamente estelar. Sempre disponível para fornecer feedback pessoal, conselhos e orientação.',
+					author: {
+						name: 'Paula Alexandra Silva',
+						imageUrl: paulaAlexandraSilva,
+					},
+				},
+				{
+					body: 'André é um excelente tutor, todos os conceitos ficam realmente compreensíveis com suas explicações. Altamente recomendado! 💪',
+					author: {
+						name: 'Alexandre Miguel Pinto',
+						imageUrl: alexandreMiguelPinto,
+					},
+				},
+				{
+					body: 'O André é excelente mesmo!',
+					author: {
+						name: 'Inês V. Barreiros',
+						imageUrl: inesBarreiros,
+					},
+				},
+				{
+					body: 'Incrível!!!!',
+					author: {
+						name: 'Léa Meirinhos',
+						imageUrl: leahMeirinhos,
+					},
+				},
+				{
+					body: 'O André é um profissional que domina o que faz. Nota-se a sua paixão e entrega, mas sobretudo valorizo a sua disponibilidade em validar e perceber as necessidades do meu projeto; sempre com uma visão construtiva e com soluções interessantes que se tornaram numa mais-valia e algo diferenciador no mercado.',
+					author: {
+						name: 'Ana Mendes',
+					},
+				},
 				{
 					body: 'Olá André! Espero que esteja tudo bem! Enquanto isso, as notas foram publicadas [...] A de programação foi muito melhor do que eu esperava! [Captura de tela com nota de 17] A programação acabou por ser a melhor ahah!',
 					author: {
@@ -179,28 +241,44 @@ const Route = () => {
 					},
 				},
 				{
+					body: 'Ótimo explicador. Muito dedicado e paciente.',
+					author: {
+						name: 'Musslima Ibraimo',
+					},
+				},
+				{
 					body: 'Muito bom!',
 					author: {
 						name: 'Wilson Mesquita',
 					},
 				},
-				{
-					body: 'André é um excelente tutor, todos os conceitos ficam realmente compreensíveis com suas explicações. Altamente recomendado! 💪',
-					author: {
-						name: 'Alexandre Miguel Pinto',
-						imageUrl: alexandreMiguelPinto,
-					},
-				},
-				{
-					body: 'É maravilhoso trabalhar com André! Ele é experiente e compassivo, e tem ideias inovadoras, paixão e amor por seu trabalho. Altamente recomendado!',
-					author: {
-						name: 'Amalia Sirica',
-					},
-				},
+				{ author: { name: 'Kátia Santos' } },
+				{ author: { name: 'Gleice Santos' } },
 			],
 		],
 		[
 			[
+				{
+					body: 'André sempre foi muito profissional, motivado e apaixonado pelo que faz. E quando está a ensinar, é a pessoa mais dedicada que conheço. Ele traz à tona o melhor que há nas pessoas, em qualquer circunstância. Sempre com um sorriso e uma atitude positiva, é entusiasmante trabalhar com ele!',
+					author: {
+						name: 'Dejan Milosevic',
+						imageUrl: dejanMilosevic,
+					},
+				},
+				{
+					body: 'Tried many courses online with no tangible progress, glad I found Andre, where one size fits all mentality is avoided.',
+					author: {
+						name: 'Apo Zadeh',
+						imageUrl: apoZadeh,
+					},
+				},
+				{
+					body: 'Um dos professores e mentores mais incríveis que conheci! Gentil e gentil, ele é um ótimo ouvinte e uma das pessoas mais calorosas que conheço. É um prazer enorme ser seu aluno 🫶',
+					author: {
+						name: 'Yev',
+						imageUrl: yev,
+					},
+				},
 				{
 					body: 'Fiquei com a impressão de que 2h era pouco tempo, e que o Prof. André poderia ter-nos ajudado mais, não fossem os exercícios da minha faculdade serem supostamente pouco convencionais.',
 					author: {
@@ -220,21 +298,60 @@ const Route = () => {
 					},
 				},
 				{
-					body: 'André sempre foi muito profissional, motivado e apaixonado pelo que faz. E quando está a ensinar, é a pessoa mais dedicada que conheço. Ele traz à tona o melhor que há nas pessoas, em qualquer circunstância. Sempre com um sorriso e uma atitude positiva, é entusiasmante trabalhar com ele!',
+					body: 'Um excelente explicador! Sabe como orientar passo-a-passo para resolver problemas. Experiência muito boa em geral.',
 					author: {
-						name: 'Dejan Milosevic',
-						imageUrl: dejanMilosevic,
+						name: 'Miguel Lomba',
+					},
+				},
+				{ author: { name: 'João Pedro Araújo' } },
+				{ author: { name: 'Inês Gouveia' } },
+				{ author: { name: 'Lúcia Rocha' } },
+				{ author: { name: 'João Telmo' } },
+				{ author: { name: 'João Pimentel' } },
+			],
+			[
+				{
+					body: 'O André é um profissional inteligente super acessível e tem o dom de conseguir tornar simples o que à maioria parece complexo. :) Super Recomendo',
+					author: {
+						name: 'Liliana Ferreira',
+						imageUrl: lilianaFerreira,
 					},
 				},
 				{
-					body: 'Um dos professores e mentores mais incríveis que conheci! Gentil e gentil, ele é um ótimo ouvinte e uma das pessoas mais calorosas que conheço. É um prazer enorme ser seu aluno 🫶',
+					body: 'O André é um professor dedicado e muito comprometido. Tem uma capacidade de leitura e compreensão das necessidades que superou sempre as minhas expectativas. Tem interesse em ajudar sempre mais! É um conhecedor, gosta de aprender e ler sobre tudo, por isso quem o procurar vai ter explicações nao só de programação mas de outras áreas que se cruzem ou sejam necessárias. Recomendo muito, garantidamente é um contacto enriquecedor!',
 					author: {
-						name: 'Yev',
-						imageUrl: yev,
+						name: 'Cátia Silva',
+						imageUrl: catiaSilva,
 					},
 				},
-			],
-			[
+				{
+					body: 'O André é um excelente professor! Sua paciência e clareza ao explicar os conceitos são notáveis. Sinto-me muito grato por suas aulas extras e definitivamente voltarei a procurá-lo se precisar de ajuda novamente. Recomendo totalmente!!!! Muito obrigado, André!',
+					author: {
+						name: 'Marco Barreiros',
+						imageUrl: marcoBarreiros,
+					},
+				},
+				{
+					body: 'Excelente profissional! Deu-me uma grande ajuda a perceber melhor programação!',
+					author: {
+						name: 'Kirill Lapshev',
+						imageUrl: kirillLapshev,
+					},
+				},
+				{
+					body: 'André tem muita paciência, comunicação clara e didática.',
+					author: {
+						name: 'Fabiana Milanez',
+						imageUrl: fabianaMilanez,
+					},
+				},
+				{
+					body: 'O professor André Casal é um excelente explicador, muito dedicado e atento as necessidades dos alunos. Recomendo vivamente!',
+					author: {
+						name: 'José Guimarães',
+						imageUrl: joseGuimaraes,
+					},
+				},
 				{
 					body: 'André Casal é o explicador mais inteligente, trabalhador e atencioso que conheço. Se deseja receber ajuda do mais alto nível, trabalhe com ele!',
 					author: {
@@ -254,37 +371,15 @@ const Route = () => {
 					},
 				},
 				{
-					body: 'Um excelente explicador! Sabe como orientar passo-a-passo para resolver problemas. Experiência muito boa em geral.',
-					author: {
-						name: 'Miguel Lomba',
-					},
-				},
-				{
-					body: 'Ajudou muito, foi muito paciente e interessado em ensinar e explicar o assunto.',
-					author: {
-						name: 'Isabel Bozzato',
-					},
-				},
-				{
 					body: 'Além das expectativas!',
 					author: {
 						name: 'Helena Oliveira',
 					},
 				},
-				{
-					body: 'O André é um professor dedicado e muito comprometido. Tem uma capacidade de leitura e compreensão das necessidades que superou sempre as minhas expectativas. Tem interesse em ajudar sempre mais! É um conhecedor, gosta de aprender e ler sobre tudo, por isso quem o procurar vai ter explicações nao só de programação mas de outras áreas que se cruzem ou sejam necessárias. Recomendo muito, garantidamente é um contacto enriquecedor!',
-					author: {
-						name: 'Cátia Silva',
-						imageUrl: catiaSilva,
-					},
-				},
-				{
-					body: 'O André é um excelente professor! Sua paciência e clareza ao explicar os conceitos são notáveis. Sinto-me muito grato por suas aulas extras e definitivamente voltarei a procurá-lo se precisar de ajuda novamente. Recomendo totalmente!!!! Muito obrigado, André!',
-					author: {
-						name: 'Marco Barreiros',
-						imageUrl: marcoBarreiros,
-					},
-				},
+				{ author: { name: 'Csongor Csaba Horvath' } },
+				{ author: { name: 'Ricardo Escudeiro' } },
+				{ author: { name: 'Peter Delle' } },
+				{ author: { name: 'Arthur Constantino' } },
 			],
 		],
 	]
@@ -715,7 +810,7 @@ const Route = () => {
 											{column.map((testimonial, i) => (
 												<figure key={i} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
 													<blockquote>
-														<P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P>
+														{testimonial.body ? <P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P> : null}
 													</blockquote>
 													<figcaption className="mt-6 flex items-center gap-x-4">
 														{'imageUrl' in testimonial.author ? (
