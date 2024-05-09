@@ -78,7 +78,7 @@ export const subjects: Subject[] = [
 	},
 	{
 		slug: 'arquitetura-de-computadores',
-		name: 'Arquiteura de Computadores',
+		name: 'Arquitetura de Computadores',
 		prerequisites: ['Sistemas Digitais'],
 		topics: [
 			{
@@ -114,6 +114,26 @@ export const subjects: Subject[] = [
 			{ name: 'Buses' },
 			{ name: 'Multiprocessadores' },
 			{ name: 'Paralelismo' },
+		],
+		resources: [
+			{
+				name: 'Organização para Arquitetura de Computadores',
+				link: arquiteturaDeComputadores,
+			},
+		],
+		software: [
+			{
+				name: 'MARS',
+				link: 'https://courses.missouristate.edu/kenvollmar/mars/download.htm',
+			},
+		],
+	},
+	{
+		slug: 'sistemas-operativos',
+		name: 'Sistemas Operativos',
+		prerequisites: ['Sistemas Digitais', 'Arquitetura de Computadores'],
+		topics: [
+			
 		],
 		resources: [
 			{
