@@ -1,5 +1,6 @@
 import digitalSistemsFile from './files/sistemas-digitais.zip'
 import arquiteturaDeComputadores from './files/arquitetura-de-computadores.zip'
+import sistemasOperativos from './files/sistemas-operativos.zip'
 
 type Resources = {
 	name: string
@@ -133,18 +134,104 @@ export const subjects: Subject[] = [
 		name: 'Sistemas Operativos',
 		prerequisites: ['Sistemas Digitais', 'Arquitetura de Computadores'],
 		topics: [
-			
+			{
+				name: 'Introdução aos Sistemas Operativos',
+				children: [
+					{ name: 'Definição e função de um sistema operativo' },
+					{ name: 'História e evolução dos sistemas operativos' },
+					{ name: 'Tipos de sistemas operativos (monolíticos, em camadas, distribuídos, etc.)' },
+				],
+			},
+			{
+				name: 'Processos e Threads',
+				children: [
+					{ name: 'Conceito de processo e thread' },
+					{ name: 'Escalonamento de processos' },
+					{ name: 'Sincronização e comunicação entre processos' },
+					{ name: 'Deadlocks e prevenção de deadlocks' },
+					{ name: 'Threads concorrentes e paralelismo' },
+				],
+			},
+			{
+				name: 'Gestão de Memória',
+				children: [
+					{ name: 'Hierarquia de memória' },
+					{ name: 'Gestão de memória física e virtual' },
+					{ name: 'Paginação e segmentação' },
+					{ name: 'Memória virtual e troca (swapping)' },
+					{ name: 'Fragmentação de memória' },
+				],
+			},
+			{
+				name: 'Sistemas de Ficheiros',
+				children: [
+					{ name: 'Estrutura de sistemas de ficheiros' },
+					{ name: 'Operações básicas de ficheiros (abrir, fechar, ler, escrever)' },
+					{ name: 'Alocação de espaço em disco (alocação contígua, encadeada, indexada)' },
+					{ name: 'Diretórios e organização hierárquica' },
+					{ name: 'Recuperação de falhas em sistemas de ficheiros' },
+				],
+			},
+			{
+				name: 'Entrada e Saída (E/S)',
+				children: [
+					{ name: 'Princípios de E/S' },
+					{ name: 'Gestão de dispositivos de E/S' },
+					{ name: 'Sincronização de E/S' },
+					{ name: 'Estratégias de E/S (buffering, spooling, cache)' },
+				],
+			},
+			{
+				name: 'Sistemas Distribuídos',
+				children: [
+					{ name: 'Conceitos básicos de sistemas distribuídos' },
+					{ name: 'Comunicação entre processos em redes' },
+					{ name: 'Coordenação e sincronização em sistemas distribuídos' },
+					{ name: 'Tolerância a falhas em sistemas distribuídos' },
+				],
+			},
+			{
+				name: 'Virtualização e Máquinas Virtuais',
+				children: [
+					{ name: 'Conceitos de virtualização' },
+					{ name: 'Tipos de virtualização (plena, para-sistema, de aplicação)' },
+					{ name: 'Máquinas virtuais e hipervisores' },
+					{ name: 'Migração e balanceamento de carga em ambientes virtualizados' },
+				],
+			},
+			{
+				name: 'Segurança em Sistemas Operativos',
+				children: [
+					{ name: 'Princípios de segurança da informação' },
+					{ name: 'Controlo de acesso e políticas de segurança' },
+					{ name: 'Autenticação e autorização' },
+					{ name: 'Criptografia e assinaturas digitais' },
+					{ name: 'Proteção contra ameaças e ataques em sistemas operativos' },
+				],
+			},
 		],
 		resources: [
 			{
-				name: 'Organização para Arquitetura de Computadores',
-				link: arquiteturaDeComputadores,
+				name: 'Organização para Sistemas Operativos',
+				link: sistemasOperativos,
 			},
 		],
 		software: [
 			{
-				name: 'MARS',
-				link: 'https://courses.missouristate.edu/kenvollmar/mars/download.htm',
+				name: 'Linux',
+				link: 'https://www.linux.org/pages/download/',
+			},
+			{
+				name: 'VirtualBox',
+				link: 'https://www.virtualbox.org/',
+			},
+			{
+				name: 'Parallels Desktop',
+				link: 'https://www.parallels.com/products/desktop/',
+			},
+			{
+				name: 'VMware',
+				link: 'https://www.vmware.com/',
 			},
 		],
 	},
