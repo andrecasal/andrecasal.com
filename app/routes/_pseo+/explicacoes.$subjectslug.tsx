@@ -223,6 +223,12 @@ const Route = () => {
 					},
 				},
 				{
+					body: 'O professor André explica muito bem e tem imensa paciência. Eu estou extremamente grata!!',
+					author: {
+						name: 'Daniela Alexandra',
+					},
+				},
+				{
 					body: 'O André é um profissional que domina o que faz. Nota-se a sua paixão e entrega, mas sobretudo valorizo a sua disponibilidade em validar e perceber as necessidades do meu projeto; sempre com uma visão construtiva e com soluções interessantes que se tornaram numa mais-valia e algo diferenciador no mercado.',
 					author: {
 						name: 'Ana Mendes',
@@ -350,6 +356,12 @@ const Route = () => {
 					author: {
 						name: 'José Guimarães',
 						imageUrl: joseGuimaraes,
+					},
+				},
+				{
+					body: 'Muito bom professor. Ajudou-me imenso em introdução à programação em Java. Recomendo a todos os que não entendam bem as aulas na faculdade pois o professor André dá explicações bastante detalhadas e esclarecedoras até entenderem tudo.',
+					author: {
+						name: 'Alfredo Soudo',
 					},
 				},
 				{
@@ -809,9 +821,7 @@ const Route = () => {
 										>
 											{column.map((testimonial, i) => (
 												<figure key={i} className="rounded-2xl bg-background p-6 shadow-lg ring-1 ring-muted-900/5">
-													<blockquote>
-														{testimonial.body ? <P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P> : null}
-													</blockquote>
+													<blockquote>{testimonial.body ? <P size="sm" className="text-muted-900">{`“${testimonial.body}”`}</P> : null}</blockquote>
 													<figcaption className="mt-6 flex items-center gap-x-4">
 														{'imageUrl' in testimonial.author ? (
 															<img className="h-10 w-10 rounded-full bg-muted-50" src={testimonial.author.imageUrl} alt={testimonial.author.name} />
