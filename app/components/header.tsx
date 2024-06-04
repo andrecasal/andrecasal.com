@@ -8,7 +8,7 @@ import { ThemeSwitch } from '~/routes/resources+/theme/index.tsx'
 import { type SerializeFrom } from '@remix-run/node'
 import { type loader as rootLoader } from '~/root.tsx'
 import { Icon } from './ui/icon.tsx'
-import { useIsomorphicLayoutEffect } from 'usehooks-ts'
+import { useIsomorphicLayoutEffect } from '~/hooks/useIsomorphicLayoutEffect.ts'
 
 const prefetch = 'intent'
 

@@ -1,6 +1,6 @@
-import { conform, useForm } from '@conform-to/react'
+/* import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type LoaderFunctionArgs, type ActionFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -29,7 +29,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com/reset-password` }]
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	await requireAnonymous(request)
 	const session = await getSession(request.headers.get('cookie'))
 	const error = session.get(authenticator.sessionErrorKey)
@@ -48,7 +48,7 @@ export async function loader({ request }: DataFunctionArgs) {
 	)
 }
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData()
 	const submission = parse(formData, {
 		schema: resetPasswordSchema,
@@ -80,7 +80,7 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'Reset Password | André Casal' }]
 }
 
@@ -109,7 +109,7 @@ export default function ResetPasswordPage() {
 						Hi, {data.resetPasswordUsername}. No worries. It happens all the time.
 					</P>
 				</div>
-				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
+				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...getFormProps(form)}>
 					<Field
 						labelProps={{
 							htmlFor: fields.password.id,
@@ -152,3 +152,4 @@ export default function ResetPasswordPage() {
 export function ErrorBoundary() {
 	return <GeneralErrorBoundary />
 }
+ */

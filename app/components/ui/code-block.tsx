@@ -1,10 +1,10 @@
 import { type MouseEvent, type HTMLAttributes, useState, forwardRef } from 'react'
 import { Highlight } from 'prism-react-renderer'
 import type { PrismTheme } from 'prism-react-renderer/dist/'
-import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from './accessible-icon.tsx'
 import { cn } from '~/utils/tailwind-merge.ts'
 import { Icon } from './icon.tsx'
+import { useCopyToClipboard } from '~/hooks/useCopyToClipboard.ts'
 
 const cobalt2Theme: PrismTheme = {
 	plain: {

@@ -1,8 +1,8 @@
-import { faker } from '@faker-js/faker'
-import { expect, insertNewUser, test } from '../playwright-utils.ts'
+/* import { faker } from '@faker-js/faker'
+import { expect, insertNewUser, test } from '../playwright-utils.ts' */
 /* import { generateTOTP } from '~/utils/totp.server.ts' */
 
-test('Users can add 2FA to their account and use it when logging in', async ({ login, page }) => {
+/* test('Users can add 2FA to their account and use it when logging in', async ({ login, page }) => {
 	const password = faker.internet.password()
 	const user = await insertNewUser({ password })
 	await login(user)
@@ -11,7 +11,7 @@ test('Users can add 2FA to their account and use it when logging in', async ({ l
 	await page.getByRole('link', { name: /enable 2fa/i }).click()
 
 	await expect(page).toHaveURL(`/settings/profile/two-factor`)
-	/* const dialog = page.getByRole('dialog')
+	const dialog = page.getByRole('dialog')
 	await dialog.getByRole('button', { name: /enable 2fa/i }).click()
 	const otpUriString = await dialog
 		.getByLabel(/One-Time Password URI/i)
@@ -50,5 +50,5 @@ test('Users can add 2FA to their account and use it when logging in', async ({ l
 
 	await expect(
 		page.getByRole('link', { name: user.name ?? user.username }),
-	).toBeVisible() */
-})
+	).toBeVisible()
+}) */

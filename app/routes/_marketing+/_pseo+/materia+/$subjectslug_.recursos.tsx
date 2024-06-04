@@ -1,7 +1,7 @@
-import { type LoaderArgs, json, redirect } from '@remix-run/node'
+import { type LoaderFunctionArgs, json, redirect } from '@remix-run/node'
 import { subjects } from '../disciplinas.ts'
 import { useLoaderData } from '@remix-run/react'
-import { parse } from '@conform-to/zod'
+import { parseWithZod } from '@conform-to/zod'
 import { z } from 'zod'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { prisma } from '~/utils/db.server.ts'
@@ -16,12 +16,12 @@ const verifySchema = z.object({
 	code: z.string().min(6).max(6),
 })
 
-export async function loader({ params, request }: LoaderArgs) {
+export async function loader({ params, request }: LoaderFunctionArgs) {
 	const searchParams = new URL(request.url).searchParams
 	if (!searchParams.has('code')) {
 		return redirect('/')
 	}
-	const submission = await parse(searchParams, {
+	const submission = await parseWithZod(searchParams, {
 		schema: () =>
 			verifySchema.superRefine(async (data, ctx) => {
 				const verification = await prisma.verification.findFirst({
@@ -60,10 +60,10 @@ export async function loader({ params, request }: LoaderArgs) {
 					return
 				}
 			}),
-		acceptMultipleErrors: () => true,
 		async: true,
 	})
-	if (!submission.value) {
+
+	if (submission.status !== 'success') {
 		return redirect('/')
 	}
 	const { subjectslug } = params

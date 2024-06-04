@@ -1,6 +1,5 @@
-import { conform, useForm } from '@conform-to/react'
-import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+/* import { getFormProps, useForm } from '@conform-to/react'
+import { json, redirect, type LoaderFunctionArgs } from '@remix-run/node'
 import { useFetcher } from '@remix-run/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import invariant from 'tiny-invariant'
@@ -9,7 +8,6 @@ import { twoFAVerificationType } from '~/routes/settings+/profile.two-factor.tsx
 import { authenticator } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
 import { ErrorList, Field } from '~/components/forms.tsx'
-import { commitSession, getSession } from '~/utils/session.server.ts'
 import { verifyTOTP } from '~/utils/totp.server.ts'
 import { StatusButton } from '~/components/ui/status-button.tsx'
 
@@ -27,7 +25,7 @@ const verifySchema = z.union([
 	}),
 ])
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: LoaderFunctionArgs) {
 	const form = await request.formData()
 
 	const cookieSession = await getSession(request.headers.get('cookie'))
@@ -132,7 +130,7 @@ export function Verifier({ redirectTo, formError }: { redirectTo?: string; formE
 	const [form, fields] = useForm({
 		id: 'inline-verifier',
 		constraint: getFieldsetConstraint(verifySchema),
-		lastSubmission: fetcher.data?.submission,
+		lastResult: fetcher.data?.result,
 		onValidate({ formData }) {
 			return parse(formData, { schema: verifySchema })
 		},
@@ -140,7 +138,7 @@ export function Verifier({ redirectTo, formError }: { redirectTo?: string; formE
 	})
 
 	return (
-		<fetcher.Form action={ROUTE_PATH} method="POST" {...form.props}>
+		<fetcher.Form action={ROUTE_PATH} method="POST" {...getFormProps(form)}>
 			<input type="hidden" name="redirectTo" value={redirectTo} />
 			<Field labelProps={{ children: '2FA Code' }} inputProps={{ ...conform.input(fields.code), autoFocus: true }} errors={fields.code.errors} />
 			<div className="flex flex-row-reverse justify-between">
@@ -151,7 +149,8 @@ export function Verifier({ redirectTo, formError }: { redirectTo?: string; formE
 					Cancel
 				</StatusButton>
 			</div>
-			<ErrorList errors={[...form.errors, formError]} id={form.errorId} />
+			<ErrorList errors={form.errors} id={form.errorId} />
 		</fetcher.Form>
 	)
 }
+ */

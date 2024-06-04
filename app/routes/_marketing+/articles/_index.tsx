@@ -4,7 +4,7 @@ import BackgroundBlur from '../components/bg-blur.tsx'
 import { ArticlePreview } from '~/components/ArticlePreview.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { useState } from 'react'
-import { type LinksFunction, json, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, type MetaFunction } from '@remix-run/node'
 /* import { post as layout } from './layout/index.tsx' */
 import { post as theDarkSideOfTheGridPost } from './the-dark-side-of-the-grid/index.tsx'
 import { post as fluidSpacePost } from './fluid-space-sizing/index.tsx'
@@ -18,7 +18,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/articles' }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: `Articles | Andre Casal` },
 		{

@@ -1,63 +1,37 @@
 import { useEffect, useState } from 'react'
-import { useForm } from '@conform-to/react'
-import { parse } from '@conform-to/zod'
+import { getFormProps, useForm } from '@conform-to/react'
+import { parseWithZod } from '@conform-to/zod'
 import { z } from 'zod'
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { json, type ActionFunctionArgs } from '@remix-run/node'
 import { useFetcher, useRevalidator } from '@remix-run/react'
-import { safeRedirect } from 'remix-utils/safe-redirect'
+import { invariantResponse } from '@epic-web/invariant'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { clientHints, useHints } from '~/utils/client-hints.tsx'
 import { ErrorList } from '~/components/forms.tsx'
 import { useRequestInfo } from '~/utils/request-info.ts'
-import { commitSession, deleteTheme, getSession, setTheme } from './theme-session.server.ts'
+import { type Theme, setTheme } from './theme-session.server.ts'
 import { Icon } from '~/components/ui/icon.tsx'
 
 const ROUTE_PATH = '/resources/theme'
 
 const ThemeFormSchema = z.object({
-	redirectTo: z.string().optional(),
 	theme: z.enum(['system', 'light', 'dark']),
 })
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData()
-	const submission = parse(formData, {
-		schema: ThemeFormSchema,
-		acceptMultipleErrors: () => true,
-	})
-	if (!submission.value) {
-		return json(
-			{
-				status: 'error',
-				submission,
-			} as const,
-			{ status: 400 },
-		)
-	}
-	if (submission.intent !== 'submit') {
-		return json({ status: 'success', submission } as const)
-	}
-	const session = await getSession(request.headers.get('cookie'))
-	const { redirectTo, theme } = submission.value
-	if (theme === 'system') {
-		deleteTheme(session)
-	} else {
-		setTheme(session, theme)
-	}
+	const submission = parseWithZod(formData, { schema: ThemeFormSchema })
+	invariantResponse(submission.status === 'success', 'Invalid theme received')
 
-	const responseInit = {
-		headers: { 'Set-Cookie': await commitSession(session) },
-	}
-	if (redirectTo) {
-		return redirect(safeRedirect(redirectTo), responseInit)
-	} else {
-		return json({ success: true }, responseInit)
-	}
+	const { theme } = submission.value
+
+	const responseInit = { headers: { 'set-cookie': setTheme(theme) } }
+	return json({ result: submission.reply() }, responseInit)
 }
 
-export function ThemeSwitch({ id, userPreference }: { id: string; userPreference: 'light' | 'dark' | null }) {
+export function ThemeSwitch({ id, userPreference }: { id: string; userPreference?: Theme | null }) {
 	const requestInfo = useRequestInfo()
-	const fetcher = useFetcher()
+	const fetcher = useFetcher<typeof action>()
 	const [isHydrated, setIsHydrated] = useState(false)
 	const { revalidate } = useRevalidator()
 
@@ -75,13 +49,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 		return () => mediaQuery.removeEventListener('change', handleChange)
 	}, [revalidate])
 
-	const [form] = useForm({
-		id: 'theme-switch',
-		lastSubmission: fetcher.data?.submission,
-		onValidate({ formData }) {
-			return parse(formData, { schema: ThemeFormSchema })
-		},
-	})
+	const [form] = useForm({ id: 'theme-switch', lastResult: fetcher.data?.result })
 
 	const mode = userPreference ?? 'system'
 	//const nextMode = mode === 'system' ? 'light' : mode === 'light' ? 'dark' : 'system'
@@ -92,7 +60,7 @@ export function ThemeSwitch({ id, userPreference }: { id: string; userPreference
 
 	return (
 		<DropdownMenu.Root>
-			<fetcher.Form {...form.props}>
+			<fetcher.Form {...getFormProps(form)}>
 				{/*
 					this is for progressive enhancement so we redirect them to the page
 					they are on if the JavaScript hasn't had a chance to hydrate yet.

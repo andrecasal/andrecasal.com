@@ -12,7 +12,7 @@ import satisfactionGuarantee from './images/satisfaction-guarantee.png'
 import signatureBlack from './images/signature-black.png'
 import signatureWhite from './images/signature-white.png'
 import { Link } from '@remix-run/react'
-import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
+import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -25,7 +25,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/tutoring' }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: 'Private tutor for coding or programming subjects' },
 		{

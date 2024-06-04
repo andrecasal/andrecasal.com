@@ -1,87 +1,106 @@
-import { conform, useForm } from '@conform-to/react'
-import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type DataFunctionArgs, json, redirect, unstable_createMemoryUploadHandler, unstable_parseMultipartFormData, type LinksFunction } from '@remix-run/node'
+/* import { getFormProps, getInputProps, useForm } from '@conform-to/react'
+import { type LoaderFunctionArgs, json, redirect, unstable_createMemoryUploadHandler, unstable_parseMultipartFormData, type LinksFunction, type ActionFunctionArgs } from '@remix-run/node'
 import { Form, Link, useActionData, useFetcher, useLoaderData, useNavigate } from '@remix-run/react'
 import { useState } from 'react'
 import { z } from 'zod'
 import { Button } from '~/components/ui/button.tsx'
 import { Dialog, DialogClose, DialogContent, DialogTitle } from '~/components/ui/dialog.tsx'
 import * as deleteImageRoute from '~/routes/resources+/delete-image.tsx'
-import { authenticator, requireUserId } from '~/utils/auth.server.ts'
+import { requireUserId } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
 import { ErrorList } from '~/components/forms.tsx'
 import { getUserImgSrc } from '~/utils/misc.ts'
 import { Icon } from '~/components/ui/icon.tsx'
+import { getZodConstraint, parseWithZod } from '@conform-to/zod'
+import { invariantResponse } from '@epic-web/invariant'
 
 const MAX_SIZE = 1024 * 1024 * 3 // 3MB
 
-/*
-The preprocess call is needed because a current bug in @remix-run/web-fetch
-for more info see the bug (https://github.com/remix-run/web-std-io/pull/28)
-and the explanation here: https://conform.guide/file-upload
-*/
-const PhotoFormSchema = z.object({
-	photoFile: z.preprocess(
-		value => (value === '' ? new File([], '') : value),
-		z
-			.instanceof(File)
-			.refine(file => file.name !== '' && file.size !== 0, 'Image is required')
-			.refine(file => {
-				return file.size <= MAX_SIZE
-			}, 'Image size must be less than 3MB'),
-	),
+const DeleteImageSchema = z.object({
+	intent: z.literal('delete'),
 })
+
+const NewImageSchema = z.object({
+	intent: z.literal('submit'),
+	photoFile: z
+		.instanceof(File)
+		.refine(file => file.size > 0, 'Image is required')
+		.refine(file => file.size <= MAX_SIZE, 'Image size must be less than 3MB'),
+})
+
+const PhotoFormSchema = z.discriminatedUnion('intent', [DeleteImageSchema, NewImageSchema])
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com/profile/photo` }]
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const userId = await requireUserId(request)
 	const user = await prisma.user.findUnique({
 		where: { id: userId },
 		select: { imageId: true, name: true, username: true },
 	})
-	if (!user) {
-		throw await authenticator.logout(request, { redirectTo: '/' })
-	}
+	invariantResponse(user, 'User not found', { status: 404 })
 	return json({ user })
 }
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const userId = await requireUserId(request)
 	const formData = await unstable_parseMultipartFormData(request, unstable_createMemoryUploadHandler({ maxPartSize: MAX_SIZE }))
 
-	const submission = parse(formData, { schema: PhotoFormSchema })
+	const submission = await parseWithZod(formData, {
+		schema: PhotoFormSchema.transform(async data => {
+			if (data.intent === 'delete') return { intent: 'delete' }
+			if (data.photoFile.size <= 0) return z.NEVER
+			return {
+				intent: data.intent,
+				image: {
+					contentType: data.photoFile.type,
+					blob: Buffer.from(await data.photoFile.arrayBuffer()),
+				},
+			}
+		}),
+		async: true,
+	})
 
-	if (submission.intent !== 'submit') {
-		return json({ status: 'idle', submission } as const)
-	}
-	if (!submission.value) {
-		return json(
-			{
-				status: 'error',
-				submission,
-			} as const,
-			{ status: 400 },
-		)
+	if (submission.status !== 'success') {
+		return json({ result: submission.reply() }, { status: submission.status === 'error' ? 400 : 200 })
 	}
 
-	const { photoFile } = submission.value
+	const { image, intent } = submission.value
+
+	if (intent === 'delete') {
+		const previousUserPhoto = await prisma.user.findUnique({
+			where: { id: userId },
+			select: { imageId: true },
+		})
+		await prisma.user.update({
+			select: { id: true },
+			where: { id: userId },
+			data: {
+				image: {
+					delete: true,
+				},
+			},
+		})
+		if (previousUserPhoto?.imageId) {
+			await prisma.image.delete({ where: { fileId: previousUserPhoto.imageId } })
+		}
+		return redirect('/settings/profile')
+	}
+
+	invariantResponse(image, 'Image is required', { status: 400 })
 
 	const newPrismaPhoto = {
-		contentType: photoFile.type,
+		contentType: image.contentType,
 		file: {
 			create: {
-				blob: Buffer.from(await photoFile.arrayBuffer()),
+				blob: Buffer.from(image.blob),
 			},
 		},
 	}
 
-	const previousUserPhoto = await prisma.user.findUnique({
-		where: { id: userId },
-		select: { imageId: true },
-	})
+	const previousUserPhoto = await prisma.user.findUnique({ where: { id: userId }, select: { imageId: true } })
 
 	await prisma.user.update({
 		select: { id: true },
@@ -97,11 +116,7 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 
 	if (previousUserPhoto?.imageId) {
-		void prisma.image
-			.delete({
-				where: { fileId: previousUserPhoto.imageId },
-			})
-			.catch(() => {}) // ignore the error, maybe it never existed?
+		void prisma.image.delete({ where: { fileId: previousUserPhoto.imageId } }).catch(() => {}) // ignore the error, maybe it never existed?
 	}
 
 	return redirect('/settings/profile')
@@ -115,10 +130,10 @@ export default function PhotoChooserModal() {
 	const actionData = useActionData<typeof action>()
 	const [form, { photoFile }] = useForm({
 		id: 'profile-photo',
-		constraint: getFieldsetConstraint(PhotoFormSchema),
-		lastSubmission: actionData?.submission,
+		constraint: getZodConstraint(PhotoFormSchema),
+		lastResult: actionData?.result,
 		onValidate({ formData }) {
-			return parse(formData, { schema: PhotoFormSchema })
+			return parseWithZod(formData, { schema: PhotoFormSchema })
 		},
 		shouldRevalidate: 'onBlur',
 	})
@@ -135,11 +150,17 @@ export default function PhotoChooserModal() {
 				<DialogTitle asChild className="text-center">
 					<h2 className="text-title-lg">Profile photo</h2>
 				</DialogTitle>
-				<Form method="POST" encType="multipart/form-data" className="mt-8 flex flex-col items-center justify-center gap-10" onReset={() => setNewImageSrc(null)} {...form.props}>
+				<Form
+					method="POST"
+					encType="multipart/form-data"
+					className="mt-8 flex flex-col items-center justify-center gap-10"
+					onReset={() => setNewImageSrc(null)}
+					{...getFormProps(form)}
+				>
 					<img src={newImageSrc ?? getUserImgSrc(data.user.imageId)} className="h-64 w-64 rounded-full" alt={data.user.name ?? data.user.username} />
 					<ErrorList errors={photoFile.errors} id={photoFile.id} />
 					<input
-						{...conform.input(photoFile, { type: 'file' })}
+						{...getInputProps(photoFile, { type: 'file' })}
 						type="file"
 						accept="image/*"
 						className="sr-only"
@@ -191,3 +212,4 @@ export default function PhotoChooserModal() {
 		</Dialog>
 	)
 }
+ */

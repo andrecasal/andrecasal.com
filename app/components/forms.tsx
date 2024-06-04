@@ -1,9 +1,11 @@
-import { useInputEvent } from '@conform-to/react'
-import React, { useId, useRef } from 'react'
-import { Input } from '~/components/ui/input.tsx'
-import { Label } from '~/components/ui/label.tsx'
-import { Checkbox, type CheckboxProps } from '~/components/ui/checkbox.tsx'
-import { Textarea } from '~/components/ui/textarea.tsx'
+import { useInputControl } from '@conform-to/react'
+import { REGEXP_ONLY_DIGITS_AND_CHARS, type OTPInputProps } from 'input-otp'
+import React, { useId } from 'react'
+import { Checkbox, type CheckboxProps } from './ui/checkbox.tsx'
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from './ui/input-otp.tsx'
+import { Input } from './ui/input.tsx'
+import { Label } from './ui/label.tsx'
+import { Textarea } from './ui/textarea.tsx'
 
 export type ListOfErrors = Array<string | null | undefined> | null | undefined
 
@@ -11,9 +13,9 @@ export function ErrorList({ id, errors }: { errors?: ListOfErrors; id?: string }
 	const errorsToRender = errors?.filter(Boolean)
 	if (!errorsToRender?.length) return null
 	return (
-		<ul id={id} className="space-y-1">
+		<ul id={id} className="flex flex-col gap-1">
 			{errorsToRender.map(e => (
-				<li key={e} className="text-[10px] text-danger-foreground">
+				<li key={e} className="text-foreground-destructive text-[10px]">
 					{e}
 				</li>
 			))}
@@ -27,8 +29,8 @@ export function Field({
 	errors,
 	className,
 }: {
-	labelProps: Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'className'>
-	inputProps: Omit<React.InputHTMLAttributes<HTMLInputElement>, 'className'>
+	labelProps: React.LabelHTMLAttributes<HTMLLabelElement>
+	inputProps: React.InputHTMLAttributes<HTMLInputElement>
 	errors?: ListOfErrors
 	className?: string
 }) {
@@ -44,6 +46,41 @@ export function Field({
 	)
 }
 
+export function OTPField({
+	labelProps,
+	inputProps,
+	errors,
+	className,
+}: {
+	labelProps: React.LabelHTMLAttributes<HTMLLabelElement>
+	inputProps: Partial<OTPInputProps & { render: never }>
+	errors?: ListOfErrors
+	className?: string
+}) {
+	const fallbackId = useId()
+	const id = inputProps.id ?? fallbackId
+	const errorId = errors?.length ? `${id}-error` : undefined
+	return (
+		<div className={className}>
+			<Label htmlFor={id} {...labelProps} />
+			<InputOTP pattern={REGEXP_ONLY_DIGITS_AND_CHARS} maxLength={6} id={id} aria-invalid={errorId ? true : undefined} aria-describedby={errorId} {...inputProps}>
+				<InputOTPGroup>
+					<InputOTPSlot index={0} />
+					<InputOTPSlot index={1} />
+					<InputOTPSlot index={2} />
+				</InputOTPGroup>
+				<InputOTPSeparator />
+				<InputOTPGroup>
+					<InputOTPSlot index={3} />
+					<InputOTPSlot index={4} />
+					<InputOTPSlot index={5} />
+				</InputOTPGroup>
+			</InputOTP>
+			<div className="min-h-[32px] px-4 pb-3 pt-1">{errorId ? <ErrorList id={errorId} errors={errors} /> : null}</div>
+		</div>
+	)
+}
+
 export function TextareaField({
 	labelProps,
 	textareaProps,
@@ -51,7 +88,7 @@ export function TextareaField({
 	className,
 }: {
 	labelProps: React.LabelHTMLAttributes<HTMLLabelElement>
-	textareaProps: React.InputHTMLAttributes<HTMLTextAreaElement>
+	textareaProps: React.TextareaHTMLAttributes<HTMLTextAreaElement>
 	errors?: ListOfErrors
 	className?: string
 }) {
@@ -62,7 +99,7 @@ export function TextareaField({
 		<div className={className}>
 			<Label htmlFor={id} {...labelProps} />
 			<Textarea id={id} aria-invalid={errorId ? true : undefined} aria-describedby={errorId} {...textareaProps} />
-			<div className="px-4 pb-3 pt-1">{errorId ? <ErrorList id={errorId} errors={errors} /> : null}</div>
+			<div className="min-h-[32px] px-4 pb-3 pt-1">{errorId ? <ErrorList id={errorId} errors={errors} /> : null}</div>
 		</div>
 	)
 }
@@ -74,46 +111,50 @@ export function CheckboxField({
 	className,
 }: {
 	labelProps: JSX.IntrinsicElements['label']
-	buttonProps: CheckboxProps
+	buttonProps: CheckboxProps & {
+		name: string
+		form: string
+		value?: string
+	}
 	errors?: ListOfErrors
 	className?: string
 }) {
+	const { key, defaultChecked, ...checkboxProps } = buttonProps
 	const fallbackId = useId()
-	const buttonRef = useRef<HTMLButtonElement>(null)
-	// To emulate native events that Conform listen to:
-	// See https://conform.guide/integrations
-	const control = useInputEvent({
-		// Retrieve the checkbox element by name instead as Radix does not expose the internal checkbox element
-		// See https://github.com/radix-ui/primitives/discussions/874
-		ref: () => buttonRef.current?.form?.elements.namedItem(buttonProps.name ?? ''),
-		onFocus: () => buttonRef.current?.focus(),
+	const checkedValue = buttonProps.value ?? 'on'
+	const input = useInputControl({
+		key,
+		name: buttonProps.name,
+		formId: buttonProps.form,
+		initialValue: defaultChecked ? checkedValue : undefined,
 	})
-	const id = buttonProps.id ?? buttonProps.name ?? fallbackId
+	const id = buttonProps.id ?? fallbackId
 	const errorId = errors?.length ? `${id}-error` : undefined
+
 	return (
 		<div className={className}>
 			<div className="flex gap-2">
 				<Checkbox
+					{...checkboxProps}
 					id={id}
-					ref={buttonRef}
 					aria-invalid={errorId ? true : undefined}
 					aria-describedby={errorId}
-					{...buttonProps}
+					checked={input.value === checkedValue}
 					onCheckedChange={state => {
-						control.change(Boolean(state.valueOf()))
+						input.change(state.valueOf() ? checkedValue : '')
 						buttonProps.onCheckedChange?.(state)
 					}}
 					onFocus={event => {
-						control.focus()
+						input.focus()
 						buttonProps.onFocus?.(event)
 					}}
 					onBlur={event => {
-						control.blur()
+						input.blur()
 						buttonProps.onBlur?.(event)
 					}}
 					type="button"
 				/>
-				<label htmlFor={id} {...labelProps} className="self-center text-size-sm text-muted-500" />
+				<label htmlFor={id} {...labelProps} className="text-body-xs text-muted-foreground self-center" />
 			</div>
 			<div className="px-4 pb-3 pt-1">{errorId ? <ErrorList id={errorId} errors={errors} /> : null}</div>
 		</div>

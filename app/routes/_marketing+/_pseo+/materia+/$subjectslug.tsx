@@ -24,7 +24,7 @@ import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
 import signatureWhite from '~/routes/_marketing+/images/signature-white.png'
 import * as newsletterAnimation from '~/components/newsletter-animation.json'
 import { Form, Link, useActionData, useLoaderData, useNavigation } from '@remix-run/react'
-import { type LoaderArgs, json, type LinksFunction, type V2_MetaFunction, type ActionArgs } from '@remix-run/node'
+import { json, type LinksFunction, type MetaFunction, type ActionFunctionArgs, type LoaderFunctionArgs } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -38,10 +38,10 @@ import BackgroundSquareLines from '../../components/bg-square-lines.tsx'
 import { subjects } from '../disciplinas.ts'
 import { validateCSRF } from '~/utils/csrf.server.ts'
 import { checkHoneypot } from '~/utils/honeypot.server.ts'
-import { parse } from '@conform-to/zod'
+import { parseWithZod } from '@conform-to/zod'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { z } from 'zod'
-import { useForm } from '@conform-to/react'
+import { getFormProps, useForm } from '@conform-to/react'
 import { useEffect, useRef, useState } from 'react'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
@@ -56,7 +56,7 @@ import { ResourcesEmail } from '../materia+/tutoring.emails.tsx'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 
-export const meta: V2_MetaFunction = ({ params }) => {
+export const meta: MetaFunction = ({ params }) => {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	const { name } = subject
@@ -122,7 +122,7 @@ export const links: LinksFunction = () => {
 	]
 }
 
-export async function loader({ params }: LoaderArgs) {
+export async function loader({ params }: LoaderFunctionArgs) {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	return json({ subject })
@@ -469,15 +469,16 @@ const Route = () => {
 	const actionData = useActionData<typeof action>()
 	const navigation = useNavigation()
 	const [form, { email }] = useForm({
-		lastSubmission: actionData?.submission,
+		lastResult: actionData?.result,
 		shouldValidate: 'onBlur',
-		onValidate: ({ formData }) => parse(formData, { schema: newsletterSchema }),
+		onValidate: ({ formData }) => parseWithZod(formData, { schema: newsletterSchema }),
 	})
+	const formRef = useRef<HTMLFormElement>(null)
 	const playerRef = useRef<Player>(null)
 	const [state, setState] = useState<'initial' | 'animating' | 'finished'>('initial')
 
 	useEffect(() => {
-		if (actionData?.status === 'success') {
+		if (actionData?.result.status === 'success') {
 			setState('animating')
 			playerRef.current?.play()
 		}
@@ -585,9 +586,10 @@ const Route = () => {
 						</P>
 						<div className="mt-8 grid">
 							<Form
+								ref={formRef}
 								method="post"
 								className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
-								{...form.props}
+								{...getFormProps(form)}
 								encType="multipart/form-data"
 							>
 								<AuthenticityTokenInput />
@@ -604,11 +606,11 @@ const Route = () => {
 											name="email"
 											autoComplete="email"
 											required
-											defaultValue={email.defaultValue}
-											className={email.error ? 'border-danger-foreground' : ''}
+											defaultValue={email.initialValue}
+											className={email.errors ? 'border-danger-foreground' : ''}
 										/>
 										<P size="xs" className="ml-3.5 text-danger-foreground">
-											{email.error}&nbsp;
+											{email.errors}&nbsp;
 										</P>
 									</Flex>
 									<Button type="submit" disabled={navigation.state === 'submitting'} className="px-8">
@@ -641,7 +643,7 @@ const Route = () => {
 									variant="link"
 									className="text-foreground underline"
 									onClick={() => {
-										form.ref.current?.reset()
+										formRef.current?.reset()
 										playerRef.current?.stop()
 										setState('initial')
 									}}
@@ -1232,7 +1234,7 @@ export default Route
 const newsletterSchema = z.object({ email: emailSchema })
 export const verificationType = `resources`
 
-export async function action({ request, params }: ActionArgs) {
+export async function action({ request, params }: ActionFunctionArgs) {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	const { name } = subject
@@ -1243,12 +1245,9 @@ export async function action({ request, params }: ActionArgs) {
 	checkHoneypot(formData, '/newsletter')
 
 	// Parse form
-	const submission = parse(formData, { schema: newsletterSchema })
-	if (submission.intent !== 'submit') {
-		return json({ status: 'error', submission } as const)
-	}
-	if (!submission.value) {
-		return json({ status: 'error', submission } as const, { status: 400 })
+	const submission = parseWithZod(formData, { schema: newsletterSchema })
+	if (submission.status !== 'success') {
+		return json({ result: submission.reply() }, { status: submission.status === 'error' ? 400 : 200 })
 	}
 
 	// Extract data
@@ -1273,6 +1272,7 @@ export async function action({ request, params }: ActionArgs) {
 			secret,
 			period,
 			digits,
+			charSet: 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789',
 			expiresAt: new Date(Date.now() + period * 1000),
 		},
 	})
@@ -1291,7 +1291,7 @@ export async function action({ request, params }: ActionArgs) {
 	})
 
 	// Everything ok
-	return json({ status: 'success', submission } as const)
+	return json({ status: 'success', result: submission.reply() } as const)
 }
 
 async function scheduleEmailSequence(email: string) {

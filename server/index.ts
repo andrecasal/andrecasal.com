@@ -1,34 +1,38 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-import express from 'express'
-import chokidar from 'chokidar'
-import compression from 'compression'
-import morgan from 'morgan'
-import address from 'address'
-import closeWithGrace from 'close-with-grace'
-import helmet from 'helmet'
 import crypto from 'crypto'
-import { type RequestHandler, createRequestHandler as _createRequestHandler } from '@remix-run/express'
-import { wrapExpressCreateRequestHandler } from '@sentry/remix'
-import { type ServerBuild, broadcastDevReady } from '@remix-run/node'
-import getPort, { portNumbers } from 'get-port'
+import { createRequestHandler as _createRequestHandler } from '@remix-run/express'
+import { type ServerBuild, installGlobals } from '@remix-run/node'
+import * as Sentry from '@sentry/remix'
+import { ip as ipAddress } from 'address'
 import chalk from 'chalk'
+import closeWithGrace from 'close-with-grace'
+import compression from 'compression'
+import express from 'express'
+import rateLimit from 'express-rate-limit'
+import getPort, { portNumbers } from 'get-port'
+import helmet from 'helmet'
+import morgan from 'morgan'
 
-// @ts-ignore - this file may not exist if you haven't built yet, but it will
-// definitely exist by the time the dev or prod server actually runs.
-import * as remixBuild from '../build/index.js'
+installGlobals()
+
 const MODE = process.env.NODE_ENV
 
-const createRequestHandler = wrapExpressCreateRequestHandler(_createRequestHandler)
+const createRequestHandler = MODE === 'production' ? Sentry.wrapExpressCreateRequestHandler(_createRequestHandler) : _createRequestHandler
 
-const BUILD_PATH = '../build/index.js'
-
-const build = remixBuild as unknown as ServerBuild
-let devBuild = build
+const viteDevServer =
+	MODE === 'production'
+		? undefined
+		: await import('vite').then(vite =>
+				vite.createServer({
+					server: { middlewareMode: true },
+				}),
+		  )
 
 const app = express()
 
 const getHost = (req: { get: (key: string) => string | undefined }) => req.get('X-Forwarded-Host') ?? req.get('host') ?? ''
+
+// fly is our proxy
+app.set('trust proxy', true)
 
 // ensure HTTPS only (X-Forwarded-Proto comes from Fly)
 app.use((req, res, next) => {
@@ -44,11 +48,11 @@ app.use((req, res, next) => {
 
 // no ending slashes for SEO reasons
 // https://github.com/epicweb-dev/epic-stack/discussions/108
-app.use((req, res, next) => {
+app.get('*', (req, res, next) => {
 	if (req.path.endsWith('/') && req.path.length > 1) {
 		const query = req.url.slice(req.path.length)
 		const safepath = req.path.slice(0, -1).replace(/\/+/g, '/')
-		res.redirect(301, safepath + query)
+		res.redirect(302, safepath + query)
 	} else {
 		next()
 	}
@@ -59,18 +63,33 @@ app.use(compression())
 // http://expressjs.com/en/advanced/best-practice-security.html#at-a-minimum-disable-x-powered-by-header
 app.disable('x-powered-by')
 
-// Remix fingerprints its assets so we can cache forever.
-app.use('/build', express.static('public/build', { immutable: true, maxAge: '1y' }))
+app.use(Sentry.Handlers.requestHandler())
+app.use(Sentry.Handlers.tracingHandler())
 
-// Aggressively cache fonts for a year
-app.use('/fonts', express.static('public/fonts', { immutable: true, maxAge: '1y' }))
+if (viteDevServer) {
+	app.use(viteDevServer.middlewares)
+} else {
+	// Remix fingerprints its assets so we can cache forever.
+	app.use('/assets', express.static('build/client/assets', { immutable: true, maxAge: '1y' }))
 
-// Everything else (like favicon.ico) is cached for an hour. You may want to be
-// more aggressive with this caching.
-app.use(express.static('public', { maxAge: '1h' }))
+	// Everything else (like favicon.ico) is cached for an hour. You may want to be
+	// more aggressive with this caching.
+	app.use(express.static('build/client', { maxAge: '1h' }))
+}
 
-morgan.token('url', (req, res) => decodeURIComponent(req.url ?? ''))
-app.use(morgan('tiny'))
+app.get(['/img/*', '/favicons/*'], (req, res) => {
+	// if we made it past the express.static for these, then we're missing something.
+	// So we'll just send a 404 and won't bother calling other middleware.
+	return res.status(404).send('Not found')
+})
+
+morgan.token('url', req => decodeURIComponent(req.url ?? ''))
+app.use(
+	morgan('tiny', {
+		skip: (req, res) =>
+			res.statusCode === 200 && (req.url?.startsWith('/resources/note-images') || req.url?.startsWith('/resources/user-images') || req.url?.startsWith('/resources/healthcheck')),
+	}),
+)
 
 app.use((_, res, next) => {
 	res.locals.cspNonce = crypto.randomBytes(16).toString('hex')
@@ -79,8 +98,11 @@ app.use((_, res, next) => {
 
 app.use(
 	helmet({
+		referrerPolicy: { policy: 'same-origin' },
 		crossOriginEmbedderPolicy: false,
 		contentSecurityPolicy: {
+			// NOTE: Remove reportOnly when you're ready to enforce this CSP
+			reportOnly: true,
 			directives: {
 				'connect-src': [
 					MODE === 'development' ? 'ws:' : null,
@@ -108,14 +130,73 @@ app.use(
 	}),
 )
 
-function getRequestHandler(build: ServerBuild): RequestHandler {
-	function getLoadContext(_: any, res: any) {
-		return { cspNonce: res.locals.cspNonce }
-	}
-	return createRequestHandler({ build, mode: MODE, getLoadContext })
+// When running tests or running in development, we want to effectively disable
+// rate limiting because playwright tests are very fast and we don't want to
+// have to wait for the rate limit to reset between tests.
+const maxMultiple = MODE !== 'production' || process.env.PLAYWRIGHT_TEST_BASE_URL ? 10_000 : 1
+const rateLimitDefault = {
+	windowMs: 60 * 1000,
+	max: 1000 * maxMultiple,
+	standardHeaders: true,
+	legacyHeaders: false,
+	// Fly.io prevents spoofing of X-Forwarded-For
+	// so no need to validate the trustProxy config
+	validate: { trustProxy: false },
 }
 
-app.all('*', process.env.NODE_ENV === 'development' ? (...args) => getRequestHandler(devBuild)(...args) : getRequestHandler(build))
+const strongestRateLimit = rateLimit({
+	...rateLimitDefault,
+	windowMs: 60 * 1000,
+	max: 10 * maxMultiple,
+})
+
+const strongRateLimit = rateLimit({
+	...rateLimitDefault,
+	windowMs: 60 * 1000,
+	max: 100 * maxMultiple,
+})
+
+const generalRateLimit = rateLimit(rateLimitDefault)
+app.use((req, res, next) => {
+	const strongPaths = ['/login', '/signup', '/verify', '/admin', '/onboarding', '/reset-password', '/settings/profile', '/resources/login', '/resources/verify']
+	if (req.method !== 'GET' && req.method !== 'HEAD') {
+		if (strongPaths.some(p => req.path.includes(p))) {
+			return strongestRateLimit(req, res, next)
+		}
+		return strongRateLimit(req, res, next)
+	}
+
+	// the verify route is a special case because it's a GET route that
+	// can have a token in the query string
+	if (req.path.includes('/verify')) {
+		return strongestRateLimit(req, res, next)
+	}
+
+	return generalRateLimit(req, res, next)
+})
+
+async function getBuild() {
+	const build = viteDevServer
+		? viteDevServer.ssrLoadModule('virtual:remix/server-build')
+		: // @ts-ignore this should exist before running the server
+		  // but it may not exist just yet.
+		  await import('../build/server/index.js')
+	// not sure how to make this happy 🤷‍♂️
+	return build as unknown as ServerBuild
+}
+
+app.all(
+	'*',
+	createRequestHandler({
+		getLoadContext: (_: any, res: any) => ({
+			cspNonce: res.locals.cspNonce,
+			serverBuild: getBuild(),
+		}),
+		mode: MODE,
+		// @sentry/remix needs to be updated to handle the function signature
+		build: MODE === 'production' ? await getBuild() : getBuild,
+	}),
+)
 
 const desiredPort = Number(process.env.PORT || 3000)
 const portToUse = await getPort({
@@ -132,7 +213,7 @@ const server = app.listen(portToUse, () => {
 	console.log(`🚀  We have liftoff!`)
 	const localUrl = `http://localhost:${portUsed}`
 	let lanUrl: string | null = null
-	const localIp = address.ip()
+	const localIp = ipAddress() ?? 'Unknown'
 	// Check if the address is a private ip
 	// https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 	// https://github.com/facebook/create-react-app/blob/d960b9e38c062584ff6cfb1a70e1512509a966e7/packages/react-dev-utils/WebpackDevServerUtils.js#LL48C9-L54C10
@@ -147,10 +228,6 @@ ${lanUrl ? `${chalk.bold('On Your Network:')}  ${chalk.cyan(lanUrl)}` : ''}
 ${chalk.bold('Press Ctrl+C to stop')}
 		`.trim(),
 	)
-
-	if (process.env.NODE_ENV === 'development') {
-		broadcastDevReady(build)
-	}
 })
 
 closeWithGrace(async () => {
@@ -158,16 +235,3 @@ closeWithGrace(async () => {
 		server.close(e => (e ? reject(e) : resolve('ok')))
 	})
 })
-
-// during dev, we'll keep the build module up to date with the changes
-if (process.env.NODE_ENV === 'development') {
-	async function reloadBuild() {
-		devBuild = await import(`${BUILD_PATH}?update=${Date.now()}`)
-		broadcastDevReady(devBuild)
-	}
-
-	const dirname = path.dirname(fileURLToPath(import.meta.url))
-	const watchPath = path.join(dirname, BUILD_PATH).replace(/\\/g, '/')
-	const watcher = chokidar.watch(watchPath, { ignoreInitial: true })
-	watcher.on('all', reloadBuild)
-}

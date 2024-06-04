@@ -1,4 +1,4 @@
-import type { LinksFunction, V2_MetaFunction } from '@remix-run/node'
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import HeroAndre from './components/hero-andre.tsx'
 import Brands from './components/brands.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
@@ -8,7 +8,7 @@ import { Container } from '~/ui_components/layout/container.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 import { Span } from '~/ui_components/typography/span.tsx'
 
-export const meta: V2_MetaFunction = () => [{ title: 'André Casal' }]
+export const meta: MetaFunction = () => [{ title: 'André Casal' }]
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/' }]

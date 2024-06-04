@@ -12,7 +12,7 @@ import satisfactionGuarantee from './images/satisfaction-guarantee.png'
 import signatureBlack from './images/signature-black.png'
 import signatureWhite from './images/signature-white.png'
 import { Link } from '@remix-run/react'
-import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, type MetaFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -21,7 +21,7 @@ import { H3 } from '~/ui_components/typography/h3.tsx'
 import { Span } from '~/ui_components/typography/span.tsx'
 import { H4 } from '~/ui_components/typography/h4.tsx'
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: 'Explicações de Programação' },
 		{
@@ -30,7 +30,8 @@ export const meta: V2_MetaFunction = () => {
 		},
 		{
 			name: 'keywords',
-			content: 'explicações de programação, explicador de programação, tutoria de programação, tutor de programação, professor particular de programação, boas notas programação, como estudar programação',
+			content:
+				'explicações de programação, explicador de programação, tutoria de programação, tutor de programação, professor particular de programação, boas notas programação, como estudar programação',
 		},
 		{
 			// Structure data for Google Search for my private tutoring services

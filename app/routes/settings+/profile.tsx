@@ -1,33 +1,32 @@
-import { conform, useForm } from '@conform-to/react'
-import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs } from '@remix-run/node'
-import { Form, Link, Outlet, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
-import { z } from 'zod'
-import { authenticator, getPasswordHash, requireUserId, verifyLogin } from '~/utils/auth.server.ts'
+//import { getFormProps, useForm } from '@conform-to/react'
+import { type LinksFunction, json, /* redirect, */ type LoaderFunctionArgs, type ActionFunctionArgs } from '@remix-run/node'
+import { /* Form, */ Link, Outlet, /* useActionData, useFormAction, */ useLoaderData/* , useNavigation */ } from '@remix-run/react'
+//import { z } from 'zod'
+import { authenticator, /* getPasswordHash,  */requireUserId } from '~/utils/auth.server.ts'
 import { prisma } from '~/utils/db.server.ts'
-import { ErrorList, Field } from '~/components/forms.tsx'
+// import { ErrorList, Field } from '~/components/forms.tsx'
 import { getUserImgSrc } from '~/utils/misc.ts'
-import { emailSchema, nameSchema, passwordSchema, usernameSchema } from '~/utils/user-validation.ts'
+// import { emailSchema, nameSchema, passwordSchema, usernameSchema } from '~/utils/user-validation.ts'
 import { twoFAVerificationType } from './profile.two-factor.tsx'
-import { StatusButton } from '~/components/ui/status-button.tsx'
+// import { StatusButton } from '~/components/ui/status-button.tsx'
 import { Button } from '~/components/ui/button.tsx'
 import { Icon } from '~/components/ui/icon.tsx'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { Span } from '~/ui_components/typography/span.tsx'
 
-const profileFormSchema = z.object({
+/* const profileFormSchema = z.object({
 	name: nameSchema.optional(),
 	username: usernameSchema,
 	email: emailSchema.optional(),
 	currentPassword: z.union([passwordSchema, z.string().min(0).max(0)]).optional(),
 	newPassword: z.union([passwordSchema, z.string().min(0).max(0)]).optional(),
-})
+}) */
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com/profile` }]
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const userId = await requireUserId(request)
 	const user = await prisma.user.findUnique({
 		where: { id: userId },
@@ -49,8 +48,8 @@ export async function loader({ request }: DataFunctionArgs) {
 	return json({ user, isTwoFactorEnabled: Boolean(twoFactorVerification) })
 }
 
-export async function action({ request }: DataFunctionArgs) {
-	const userId = await requireUserId(request)
+export async function action({ request }: ActionFunctionArgs) {
+	/* const userId = await requireUserId(request)
 	const formData = await request.formData()
 	const submission = await parse(formData, {
 		async: true,
@@ -109,21 +108,21 @@ export async function action({ request }: DataFunctionArgs) {
 		},
 	})
 
-	return redirect(`/users/${updatedUser.username}`, { status: 302 })
+	return redirect(`/users/${updatedUser.username}`, { status: 302 }) */
 }
 
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
-	const actionData = useActionData<typeof action>()
-	const navigation = useNavigation()
-	const formAction = useFormAction()
+	//const actionData = useActionData<typeof action>()
+	//const navigation = useNavigation()
+	//const formAction = useFormAction()
 
-	const isSubmitting = navigation.state === 'submitting' && navigation.formAction === formAction && navigation.formMethod === 'POST'
+	//const isSubmitting = navigation.state === 'submitting' && navigation.formAction === formAction && navigation.formMethod === 'POST'
 
-	const [form, fields] = useForm({
+	/* const [form, fields] = useForm({
 		id: 'edit-profile',
 		constraint: getFieldsetConstraint(profileFormSchema),
-		lastSubmission: actionData?.submission,
+		lastResult: actionData?.result,
 		onValidate({ formData }) {
 			return parse(formData, { schema: profileFormSchema })
 		},
@@ -133,7 +132,7 @@ export default function EditUserProfile() {
 			email: data.user.email,
 		},
 		shouldRevalidate: 'onBlur',
-	})
+	}) */
 
 	return (
 		<Container>
@@ -156,7 +155,7 @@ export default function EditUserProfile() {
 							</Button>
 						</div>
 					</div>
-					<Form method="POST" {...form.props}>
+					{/* <Form method="POST" {...getFormProps(form)}>
 						<div className="grid grid-cols-6 gap-x-10">
 							<Field
 								className="col-span-3"
@@ -185,6 +184,7 @@ export default function EditUserProfile() {
 								<div className="flex justify-between gap-10">
 									<Field
 										className="flex-1"
+										{...getInputProps(fields., { type: 'password' })}
 										labelProps={{
 											htmlFor: fields.currentPassword.id,
 											children: 'Current Password',
@@ -231,7 +231,7 @@ export default function EditUserProfile() {
 								Save changes
 							</StatusButton>
 						</div>
-					</Form>
+					</Form> */}
 				</div>
 				<Outlet />
 			</div>

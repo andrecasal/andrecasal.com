@@ -1,4 +1,4 @@
-import { conform, useForm } from '@conform-to/react'
+/* import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
 import { type LinksFunction, json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
@@ -139,7 +139,7 @@ export default function SignupVerifyRoute() {
 					</P>
 				</div>
 
-				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
+				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...getFormProps(form)}>
 					<Field
 						labelProps={{
 							htmlFor: fields.email.id,
@@ -169,3 +169,4 @@ export default function SignupVerifyRoute() {
 		</Container>
 	)
 }
+ */

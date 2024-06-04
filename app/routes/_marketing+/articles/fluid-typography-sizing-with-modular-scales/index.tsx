@@ -2,7 +2,7 @@ import { CodeBlock } from '~/components/ui/code-block.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
 import { type Post } from '../_index.tsx'
-import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
+import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: `${post.title} | Andre Casal` },
 		{

@@ -1,11 +1,11 @@
 import { cssBundleHref } from '@remix-run/css-bundle'
-import { json, type DataFunctionArgs, type HeadersFunction, type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation } from '@remix-run/react'
+import { type LoaderFunctionArgs, type MetaFunction, json, type HeadersFunction, type LinksFunction } from '@remix-run/node'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation } from '@remix-run/react'
 import { withSentry } from '@sentry/remix'
 import { useTheme } from './routes/resources+/theme/index.tsx'
 import { getTheme } from './routes/resources+/theme/theme-session.server.ts'
-import fontStylestylesheetUrl from './styles/font.css'
-import tailwindStylesheetUrl from './styles/tailwind.css'
+import fontStylestylesheetUrl from './styles/font.css?url'
+import tailwindStylesheetUrl from './styles/tailwind.css?url'
 import { authenticator, getUserId } from './utils/auth.server.ts'
 import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
 import { prisma } from './utils/db.server.ts'
@@ -50,11 +50,11 @@ export const links: LinksFunction = () => {
 	].filter(Boolean)
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'André Casal' }, { name: 'description', content: 'Full-stack web dev' }]
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const timings = makeTimings('root loader')
 	const userId = await time(() => getUserId(request), {
 		timings,
@@ -145,7 +145,6 @@ function App() {
 							__html: `window.ENV = ${JSON.stringify(data.ENV)}`,
 						}}
 					/>
-					<LiveReload nonce={nonce} />
 					<FathomScript nonce={nonce} data-site={data.ENV.FATHOM_ANALYTICS_SITE_ID} />
 				</TooltipPrimitive.Provider>
 			</body>

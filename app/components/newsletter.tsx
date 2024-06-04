@@ -2,14 +2,14 @@ import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
 import { useFetcher, useNavigation } from '@remix-run/react'
-import { useForm } from '@conform-to/react'
+import { getFormProps, useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter.tsx'
-import { parse } from '@conform-to/zod'
+import { parseWithZod } from '@conform-to/zod'
 import { cn } from '~/utils/tailwind-merge.ts'
 import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { Player } from '@lottiefiles/react-lottie-player'
-import * as newsletterAnimation from '~/components/newsletter-animation.json'
+import newsletterAnimation from '~/components/newsletter-animation.json'
 import { useEffect, useRef, useState } from 'react'
 import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
@@ -28,15 +28,17 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 	const fetcher = useFetcher<typeof action>()
 	const navigation = useNavigation()
 	const [form, { email }] = useForm({
-		lastSubmission: fetcher.data?.submission,
+		lastResult: fetcher.data?.result,
 		shouldValidate: 'onBlur',
-		onValidate: ({ formData }) => parse(formData, { schema: newsletterSchema }),
+		onValidate: ({ formData }) => parseWithZod(formData, { schema: newsletterSchema }),
 	})
 	const playerRef = useRef<Player>(null)
 	const [state, setState] = useState<'initial' | 'animating' | 'finished'>('initial')
+	const formRef = useRef<HTMLFormElement>(null)
 
 	useEffect(() => {
-		if (fetcher.data?.status === 'success') {
+		console.log(fetcher.data)
+		if (fetcher.data?.result.status === 'success') {
 			setState('animating')
 			playerRef.current?.play()
 		}
@@ -57,10 +59,11 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 				</div>
 				<div className="mt-8 grid">
 					<fetcher.Form
+						ref={formRef}
 						method="post"
 						action="/newsletter"
 						className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
-						{...form.props}
+						{...getFormProps(form)}
 						encType="multipart/form-data"
 					>
 						<AuthenticityTokenInput />
@@ -77,11 +80,11 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 									name="email"
 									autoComplete="email"
 									required
-									defaultValue={email.defaultValue}
-									className={email.error ? 'border-danger-foreground' : ''}
+									defaultValue={email.initialValue}
+									className={email.errors ? 'border-danger-foreground' : ''}
 								/>
 								<P size="xs" className="ml-3.5 text-danger-foreground">
-									{email.error}&nbsp;
+									{email.errors}&nbsp;
 								</P>
 							</Flex>
 							<Button type="submit" disabled={navigation.state === 'submitting'} className="px-8">
@@ -114,7 +117,7 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 							variant="link"
 							className="text-foreground underline"
 							onClick={() => {
-								form.ref.current?.reset()
+								formRef.current?.reset()
 								playerRef.current?.stop()
 								setState('initial')
 							}}

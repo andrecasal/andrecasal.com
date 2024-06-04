@@ -6,7 +6,7 @@ export const useToast = (message?: ToastMessage) => {
 	useEffect(() => {
 		if (message) {
 			toast({
-				variant: message.variant,
+				variant: 'default',
 				title: message.title,
 				description: message.description,
 			})

@@ -1,6 +1,6 @@
 import { CoursePresentation } from '~/components/CoursePresentation.tsx'
 import { Newsletter } from '~/components/newsletter.tsx'
-import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
+import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -9,7 +9,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/courses' }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: `Courses | Andre Casal` },
 		{

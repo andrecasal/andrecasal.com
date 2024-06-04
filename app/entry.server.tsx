@@ -1,14 +1,14 @@
-import { Response, type HandleDocumentRequestFunction } from '@remix-run/node'
-import { RemixServer } from '@remix-run/react'
-import isbot from 'isbot'
-import { getInstanceInfo } from 'litefs-js'
-import { renderToPipeableStream } from 'react-dom/server'
 import { PassThrough } from 'stream'
+import { createReadableStreamFromReadable, type LoaderFunctionArgs, type ActionFunctionArgs, type HandleDocumentRequestFunction } from '@remix-run/node'
+import { RemixServer } from '@remix-run/react'
+import * as Sentry from '@sentry/remix'
+import chalk from 'chalk'
+import isbot from 'isbot'
+import { renderToPipeableStream } from 'react-dom/server'
 import { getEnv, init } from './utils/env.server.ts'
-import { NonceProvider } from './utils/nonce-provider.ts'
-import { makeTimings } from './utils/timing.server.ts'
-//import { CronJob } from 'cron'
-//import { prisma } from './utils/db.server.ts'
+import { getInstanceInfo } from '~/utils/litefs.server.ts'
+import { NonceProvider } from '~/utils/nonce-provider.ts'
+import { makeTimings } from '~/utils/timing.server.ts'
 
 const ABORT_DELAY = 5000
 
@@ -48,9 +48,8 @@ export default async function handleRequest(...args: DocRequestArgs) {
 	const callbackName = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady'
 
 	const nonce = String(loadContext.cspNonce) ?? undefined
-	return new Promise((resolve, reject) => {
+	return new Promise(async (resolve, reject) => {
 		let didError = false
-
 		// NOTE: this timing will only include things that are rendered in the shell
 		// and will not include suspended components and deferred loaders
 		const timings = makeTimings('render', 'renderToPipeableStream')
@@ -65,7 +64,7 @@ export default async function handleRequest(...args: DocRequestArgs) {
 					responseHeaders.set('Content-Type', 'text/html')
 					responseHeaders.append('Server-Timing', timings.toString())
 					resolve(
-						new Response(body, {
+						new Response(createReadableStreamFromReadable(body), {
 							headers: responseHeaders,
 							status: didError ? 500 : responseStatusCode,
 						}),
@@ -75,10 +74,8 @@ export default async function handleRequest(...args: DocRequestArgs) {
 				onShellError: (err: unknown) => {
 					reject(err)
 				},
-				onError: (error: unknown) => {
+				onError: () => {
 					didError = true
-
-					console.error(error)
 				},
 				nonce,
 			},
@@ -96,4 +93,19 @@ export async function handleDataRequest(response: Response) {
 	response.headers.set('fly-instance', currentInstance)
 
 	return response
+}
+
+export function handleError(error: unknown, { request }: LoaderFunctionArgs | ActionFunctionArgs): void {
+	// Skip capturing if the request is aborted as Remix docs suggest
+	// Ref: https://remix.run/docs/en/main/file-conventions/entry.server#handleerror
+	if (request.signal.aborted) {
+		return
+	}
+	if (error instanceof Error) {
+		console.error(chalk.red(error.stack))
+		Sentry.captureRemixServerException(error, 'remix.server', request)
+	} else {
+		console.error(chalk.red(error))
+		Sentry.captureException(error)
+	}
 }

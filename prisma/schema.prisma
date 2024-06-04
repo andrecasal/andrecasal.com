@@ -101,6 +101,9 @@ model Verification {
    /// The number of seconds the otp is valid for
    period Int
 
+   /// The valid characters for the otp
+   charSet String
+
    /// When it's safe to delete this verification
    expiresAt DateTime?
 
@@ -123,5 +126,5 @@ model EmailSchedule {
    scheduledAt DateTime
    sent        Boolean  @default(false)
 
-	@@unique([to, sequence])
+   @@unique([to, sequence])
 }

@@ -1,6 +1,5 @@
-import { conform, useForm } from '@conform-to/react'
-import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { getFormProps, getInputProps, useForm } from '@conform-to/react'
+import { type LinksFunction, json, redirect, type MetaFunction, type ActionFunctionArgs } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -15,6 +14,7 @@ import { SignupEmail } from './email.server.tsx'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
+import { getZodConstraint, parseWithZod } from '@conform-to/zod'
 
 export const onboardingOTPQueryParam = 'code'
 export const onboardingEmailQueryParam = 'email'
@@ -28,9 +28,9 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com/signup` }]
 }
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData()
-	const submission = await parse(formData, {
+	const submission = await parseWithZod(formData, {
 		schema: () => {
 			return signupSchema.superRefine(async (data, ctx) => {
 				const existingUser = await prisma.user.findUnique({
@@ -47,20 +47,10 @@ export async function action({ request }: DataFunctionArgs) {
 				}
 			})
 		},
-		acceptMultipleErrors: () => true,
 		async: true,
 	})
-	if (submission.intent !== 'submit') {
-		return json({ status: 'idle', submission } as const)
-	}
-	if (!submission.value) {
-		return json(
-			{
-				status: 'error',
-				submission,
-			} as const,
-			{ status: 400 },
-		)
+	if (submission.status !== 'success') {
+		return json({ result: submission.reply() }, { status: submission.status === 'error' ? 400 : 200 })
 	}
 	const { email } = submission.value
 
@@ -82,6 +72,7 @@ export async function action({ request }: DataFunctionArgs) {
 			secret,
 			period,
 			digits,
+			charSet: 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789',
 			expiresAt: new Date(Date.now() + period * 1000),
 		},
 	})
@@ -99,20 +90,13 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 
 	if (response.status === 'success') {
-		return redirect(redirectTo.pathname + redirectTo.search)
+		return redirect(redirectTo.toString())
 	} else {
-		submission.error[''] = response.error.message
-		return json(
-			{
-				status: 'error',
-				submission,
-			} as const,
-			{ status: 500 },
-		)
+		return json({ result: submission.reply({ formErrors: [response.error.message] }) }, { status: 500 })
 	}
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'Sign Up | André Casal' }]
 }
 
@@ -123,10 +107,10 @@ export default function SignupRoute() {
 	const isSubmitting = navigation.formAction === formAction
 	const [form, fields] = useForm({
 		id: 'signup-form',
-		constraint: getFieldsetConstraint(signupSchema),
-		lastSubmission: actionData?.submission,
+		constraint: getZodConstraint(signupSchema),
+		lastResult: actionData?.result,
 		onValidate({ formData }) {
-			const result = parse(formData, { schema: signupSchema })
+			const result = parseWithZod(formData, { schema: signupSchema })
 			return result
 		},
 		shouldRevalidate: 'onBlur',
@@ -141,17 +125,17 @@ export default function SignupRoute() {
 						Please enter your email.
 					</P>
 				</div>
-				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...form.props}>
+				<Form method="POST" className="mx-auto mt-16 min-w-[368px] max-w-sm" {...getFormProps(form)}>
 					<Field
 						labelProps={{
 							htmlFor: fields.email.id,
 							children: 'Email',
 						}}
-						inputProps={{ ...conform.input(fields.email), autoFocus: true }}
+						inputProps={{ ...getInputProps(fields.email, { type: 'email' }), autoFocus: true, autoComplete: 'email' }}
 						errors={fields.email.errors}
 					/>
 					<ErrorList errors={form.errors} id={form.errorId} />
-					<StatusButton className="w-full" status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'} type="submit" disabled={isSubmitting}>
+					<StatusButton className="w-full" type="submit" disabled={isSubmitting}>
 						Submit
 					</StatusButton>
 				</Form>

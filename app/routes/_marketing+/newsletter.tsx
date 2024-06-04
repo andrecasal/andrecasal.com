@@ -1,6 +1,6 @@
 import { Resend } from 'resend'
-import { type LinksFunction, json, type ActionArgs } from '@remix-run/node'
-import { parse } from '@conform-to/zod'
+import { type LinksFunction, json, type ActionFunctionArgs } from '@remix-run/node'
+import { parseWithZod } from '@conform-to/zod'
 import { z } from 'zod'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { Newsletter as NewsletterComponent } from '~/components/newsletter.tsx'
@@ -33,7 +33,7 @@ export const newsletterSchema = z.object({
 	email: emailSchema,
 })
 
-export async function action({ request }: ActionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData()
 
 	// Check for bots
@@ -41,12 +41,9 @@ export async function action({ request }: ActionArgs) {
 	checkHoneypot(formData, '/newsletter')
 
 	// Parse form
-	const submission = parse(formData, { schema: newsletterSchema })
-	if (submission.intent !== 'submit') {
-		return json({ status: 'error', submission } as const)
-	}
-	if (!submission.value) {
-		return json({ status: 'error', submission } as const, { status: 400 })
+	const submission = parseWithZod(formData, { schema: newsletterSchema })
+	if (submission.status !== 'success') {
+		return json({ result: submission.reply() }, { status: submission.status === 'error' ? 400 : 200 })
 	}
 
 	// Extract data
@@ -61,9 +58,9 @@ export async function action({ request }: ActionArgs) {
 	})
 	if (result.error) {
 		console.error('🔴 Error subscribing to newsletter:', JSON.stringify(result))
-		return json({ status: 'error', submission } as const, { status: 400 })
+		return json({ status: 'error', result: submission.reply() } as const, { status: 400 })
 	}
 
 	// Everything ok
-	return json({ status: 'success', submission } as const)
+	return json({ status: 'success', result: submission.reply() } as const)
 }

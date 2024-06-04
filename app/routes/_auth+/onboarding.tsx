@@ -1,6 +1,6 @@
-import { conform, useForm } from '@conform-to/react'
+/* import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Form, useActionData, useFormAction, useLoaderData, useNavigation, useSearchParams } from '@remix-run/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import { z } from 'zod'
@@ -109,7 +109,7 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'Setup André Casal Account' }]
 }
 
@@ -143,7 +143,7 @@ export default function OnboardingPage() {
 						</P>
 					</div>
 					<Spacer size="xs" />
-					<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...form.props}>
+					<Form method="POST" className="mx-auto min-w-[368px] max-w-sm" {...getFormProps(form)}>
 						<Field
 							labelProps={{ htmlFor: fields.username.id, children: 'Username' }}
 							inputProps={{
@@ -233,3 +233,4 @@ export default function OnboardingPage() {
 		</Container>
 	)
 }
+ */

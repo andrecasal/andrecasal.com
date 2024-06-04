@@ -1,6 +1,6 @@
-import { conform, useForm } from '@conform-to/react'
+/* import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Form, Link, useActionData, useFormAction, useLoaderData, useNavigation } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -124,7 +124,7 @@ async function validate(request: Request, body: FormData | URLSearchParams) {
 	})
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'Verify Password Recovery for André Casal' }]
 }
 
@@ -156,7 +156,7 @@ export default function ForgotPasswordVerifyRoute() {
 								We've sent you a code to verify your password reset.
 							</P>
 						</div>
-						<Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
+						<Form method="POST" {...getFormProps(form)} className="mx-auto mt-16 min-w-[368px] max-w-sm">
 							<Field
 								labelProps={{
 									htmlFor: fields.usernameOrEmail.id,
@@ -194,3 +194,4 @@ export default function ForgotPasswordVerifyRoute() {
 export function ErrorBoundary() {
 	return <GeneralErrorBoundary />
 }
+ */

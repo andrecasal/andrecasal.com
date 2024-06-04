@@ -1,6 +1,6 @@
-import { conform, useForm } from '@conform-to/react'
+/* import { conform, useForm } from '@conform-to/react'
 import { getFieldsetConstraint, parse } from '@conform-to/zod'
-import { type LinksFunction, json, redirect, type DataFunctionArgs, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, json, redirect, type DataFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Link, useFetcher } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
@@ -100,7 +100,7 @@ export async function action({ request }: DataFunctionArgs) {
 	return redirect(redirectTo.pathname + redirectTo.search)
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [{ title: 'Password Recovery for André Casal' }]
 }
 
@@ -127,7 +127,7 @@ export default function ForgotPasswordRoute() {
 							No worries, we'll send you reset instructions.
 						</P>
 					</div>
-					<forgotPassword.Form method="POST" {...form.props} className="mx-auto mt-16 min-w-[368px] max-w-sm">
+					<forgotPassword.Form method="POST" {...getFormProps(form)} className="mx-auto mt-16 min-w-[368px] max-w-sm">
 						<div>
 							<Field
 								labelProps={{
@@ -166,3 +166,4 @@ export default function ForgotPasswordRoute() {
 export function ErrorBoundary() {
 	return <GeneralErrorBoundary />
 }
+ */

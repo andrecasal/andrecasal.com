@@ -1,6 +1,6 @@
 import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
-import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, type MetaFunction } from '@remix-run/node'
 import { type Post } from '../_index.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -18,7 +18,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: `${post.title} | Andre Casal` },
 		{

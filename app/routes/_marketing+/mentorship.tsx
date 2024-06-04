@@ -7,7 +7,7 @@ import { Button } from '~/components/ui/button.tsx'
 import { Link } from '@remix-run/react'
 import zacharyCassette from './images/zachary-cassette.jpg'
 import { cn } from '~/utils/tailwind-merge.ts'
-import { type V2_MetaFunction, type LinksFunction } from '@remix-run/node'
+import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/mentorship' }]
 }
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{ title: `Tech Business Mentorship | Andre Casal` },
 		{

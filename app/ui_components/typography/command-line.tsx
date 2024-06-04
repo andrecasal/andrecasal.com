@@ -1,7 +1,7 @@
 import { useState, type HTMLAttributes, useRef, useEffect } from 'react'
 import { cn } from '~/utils/tailwind-merge.ts'
-import { useCopyToClipboard } from 'usehooks-ts'
 import { AccessibleIcon } from '~/components/ui/accessible-icon.tsx'
+import { useCopyToClipboard } from '~/hooks/useCopyToClipboard'
 
 export type CommandAndLogArray = { type: 'command' | 'log'; text: string }[]
 

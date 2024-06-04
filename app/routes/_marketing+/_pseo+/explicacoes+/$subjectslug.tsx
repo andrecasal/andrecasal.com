@@ -23,7 +23,7 @@ import satisfactionGuarantee from '~/routes/_marketing+/images/satisfaction-guar
 import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
 import signatureWhite from '~/routes/_marketing+/images/signature-white.png'
 import { Link, useLoaderData } from '@remix-run/react'
-import { type LoaderArgs, json, type LinksFunction, type V2_MetaFunction, type ActionArgs } from '@remix-run/node'
+import { type LoaderFunctionArgs, json, type LinksFunction, type MetaFunction, type ActionFunctionArgs } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -37,7 +37,7 @@ import BackgroundSquareLines from '../../components/bg-square-lines.tsx'
 import { subjects } from '../disciplinas.ts'
 import { validateCSRF } from '~/utils/csrf.server.ts'
 import { checkHoneypot } from '~/utils/honeypot.server.ts'
-import { parse } from '@conform-to/zod'
+import { parseWithZod } from '@conform-to/zod'
 import { emailSchema } from '~/utils/user-validation.ts'
 import { z } from 'zod'
 import { prisma } from '~/utils/db.server.ts'
@@ -45,8 +45,17 @@ import { sendEmail } from '~/utils/email.server.ts'
 import { ResourcesEmail } from '../materia+/tutoring.emails.tsx'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
+import { type SEOHandle } from '@nasa-gcn/remix-seo'
 
-export const meta: V2_MetaFunction = ({ params }) => {
+export const handle: SEOHandle = {
+	getSitemapEntries: async () => {
+		return subjects.map(({ slug }) => {
+			return { route: `/explicacoes/${slug}`, priority: 0.7 }
+		})
+	},
+}
+
+export const meta: MetaFunction = ({ params }) => {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	const { name } = subject
@@ -112,7 +121,7 @@ export const links: LinksFunction = () => {
 	]
 }
 
-export async function loader({ params }: LoaderArgs) {
+export async function loader({ params }: LoaderFunctionArgs) {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	return json({ subject })
@@ -559,9 +568,9 @@ const Route = () => {
 							<li>Passei!</li>
 						</ul>
 						<P className="mt-8">
-							Como é que isto é possível? Porque tiveste aulas de {name} comigo! Eu ensinei <strong>como estudar {name}</strong> e aprendeste um método cientificamente
-							provado para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu nível de conhecimento atual e ajudo-te a fazer a ponte entre o
-							conhecimento que tens agora e o conhecimento que precisarás para passar no exames. Podes ter explicações dedicadas só a ti ou em grupo.
+							Como é que isto é possível? Porque tiveste aulas de {name} comigo! Eu ensinei <strong>como estudar {name}</strong> e aprendeste um método cientificamente provado
+							para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu nível de conhecimento atual e ajudo-te a fazer a ponte entre o conhecimento que
+							tens agora e o conhecimento que precisarás para passar no exames. Podes ter explicações dedicadas só a ti ou em grupo.
 						</P>
 					</div>
 					<div className="mt-16 max-w-2xl">
@@ -1048,8 +1057,8 @@ const Route = () => {
 						</H2>
 						<P size="lg" className="mt-6 text-muted-600">
 							Só quero agradecer-te por reservares um tempo para leres sobre meu serviço de tutoria. Continua a ser uma tremenda honra ter tantos alunos que confiam em mim para
-							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decidido ter tutoria de {name}, mesmo que não comigo,
-							porque sei que é uma decisão muito boa.
+							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decidido ter tutoria de {name}, mesmo que não comigo, porque
+							sei que é uma decisão muito boa.
 						</P>
 						<P size="lg" className="mt-6 text-muted-600">
 							Ao teu sucesso! 🥂
@@ -1069,7 +1078,7 @@ export default Route
 const newsletterSchema = z.object({ email: emailSchema })
 export const verificationType = `resources`
 
-export async function action({ request, params }: ActionArgs) {
+export async function action({ request, params }: ActionFunctionArgs) {
 	const { subjectslug } = params
 	const subject = subjects.find(s => s.slug === subjectslug)!
 	const { name } = subject
@@ -1080,12 +1089,9 @@ export async function action({ request, params }: ActionArgs) {
 	checkHoneypot(formData, '/newsletter')
 
 	// Parse form
-	const submission = parse(formData, { schema: newsletterSchema })
-	if (submission.intent !== 'submit') {
-		return json({ status: 'error', submission } as const)
-	}
-	if (!submission.value) {
-		return json({ status: 'error', submission } as const, { status: 400 })
+	const submission = parseWithZod(formData, { schema: newsletterSchema })
+	if (submission.status !== 'success') {
+		return json({ result: submission.reply() }, { status: submission.status === 'error' ? 400 : 200 })
 	}
 
 	// Extract data
@@ -1110,6 +1116,7 @@ export async function action({ request, params }: ActionArgs) {
 			secret,
 			period,
 			digits,
+			charSet: 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789',
 			expiresAt: new Date(Date.now() + period * 1000),
 		},
 	})
