@@ -1,11 +1,7 @@
-import digitalSistemsFile from './files/sistemas-digitais.zip'
-import arquiteturaDeComputadores from './files/arquitetura-de-computadores.zip'
-import sistemasOperativos from './files/sistemas-operativos.zip'
+import digitalSistemsFile from './materia+/files/sistemas-digitais.zip'
+import arquiteturaDeComputadores from './materia+/files/arquitetura-de-computadores.zip'
+import sistemasOperativos from './materia+/files/sistemas-operativos.zip'
 
-type Resources = {
-	name: string
-	link: string
-}
 type Software = {
 	name: string
 	link: string
@@ -19,10 +15,10 @@ type List = {
 type Subject = {
 	slug: string
 	name: string
-	prerequisites: string[]
-	topics: List[]
-	software: Software[]
-	resources: Resources[]
+	prerequisites?: string[]
+	topics?: List[]
+	software?: Software[]
+	resources?: string
 }
 
 export const subjects: Subject[] = [
@@ -64,12 +60,7 @@ export const subjects: Subject[] = [
 			{ name: 'VHDL' },
 			{ name: 'ASICs' },
 		],
-		resources: [
-			{
-				name: 'Matéria de Sistemas Digitais',
-				link: digitalSistemsFile,
-			},
-		],
+		resources: digitalSistemsFile,
 		software: [
 			{
 				name: 'Logisim',
@@ -116,18 +107,17 @@ export const subjects: Subject[] = [
 			{ name: 'Multiprocessadores' },
 			{ name: 'Paralelismo' },
 		],
-		resources: [
-			{
-				name: 'Organização para Arquitetura de Computadores',
-				link: arquiteturaDeComputadores,
-			},
-		],
+		resources: arquiteturaDeComputadores,
 		software: [
 			{
 				name: 'MARS',
 				link: 'https://courses.missouristate.edu/kenvollmar/mars/download.htm',
 			},
 		],
+	},
+	{
+		slug: 'assembly',
+		name: 'Assembly',
 	},
 	{
 		slug: 'sistemas-operativos',
@@ -210,12 +200,7 @@ export const subjects: Subject[] = [
 				],
 			},
 		],
-		resources: [
-			{
-				name: 'Organização para Sistemas Operativos',
-				link: sistemasOperativos,
-			},
-		],
+		resources: sistemasOperativos,
 		software: [
 			{
 				name: 'Linux',
@@ -234,5 +219,233 @@ export const subjects: Subject[] = [
 				link: 'https://www.vmware.com/',
 			},
 		],
+	},
+	{
+		slug: 'introducao-a-programacao',
+		name: 'Introdução à Programação',
+	},
+	{
+		slug: 'programacao',
+		name: 'Programação',
+	},
+	{
+		slug: 'programacao-orientada-a-objetos',
+		name: 'Programação Orientada a Objetos',
+	},
+	{
+		slug: 'programacao-funcional',
+		name: 'Programação Funcional',
+	},
+	{
+		slug: 'algoritmos',
+		name: 'Algoritmos',
+	},{
+		slug: 'c',
+		name: 'C',
+	},
+	{
+		slug: 'cpp',
+		name: 'C++',
+	},
+	{
+		slug: 'csharp',
+		name: 'C#',
+	},
+	{
+		slug: 'java',
+		name: 'Java',
+	},
+	{
+		slug: 'kotlin',
+		name: 'Kotlin',
+	},
+	{
+		slug: 'rust',
+		name: 'Rust',
+	},
+	{
+		slug: 'php',
+		name: 'PHP',
+	},
+	{
+		slug: 'html',
+		name: 'HTML',
+	},
+	{
+		slug: 'css',
+		name: 'CSS',
+	},
+	{
+		slug: 'javascript',
+		name: 'JavaScript',
+	},
+	{
+		slug: 'typescript',
+		name: 'TypeScript',
+	},
+	{
+		slug: 'python',
+		name: 'Python',
+	},
+	{
+		slug: 'spring-boot',
+		name: 'Spring Boot',
+	},
+	{
+		slug: 'react',
+		name: 'React',
+	},
+	{
+		slug: 'jpa',
+		name: 'JPA',
+	},
+	{
+		slug: 'python',
+		name: 'Python',
+	},
+	{
+		slug: 'estruturas-de-dados',
+		name: 'Estuturas de Dados',
+	},
+	{
+		slug: 'bases-de-dados',
+		name: 'Bases de Dados',
+		prerequisites: [
+			'Aritmética',
+			'Álgebra',
+			'Sistemas numéricos',
+			'Sistema binário',
+			'Sistema octal',
+			'Sistema hexadecimal',
+			'Expressões lógicas',
+			'Tipos de dados',
+		],
+		topics: [
+			{
+				name: 'Introdução às Bases de Dados',
+				children: [
+					{ name: 'Definição e função de uma base de dados' },
+					{ name: 'Modelos de dados (relacional, hierárquico, em rede, orientado a objetos, etc.)' },
+					{ name: 'Sistemas de gestão de bases de dados (SGBD)' },
+					{ name: 'Normalização de bases de dados' },
+				],
+			},
+			{
+				name: 'Modelo Relacional',
+				children: [
+					{ name: 'Conceitos básicos de tabelas, tuplos, atributos, chaves, etc.' },
+					{ name: 'Álgebra relacional' },
+					{ name: 'Cálculo relacional' },
+					{ name: 'Integridade referencial' },
+					{ name: 'Normalização de bases de dados' },
+				],
+			},
+			{
+				name: 'SQL',
+				children: [
+					{ name: 'Linguagem de definição de dados (DDL)' },
+					{ name: 'Linguagem de manipulação de dados (DML)' },
+					{ name: 'Linguagem de controlo de dados (DCL)' },
+					{ name: 'Linguagem de transações (DCL)' },
+					{ name: 'Funções e procedimentos' },
+				],
+			},
+			{
+				name: 'Modelo de Entidade-Relação (ER)',
+				children: [
+					{ name: 'Conceitos básicos de entidades, relações, atributos, chaves, etc.' },
+					{ name: 'Modelo de dados ER' },
+					{ name: 'Modelo de dados extendido ER' },
+					{ name: 'Normalização de bases de dados' },
+				],
+			},
+			{
+				name: 'Bases de Dados Distribuídas',
+				children: [
+					{ name: 'Conceitos básicos de bases de dados distribuídas' },
+					{ name: 'Arquiteturas de bases de dados distribuídas' },
+					{ name: 'Transações distribuídas' },
+					{ name: 'Recuperação de falhas em bases de dados distribuídas' },
+				],
+			},
+			{
+				name: 'Bases de Dados NoSQL',
+				children: [
+					{ name: 'Conceitos básicos de bases de dados NoSQL' },
+					{ name: 'Tipos de bases de dados NoSQL (documentais, chave-valor, colunares, etc.)' },
+					{ name: 'Modelos de dados NoSQL' },
+					{ name: 'Operações básicas em bases de dados NoSQL' },
+				],
+			},
+			{
+				name: 'Bases de Dados Temporais',
+				children: [
+					{ name: 'Conceitos básicos de bases de dados temporais' },
+					{ name: 'Modelos de dados temporais' },
+					{ name: 'Operações básicas em bases de dados temporais' },
+					{ name: 'Recuperação de informação temporal' },
+				],
+			},
+			{
+				name: 'Bases de Dados Espaciais',
+				children: [
+					{ name: 'Conceitos básicos de bases de dados espaciais' },
+					{ name: 'Modelos de dados espaciais' },
+					{ name: 'Operações básicas em bases de dados espaciais' },
+					{ name: 'Recuperação de informação espacial' },
+				],
+			},
+		],
+		resources: sistemasOperativos,
+		software: [
+			{
+				name: 'SQLite',
+				link: 'https://sqlite.org/',
+			},
+			{
+				name: 'MySQL',
+				link: 'https://www.mysql.com/',
+			},
+			{
+				name: 'PostgreSQL',
+				link: 'https://www.postgresql.org/',
+			},
+			{
+				name: 'MongoDB',
+				link: 'https://www.mongodb.com/',
+			},
+			{
+				name: 'Cassandra',
+				link: 'http://cassandra.apache.org/',
+			},
+		],
+	},
+	{
+		slug: 'sql',
+		name: 'SQL',
+	},
+	{
+		slug: 'redes-de-computadores',
+		name: 'Redes de Computadores',
+	},
+	{
+		slug: 'algebra-linear',
+		name: 'Álgebra Linear',
+	},
+	{
+		slug: 'calculo',
+		name: 'Cálculo',
+	},
+	{
+		slug: 'excel',
+		name: 'Excel',
+	},
+	{
+		slug: 'microsoft-office',
+		name: 'Microsoft Office',
+	},
+	{
+		slug: 'word',
+		name: 'Word',
 	},
 ]

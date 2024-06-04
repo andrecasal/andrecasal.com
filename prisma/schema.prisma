@@ -114,3 +114,14 @@ model Session {
    userId         String
    expirationDate DateTime
 }
+
+model EmailSchedule {
+   id          String   @id @default(cuid())
+   createdAt   DateTime @default(now())
+   to          String
+   sequence    Int
+   scheduledAt DateTime
+   sent        Boolean  @default(false)
+
+	@@unique([to, sequence])
+}

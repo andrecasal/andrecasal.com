@@ -7,6 +7,8 @@ import { PassThrough } from 'stream'
 import { getEnv, init } from './utils/env.server.ts'
 import { NonceProvider } from './utils/nonce-provider.ts'
 import { makeTimings } from './utils/timing.server.ts'
+//import { CronJob } from 'cron'
+//import { prisma } from './utils/db.server.ts'
 
 const ABORT_DELAY = 5000
 
@@ -16,6 +18,22 @@ global.ENV = getEnv()
 if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
 	import('~/utils/monitoring.server.ts').then(({ init }) => init())
 }
+
+/* new CronJob(
+	'* * * * *', // cronTime
+	async function () {
+		const emailsToSend = await prisma.emailSchedule.findMany()
+		console.log(`${new Date().toTimeString()} There are now ${emailsToSend.length} emails on the queue...`)
+		//await sendEmail({
+		//	to: user.email,
+		//	subject: `André Casal Password Reset`,
+		//	react: <ForgotPasswordEmail onboardingUrl={resetPasswordUrl.toString()} otp={otp} />,
+		//})
+	}, // onTick
+	null, // onComplete
+	true, // start
+	'America/Los_Angeles', // timeZone
+) */
 
 type DocRequestArgs = Parameters<HandleDocumentRequestFunction>
 

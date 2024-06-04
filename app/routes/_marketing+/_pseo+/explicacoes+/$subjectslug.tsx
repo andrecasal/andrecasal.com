@@ -23,7 +23,7 @@ import satisfactionGuarantee from '~/routes/_marketing+/images/satisfaction-guar
 import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
 import signatureWhite from '~/routes/_marketing+/images/signature-white.png'
 import { Link, useLoaderData } from '@remix-run/react'
-import { type LoaderArgs, json, type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
+import { type LoaderArgs, json, type LinksFunction, type V2_MetaFunction, type ActionArgs } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
@@ -31,10 +31,20 @@ import { H2 } from '~/ui_components/typography/h2.tsx'
 import { H3 } from '~/ui_components/typography/h3.tsx'
 import { Span } from '~/ui_components/typography/span.tsx'
 import { H4 } from '~/ui_components/typography/h4.tsx'
-import BackgroundDiagonal from '../_marketing+/components/bg-diagonal.tsx'
-import BackgroundBlur from '../_marketing+/components/bg-blur.tsx'
-import BackgroundSquareLines from '../_marketing+/components/bg-square-lines.tsx'
-import { subjects } from './subject-data.ts'
+import BackgroundDiagonal from '../../components/bg-diagonal.tsx'
+import BackgroundBlur from '../../components/bg-blur.tsx'
+import BackgroundSquareLines from '../../components/bg-square-lines.tsx'
+import { subjects } from '../disciplinas.ts'
+import { validateCSRF } from '~/utils/csrf.server.ts'
+import { checkHoneypot } from '~/utils/honeypot.server.ts'
+import { parse } from '@conform-to/zod'
+import { emailSchema } from '~/utils/user-validation.ts'
+import { z } from 'zod'
+import { prisma } from '~/utils/db.server.ts'
+import { sendEmail } from '~/utils/email.server.ts'
+import { ResourcesEmail } from '../materia+/tutoring.emails.tsx'
+import { getDomainUrl } from '~/utils/misc.ts'
+import { generateTOTP } from '~/utils/totp.server.ts'
 
 export const meta: V2_MetaFunction = ({ params }) => {
 	const { subjectslug } = params
@@ -110,7 +120,7 @@ export async function loader({ params }: LoaderArgs) {
 
 const Route = () => {
 	const { subject } = useLoaderData<typeof loader>()
-	const { name, prerequisites, topics, resources, software } = subject
+	const { name } = subject
 	const features = [
 		{
 			name: 'Aulas online por video-conferência',
@@ -407,7 +417,7 @@ const Route = () => {
 		return classes.filter(Boolean).join(' ')
 	}
 
-	const navigation = {
+	const subjectsITeach = {
 		programming: [
 			{ name: 'C, C++, C#, Java, PHP, Python' },
 			{ name: 'Kotlin (Android)' },
@@ -549,7 +559,7 @@ const Route = () => {
 							<li>Passei!</li>
 						</ul>
 						<P className="mt-8">
-							Como é que isto é possível? Porque tiveste aulas de programação comigo! Eu ensinei <strong>como estudar {name}</strong> e aprendeste um método cientificamente
+							Como é que isto é possível? Porque tiveste aulas de {name} comigo! Eu ensinei <strong>como estudar {name}</strong> e aprendeste um método cientificamente
 							provado para memorizar tudo o que for importante. Para além disso, vou ao encontro do teu nível de conhecimento atual e ajudo-te a fazer a ponte entre o
 							conhecimento que tens agora e o conhecimento que precisarás para passar no exames. Podes ter explicações dedicadas só a ti ou em grupo.
 						</P>
@@ -597,86 +607,6 @@ const Route = () => {
 					</dl>
 				</div>
 			</Container>
-			<BackgroundSquareLines>
-				<Container className="py-24 sm:py-32">
-					<div className="lg:flex lg:items-center lg:gap-x-10 lg:pt-40">
-						<div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-							<H2 size="3xl" className="mt-10 max-w-xl text-muted-900">
-								{name}
-							</H2>
-							<P size="lg" className="mt-6 text-muted-600">
-								Estas são as matérias que precisas de saber para tirares o máximo proveito das explicações de {name}.
-							</P>
-							<div className="mt-10 flex items-center gap-x-6"></div>
-						</div>
-					</div>
-					<div className="xl:grid xl:grid-cols-2 xl:gap-8">
-						<div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-							<div className="md:grid md:grid-cols-2 md:gap-8">
-								<div>
-									<H3 size="md">Pré-requisitos</H3>
-									<ul className="ml-6 mt-6 list-disc space-y-4">
-										{prerequisites.map(name => (
-											<li key={name}>
-												<Span size="sm">{name}</Span>
-											</li>
-										))}
-									</ul>
-								</div>
-								<div className="mt-10 md:mt-0">
-									<H3 size="md">Tópicos</H3>
-									<ul className="ml-6 mt-6 list-disc space-y-4">
-										{topics.map(({ name, children }) => (
-											<li key={name}>
-												<Span size="sm">{name}</Span>
-												{children ? (
-													<ul className="ml-6 mt-2 list-disc space-y-2">
-														{children.map(({ name }) => (
-															<li key={name}>
-																<Span size="xs">{name}</Span>
-															</li>
-														))}
-													</ul>
-												) : null}
-											</li>
-										))}
-									</ul>
-								</div>
-							</div>
-							<div className="md:grid md:grid-cols-2 md:gap-8">
-								<div>
-									<H3 size="md">Recursos</H3>
-									<ul className="mt-6 space-y-4">
-										{resources.map(({ name, link }) => (
-											<li key={name}>
-												<Span size="sm">
-													<a href={link} download={`${name}.zip`} className="underline">
-														{name}
-													</a>
-												</Span>
-											</li>
-										))}
-									</ul>
-								</div>
-								<div className="mt-10 md:mt-0">
-									<H3 size="md">Software</H3>
-									<ul className="mt-6 space-y-4">
-										{software.map(({ name, link }) => (
-											<li key={name}>
-												<Span size="sm">
-													<Link to={link} target="_blank" className="underline">
-														{name}
-													</Link>
-												</Span>
-											</li>
-										))}
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</Container>
-			</BackgroundSquareLines>
 			<BackgroundDiagonal>
 				<Container className="py-32 sm:py-40">
 					<div className="lg:flex lg:gap-x-10">
@@ -735,7 +665,7 @@ const Route = () => {
 							<div>
 								<H3 size="md">Programação</H3>
 								<ul className="mt-6 space-y-4">
-									{navigation.programming.map(item => (
+									{subjectsITeach.programming.map(item => (
 										<li key={item.name}>
 											<Span size="sm">{item.name}</Span>
 										</li>
@@ -745,7 +675,7 @@ const Route = () => {
 							<div className="mt-10 md:mt-0">
 								<H3 size="md">Desenvolvimento Web</H3>
 								<ul className="mt-6 space-y-4">
-									{navigation.webdev.map(item => (
+									{subjectsITeach.webdev.map(item => (
 										<li key={item.name}>
 											<Span size="sm">{item.name}</Span>
 										</li>
@@ -757,7 +687,7 @@ const Route = () => {
 							<div>
 								<H3 size="md">Ciência da Computação</H3>
 								<ul className="mt-6 space-y-4">
-									{navigation.computerscience.map(item => (
+									{subjectsITeach.computerscience.map(item => (
 										<li key={item.name}>
 											<Span size="sm">{item.name}</Span>
 										</li>
@@ -767,7 +697,7 @@ const Route = () => {
 							<div className="mt-10 md:mt-0">
 								<H3 size="md">Matemática</H3>
 								<ul className="mt-6 space-y-4">
-									{navigation.math.map(item => (
+									{subjectsITeach.math.map(item => (
 										<li key={item.name}>
 											<Span size="sm">{item.name}</Span>
 										</li>
@@ -1118,7 +1048,7 @@ const Route = () => {
 						</H2>
 						<P size="lg" className="mt-6 text-muted-600">
 							Só quero agradecer-te por reservares um tempo para leres sobre meu serviço de tutoria. Continua a ser uma tremenda honra ter tantos alunos que confiam em mim para
-							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decidido ter tutoria de programação, mesmo que não comigo,
+							ajudá-los a encontrar uma maneira melhor de frequentar a faculdade. Sinceramente espero que tenhas decidido ter tutoria de {name}, mesmo que não comigo,
 							porque sei que é uma decisão muito boa.
 						</P>
 						<P size="lg" className="mt-6 text-muted-600">
@@ -1135,3 +1065,97 @@ const Route = () => {
 	)
 }
 export default Route
+
+const newsletterSchema = z.object({ email: emailSchema })
+export const verificationType = `resources`
+
+export async function action({ request, params }: ActionArgs) {
+	const { subjectslug } = params
+	const subject = subjects.find(s => s.slug === subjectslug)!
+	const { name } = subject
+	const formData = await request.formData()
+
+	// Check for bots
+	await validateCSRF(formData, request.headers)
+	checkHoneypot(formData, '/newsletter')
+
+	// Parse form
+	const submission = parse(formData, { schema: newsletterSchema })
+	if (submission.intent !== 'submit') {
+		return json({ status: 'error', submission } as const)
+	}
+	if (!submission.value) {
+		return json({ status: 'error', submission } as const, { status: 400 })
+	}
+
+	// Extract data
+	const { email } = submission.value
+
+	const resourcesURL = new URL(`${getDomainUrl(request)}/explicacoes/${subjectslug}/recursos`)
+	resourcesURL.searchParams.set('email', email)
+
+	const oneDay = 60 * 60 * 24 // One day in seconds
+	const target = email
+	const { otp, secret, algorithm, period, digits } = generateTOTP({ algorithm: 'sha256', period: oneDay })
+	// delete old verifications. Users should not have more than one verification
+	// of a specific type for a specific target at a time.
+	await prisma.verification.deleteMany({
+		where: { type: verificationType, target },
+	})
+	await prisma.verification.create({
+		data: {
+			type: verificationType,
+			target,
+			algorithm,
+			secret,
+			period,
+			digits,
+			expiresAt: new Date(Date.now() + period * 1000),
+		},
+	})
+
+	// add the otp to the url we'll email the user.
+	resourcesURL.searchParams.set('code', otp)
+
+	// Schedule emails
+	await scheduleEmailSequence(email)
+
+	// Send email with resource link
+	await sendEmail({
+		to: email,
+		subject: `🚀 Recursos para estudantes de ${name}`,
+		react: <ResourcesEmail subject={name} resourcesURL={resourcesURL.toString()} />,
+	})
+
+	// Everything ok
+	return json({ status: 'success', submission } as const)
+}
+
+async function scheduleEmailSequence(email: string) {
+	const now = new Date()
+	const in1Day = new Date(now.getTime() + 1 * 24 * 3600 * 1000)
+	const in2Days = new Date(now.getTime() + 2 * 24 * 3600 * 1000)
+	const in3Days = new Date(now.getTime() + 3 * 24 * 3600 * 1000)
+	const in4Days = new Date(now.getTime() + 4 * 24 * 3600 * 1000)
+	const scheduleDates = [in1Day, in2Days, in3Days, in4Days]
+	for (let i = 0; i < scheduleDates.length; i++) {
+		const scheduledAt = scheduleDates[i]
+		const sequence = i + 1
+		await prisma.emailSchedule.upsert({
+			where: {
+				to_sequence: {
+					to: email,
+					sequence,
+				},
+			},
+			update: {
+				scheduledAt: scheduledAt,
+			},
+			create: {
+				to: email,
+				sequence,
+				scheduledAt: scheduledAt,
+			},
+		})
+	}
+}
