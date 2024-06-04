@@ -535,7 +535,7 @@ const Route = () => {
 							<div className="mt-10 md:mt-0">
 								<H3 size="md">Pré-requisitos</H3>
 								<ul className="ml-6 mt-6 list-disc space-y-4">
-									{prerequisites.map(name => (
+									{prerequisites?.map(name => (
 										<li key={name}>
 											<Span size="sm">{name}</Span>
 										</li>
@@ -545,7 +545,7 @@ const Route = () => {
 							<div className="mt-10 md:mt-0">
 								<H3 size="md">Tópicos</H3>
 								<ul className="ml-6 mt-6 list-disc space-y-4">
-									{topics.map(({ name, children }) => (
+									{topics?.map(({ name, children }) => (
 										<li key={name}>
 											<Span size="sm">{name}</Span>
 											{children ? (
@@ -564,7 +564,7 @@ const Route = () => {
 							<div className="mt-10 md:mt-0">
 								<H3 size="md">Software</H3>
 								<ul className="mt-6 space-y-4">
-									{software.map(({ name, link }) => (
+									{software?.map(({ name, link }) => (
 										<li key={name}>
 											<Span size="sm">
 												<Link to={link} target="_blank" className="underline">
