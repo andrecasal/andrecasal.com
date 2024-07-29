@@ -32,16 +32,18 @@ export default function Index() {
 
 	const currently_building = [
 		{
-			name: 'UI library',
-			description: 'All the lego pieces to build your UI. An accessible, SEO-optimized, UI library for fast UI development.',
-			icon: 'mix',
-			link: '/ui',
+			name: 'LaunchFast',
+			description: 'The Remix stack with all you need to build your web app. From idea to production in 2 minutes.',
+			icon: 'bolt',
+			link: 'https://launchfast.pro',
+			external: true,
 		},
 		{
-			name: 'ShipFast',
-			description: 'The Remix stack with all you need to build your full-stack web app. From idea to production in 5 minutes.',
-			icon: 'bolt',
-			link: '/ship-fast',
+			name: 'VerveUI',
+			description: 'All the lego pieces to build your UI. An accessible, SEO-optimized, UI library for fast UI development.',
+			icon: 'mix',
+			link: 'https://verveui.pro',
+			external: true,
 		},
 		{
 			name: 'Estuda Comigo',
@@ -99,7 +101,7 @@ export default function Index() {
 									<dt>
 										<Span size="md" className="flex gap-2 font-bold text-muted-900">
 											<Icon name={feature.icon as any} className="h-6 w-6 text-foreground" aria-hidden="true" />
-											{feature.name}
+											{feature.name} {feature.external ? <Icon name="paper-plane" className="-mt-1 inline-block h-3 w-3 -rotate-45" /> : null}
 										</Span>
 									</dt>
 									<dd className="mt-2 text-muted-600">

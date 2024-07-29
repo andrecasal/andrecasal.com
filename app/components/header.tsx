@@ -15,8 +15,8 @@ const prefetch = 'intent'
 const navigation: { name: string; href: string; external?: boolean; children?: { name: string; href: string }[] }[] = [
 	{ name: 'Articles', href: '/articles' },
 	{ name: 'Mentorship', href: '/mentorship' },
+	{ name: 'LaunchFast', href: 'https://launchfast.pro', external: true },
 	{ name: 'VerveUI', href: 'https://verveui.pro', external: true },
-	{ name: 'ShipFast', href: '/ship-fast' },
 	{ name: 'VS Code', href: '/courses/mastery-for-vs-code' },
 	/* { name: 'About', href: '/courses', children: [
 		{ name: 'About André', href: '/about' },
@@ -65,7 +65,7 @@ export default function Header() {
 														to={href}
 														className="relative block after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-0.5 after:max-w-0 after:bg-foreground after:transition-max-width after:duration-500 aria-[current]:after:max-w-full"
 													>
-														{name} {external ? <Icon name="paper-plane" className="-mt-1 inline-block h-4 w-4" /> : null}
+														{name} {external ? <Icon name="paper-plane" className="-mt-1 inline-block h-3 w-3 -rotate-45" /> : null}
 													</NavLink>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
