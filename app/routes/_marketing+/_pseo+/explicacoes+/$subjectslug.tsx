@@ -22,6 +22,7 @@ import miguelFerreira from '~/routes/_marketing+/images/miguel-ferreira.png'
 import satisfactionGuarantee from '~/routes/_marketing+/images/satisfaction-guarantee.png'
 import signatureBlack from '~/routes/_marketing+/images/signature-black.png'
 import signatureWhite from '~/routes/_marketing+/images/signature-white.png'
+import danielaAlexandra from '~/routes/_marketing+/images/daniela-alexandra.png'
 import { Link, useLoaderData } from '@remix-run/react'
 import { type LoaderFunctionArgs, json, type LinksFunction, type MetaFunction, type ActionFunctionArgs } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
@@ -46,6 +47,7 @@ import { ResourcesEmail } from '../materia+/tutoring.emails.tsx'
 import { getDomainUrl } from '~/utils/misc.ts'
 import { generateTOTP } from '~/utils/totp.server.ts'
 import { type SEOHandle } from '@nasa-gcn/remix-seo'
+import { AspectRatio } from '~/ui_components/layout/aspect-ratio.tsx'
 
 export const handle: SEOHandle = {
 	getSitemapEntries: async () => {
@@ -153,17 +155,16 @@ const Route = () => {
 		},
 	]
 
-	const featuredTestimonial = {
-		body: 'Antes de começar a ser orientado pelo André, eu odiava Assembly e Microprocessadores. Eu estava a repetir a disciplina pela terceira vez e senti que ia reprovar mais uma vez. Mas depois que comecei a ser orientado pelo André, comecei a gostar do que estava a aprender, porque comecei a entender a matéria e até ficou divertido! Pela primeira vez, senti-me confiante! O André é muito simpático e paciente: ele desenhava diagramas, explicava, e usava outras linguagens de programação para me ajudar a ver a ligação entre linguagens de alto nível e Assembly, e tudo estava ótimo! Nunca tive um professor assim. Quando o resultado do exame chegou, fiquei perplexo ao ver que havia ido de reprovado nessa matéria por dois anos consecutivos para ter um 16! O método de ensino e a dedicação do André são, na minha opinião, imbatíveis.',
-		author: {
-			name: 'Gonçalo Barreiros',
-			imageUrl: goncaloBarreiros,
-		},
-	}
-
 	const testimonials = [
 		[
 			[
+				{
+					body: 'Antes de começar a ser orientado pelo André, eu odiava Assembly e Microprocessadores. Eu estava a repetir a disciplina pela terceira vez e senti que ia reprovar mais uma vez. Mas depois que comecei a ser orientado pelo André, comecei a gostar do que estava a aprender, porque comecei a entender a matéria e até ficou divertido! Pela primeira vez, senti-me confiante! O André é muito simpático e paciente: ele desenhava diagramas, explicava, e usava outras linguagens de programação para me ajudar a ver a ligação entre linguagens de alto nível e Assembly, e tudo estava ótimo! Nunca tive um professor assim. Quando o resultado do exame chegou, fiquei perplexo ao ver que havia ido de reprovado nessa matéria por dois anos consecutivos para ter um 16! O método de ensino e a dedicação do André são, na minha opinião, imbatíveis.',
+					author: {
+						name: 'Gonçalo Barreiros',
+						imageUrl: goncaloBarreiros,
+					},
+				},
 				{
 					body: 'Os meus professores introduziram a programação do Arduino com pequenos blocos de código. Um pouco de código aqui e ali. Mas eles nunca explicaram as coisas muito bem. Eles presumiam que íamos procurar as peças que faltavam. Tentei pesquisar na internet e conversar com colegas, mas não consegui encontrar bons recursos na internet e meus amigos estavam tão perdidos quanto eu. Quando comecei as aulas de reforço com o André, minhas notas aumentaram exponencialmente. Estou com o André há um ano neste momento, a disciplina atual é a segunda que estamos a fazer juntos. Na primeira aula, se eu sei alguma coisa sobre Arduino, foi porque o André me ensinou. Quero dizer, o André não apenas me ensinou como a fazer projetos com Arduino, mas também me ensinou ao ponto de eu poder concluir os exames sozinho! E em termos de disponibilidade o André é top.',
 					author: {
@@ -726,15 +727,21 @@ const Route = () => {
 							</H2>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
-								<blockquote className="p-12 text-muted-900">
-									<P size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</P>
-								</blockquote>
+							<figure className="col-span-1 overflow-hidden rounded-2xl bg-background shadow-lg ring-1 ring-muted-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1">
+								<AspectRatio ratio={16 / 9} className="relative">
+									<iframe
+										className="absolute inset-0 h-full w-full"
+										src="https://www.youtube.com/embed/lwNh4Ddtl3U?modestbranding=1&rel=0"
+										title="YouTube video player"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen
+									></iframe>
+								</AspectRatio>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
-									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" />
+									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={danielaAlexandra} alt="Daniela Alexandra" />
 									<div className="flex-auto">
 										<P size="sm" weight="semibold">
-											{featuredTestimonial.author.name}
+											Daniela Alexandra
 										</P>
 										<div className="flex gap-0.5">
 											{Array(5)
