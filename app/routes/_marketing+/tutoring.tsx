@@ -11,6 +11,7 @@ import miguelFerreira from './images/miguel-ferreira.png'
 import satisfactionGuarantee from './images/satisfaction-guarantee.png'
 import signatureBlack from './images/signature-black.png'
 import signatureWhite from './images/signature-white.png'
+import danielaAlexandra from './images/daniela-alexandra.png'
 import { Link } from '@remix-run/react'
 import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { Container } from '~/ui_components/layout/container.tsx'
@@ -20,6 +21,7 @@ import { H2 } from '~/ui_components/typography/h2.tsx'
 import { H3 } from '~/ui_components/typography/h3.tsx'
 import { Span } from '~/ui_components/typography/span.tsx'
 import { H4 } from '~/ui_components/typography/h4.tsx'
+import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 
 export const links: LinksFunction = () => {
 	return [{ rel: 'canonical', href: 'https://andrecasal.com/tutoring' }]
@@ -63,17 +65,16 @@ const Tutoring = () => {
 		},
 	]
 
-	const featuredTestimonial = {
-		body: "Before I started being tutored by André, I hated Assembly and Microprocessors. I was repeating his class for the third time and I felt like I was going to fail it once again. But after I started being tutored by André, I took a liking to what I was learning because I started to understand it, and it even became fun. For once, I actually felt confident! André is really nice and patient: he would draw diagrams and break them down for me, use other programming languages to help me see the connection between them and assembly, and everything was great! I had never had a teacher like this. When the exam result came back, I was baffled when I saw that I had went from failing this class two years in a row, to having a 16/20 as my grade. André's teaching method and dedication is, in my opinion, unbeatable.",
-		author: {
-			name: 'Gonçalo Barreiros',
-			imageUrl: goncaloBarreiros,
-		},
-	}
-
 	const testimonials = [
 		[
 			[
+				{
+					body: "Before I started being tutored by André, I hated Assembly and Microprocessors. I was repeating his class for the third time and I felt like I was going to fail it once again. But after I started being tutored by André, I took a liking to what I was learning because I started to understand it, and it even became fun. For once, I actually felt confident! André is really nice and patient: he would draw diagrams and break them down for me, use other programming languages to help me see the connection between them and assembly, and everything was great! I had never had a teacher like this. When the exam result came back, I was baffled when I saw that I had went from failing this class two years in a row, to having a 16/20 as my grade. André's teaching method and dedication is, in my opinion, unbeatable.",
+					author: {
+						name: 'Gonçalo Barreiros',
+						imageUrl: goncaloBarreiros,
+					},
+				},
 				{
 					body: "My teachers introduced Arduino programming with small pieces of code. A little bit of code here and there. But they never explained things very well. They assumed we went looking for the missing pieces. I tried researching on the internet and talking to friends, but I couldn't find good resources on the internet and my friends were just as lost as I was. When I started the tutoring lessons with André, my grades increased exponentially. I've been with André for one year at this point, the current class is the second one we're doing together. In the first class, if I know anything about Arduino, it was because André taught me. I mean it! Not only did André taught me how to complete the Arduino projects, he taught me to the point where I could complete the exams on my own. And in terms of availability, André is top.",
 					author: {
@@ -398,15 +399,21 @@ const Tutoring = () => {
 							</H2>
 						</div>
 						<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-muted-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-							<figure className="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-background sm:shadow-lg sm:ring-1 sm:ring-muted-900/5 xl:col-start-2 xl:row-end-1">
-								<blockquote className="p-12 text-muted-900">
-									<P size="xl" weight="semibold" className="tracking-tight">{`“${featuredTestimonial.body}”`}</P>
-								</blockquote>
+							<figure className="col-span-1 sm:col-span-2 rounded-2xl bg-background shadow-lg ring-1 ring-muted-900/5 xl:col-start-2 xl:row-end-1 overflow-hidden">
+								<AspectRatio ratio={16 / 9} className="relative">
+									<iframe
+										className="absolute inset-0 h-full w-full"
+										src="https://www.youtube.com/embed/lwNh4Ddtl3U?modestbranding=1&rel=0"
+										title="YouTube video player"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowFullScreen
+									></iframe>
+								</AspectRatio>
 								<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
-									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={featuredTestimonial.author.imageUrl} alt="" />
+									<img className="h-10 w-10 flex-none rounded-full bg-muted-50" src={danielaAlexandra} alt="Daniela Alexandra" />
 									<div className="flex-auto">
 										<P size="sm" weight="semibold">
-											{featuredTestimonial.author.name}
+											Daniela Alexandra
 										</P>
 										<div className="flex gap-0.5">
 											{Array(5)
