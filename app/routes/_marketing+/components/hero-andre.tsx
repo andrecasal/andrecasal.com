@@ -9,24 +9,24 @@ import { P } from '~/ui_components/typography/p.tsx'
 const HeroAndre = () => {
 	return (
 		<BackgroundDiagonal>
-			<Container className="py-32 sm:py-40">
-				<div className="lg:grid lg:grid-cols-2 lg:gap-x-10">
-					<div className="mx-auto max-w-2xl lg:mx-0">
-						<Link to="/ui" className="inline-flex flex-wrap gap-6">
+			<Container className="">
+				<div className="md:grid md:grid-cols-2 space-y-10">
+					<div className="mx-auto max-w-2xl">
+						<a href="https://launchfast.pro" target="_blank" className="inline-flex flex-wrap gap-6" rel="noreferrer">
 							<Badge variant="info" size="md" className="whitespace-nowrap">
 								What's new
 							</Badge>
 							<P size="sm" className="inline-flex items-center space-x-2 whitespace-nowrap font-medium text-muted-600">
-								Building a React ⚛️ UI library
+								Launched LaunchFast.pro 🎉
 							</P>
-						</Link>
+						</a>
 						<H1 size="4xl" className="mt-10">
 							Hi! I'm André Casal.
 						</H1>
 						<P size="lg" className="mt-6 text-muted-700">
 							I'm a tech entrepreneur that loves to build stuff.
 						</P>
-						<div className="mt-10 flex items-center gap-x-6">
+						<div className="mt-10 flex flex-wrap items-center justify-center gap-6">
 							<Link
 								to="#built"
 								className="inline-flex h-14 items-center justify-center whitespace-nowrap rounded-md border bg-muted-50 px-10 text-size-md font-semibold text-muted-800 ring-offset-background transition-colors hover:bg-muted-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
@@ -38,8 +38,8 @@ const HeroAndre = () => {
 							</Button>
 						</div>
 					</div>
-					<div className="mt-16 sm:mt-24 lg:mt-0">
-						<img src="/img/andre.jpg" alt="André Casal" height="100px" className="aspect-[6/5] rounded-2xl object-cover" />
+					<div className="flex justify-center">
+						<img src="/img/andre_casal.png" alt="André Casal" className="aspect-square w-1/2 md:w-3/4 rounded-2xl object-contain" />
 					</div>
 				</div>
 			</Container>

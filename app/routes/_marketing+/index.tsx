@@ -17,10 +17,17 @@ export const links: LinksFunction = () => {
 export default function Index() {
 	const successful_businesses = [
 		{
-			name: 'Tutoring',
-			description: 'Tutoring college students on Computer Science. Algebra, Calculus, Digital Systems, Computer Architecture, Programming, Data Structures, Algorithms, and more.',
-			icon: 'academic-cap',
-			link: '/tutoring',
+			name: 'LaunchFast.pro',
+			description: 'One command to a fully featured, secure, production-ready app.',
+			icon: 'rocket',
+			link: 'https://launchfast.pro',
+			external: true,
+		},
+		{
+			name: 'Newsletter & Articles',
+			description: 'Golden nuggets of (usually technical) knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.',
+			icon: 'file-text',
+			link: '/articles',
 		},
 		{
 			name: 'Mentoring',
@@ -28,34 +35,21 @@ export default function Index() {
 			icon: 'chat-bubble-left-right',
 			link: '/mentorship',
 		},
+		{
+			name: 'Tutoring',
+			description: 'Tutoring college students on Computer Science. Algebra, Calculus, Digital Systems, Computer Architecture, Programming, Data Structures, Algorithms, and more.',
+			icon: 'academic-cap',
+			link: '/tutoring',
+		},
 	]
 
 	const currently_building = [
-		{
-			name: 'LaunchFast',
-			description: 'The Remix stack with all you need to build your web app. From idea to production in 2 minutes.',
-			icon: 'bolt',
-			link: 'https://launchfast.pro',
-			external: true,
-		},
 		{
 			name: 'VerveUI',
 			description: 'All the lego pieces to build your UI. An accessible, SEO-optimized, UI library for fast UI development.',
 			icon: 'mix',
 			link: 'https://verveui.pro',
 			external: true,
-		},
-		{
-			name: 'Estuda Comigo',
-			description: 'Platform for Portuguese students to find the best tutors.',
-			icon: 'estuda-comigo',
-			link: 'https://www.estuda-comigo.com/',
-		},
-		{
-			name: 'Newsletter & Articles',
-			description: 'Golden nuggets of (usually technical) knowledge you can read in 5 minutes. Delivered to your inbox every 2 weeks.',
-			icon: 'file-text',
-			link: '/articles',
 		},
 	]
 
@@ -67,7 +61,7 @@ export default function Index() {
 				<div className="py-24 sm:py-32">
 					<div className="mx-auto max-w-2xl lg:text-center">
 						<H2 size="3xl" align="center" className="mt-4 font-bold">
-							<span className="inline-block -rotate-1 px-2 font-bold text-brand">Successfull</span> businesses
+							<span className="inline-block -rotate-1 px-2 font-bold text-brand">Stuff I've built</span>
 						</H2>
 					</div>
 					<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

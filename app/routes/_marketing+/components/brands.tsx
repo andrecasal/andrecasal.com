@@ -7,7 +7,7 @@ import { H2 } from '~/ui_components/typography/h2.tsx'
 const Brands = () => {
 	return (
 		<>
-			<Container>
+			<Container className="mt-32">
 				<H2 size="3xl" align="center">
 					Brands
 				</H2>
