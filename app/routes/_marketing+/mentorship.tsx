@@ -34,12 +34,6 @@ export const meta: MetaFunction = () => {
 	]
 }
 
-const stats = [
-	{ label: 'with an initial call', value: 'Start' },
-	{ label: 'with guided cycles', value: 'Sprint' },
-	{ label: 'higher goals', value: 'Reach' },
-]
-
 const featuredTestimonial = {
 	body: "André is the best! He's is a very patient and dedicated mentor, he has helped me a lot stepping up my dev career and feel more confident very quickly. He guided me through all the steps to deploy an enterprise grade SaaS application, and I'd never imagine I'd find someone so invested in my project and my success.",
 	author: {
