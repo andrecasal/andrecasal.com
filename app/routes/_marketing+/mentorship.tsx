@@ -318,7 +318,7 @@ const FullStackWebDevMentor = () => {
 										</Span>
 									</P>
 									<Button variant="primary" size="wide" asChild className="mt-10">
-										<a href="https://calendly.com/andrecasal/business-mentorship" target="_blank" rel="noopener noreferrer">
+										<a href="https://calendly.com/andrecasal/webdev-entrepreneurship" target="_blank" rel="noopener noreferrer">
 											Schedule a mentoring session
 										</a>
 									</Button>
