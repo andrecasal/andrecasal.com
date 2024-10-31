@@ -46,6 +46,16 @@ app.use((req, res, next) => {
 	next()
 })
 
+// To redirect www traffic to non-www
+app.use((req, res, next) => {
+	const host = getHost(req)
+	if (host.startsWith('www.')) {
+		return res.redirect(301, `https://${host.slice(4)}${req.url}`)
+	} else {
+		next()
+	}
+})
+
 // no ending slashes for SEO reasons
 // https://github.com/epicweb-dev/epic-stack/discussions/108
 app.get('*', (req, res, next) => {
