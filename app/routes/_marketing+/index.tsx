@@ -3,10 +3,7 @@ import { Newsletter } from '~/components/newsletter.tsx'
 import { Link } from '@remix-run/react'
 import { Container } from '~/ui_components/layout/container.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
-import { H2 } from '~/ui_components/typography/h2.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
-import { EssayCard } from '~/components/essay-card.tsx'
-import { getEssays } from './essays/_index.tsx'
 
 export const meta: MetaFunction = () => [{ title: 'André Casal' }]
 
@@ -15,9 +12,6 @@ export const links: LinksFunction = () => {
 }
 
 export default function Index() {
-	const essays = getEssays()
-	const featuredEssays = essays.slice(0, 5)
-
 	return (
 		<>
 			{/* Hero */}
@@ -47,25 +41,6 @@ export default function Index() {
 					</div>
 				</Container>
 			</div>
-
-			{/* Featured Essays */}
-			<Container>
-				<div className="py-24 sm:py-32">
-					<H2 size="3xl" className="font-bold">
-						Recent essays
-					</H2>
-					<div className="mt-10 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-						{featuredEssays.map(essay => (
-							<EssayCard key={essay.title} essay={essay} />
-						))}
-					</div>
-					<div className="mt-10 flex justify-center">
-						<Link to="/essays" className="text-size-sm font-semibold text-brand hover:text-brand/80">
-							View all essays &rarr;
-						</Link>
-					</div>
-				</div>
-			</Container>
 
 			{/* Newsletter */}
 			<Container>
