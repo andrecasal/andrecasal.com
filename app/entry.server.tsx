@@ -106,6 +106,5 @@ export function handleError(error: unknown, { request }: LoaderFunctionArgs | Ac
 		Sentry.captureRemixServerException(error, 'remix.server', request)
 	} else {
 		console.error(chalk.red(error))
-		Sentry.captureException(error)
 	}
 }
