@@ -1,5 +1,5 @@
 import { type LoaderFunction } from '@remix-run/node'
-import { type Post, getPosts } from './articles/_index.tsx'
+import { type Essay, getEssays } from './essays/_index.tsx'
 
 export type RssEntry = {
 	title: string
@@ -35,13 +35,13 @@ export function generateRss({ description, entries, link, title }: { title: stri
 }
 
 export const loader: LoaderFunction = async () => {
-	const posts: Post[] = getPosts()
+	const essays: Essay[] = getEssays()
 
 	const feed = generateRss({
-		title: 'André Casal Articles',
-		description: 'André Casal Articles RSS Feed',
-		link: 'https://andrecasal.com/articles',
-		entries: posts.map(({ title, date, description, href }) => ({
+		title: 'André Casal Essays',
+		description: 'André Casal Essays RSS Feed',
+		link: 'https://andrecasal.com/essays',
+		entries: essays.map(({ title, date, description, href }) => ({
 			description: description,
 			pubDate: new Date(date).toUTCString(),
 			title: title,

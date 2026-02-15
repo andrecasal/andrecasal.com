@@ -26,7 +26,7 @@
 }
 
 /* ### Design Tokens ### */
-/* Spacing: https://andrecasal.com/articles/fluid-space-sizing */
+/* Spacing: https://andrecasal.com/essays/fluid-space-sizing */
 @layer base {
 	:root {
 		/* 👇 Edit these values */
@@ -158,12 +158,12 @@
 		--text-line-height-sm: clamp(1.25rem, 6.2vw, 2rem); /* 20px <-> 32px */
 		--text-line-height-md: clamp(1.5rem, 6vw, 2.25rem); /* 24px <-> 36px */
 		--text-line-height-lg: clamp(1.75rem, 5.8vw, 2.25rem); /* 28px <-> 36px */
-		--text-line-height-xl: clamp(2rem, 6.5vw, 2.5rem); /* 32px <-> 40px */
+		--text-line-height-xl: 1.75;
 		--text-line-height-2xl: 1.5;
-		--text-line-height-3xl: 1.5;
-		--text-line-height-4xl: 1.2;
-		--text-line-height-5xl: 1.2;
-		--text-line-height-6xl: 1.2;
+		--text-line-height-3xl: 1.4;
+		--text-line-height-4xl: 1.15;
+		--text-line-height-5xl: 1.1;
+		--text-line-height-6xl: 1.1;
 
 		/* Tracking. Default values. Can be overridden by the 'tracking' prop on the <Heading /> and <P /> components) */
 		--text-tracking-xs: 0em;
@@ -173,8 +173,8 @@
 		--text-tracking-xl: 0em;
 		--text-tracking-2xl: -0.025em;
 		--text-tracking-3xl: -0.025em;
-		--text-tracking-4xl: -0.025em;
-		--text-tracking-5xl: -0.05em;
+		--text-tracking-4xl: -0.03em;
+		--text-tracking-5xl: -0.04em;
 		--text-tracking-6xl: -0.05em;
 
 		/* Calculations (you probably don't need to change this) */

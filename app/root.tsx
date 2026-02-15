@@ -20,7 +20,6 @@ import { getFlashSession } from './utils/flash-session.server.ts'
 import { useToast } from './utils/useToast.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import Footer from './components/footer.tsx'
-import { FathomScript, useTrackPageview } from './utils/fathom.tsx'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { csrf } from './utils/csrf.server.ts'
@@ -51,7 +50,7 @@ export const links: LinksFunction = () => {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'André Casal' }, { name: 'description', content: 'Full-stack web dev' }]
+	return [{ title: 'André Casal' }, { name: 'description', content: 'First-principles thinking about code, product, and life.' }]
 }
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -116,7 +115,6 @@ function App() {
 	const nonce = useNonce()
 	const theme = useTheme()
 	useToast(data.flash?.toast)
-	useTrackPageview()
 	const location = useLocation()
 
 	return (
@@ -145,7 +143,17 @@ function App() {
 							__html: `window.ENV = ${JSON.stringify(data.ENV)}`,
 						}}
 					/>
-					<FathomScript nonce={nonce} data-site={data.ENV.FATHOM_ANALYTICS_SITE_ID} />
+					{data.ENV.GA_MEASUREMENT_ID ? (
+						<>
+							<script async nonce={nonce} src={`https://www.googletagmanager.com/gtag/js?id=${data.ENV.GA_MEASUREMENT_ID}`} />
+							<script
+								nonce={nonce}
+								dangerouslySetInnerHTML={{
+									__html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${data.ENV.GA_MEASUREMENT_ID}');`,
+								}}
+							/>
+						</>
+					) : null}
 				</TooltipPrimitive.Provider>
 			</body>
 		</html>

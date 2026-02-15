@@ -1,31 +1,31 @@
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import fluidTypographySizingWithModularScales from './fluid-typography.png'
 import { type CSSProperties } from 'react'
-import { type Post } from '../_index.tsx'
+import { type Essay } from '../_index.tsx'
 import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 
-export const post: Post = {
+export const essay: Essay = {
 	title: 'Fluid Typography Sizing and Scales',
 	description: 'Learn how you can size typography fluidly and why hand-picked scales are better than modular scales.',
 	imageUrl: fluidTypographySizingWithModularScales,
 	date: '2023-09-11',
-	href: '/articles/fluid-typography-sizing-with-modular-scales',
-	topics: ['Typography', 'CSS', 'Design Systems'],
+	href: '/essays/fluid-typography-sizing-with-modular-scales',
+	pillars: ['Typography', 'CSS', 'Design Systems'],
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${essay.href}` }]
 }
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: `${post.title} | Andre Casal` },
+		{ title: `${essay.title} | Andre Casal` },
 		{
 			name: 'description',
-			content: post.description,
+			content: essay.description,
 		},
 		{
 			name: 'keywords',
@@ -290,7 +290,7 @@ const FluidTypographySizingWithModularScales = () => {
 	return (
 		<>
 			<H1 size="4xl" className="mt-10">
-				{post.title}
+				{essay.title}
 			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidTypographySizingWithModularScales} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />

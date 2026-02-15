@@ -1,31 +1,31 @@
 import fluidSpaceSizingImage from './fluid-space-sizing.png'
 import { Link } from '@remix-run/react'
-import { type Post } from '../_index.tsx'
+import { type Essay } from '../_index.tsx'
 import { type MetaFunction, type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 import { Kbd } from '~/ui_components/typography/kbd.tsx'
 
-export const post: Post = {
+export const essay: Essay = {
 	title: 'Fluid Space Sizing',
 	description: 'Learn about the cement that holds the bricks of components together: space.',
 	imageUrl: fluidSpaceSizingImage,
 	date: '2023-09-25',
-	href: '/articles/fluid-space-sizing',
-	topics: ['Spacing', 'CSS', 'Design Systems'],
+	href: '/essays/fluid-space-sizing',
+	pillars: ['Spacing', 'CSS', 'Design Systems'],
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${essay.href}` }]
 }
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: `${post.title} | Andre Casal` },
+		{ title: `${essay.title} | Andre Casal` },
 		{
 			name: 'description',
-			content: post.description,
+			content: essay.description,
 		},
 		{
 			name: 'keywords',
@@ -38,7 +38,7 @@ const FluidSpaceSizing = () => {
 	return (
 		<>
 			<H1 size="4xl" className="mt-10">
-				{post.title}
+				{essay.title}
 			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={fluidSpaceSizingImage} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />

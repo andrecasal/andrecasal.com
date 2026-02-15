@@ -1,12 +1,11 @@
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
-import { useFetcher, useNavigation } from '@remix-run/react'
+import { useFetcher } from '@remix-run/react'
 import { getFormProps, useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter.tsx'
 import { parseWithZod } from '@conform-to/zod'
 import { cn } from '~/utils/tailwind-merge.ts'
-import guide from '~/routes/_marketing+/images/guide-to-modern-full-stack-web-dev.png'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { Player } from '@lottiefiles/react-lottie-player'
 import newsletterAnimation from '~/components/newsletter-animation.json'
@@ -19,14 +18,18 @@ import { Flex } from '~/ui_components/layout/flex.tsx'
 
 type NewsletterProps = {
 	className?: string
-	title: string
-	description: string
-	buttonText: string
+	title?: string
+	description?: string
+	buttonText?: string
 }
 
-const Newsletter = ({ className, title, description, buttonText }: NewsletterProps) => {
+function Newsletter({
+	className,
+	title = 'Get notified when I publish',
+	description = 'Deep essays on code, product, and first-principles thinking. Delivered to your inbox.',
+	buttonText = 'Subscribe',
+}: NewsletterProps) {
 	const fetcher = useFetcher<typeof action>()
-	const navigation = useNavigation()
 	const [form, { email }] = useForm({
 		lastResult: fetcher.data?.result,
 		shouldValidate: 'onBlur',
@@ -37,7 +40,6 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 	const formRef = useRef<HTMLFormElement>(null)
 
 	useEffect(() => {
-		console.log(fetcher.data)
 		if (fetcher.data?.result.status === 'success') {
 			setState('animating')
 			playerRef.current?.play()
@@ -45,101 +47,79 @@ const Newsletter = ({ className, title, description, buttonText }: NewsletterPro
 	}, [fetcher.data])
 
 	return (
-		<div className={cn('mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2', className)}>
-			<div className="flex flex-col justify-between">
-				<H2 size="2xl">{title}</H2>
-				<P size="lg" className="mt-4 text-muted-400">
-					{description}
-				</P>
-				<div className="my-4 flex h-44 gap-4">
-					<img src={guide} alt="Guide to full-stack web development" className="m-4 h-full -rotate-3 transform-gpu rounded-lg shadow-xl" />
-					<P size="lg" className="mt-4 text-muted-400">
-						Once you subscribe you'll get my free guide to modern full-stack web development and solve analysis paralysis from choosing which tools to use.
-					</P>
-				</div>
-				<div className="mt-8 grid">
-					<fetcher.Form
-						ref={formRef}
-						method="post"
-						action="/newsletter"
-						className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
-						{...getFormProps(form)}
-						encType="multipart/form-data"
-					>
-						<AuthenticityTokenInput />
-						<HoneypotInputs />
-						<Flex gap="6" className="w-full">
-							<Flex direction="col" className="w-full">
-								<VisuallyHidden>
-									<Label htmlFor="email-address">Email address</Label>
-								</VisuallyHidden>
-								<Input
-									id="email-address"
-									type="email"
-									placeholder="Enter your email"
-									name="email"
-									autoComplete="email"
-									required
-									defaultValue={email.initialValue}
-									className={email.errors ? 'border-danger-foreground' : ''}
-								/>
-								<P size="xs" className="ml-3.5 text-danger-foreground">
-									{email.errors}&nbsp;
-								</P>
-							</Flex>
-							<Button type="submit" disabled={navigation.state === 'submitting'} className="px-8">
-								{buttonText}
-							</Button>
-						</Flex>
-					</fetcher.Form>
-					<div className={`col-start-1 row-start-1 transition-opacity ${state === 'animating' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
-						<Player
-							src={newsletterAnimation}
-							style={{ height: '300px', width: '300px' }}
-							keepLastFrame={true}
-							ref={playerRef}
-							onEvent={event => {
-								if (event === 'complete') {
-									setState('finished')
-								}
-							}}
-						/>
-					</div>
-					<div
-						id="data-test-newsletter-finished-animation"
-						className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
-					>
-						<P align="center" className="mt-space-6">
-							Got it, thanks!
-						</P>
-						<Button
-							size="wide"
-							variant="link"
-							className="text-foreground underline"
-							onClick={() => {
-								formRef.current?.reset()
-								playerRef.current?.stop()
-								setState('initial')
-							}}
-						>
-							Restart
-						</Button>
-					</div>
-				</div>
-			</div>
-			<div className="space-y-8">
-				<figure className="col-span-2 flex flex-col rounded-2xl shadow-lg ring-1 ring-muted-900/5">
-					<blockquote className="flex p-12 text-xl font-semibold leading-8 tracking-tight text-muted-900">
-						<P>“I thought the website was good. But the newsletter? Even better!”</P>
-					</blockquote>
-					<figcaption className="flex items-center gap-x-4 border-t border-muted-900/10 px-6 py-4">
-						<div className="flex-auto">
-							<P size="sm" className="font-semibold">
-								Keeran Flanegan
+		<div className={cn('mx-auto max-w-2xl', className)}>
+			<H2 size="2xl">{title}</H2>
+			<P size="lg" className="mt-4 text-muted-400">
+				{description}
+			</P>
+			<div className="mt-8 grid">
+				<fetcher.Form
+					ref={formRef}
+					method="post"
+					action="/newsletter"
+					className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
+					{...getFormProps(form)}
+					encType="multipart/form-data"
+				>
+					<AuthenticityTokenInput />
+					<HoneypotInputs />
+					<Flex gap="6" className="w-full">
+						<Flex direction="col" className="w-full">
+							<VisuallyHidden>
+								<Label htmlFor="email-address">Email address</Label>
+							</VisuallyHidden>
+							<Input
+								id="email-address"
+								type="email"
+								placeholder="Enter your email"
+								name="email"
+								autoComplete="email"
+								required
+								defaultValue={email.initialValue}
+								className={email.errors ? 'border-danger-foreground' : ''}
+							/>
+							<P size="xs" className="ml-3.5 text-danger-foreground">
+								{email.errors}&nbsp;
 							</P>
-						</div>
-					</figcaption>
-				</figure>
+						</Flex>
+						<Button type="submit" disabled={fetcher.state === 'submitting'} className="px-8">
+							{buttonText}
+						</Button>
+					</Flex>
+				</fetcher.Form>
+				<div className={`col-start-1 row-start-1 transition-opacity ${state === 'animating' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+					<Player
+						src={newsletterAnimation}
+						style={{ height: '300px', width: '300px' }}
+						keepLastFrame={true}
+						ref={playerRef}
+						onEvent={event => {
+							if (event === 'complete') {
+								setState('finished')
+							}
+						}}
+					/>
+				</div>
+				<div
+					id="data-test-newsletter-finished-animation"
+					className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+				>
+					<P align="center" className="mt-space-6">
+						Got it, thanks!
+					</P>
+					<Button
+						size="wide"
+						variant="link"
+						className="text-foreground underline"
+						onClick={() => {
+							formRef.current?.reset()
+							playerRef.current?.stop()
+							setState('initial')
+						}}
+					>
+						Restart
+					</Button>
+				</div>
 			</div>
 		</div>
 	)

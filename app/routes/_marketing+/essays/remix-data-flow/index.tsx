@@ -1,29 +1,29 @@
 import remixDataFlow from './remix-data-flow.png'
 import remixDataFlowDiagram from './remix-data-flow-diagram.png'
 import { type LinksFunction, type MetaFunction } from '@remix-run/node'
-import { type Post } from '../_index.tsx'
+import { type Essay } from '../_index.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 
-export const post: Post = {
+export const essay: Essay = {
 	title: 'Remix Data Flow',
 	description: 'Learn how data flows in a Remix route.',
 	imageUrl: remixDataFlow,
 	date: '2023-09-01',
-	href: '/articles/remix-data-flow',
-	topics: ['Remix', 'Full-stack'],
+	href: '/essays/remix-data-flow',
+	pillars: ['Remix', 'Full-stack'],
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${essay.href}` }]
 }
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: `${post.title} | Andre Casal` },
+		{ title: `${essay.title} | Andre Casal` },
 		{
 			name: 'description',
-			content: post.description,
+			content: essay.description,
 		},
 		{
 			name: 'keywords',
@@ -35,7 +35,7 @@ export const meta: MetaFunction = () => {
 const RemixDataFlow = () => {
 	return (
 		<>
-			<H1 size="4xl">{post.title}</H1>
+			<H1 size="4xl">{essay.title}</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={remixDataFlow} alt="Remix Data Flow" className="rounded-2xl object-cover" />
 				<P size="lg" className="mt-6">

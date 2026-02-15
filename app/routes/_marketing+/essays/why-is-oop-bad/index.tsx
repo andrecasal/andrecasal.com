@@ -1,29 +1,29 @@
 import whyIsOOPBad from './why-is-oop-bad.jpg'
 import { type LinksFunction, type MetaFunction } from '@remix-run/node'
-import { type Post } from '../_index.tsx'
+import { type Essay } from '../_index.tsx'
 import { H1 } from '~/ui_components/typography/h1.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
 
-export const post: Post = {
+export const essay: Essay = {
 	title: 'Why is OOP bad',
 	description: 'Learn about the downside of Object Oriented Programming and a better alternative.',
 	imageUrl: whyIsOOPBad,
 	date: '2025-05-11',
-	href: '/articles/why-is-oop-bad',
-	topics: ['OOP'],
+	href: '/essays/why-is-oop-bad',
+	pillars: ['OOP'],
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${essay.href}` }]
 }
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: `${post.title} | Andre Casal` },
+		{ title: `${essay.title} | Andre Casal` },
 		{
 			name: 'description',
-			content: post.description,
+			content: essay.description,
 		},
 		{
 			name: 'keywords',
@@ -35,7 +35,7 @@ export const meta: MetaFunction = () => {
 const WhyIsOOPBad = () => {
 	return (
 		<>
-			<H1 size="4xl">{post.title}</H1>
+			<H1 size="4xl">{essay.title}</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={whyIsOOPBad} alt="Why is OOP bad" className="rounded-2xl object-cover" />
 				<P size="lg" className="mt-6">

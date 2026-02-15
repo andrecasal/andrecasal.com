@@ -1,5 +1,5 @@
 import layout from './layout.png'
-import { type Post } from '../_index.tsx'
+import { type Essay } from '../_index.tsx'
 import { CodeBlock } from '~/components/ui/code-block.tsx'
 import { type LinksFunction } from '@remix-run/node'
 import { H1 } from '~/ui_components/typography/h1.tsx'
@@ -9,24 +9,24 @@ import { H3 } from '~/ui_components/typography/h3.tsx'
 import { H4 } from '~/ui_components/typography/h4.tsx'
 import { Code } from '~/ui_components/typography/code.tsx'
 
-export const post: Post = {
+export const essay: Essay = {
 	title: 'CSS Layout Algorithms',
 	description: 'Learn what tools to reach for when laying out your UI.',
 	imageUrl: layout,
 	date: '2024-02-16',
-	href: '/articles/layout',
-	topics: ['CSS', 'Layout'],
+	href: '/essays/layout',
+	pillars: ['CSS', 'Layout'],
 }
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'canonical', href: `https://andrecasal.com${post.href}` }]
+	return [{ rel: 'canonical', href: `https://andrecasal.com${essay.href}` }]
 }
 
 const Layout = () => {
 	return (
 		<>
 			<H1 size="4xl" className="mt-10">
-				{post.title}
+				{essay.title}
 			</H1>
 			<div className="mt-8 max-w-3xl 2xl:max-w-4xl">
 				<img src={layout} alt="Fluid typography sizing with modular scales" className="rounded-2xl object-cover" />

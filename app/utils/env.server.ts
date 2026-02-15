@@ -15,7 +15,7 @@ const schema = z.object({
 	RESEND_TRANSACTIONAL_ENDPOINT: z.string(),
 	RESEND_GENERAL_AUDIENCE: z.string(),
 	SENTRY_DSN: z.string(),
-	FATHOM_ANALYTICS_SITE_ID: z.string(),
+	GA_MEASUREMENT_ID: z.string(),
 	// If you plan to use GitHub auth, remove the default:
 	GITHUB_CLIENT_ID: z.string().default('MOCK_GITHUB_CLIENT_ID'),
 	GITHUB_CLIENT_SECRET: z.string().default('MOCK_GITHUB_CLIENT_SECRET'),
@@ -53,7 +53,7 @@ export function getEnv() {
 		MODE: process.env.NODE_ENV,
 		SENTRY_DSN: process.env.SENTRY_DSN,
 		ALLOW_INDEXING: process.env.ALLOW_INDEXING,
-		FATHOM_ANALYTICS_SITE_ID: process.env.FATHOM_ANALYTICS_SITE_ID,
+		GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID,
 	}
 }
 
