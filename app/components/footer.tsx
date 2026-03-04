@@ -53,9 +53,9 @@ const secondaryNav = [
 	{ name: 'Terms', href: '/terms', external: false },
 ]
 
-function Footer() {
+export default function Footer() {
 	return (
-		<Container className="mt-12 sm:mt-36">
+		<Container className="mt-12 sm:mt-16">
 			<footer aria-labelledby="footer-heading">
 				<h2 id="footer-heading" className="sr-only">
 					Footer
@@ -66,9 +66,6 @@ function Footer() {
 							<H2 size="2xl" className="font-semibold tracking-normal">
 								André Casal
 							</H2>
-							<P size="md" className="text-muted-600">
-								First-principles thinking about code, product, and life.
-							</P>
 							<div className="flex space-x-6">
 								{social.map(item => (
 									<a key={item.name} href={item.href} target="_blank" className="text-muted-400 hover:text-muted-500" rel="noreferrer">
@@ -108,5 +105,3 @@ function Footer() {
 		</Container>
 	)
 }
-
-export default Footer

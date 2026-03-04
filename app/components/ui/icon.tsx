@@ -62,70 +62,74 @@ export function Icon({
 	)
 }
 
-export type IconName =
-  | "academic-cap"
-  | "accessibility"
-  | "arrow-path"
-  | "avatar"
-  | "bars-3"
-  | "beaker"
-  | "bell"
-  | "bolt"
-  | "brain"
-  | "bug"
-  | "camera"
-  | "chart-bar"
-  | "chat-bubble-left-right"
-  | "chat-bubbles"
-  | "chat"
-  | "check"
-  | "chevron-down"
-  | "chevron-right"
-  | "chip"
-  | "circle-half-filled"
-  | "circle-stack"
-  | "code"
-  | "copy"
-  | "cross-1"
-  | "crumbled-paper"
-  | "desktop"
-  | "document-chart-bar"
-  | "estuda-comigo"
-  | "exit"
-  | "file-text-folded"
-  | "file-text"
-  | "fire"
-  | "globe"
-  | "heart-filled"
-  | "heart"
-  | "jet-fighter"
-  | "keyboard"
-  | "lock-closed"
-  | "lock-open-1"
-  | "masks-theater"
-  | "mix"
-  | "moon"
-  | "mountain"
-  | "paper-plane"
-  | "pencil-1"
-  | "pencil-2"
-  | "person"
-  | "play"
-  | "plus"
-  | "presentation-chart-line"
-  | "presentation-chart"
-  | "puzzle"
-  | "rocket"
-  | "star-filled"
-  | "star"
-  | "stopwatch"
-  | "suitcase"
-  | "sun"
-  | "swatch"
-  | "target"
-  | "trash"
-  | "trophy"
-  | "tsx"
-  | "video"
-  | "wand"
-  | "x-mark"
+export const iconNames = [
+  "academic-cap",
+  "accessibility",
+  "arrow-left",
+  "arrow-path",
+  "arrow-up",
+  "avatar",
+  "bars-3",
+  "beaker",
+  "bell",
+  "bolt",
+  "brain",
+  "bug",
+  "camera",
+  "chart-bar",
+  "chat-bubble-left-right",
+  "chat-bubbles",
+  "chat",
+  "check",
+  "chevron-down",
+  "chevron-right",
+  "chip",
+  "circle-half-filled",
+  "circle-stack",
+  "code",
+  "copy",
+  "cross-1",
+  "crumbled-paper",
+  "desktop",
+  "document-chart-bar",
+  "estuda-comigo",
+  "exit",
+  "file-text-folded",
+  "file-text",
+  "fire",
+  "globe",
+  "heart-filled",
+  "heart",
+  "jet-fighter",
+  "keyboard",
+  "lock-closed",
+  "lock-open-1",
+  "masks-theater",
+  "mix",
+  "moon",
+  "mountain",
+  "paper-plane",
+  "pencil-1",
+  "pencil-2",
+  "person",
+  "play",
+  "plus",
+  "presentation-chart-line",
+  "presentation-chart",
+  "puzzle",
+  "rocket",
+  "star-filled",
+  "star",
+  "stopwatch",
+  "suitcase",
+  "sun",
+  "swatch",
+  "target",
+  "trash",
+  "trophy",
+  "tsx",
+  "video",
+  "wand",
+  "x-mark",
+] as const;
+export type IconName = typeof iconNames[number];

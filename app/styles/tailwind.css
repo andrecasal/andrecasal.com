@@ -1,3 +1,16 @@
+/* Animatable custom properties for sidebar TOC highlight (must be top-level) */
+@property --toc-active {
+	syntax: '<number>';
+	initial-value: 0;
+	inherits: true;
+}
+
+@property --toc-visited {
+	syntax: '<number>';
+	initial-value: 0;
+	inherits: true;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +19,7 @@
 @layer base {
 	:root {
 		color-scheme: light;
+		scroll-behavior: smooth;
 	}
 
 	.dark {
@@ -454,9 +468,27 @@
 		@apply m-space-0 border-spacing-space-1 rounded-lg border border-muted-200 bg-muted-50 p-space-4 align-baseline font-code text-size-xs text-muted-900 shadow-sm;
 	}
 
-	/* Code */
+	/* Code (inline) */
 	.code {
 		@apply rounded-md bg-muted-200 px-space-5 py-space-2 text-muted-900;
+	}
+
+	/* Pre (code block — always dark bg regardless of theme) */
+	.pre {
+		@apply overflow-x-auto rounded-lg bg-muted-900 p-space-11 text-size-sm leading-relaxed text-muted-100 dark:bg-muted-100 dark:text-muted-900;
+	}
+	.pre > .code {
+		@apply rounded-none bg-transparent p-0 text-inherit;
+	}
+
+	/* Blockquote */
+	.blockquote {
+		@apply border-l-4 border-brand pl-space-11 italic text-muted-600;
+	}
+
+	/* Hr */
+	.hr {
+		@apply my-space-16 border-t border-muted-200;
 	}
 }
 
@@ -482,4 +514,177 @@
 
 /* ### Form Elements ### */
 @layer components {
+}
+
+/* ### Essay Typography ### */
+@layer components {
+	.essay-body h2 {
+		@apply mt-space-17;
+	}
+	.essay-body h3 {
+		@apply mt-space-15;
+	}
+	.essay-body p {
+		@apply mt-space-11;
+	}
+	.essay-body .pre {
+		@apply my-space-13;
+	}
+	.essay-body .ul {
+		@apply mt-space-11;
+	}
+	.essay-body .blockquote {
+		@apply my-space-13;
+	}
+}
+
+/* ### Scroll-Driven Animations (Essay) ### */
+@layer components {
+	/* Reading progress bar */
+	.reading-progress {
+		@apply fixed left-0 top-0 z-50 h-0.5 w-full bg-brand;
+		transform-origin: left;
+		transform: scaleX(0);
+		animation: reading-progress linear;
+		animation-timeline: scroll();
+	}
+
+	@keyframes reading-progress {
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	/* Back to top button */
+	.back-to-top {
+		@apply fixed bottom-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full shadow-lg sm:bottom-8 sm:right-8 sm:h-12 sm:w-12;
+		@apply bg-muted-900 text-white hover:bg-brand dark:bg-muted-100 dark:text-muted-900 dark:hover:bg-brand dark:hover:text-white;
+		pointer-events: none;
+		opacity: 0;
+		translate: 0 1rem;
+		transition: all 300ms;
+		animation: show-back-to-top linear both;
+		animation-timeline: scroll();
+		animation-range: 550px 600px;
+	}
+
+	@keyframes show-back-to-top {
+		to {
+			opacity: 1;
+			pointer-events: auto;
+			translate: 0;
+		}
+	}
+
+	/* View-timeline names on section headings */
+	#how-money-moves { view-timeline-name: --heading-1; }
+	#map-of-the-terrain { view-timeline-name: --heading-2; }
+	#payment-intents { view-timeline-name: --heading-3; }
+	#webhooks { view-timeline-name: --heading-4; }
+	#payment-methods { view-timeline-name: --heading-5; }
+	#customers { view-timeline-name: --heading-6; }
+	#products-and-prices { view-timeline-name: --heading-7; }
+	#checkout-and-elements { view-timeline-name: --heading-8; }
+	#subscriptions-and-billing { view-timeline-name: --heading-9; }
+	#connect { view-timeline-name: --heading-10; }
+	#disputes-and-fraud { view-timeline-name: --heading-11; }
+	#payouts { view-timeline-name: --heading-12; }
+
+	/* Timeline-scope hoist */
+	.article-toc-scope {
+		timeline-scope:
+			--heading-1, --heading-2, --heading-3, --heading-4,
+			--heading-5, --heading-6, --heading-7, --heading-8,
+			--heading-9, --heading-10, --heading-11, --heading-12;
+	}
+
+	/* TOC link styling — three-state color: inactive → visited → active (brand) */
+	.toc-link {
+		--toc-color-inactive: hsl(var(--color-muted-500));
+		--toc-color-visited: hsl(var(--color-muted-900));
+		--toc-color-hover: hsl(var(--color-muted-700));
+		--toc-number-inactive: hsl(var(--color-muted-300));
+		--toc-number-visited: hsl(var(--color-muted-600));
+		--toc-base: color-mix(
+			in srgb,
+			var(--toc-color-inactive) calc((1 - var(--toc-visited)) * 100%),
+			var(--toc-color-visited) calc(var(--toc-visited) * 100%)
+		);
+		--toc-number-base: color-mix(
+			in srgb,
+			var(--toc-number-inactive) calc((1 - var(--toc-visited)) * 100%),
+			var(--toc-number-visited) calc(var(--toc-visited) * 100%)
+		);
+		--toc-active-color: hsl(var(--color-brand));
+		color: color-mix(
+			in srgb,
+			var(--toc-base) calc((1 - var(--toc-active)) * 100%),
+			var(--toc-active-color) calc(var(--toc-active) * 100%)
+		) !important;
+		font-weight: calc(400 + 200 * var(--toc-visited));
+		transition: color 200ms ease;
+	}
+
+	.toc-link:hover {
+		--toc-color-inactive: var(--toc-color-hover);
+	}
+
+	.dark .toc-link {
+		--toc-color-inactive: hsl(var(--color-muted-400));
+		--toc-color-hover: hsl(var(--color-muted-300));
+		--toc-number-inactive: hsl(var(--color-muted-600));
+	}
+
+	.toc-number {
+		color: color-mix(
+			in srgb,
+			var(--toc-number-base) calc((1 - var(--toc-active)) * 100%),
+			var(--toc-active-color) calc(var(--toc-active) * 100%)
+		) !important;
+		transition: color 200ms ease;
+	}
+
+	.toc-title {
+		color: color-mix(
+			in srgb,
+			var(--toc-base) calc((1 - var(--toc-active)) * 100%),
+			var(--toc-active-color) calc(var(--toc-active) * 100%)
+		) !important;
+		transition: color 200ms ease;
+	}
+
+	/* Per-section animation timelines */
+	.toc-link[data-section] {
+		animation: toc-activate steps(1, start) forwards, toc-deactivate steps(1, start) forwards;
+		animation-range: cover 75% cover 100%, cover 75% cover 100%;
+	}
+
+	.toc-link[data-section='how-money-moves']          { animation-timeline: --heading-1, --heading-2; }
+	.toc-link[data-section='map-of-the-terrain']        { animation-timeline: --heading-2, --heading-3; }
+	.toc-link[data-section='payment-intents']           { animation-timeline: --heading-3, --heading-4; }
+	.toc-link[data-section='webhooks']                  { animation-timeline: --heading-4, --heading-5; }
+	.toc-link[data-section='payment-methods']           { animation-timeline: --heading-5, --heading-6; }
+	.toc-link[data-section='customers']                 { animation-timeline: --heading-6, --heading-7; }
+	.toc-link[data-section='products-and-prices']       { animation-timeline: --heading-7, --heading-8; }
+	.toc-link[data-section='checkout-and-elements']     { animation-timeline: --heading-8, --heading-9; }
+	.toc-link[data-section='subscriptions-and-billing'] { animation-timeline: --heading-9, --heading-10; }
+	.toc-link[data-section='connect']                   { animation-timeline: --heading-10, --heading-11; }
+	.toc-link[data-section='disputes-and-fraud']        { animation-timeline: --heading-11, --heading-12; }
+
+	/* Last section: activate only (no next heading to deactivate on) */
+	.toc-link[data-section='payouts'] {
+		animation: toc-activate steps(1, start) forwards;
+		animation-timeline: --heading-12;
+		animation-range: cover 75% cover 100%;
+	}
+
+	@keyframes toc-activate {
+		from { --toc-active: 0; --toc-visited: 0; }
+		to { --toc-active: 1; --toc-visited: 1; }
+	}
+
+	@keyframes toc-deactivate {
+		from { --toc-active: 1; }
+		to { --toc-active: 0; }
+	}
 }

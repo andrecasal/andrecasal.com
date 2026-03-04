@@ -1,22 +1,23 @@
+import { useEffect, useRef, useState } from 'react'
+import { getFormProps, useForm } from '@conform-to/react'
+import { parseWithZod } from '@conform-to/zod'
+import { Player } from '@lottiefiles/react-lottie-player'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+import { useFetcher } from '@remix-run/react'
+import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
+import { HoneypotInputs } from 'remix-utils/honeypot/react'
+import newsletterAnimation from '~/components/newsletter-animation.json'
 import { Button } from '~/components/ui/button.tsx'
 import { Input } from '~/components/ui/input.tsx'
 import { Label } from '~/components/ui/label.tsx'
-import { useFetcher } from '@remix-run/react'
-import { getFormProps, useForm } from '@conform-to/react'
 import { type action, newsletterSchema } from '~/routes/_marketing+/newsletter.tsx'
-import { parseWithZod } from '@conform-to/zod'
-import { cn } from '~/utils/tailwind-merge.ts'
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import { Player } from '@lottiefiles/react-lottie-player'
-import newsletterAnimation from '~/components/newsletter-animation.json'
-import { useEffect, useRef, useState } from 'react'
-import { AuthenticityTokenInput } from 'remix-utils/csrf/react'
-import { HoneypotInputs } from 'remix-utils/honeypot/react'
+import { Flex } from '~/ui_components/layout/flex.tsx'
 import { H2 } from '~/ui_components/typography/h2.tsx'
 import { P } from '~/ui_components/typography/p.tsx'
-import { Flex } from '~/ui_components/layout/flex.tsx'
+import { cn } from '~/utils/tailwind-merge.ts'
 
 type NewsletterProps = {
+	id?: string
 	className?: string
 	title?: string
 	description?: string
@@ -24,9 +25,10 @@ type NewsletterProps = {
 }
 
 function Newsletter({
+	id,
 	className,
 	title = 'Get notified when I publish',
-	description = 'Deep essays on code, product, and first-principles thinking. Delivered to your inbox.',
+	description = 'One deep essay per month on code architecture, product strategy, and first-principles thinking. Each one takes weeks to research. No fluff, no spam.',
 	buttonText = 'Subscribe',
 }: NewsletterProps) {
 	const fetcher = useFetcher<typeof action>()
@@ -47,7 +49,7 @@ function Newsletter({
 	}, [fetcher.data])
 
 	return (
-		<div className={cn('mx-auto max-w-2xl', className)}>
+		<div id={id} className={cn('mx-auto max-w-2xl', className)}>
 			<H2 size="2xl">{title}</H2>
 			<P size="lg" className="mt-4 text-muted-400">
 				{description}
@@ -57,7 +59,7 @@ function Newsletter({
 					ref={formRef}
 					method="post"
 					action="/newsletter"
-					className={`col-start-1 row-start-1 ${state === 'initial' ? ' opacity-100' : 'pointer-events-none opacity-0'}`}
+					className={cn('col-start-1 row-start-1', state === 'initial' ? 'opacity-100' : 'pointer-events-none opacity-0')}
 					{...getFormProps(form)}
 					encType="multipart/form-data"
 				>
@@ -87,11 +89,11 @@ function Newsletter({
 						</Button>
 					</Flex>
 				</fetcher.Form>
-				<div className={`col-start-1 row-start-1 transition-opacity ${state === 'animating' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+				<div className={cn('col-start-1 row-start-1 transition-opacity', state === 'animating' ? 'opacity-100' : 'pointer-events-none hidden opacity-0')}>
 					<Player
 						src={newsletterAnimation}
 						style={{ height: '300px', width: '300px' }}
-						keepLastFrame={true}
+						keepLastFrame
 						ref={playerRef}
 						onEvent={event => {
 							if (event === 'complete') {
@@ -102,7 +104,7 @@ function Newsletter({
 				</div>
 				<div
 					id="data-test-newsletter-finished-animation"
-					className={`col-start-1 row-start-1 mt-space-15 transition-opacity ${state === 'finished' ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+					className={cn('col-start-1 row-start-1 mt-space-15 transition-opacity', state === 'finished' ? 'opacity-100' : 'pointer-events-none hidden opacity-0')}
 				>
 					<P align="center" className="mt-space-6">
 						Got it, thanks!
