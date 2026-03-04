@@ -43,7 +43,7 @@ function ShareButtons({ url, title }: ShareButtonsProps) {
 				</svg>
 			</a>
 			<button onClick={handleCopyLink} className="text-muted-400 transition-colors hover:text-foreground" aria-label="Copy link">
-				{copied ? <Icon name="check" className="h-5 w-5 text-brand" /> : <Icon name="copy" className="h-5 w-5" />}
+				{copied ? <Icon name="check" className="h-5 w-5 text-brand" /> : <Icon name="link" className="h-5 w-5" />}
 			</button>
 		</div>
 	)

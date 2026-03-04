@@ -28,15 +28,6 @@ const social = [
 		),
 	},
 	{
-		name: 'Bluesky',
-		href: 'https://bsky.app/profile/andrecasal.com',
-		icon: (props: React.SVGProps<SVGSVGElement>) => (
-			<svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-				<path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.643 3.593 3.519 6.178 3.279-3.91.552-7.376 2.914-2.88 7.228C8.39 25.142 10.476 19.2 12 15.69c1.524 3.51 3.075 9.264 8.078 5.065 4.496-4.315 1.03-6.676-2.88-7.228 2.586.24 5.394-.636 6.178-3.28C23.622 9.42 24 4.46 24 3.77c0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8" />
-			</svg>
-		),
-	},
-	{
 		name: 'LinkedIn',
 		href: 'https://linkedin.com/in/andrecasal',
 		icon: (props: React.SVGProps<SVGSVGElement>) => (

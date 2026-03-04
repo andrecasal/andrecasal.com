@@ -102,6 +102,7 @@ export const iconNames = [
   "heart",
   "jet-fighter",
   "keyboard",
+  "link",
   "lock-closed",
   "lock-open-1",
   "masks-theater",
