@@ -32,7 +32,7 @@ function ShareButtons({ url, title }: ShareButtonsProps) {
 				</svg>
 			</a>
 			<a
-				href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+				href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}`}
 				target="_blank"
 				rel="noreferrer"
 				className="text-muted-400 transition-colors hover:text-foreground"
