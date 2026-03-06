@@ -38,12 +38,12 @@ export default function Index() {
 					>
 						Read essays
 					</Link>
-					<a
-						href="#newsletter"
+					<Link
+						to="#newsletter"
 						className="inline-flex h-12 items-center justify-center rounded-md border border-muted-300 px-8 text-size-sm font-semibold transition-colors hover:bg-muted-100"
 					>
 						Subscribe
-					</a>
+					</Link>
 				</div>
 			</div>
 

@@ -1,7 +1,6 @@
 import { PassThrough } from 'stream'
 import { createReadableStreamFromReadable, type LoaderFunctionArgs, type ActionFunctionArgs, type HandleDocumentRequestFunction } from '@remix-run/node'
-import { isRouteErrorResponse } from '@remix-run/react'
-import { RemixServer } from '@remix-run/react'
+import { isRouteErrorResponse, RemixServer } from '@remix-run/react'
 import * as Sentry from '@sentry/remix'
 import chalk from 'chalk'
 import isbot from 'isbot'
