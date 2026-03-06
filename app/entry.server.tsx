@@ -1,5 +1,6 @@
 import { PassThrough } from 'stream'
 import { createReadableStreamFromReadable, type LoaderFunctionArgs, type ActionFunctionArgs, type HandleDocumentRequestFunction } from '@remix-run/node'
+import { isRouteErrorResponse } from '@remix-run/react'
 import { RemixServer } from '@remix-run/react'
 import * as Sentry from '@sentry/remix'
 import chalk from 'chalk'
@@ -99,6 +100,11 @@ export function handleError(error: unknown, { request }: LoaderFunctionArgs | Ac
 	// Skip capturing if the request is aborted as Remix docs suggest
 	// Ref: https://remix.run/docs/en/main/file-conventions/entry.server#handleerror
 	if (request.signal.aborted) {
+		return
+	}
+	// Skip expected HTTP response errors (e.g. 404s from bot probes like /xmlrpc.php).
+	// These are normal responses, not application bugs.
+	if (isRouteErrorResponse(error) && error.status >= 400 && error.status < 500) {
 		return
 	}
 	if (error instanceof Error) {
