@@ -1,10 +1,10 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"prisma.prisma",
-		"bradlc.vscode-tailwindcss",
-		"csstools.postcss",
-		"pflannery.vscode-versionlens"
-	]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "legalfina.npm-version-lens"
+  ]
 }
